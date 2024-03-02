@@ -10,7 +10,7 @@
       <h>88</h>
     </coordinates>
     <panel_attributes>[publish]
-lt=[&gt;]-[&gt;]</panel_attributes>
+lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
@@ -19,23 +19,11 @@ lt=[&gt;]-[&gt;]</panel_attributes>
       <x>484</x>
       <y>550</y>
       <w>99</w>
-      <h>99</h>
+      <h>165</h>
     </coordinates>
-    <panel_attributes>lt=[].&gt;
+    <panel_attributes>lt=-&gt;&gt;&gt;
 [delegate]</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>484</x>
-      <y>627</y>
-      <w>121</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>IOS Interface
-lt=()-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -45,7 +33,7 @@ lt=()-</panel_attributes>
       <w>66</w>
       <h>77</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
+    <panel_attributes>lt=&lt;&lt;&lt;.
 m1=&lt;&lt;data&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
@@ -58,7 +46,7 @@ m1=&lt;&lt;data&gt;&gt;</panel_attributes>
       <h>99</h>
     </coordinates>
     <panel_attributes>[subscribe]
-lt=[&lt;]-[&lt;]</panel_attributes>
+lt=-&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -84,7 +72,7 @@ fg=black</panel_attributes>
       <w>66</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
+    <panel_attributes>lt=&lt;&lt;&lt;.
 m1=&lt;&lt;data&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
@@ -114,7 +102,7 @@ fg=yellow
       <h>110</h>
     </coordinates>
     <panel_attributes>IOSS
-&lt;&lt;module&gt;&gt;
+&lt;&lt;io service&gt;&gt;
 bg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
@@ -127,7 +115,7 @@ bg=ORANGE</panel_attributes>
       <h>110</h>
     </coordinates>
     <panel_attributes>PSSS
-&lt;&lt;device or service&gt;&gt;
+&lt;&lt;device/common service&gt;&gt;
 bg=BLUE</panel_attributes>
     <additional_attributes/>
   </element>
@@ -152,6 +140,7 @@ bg=LIGHT_GRAY</panel_attributes>
       <h>110</h>
     </coordinates>
     <panel_attributes>TSS
+&lt;&lt;transport service&gt;&gt;
 bg=GREEN</panel_attributes>
     <additional_attributes/>
   </element>
@@ -164,6 +153,7 @@ bg=GREEN</panel_attributes>
       <h>110</h>
     </coordinates>
     <panel_attributes>PCSS
+&lt;&lt;logic service&gt;&gt;
 bg=MAGENTA</panel_attributes>
     <additional_attributes/>
   </element>
@@ -194,9 +184,9 @@ Name</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>594</x>
-      <y>308</y>
-      <w>66</w>
+      <x>605</x>
+      <y>341</y>
+      <w>55</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>send
@@ -209,8 +199,8 @@ layer=1</panel_attributes>
     <id>UMLState</id>
     <coordinates>
       <x>462</x>
-      <y>352</y>
-      <w>66</w>
+      <y>341</y>
+      <w>55</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>recv
@@ -233,22 +223,22 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>506</x>
-      <y>143</y>
+      <y>154</y>
       <w>121</w>
       <h>66</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;
+    <panel_attributes>lt=-&gt;&gt;&gt;
 layer=2
 
 
-[Logic]</panel_attributes>
+[logic]</panel_attributes>
     <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>495</x>
-      <y>154</y>
+      <y>165</y>
       <w>22</w>
       <h>22</h>
     </coordinates>
@@ -260,7 +250,7 @@ layer=1</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>605</x>
-      <y>154</y>
+      <y>165</y>
       <w>22</w>
       <h>22</h>
     </coordinates>
@@ -351,13 +341,17 @@ fg=LIGHT_GRAY</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>517</x>
-      <y>319</y>
-      <w>99</w>
-      <h>66</h>
+      <x>506</x>
+      <y>330</y>
+      <w>121</w>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;40.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+
+
+[observer]
+</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
