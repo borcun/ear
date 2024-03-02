@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>7</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>49</x>
-      <y>70</y>
-      <w>889</w>
-      <h>602</h>
+      <x>81</x>
+      <y>54</y>
+      <w>1143</w>
+      <h>774</h>
     </coordinates>
     <panel_attributes>FACE</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>70</x>
-      <y>105</y>
-      <w>105</w>
-      <h>546</h>
+      <x>108</x>
+      <y>99</y>
+      <w>135</w>
+      <h>702</h>
     </coordinates>
     <panel_attributes>OSSS
 fg=#555555</panel_attributes>
@@ -27,10 +27,10 @@ fg=#555555</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>231</x>
-      <y>105</y>
-      <w>525</w>
-      <h>98</h>
+      <x>315</x>
+      <y>99</y>
+      <w>675</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>PCSS
 fg=#555555
@@ -40,10 +40,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>231</x>
-      <y>259</y>
-      <w>525</w>
-      <h>266</h>
+      <x>315</x>
+      <y>297</y>
+      <w>675</w>
+      <h>342</h>
     </coordinates>
     <panel_attributes>PSSS
 fg=#555555</panel_attributes>
@@ -52,36 +52,34 @@ fg=#555555</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>231</x>
-      <y>553</y>
-      <w>686</w>
-      <h>98</h>
+      <x>315</x>
+      <y>675</y>
+      <w>882</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>IOSS
-fg=#555555
-group=group-5</panel_attributes>
+fg=#555555</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>812</x>
-      <y>105</y>
-      <w>105</w>
-      <h>420</h>
+      <x>1062</x>
+      <y>99</y>
+      <w>135</w>
+      <h>540</h>
     </coordinates>
-    <panel_attributes>TSSS
-fg=#555555
-group=group-3</panel_attributes>
+    <panel_attributes>TSS
+fg=#555555</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>581</y>
-      <w>77</w>
-      <h>28</h>
+      <x>234</x>
+      <y>711</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;access&gt;&gt;</panel_attributes>
@@ -90,10 +88,10 @@ group=group-3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>378</y>
-      <w>77</w>
-      <h>28</h>
+      <x>234</x>
+      <y>450</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;access&gt;&gt;</panel_attributes>
@@ -102,10 +100,10 @@ group=group-3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>147</y>
-      <w>77</w>
-      <h>28</h>
+      <x>234</x>
+      <y>153</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;access&gt;&gt;</panel_attributes>
@@ -114,10 +112,10 @@ group=group-3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>224</y>
-      <w>658</w>
-      <h>28</h>
+      <x>234</x>
+      <y>252</y>
+      <w>846</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;access&gt;&gt;</panel_attributes>
@@ -126,25 +124,23 @@ group=group-3</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>245</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>333</x>
+      <y>711</y>
+      <w>90</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>UART
-Bus
-Service
-fg=ORANGE
-group=group-5</panel_attributes>
+    <panel_attributes>IOS
+Interface
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>245</x>
-      <y>287</y>
-      <w>189</w>
-      <h>224</h>
+      <x>333</x>
+      <y>333</y>
+      <w>243</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>PSCS
 fg=#555555</panel_attributes>
@@ -153,10 +149,10 @@ fg=#555555</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>469</x>
-      <y>287</y>
-      <w>273</w>
-      <h>224</h>
+      <x>621</x>
+      <y>333</y>
+      <w>351</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>PSDS
 fg=#555555</panel_attributes>
@@ -165,10 +161,10 @@ fg=#555555</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>315</y>
-      <w>77</w>
-      <h>56</h>
+      <x>351</x>
+      <y>369</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Log
 Service
@@ -178,10 +174,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>343</x>
-      <y>315</y>
-      <w>77</w>
-      <h>56</h>
+      <x>459</x>
+      <y>369</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>System Level 
 Health 
@@ -193,10 +189,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>378</y>
-      <w>77</w>
-      <h>56</h>
+      <x>351</x>
+      <y>450</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Configuration
 Service
@@ -206,55 +202,52 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>749</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>1080</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>LoRa
 Transceiver
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>581</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>864</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Non-Volatile
 Memory
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>540</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>I2C
 Bus
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
-      <y>315</y>
-      <w>77</w>
-      <h>56</h>
+      <x>747</x>
+      <y>369</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Fall
 Detection
@@ -265,10 +258,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>651</x>
-      <y>315</y>
-      <w>77</w>
-      <h>56</h>
+      <x>855</x>
+      <y>369</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>GPS
 Service
@@ -278,10 +271,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>651</x>
-      <y>378</y>
-      <w>77</w>
-      <h>56</h>
+      <x>855</x>
+      <y>450</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Heart Rate
 Service
@@ -291,10 +284,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>378</y>
-      <w>77</w>
-      <h>56</h>
+      <x>639</x>
+      <y>450</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Reminder
 Service
@@ -304,25 +297,24 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>826</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>1080</x>
+      <y>225</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Status
 Management
 Service
-fg=#00AA00
-group=group-3</panel_attributes>
+fg=#00AA00</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>245</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>333</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Built-In Test
 Service
@@ -333,10 +325,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>441</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Location
 Service
@@ -347,10 +339,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>413</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>549</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Health
 Monitoring 
@@ -362,10 +354,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>657</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Command
 Service
@@ -376,10 +368,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>315</y>
-      <w>77</w>
-      <h>56</h>
+      <x>639</x>
+      <y>369</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Power
 Service
@@ -389,10 +381,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>581</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>765</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Maintaince
 Service
@@ -403,54 +395,51 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>497</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>756</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Ethernet
 Bus
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>413</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>648</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>SPI
 Bus
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>665</x>
-      <y>581</y>
-      <w>77</w>
-      <h>56</h>
+      <x>972</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>GPIO
 Service
-fg=ORANGE
-group=group-5</panel_attributes>
+fg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
-      <y>378</y>
-      <w>77</w>
-      <h>56</h>
+      <x>747</x>
+      <y>450</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Vibration
 Actuator
@@ -460,10 +449,10 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>665</x>
-      <y>133</y>
-      <w>77</w>
-      <h>56</h>
+      <x>873</x>
+      <y>135</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Data
 Concentrator
@@ -475,10 +464,10 @@ group=group-0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>749</x>
-      <y>385</y>
-      <w>77</w>
-      <h>28</h>
+      <x>981</x>
+      <y>459</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;import&gt;&gt;</panel_attributes>
@@ -487,10 +476,10 @@ group=group-0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>749</x>
-      <y>147</y>
-      <w>77</w>
-      <h>28</h>
+      <x>981</x>
+      <y>153</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;import&gt;&gt;</panel_attributes>
@@ -499,10 +488,10 @@ group=group-0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>546</x>
-      <y>518</y>
-      <w>56</w>
-      <h>63</h>
+      <x>720</x>
+      <y>630</y>
+      <w>63</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;access&gt;&gt;</panel_attributes>
@@ -511,10 +500,10 @@ group=group-0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>133</y>
-      <w>77</w>
-      <h>63</h>
+      <x>126</x>
+      <y>135</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Time
 Management
@@ -525,10 +514,10 @@ fg=#AA0000</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>203</y>
-      <w>77</w>
-      <h>63</h>
+      <x>126</x>
+      <y>225</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>File
 System
@@ -539,25 +528,24 @@ fg=#AA0000</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>826</x>
-      <y>196</y>
-      <w>77</w>
-      <h>63</h>
+      <x>1080</x>
+      <y>306</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Data
 Management
 Service
-fg=#00AA00
-group=group-3</panel_attributes>
+fg=#00AA00</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>273</y>
-      <w>77</w>
-      <h>63</h>
+      <x>126</x>
+      <y>315</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Network
 Service
@@ -567,10 +555,10 @@ fg=#AA0000</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>441</y>
-      <w>77</w>
-      <h>56</h>
+      <x>639</x>
+      <y>531</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>LoRaWAN
 Service
@@ -580,14 +568,41 @@ fg=#0000DD</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>343</y>
-      <w>77</w>
-      <h>70</h>
+      <x>126</x>
+      <y>405</y>
+      <w>99</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Bluetooth
 Service
 fg=#AA0000</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>711</y>
+      <w>99</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UART
+Bus
+Service
+fg=ORANGE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>135</y>
+      <w>99</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>TS
+Interface
+fg=#00AA00</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
