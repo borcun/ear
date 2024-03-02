@@ -1,19 +1,19 @@
 /**
- * @file eth_service.h
+ * @file file_service.h
  * @brief
  * @author boo
  * @copyright
  */
 
-#ifndef ETH_SERVICE_H
-#define ETH_SERVICE_H
+#ifndef FILE_SERVICE_H
+#define FILE_SERVICE_H
 
 #include "ios.h"
 
-class EthernetService : public FACE::IOSS::IOService {
+class FileService : public FACE::IOSS::IOService {
  public:
-  EthernetService(const std::string &name);
-  virtual ~EthernetService();
+  FileService(const std::string &name);
+  virtual ~FileService();
 
   virtual int32_t open();
   virtual int32_t close();
