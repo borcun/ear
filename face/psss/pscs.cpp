@@ -1,9 +1,9 @@
 #include "pscs.h"
 
-PSSS::CommonService::CommonService(const std::string &name) : FACE::Service(name) {
+FACE::PSSS::CommonService::CommonService(const std::string &name) : Service(name) {
 
 }
 
-PSSS::CommonService::~CommonService() {
+FACE::PSSS::CommonService::~CommonService() {
 
 }

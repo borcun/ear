@@ -9,12 +9,14 @@
 
 #include "service.h"
 
-namespace PSSS {
-  class DeviceService : public FACE::Service {
-  public:
-    DeviceService(const std::string &name);
-    virtual ~DeviceService();
-  };
+namespace FACE {
+  namespace PSSS {
+    class DeviceService : public Service {
+    public:
+      DeviceService(const std::string &name);
+      virtual ~DeviceService();
+    };
+  }
 }
 
 #endif

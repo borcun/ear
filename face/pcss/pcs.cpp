@@ -1,9 +1,9 @@
 #include "pcs.h"
 
-PCSS::PortableComponentService::PortableComponentService(const std::string &name) : FACE::Service(name) {
+FACE::PCSS::PortableComponentService::PortableComponentService(const std::string &name) : Service(name) {
 
 }
 
-PCSS::PortableComponentService::~PortableComponentService() {
+FACE::PCSS::PortableComponentService::~PortableComponentService() {
 
 }

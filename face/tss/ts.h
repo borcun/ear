@@ -9,12 +9,14 @@
 
 #include "service.h"
 
-namespace TSS {
-  class TransportService : public FACE::Service {
-  public:
-    TransportService(const std::string &name);
-    virtual ~TransportService();
-  };
+namespace FACE {
+  namespace TSS {
+    class TransportService : public Service {
+    public:
+      TransportService(const std::string &name);
+      virtual ~TransportService();
+    };
+  }
 }
 
 #endif

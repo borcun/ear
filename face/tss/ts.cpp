@@ -1,9 +1,9 @@
 #include "ts.h"
 
-TSS::TransportService::TransportService(const std::string &name) : FACE::Service(name) {
+FACE::TSS::TransportService::TransportService(const std::string &name) : Service(name) {
 
 }
 
-TSS::TransportService::~TransportService() {
+FACE::TSS::TransportService::~TransportService() {
 
 }

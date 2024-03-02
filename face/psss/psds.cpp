@@ -1,9 +1,9 @@
 #include "psds.h"
 
-PSSS::DeviceService::DeviceService(const std::string &name) : FACE::Service(name) {
+FACE::PSSS::DeviceService::DeviceService(const std::string &name) : Service(name) {
 
 }
 
-PSSS::DeviceService::~DeviceService() {
+FACE::PSSS::DeviceService::~DeviceService() {
 
 }

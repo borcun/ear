@@ -9,12 +9,14 @@
 
 #include "service.h"
 
-namespace PCSS {
-  class PortableComponentService : public FACE::Service {
-  public:
-    PortableComponentService(const std::string &name);
-    virtual ~PortableComponentService();
-  };
+namespace FACE {
+  namespace PCSS {
+    class PortableComponentService : public Service {
+    public:
+      PortableComponentService(const std::string &name);
+      virtual ~PortableComponentService();
+    };
+  }
 }
 
 #endif
