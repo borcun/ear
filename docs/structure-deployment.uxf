@@ -16,7 +16,7 @@ lt=&lt;&lt;&lt;-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>484</x>
+      <x>506</x>
       <y>550</y>
       <w>99</w>
       <h>165</h>
@@ -24,18 +24,6 @@ lt=&lt;&lt;&lt;-</panel_attributes>
     <panel_attributes>lt=-&gt;&gt;&gt;
 [delegate]</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>627</x>
-      <y>638</y>
-      <w>66</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;.
-m1=&lt;&lt;data&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -50,31 +38,16 @@ lt=-&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>583</x>
-      <y>616</y>
-      <w>110</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>valign=center
-halign=center
-Shared Memory
-bg=red
-fg=black</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>627</x>
+      <x>594</x>
       <y>550</y>
-      <w>66</w>
-      <h>88</h>
+      <w>132</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;.
-m1=&lt;&lt;data&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+&lt;&lt;data or status&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
