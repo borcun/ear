@@ -2,8 +2,9 @@
 ** TODO get proforma from companies for boards, sensors/actuators, lorawan antenna and gateways
 ** TODO example should be completed for io service
 ** TODO integrate zeromq for tss, and as submodule for the project
+*** DONE test zeromq
 ** TODO find good logging library instead of lwlog, or develop yourself
 ** TODO find a name for the project :)
 ** TODO find scheduling method for psss services, it is so critical
-** TODO write requirements
+** CANCELED write requirements
 ** TODO job planning & scheduling

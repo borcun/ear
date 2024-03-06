@@ -4,3 +4,6 @@
 [submodule "third_party/lwlog"]
 	path = third_party/lwlog
 	url = https://github.com/Akagi201/lwlog.git
+[submodule "third_party/libzmq"]
+	path = third_party/libzmq
+	url = https://github.com/zeromq/libzmq.git
