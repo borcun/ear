@@ -3,10 +3,10 @@ project(face-test)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SRC eth_service.cpp file_service.cpp main.cpp)
+set(SRC eth_service.cpp file_service.cpp gps.cpp main.cpp)
 
-link_directories(../face/build/)
-include_directories(../face/core ../face/ioss ../face/psss ../face/tss ../face/pcss)
+link_directories(../src/build/)
+include_directories(../src/core ../src/ioss ../src/psss ../src/tss ../src/pcss)
 
 link_libraries(face)
 add_executable(${PROJECT_NAME} ${SRC})
