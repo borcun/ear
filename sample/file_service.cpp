@@ -5,7 +5,7 @@ FileService::FileService(const std::string &name) : IOService(name) {
   m_version = "1.0";
 }
 
-FileService::~FileService() {o
+FileService::~FileService() {
 
 }
 

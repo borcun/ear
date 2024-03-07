@@ -9,8 +9,12 @@
 #define PLATFORM_SERVICE_H
 
 #include <thread>
+#include <chrono>
 #include "ios.h"
 #include "ts.h"
+
+/// minimum period
+#define PSS_MIN_PERIOD (100000U)
 
 namespace FACE {
     namespace PSSS {
@@ -29,7 +33,7 @@ namespace FACE {
 	    void setTransportService(TSS::TransportService *tservice);
 	    /// function that starts platform service
 	    /// @return true if service is started, otherwise false
-	    bool start();
+	    bool start(const std::chrono::microseconds &period);
 	    /// function that stops platform service
 	    /// @return true if service is stopped, otherwise false
 	    bool stop();
@@ -48,6 +52,8 @@ namespace FACE {
 	    std::thread m_task;
 	    /// start flag
 	    bool m_is_started = false;
+	    /// task period
+	    std::chrono::microseconds m_period = std::chrono::milliseconds(PSS_MIN_PERIOD);
 
 	    /// function that is scheduled by task
 	    void schedule();
