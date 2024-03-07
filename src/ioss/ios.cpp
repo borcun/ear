@@ -4,10 +4,10 @@
 #define IO_SERVICE_BASE_ID (1000U)
 
 //! current id value added to base service id for each io service
-static uint8_t _ios_local_id = 0;
+static uint8_t __ios_local_id = 0;
 
 FACE::IOSS::IOService::IOService(const std::string &name) : Service(name) {
-  m_id = IO_SERVICE_BASE_ID + _ios_local_id++;
+  m_id = IO_SERVICE_BASE_ID + __ios_local_id++;
 }
 
 FACE::IOSS::IOService::~IOService() {
