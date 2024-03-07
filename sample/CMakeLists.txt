@@ -3,7 +3,7 @@ project(face-test)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SRC eth_service.cpp file_service.cpp gps.cpp main.cpp)
+set(SRC eth_service.cpp file_service.cpp gps.cpp logger.cpp main.cpp)
 
 link_directories(../src/build/)
 include_directories(../src/core ../src/ioss ../src/psss ../src/tss ../src/pcss)

@@ -12,6 +12,6 @@ GPS::~GPS() {
 }
 
 void GPS::process() {
-    std::cout << std::chrono::duration_cast<std::chrono::microseconds>
-	(std::chrono::system_clock::now().time_since_epoch()).count() << "\n";
+    std::cout << "G: " << std::chrono::duration_cast<std::chrono::microseconds>
+	(std::chrono::system_clock::now().time_since_epoch()).count() << std::endl;
 }
