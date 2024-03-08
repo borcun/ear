@@ -1,13 +1,13 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include "pss.h"
+#include "ps.h"
 
 class Logger : public FACE::PSSS::PlatformService {
  public:
     Logger(const std::string &name);
     virtual ~Logger();
-    virtual void process() override;
+    virtual void service() override;
 };
 
 #endif

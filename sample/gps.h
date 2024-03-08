@@ -1,13 +1,13 @@
 #ifndef GPS_H
 #define GPS_H
 
-#include "pss.h"
+#include "ps.h"
 
 class GPS : public FACE::PSSS::PlatformService {
  public:
     GPS(const std::string &name);
     virtual ~GPS();
-    virtual void process() override;
+    virtual void service() override;
 };
 
 #endif
