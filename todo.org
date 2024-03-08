@@ -4,7 +4,7 @@
 ** CANCELED integrate zeromq for tss, and as submodule for the project
 ** TODO find good logging library instead of lwlog, or develop yourself
 ** TODO find a name for the project :)
-** PROGRESS PROGRESSING find scheduling method for psss services, it is so critical
+** DONE PROGRESSING find scheduling method for psss services, it is so critical
 *** run all psss services at same time
 ** CANCELED write requirements
 ** TODO job planning & scheduling
