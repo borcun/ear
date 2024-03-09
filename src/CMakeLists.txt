@@ -11,6 +11,9 @@ set(SRC core/service.cpp
  pcss/pcs.cpp
 )
 
-include_directories(core ioss psss tss pcss)
+include_directories(../ext/spdlog/include core ioss psss tss pcss)
+link_directories(../ext/spdlog/build)
+link_libraries(spdlog)
+
 add_library(${PROJECT_NAME} SHARED ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})

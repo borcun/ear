@@ -5,7 +5,7 @@
 
 class GPS : public FACE::PSSS::PlatformService {
  public:
-    GPS(const std::string &name);
+    explicit GPS(const std::string &name);
     virtual ~GPS();
     virtual void service() override;
 };

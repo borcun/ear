@@ -16,7 +16,7 @@ namespace FACE {
     public:
       /// constructor
       /// @param [in] name - io service name
-      IOService(const std::string &name);
+      explicit IOService(const std::string &name);
       /// destructor
       virtual ~IOService();
       /// function that gets model of io service

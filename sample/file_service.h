@@ -12,7 +12,7 @@
 
 class FileService : public FACE::IOSS::IOService {
  public:
-  FileService(const std::string &name);
+  explicit FileService(const std::string &name);
   virtual ~FileService();
 
   virtual int32_t open();

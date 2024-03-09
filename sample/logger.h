@@ -5,7 +5,7 @@
 
 class Logger : public FACE::PSSS::PlatformService {
  public:
-    Logger(const std::string &name);
+    explicit Logger(const std::string &name);
     virtual ~Logger();
     virtual void service() override;
 };

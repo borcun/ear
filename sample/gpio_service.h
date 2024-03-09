@@ -12,7 +12,7 @@
 
 class GPIOService : public FACE::IOSS::IOService {
  public:
-  GPIOService(const std::string &name);
+  explicit GPIOService(const std::string &name);
   virtual ~GPIOService();
 
   virtual int32_t open();

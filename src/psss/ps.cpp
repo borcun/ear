@@ -1,14 +1,11 @@
 #include "ps.h"
-#include <iostream>
-
-/// base id value for platform specific service
-#define PS_BASE_ID (2000U)
+#include "spdlog/spdlog.h"
 
 //! current id value added to base service id for each platform specific service
-static uint8_t __ps_local_id = 0;
+static uint16_t curr_id = 0;
 
 FACE::PSSS::PlatformService::PlatformService(const std::string &name) : Service(name) {
-  m_id = PS_BASE_ID + __ps_local_id++;
+  m_id = PS_BASE_ID + curr_id++;
   m_is_started = false;
   m_period = std::chrono::microseconds(PS_MIN_PERIOD);
   pthread_mutex_init(&m_mutex, NULL);
@@ -32,7 +29,10 @@ void FACE::PSSS::PlatformService::setTransportService(FACE::TSS::TransportServic
 
 void FACE::PSSS::PlatformService::setPeriod(const std::chrono::microseconds &period) {
     // do not change service period when task is running
-    if (!m_is_started) {
+    if (m_is_started) {
+	spdlog::error("could not change period after start [service: {}]", getName());
+    }
+    else {
 	m_period = std::chrono::microseconds(period);
     }
     
@@ -41,6 +41,7 @@ void FACE::PSSS::PlatformService::setPeriod(const std::chrono::microseconds &per
 
 bool FACE::PSSS::PlatformService::start(pthread_cond_t *cond_var) {
     if (m_is_started) {
+	spdlog::error("service already started [service: {}]", getName());
 	return false;
     }
 
@@ -52,6 +53,7 @@ bool FACE::PSSS::PlatformService::start(pthread_cond_t *cond_var) {
 
 bool FACE::PSSS::PlatformService::stop() {
     if (!m_is_started) {
+	spdlog::error("service already started [service: {}]", getName());
 	return false;
     }
 
@@ -62,6 +64,7 @@ bool FACE::PSSS::PlatformService::stop() {
 }
 
 void FACE::PSSS::PlatformService::service() {
+    spdlog::warn("service not implemented [service: {}]", getName());
     return;
 }
 
@@ -79,8 +82,15 @@ void FACE::PSSS::PlatformService::execute(pthread_cond_t *cond_var) {
 	end = std::chrono::steady_clock::now();
 	
 	elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
+
 	// sleep time remain after service execution
-	std::this_thread::sleep_for(std::chrono::microseconds(m_period - elapsed));
+	if (elapsed <= m_period) {
+	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - elapsed));
+	}
+	else {
+	    spdlog::warn("deadline missed [service: {}]", getName());
+	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - (elapsed % m_period)));
+	}
     }
 
     return;

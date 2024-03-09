@@ -5,7 +5,7 @@
 
 class Switch : public FACE::PSSS::PlatformService {
  public:
-    Switch(const std::string &name);
+    explicit Switch(const std::string &name);
     virtual ~Switch();
     virtual void service() override;
 };

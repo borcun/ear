@@ -12,7 +12,7 @@
 
 class EthernetService : public FACE::IOSS::IOService {
  public:
-  EthernetService(const std::string &name);
+  explicit EthernetService(const std::string &name);
   virtual ~EthernetService();
 
   virtual int32_t open();

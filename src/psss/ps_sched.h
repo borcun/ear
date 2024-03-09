@@ -25,14 +25,15 @@ namespace FACE {
 	    /// @return true if the service is added, otherwise false
 	    bool addService(PlatformService *ps);
 	    /// function that initializes the scheduler
+	    /// @pre platform service list must include service(s)
 	    /// @return true if the scheduler is initialized, otherwise false
 	    bool init();
 	    /// function that runs the scheduler
-	    /// @pre the scheduler must be initialized
+	    /// @pre the scheduler must be initialized firstly
 	    /// @return true if the scheduler runs, otherwise false
 	    bool run();
 	    /// function that terminates the scheduler
-	    /// @pre the scheduler must be run
+	    /// @pre the scheduler must be run earlier
 	    /// @return true if the scheduler is terminated, otherwise false
 	    bool terminate();
 	    
@@ -41,9 +42,9 @@ namespace FACE {
 	    static PSScheduler *m_instance;
 	    /// platform specific services
 	    std::map<uint32_t, PlatformService *> m_pservices;
-	    /// condition variable to synchronize all platform services
+	    /// condition variable to give start to all platform services at the same time
 	    pthread_cond_t m_cond_var;
-	    /// initialization flag
+	    /// state for state machine of the scheduler
 	    SchedulerState m_state;
 
 	    /// constructor

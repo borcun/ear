@@ -5,7 +5,7 @@
 
 class IMU : public FACE::PSSS::PlatformService {
  public:
-    IMU(const std::string &name);
+    explicit IMU(const std::string &name);
     virtual ~IMU();
     virtual void service() override;
 };

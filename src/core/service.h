@@ -8,8 +8,7 @@
 #ifndef FACE_SERVICE_H
 #define FACE_SERVICE_H
 
-#include <cstdint>
-#include <string>
+#include "service_util.h"
 
 namespace FACE {
   /// Service that is base class for all FACE service
@@ -18,23 +17,20 @@ namespace FACE {
   public:
     /// constructor
     /// @param name [in] - service name
-    Service(const std::string &name);
-  
+    explicit Service(const std::string &name); 
     /// destructor
     virtual ~Service();
-
     /// function that gets service id
     /// @return service id
     uint32_t getId() const;
-
     /// function that gets service name
     /// @return service name
     std::string getName() const;
 
   protected:
-    //! unique service id
-    uint32_t m_id = 0;
-    //! service name
+    /// unique service id
+    uint32_t m_id = SRV_INV_ID;
+    /// service name
     std::string m_name;
 
   private:

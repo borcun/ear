@@ -7,3 +7,6 @@
 [submodule "ext/libzmq"]
 	path = ext/libzmq
 	url = https://github.com/zeromq/libzmq.git
+[submodule "ext/spdlog"]
+	path = ext/spdlog
+	url = https://github.com/gabime/spdlog.git
