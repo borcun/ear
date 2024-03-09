@@ -10,10 +10,10 @@
 #include "service.h"
 
 namespace FACE {
-  namespace TSS {
+  namespace TSS {      
     class TransportService : public Service {
     public:
-      TransportService(const std::string &name);
+      explicit TransportService(const std::string &name);
       virtual ~TransportService();
     };
   }

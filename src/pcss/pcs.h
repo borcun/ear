@@ -13,7 +13,7 @@ namespace FACE {
   namespace PCSS {
     class PortableComponentService : public Service {
     public:
-      PortableComponentService(const std::string &name);
+      explicit PortableComponentService(const std::string &name);
       virtual ~PortableComponentService();
     };
   }
