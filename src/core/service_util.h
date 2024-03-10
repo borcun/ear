@@ -12,5 +12,7 @@
 
 /// minimum period of platform service in usec
 #define PS_MIN_PERIOD (100000U)
+/// max tss queue size
+#define TSS_MAX_QUEUE_SIZE (100) 
 
 #endif

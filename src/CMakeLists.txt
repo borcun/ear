@@ -8,6 +8,7 @@ set(SRC core/service.cpp
  psss/ps.cpp
  psss/ps_sched.cpp
  tss/ts.cpp
+ tss/tsm.cpp
  pcss/pcs.cpp
 )
 
