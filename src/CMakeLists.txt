@@ -3,10 +3,12 @@ project(face VERSION 0.0.0 DESCRIPTION "face reference library")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SRC core/service.cpp
+set(SRC
+ core/service.cpp
+ core/periodic_service.cpp
+ core/ssched.cpp
  ioss/ios.cpp
  psss/ps.cpp
- psss/ps_sched.cpp
  tss/ts.cpp
  tss/tsm.cpp
  pcss/pcs.cpp

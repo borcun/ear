@@ -7,10 +7,10 @@
 #include "logger.h"
 #include "imu.h"
 #include "switch.h"
-#include "ps_sched.h"
+#include "ssched.h"
 
 int main() {
-  FACE::PSSS::PSScheduler *ps_scheduler = FACE::PSSS::PSScheduler::getInstance();   
+  FACE::ServiceScheduler *ss = FACE::ServiceScheduler::getInstance();   
   GPS gps("gps device");
   Logger logger("logger");
   IMU imu("imu device");
@@ -30,20 +30,20 @@ int main() {
   imu.setPeriod(std::chrono::microseconds(300000));    // 300 ms
   swi.setPeriod(std::chrono::microseconds(500000));    // 500 ms
   
-  if (!ps_scheduler->addService(&gps)) { return -1; }
-  if (!ps_scheduler->addService(&logger)) { return -1; }
-  if (!ps_scheduler->addService(&imu)) { return -1; }
-  if (!ps_scheduler->addService(&swi)) { return -1; }
+  if (!ss->addService(&gps)) { return -1; }
+  if (!ss->addService(&logger)) { return -1; }
+  if (!ss->addService(&imu)) { return -1; }
+  if (!ss->addService(&swi)) { return -1; }
 
   spdlog::info("scheduler initializes");
-  if (!ps_scheduler->init()) { return -1; }
+  if (!ss->init()) { return -1; }
   
   spdlog::info("scheduler is running");
-  if (!ps_scheduler->run()) { return -1; }
+  if (!ss->run()) { return -1; }
 
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-  if (!ps_scheduler->terminate()) { return -1; }
+  if (!ss->terminate()) { return -1; }
   spdlog::info("scheduler terminated");
   
   return 0;
