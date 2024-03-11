@@ -9,3 +9,4 @@
 ** CANCELED write requirements
 ** TODO job planning & scheduling
 ** TODO create TSFactory (factory pattern) for TS class
+** TODO add tss & pcss to sample
