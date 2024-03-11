@@ -13,7 +13,7 @@ bool FACE::TSS::TransportService::send(const TSMessage &message) {
     
     m_mutex.lock();
     
-    if (TSS_MAX_QUEUE_SIZE > m_queue.size()) {
+    if (TS_MAX_QUEUE_SIZE > m_queue.size()) {
 	m_queue.push(message);
 	is_pushed = true;
     }

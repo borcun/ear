@@ -10,7 +10,7 @@ void consumer(FACE::TSS::TransportService *ts) {
     while (i < 100) {
 	if (ts->receive(msg)) {
 	    ++i;
-	    std::cout << msg.getSource() << " -> " << msg.getDestination() << " : " << msg.getData() << std::endl;
+	    std::cout << msg.getData() << "[" << msg.getSize() << "]" << std::endl;
 	}
 
 	usleep(100000);
@@ -20,10 +20,11 @@ void consumer(FACE::TSS::TransportService *ts) {
 }
 
 void producer(FACE::TSS::TransportService *ts) {
-    FACE::TSS::TSMessage msg {1U, 5U};
+    FACE::TSS::TSMessage msg;
     
     for (int i = 0; i < 100; ++i) {
-	msg.setData(std::to_string(i));
+	std::string data = std::to_string(i);
+	msg.setData((uint8_t *) data.c_str(), data.length());
 	
 	do { usleep(5000); } while(!ts->send(msg));
 	std::cout << "send : " << msg.getData() << std::endl;
