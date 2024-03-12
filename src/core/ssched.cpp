@@ -1,11 +1,5 @@
 #include "ssched.h"
 
-FACE::ServiceScheduler *FACE::ServiceScheduler::m_instance = nullptr;
-
-FACE::ServiceScheduler *FACE::ServiceScheduler::getInstance() {
-    return nullptr == m_instance ? m_instance = new ServiceScheduler() : m_instance;
-}
-
 FACE::ServiceScheduler::ServiceScheduler() {
     m_state = SS_IDLE;
     pthread_cond_init(&m_cond_var, NULL);
@@ -17,7 +11,7 @@ FACE::ServiceScheduler::~ServiceScheduler() {
 
 bool FACE::ServiceScheduler::addService(PeriodicService *pserv) {
     if (nullptr == pserv) {
-	spdlog::error("invalid periodic service");
+	spdlog::error("could not add invalid periodic service");
 	return false;
     }
 

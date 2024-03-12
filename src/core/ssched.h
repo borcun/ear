@@ -14,9 +14,8 @@ namespace FACE {
 	
     class ServiceScheduler {
     public:
-	/// function that gets instance of the class
-	/// @return ServiceScheduler pointer
-	static ServiceScheduler *getInstance();
+	/// constructor
+	ServiceScheduler();
 	/// destructor
 	virtual ~ServiceScheduler();
 	/// function that adds a periodic service into the scheduler
@@ -37,17 +36,12 @@ namespace FACE {
 	bool terminate();
 	    
     private:
-	/// service scheduler
-	static ServiceScheduler *m_instance;
 	/// periodic services
 	std::map<uint32_t, PeriodicService *> m_services;
 	/// condition variable to give start to all periodic services at the same time
 	pthread_cond_t m_cond_var;
 	/// state for state machine of the scheduler
 	SchedulerState m_state;
-
-	/// constructor
-	ServiceScheduler();
     };
 }
 
