@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.2)
-project(nng-pub)
-set(SRC main.cpp)
-include_directories(../../ext/nng/include)
-link_directories(../../ext/nng/build)
-link_libraries(nng)
-add_executable(${PROJECT_NAME} ${SRC})
