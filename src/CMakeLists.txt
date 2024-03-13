@@ -9,14 +9,13 @@ set(SRC
  core/ssched.cpp
  ioss/ios.cpp
  psss/ps.cpp
- tss/ts.cpp
- tss/tsm.cpp
+ tss/channel.cpp
  pcss/pcs.cpp
 )
 
-include_directories(../ext/spdlog/include core ioss psss tss pcss)
-link_directories(../ext/spdlog/build)
-link_libraries(spdlog)
+include_directories(../ext/spdlog/include ../ext/nng/include core ioss psss tss pcss)
+link_directories(../ext/spdlog/build ../ext/nng/build)
+link_libraries(spdlog nng)
 
 add_library(${PROJECT_NAME} SHARED ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})

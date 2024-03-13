@@ -8,6 +8,7 @@
 #ifndef SERIAL_SERVICE_H
 #define SERIAL_SERVICE_H
 
+#include "position.h"
 #include "ios.h"
 
 class SerialService : public FACE::IOSS::IOService {
@@ -20,6 +21,9 @@ class SerialService : public FACE::IOSS::IOService {
   virtual int32_t read(uint8_t *buf, const uint32_t size);
   virtual int32_t write(const uint8_t *buf, const uint32_t size);
   virtual int32_t ioctl(void *target, const int32_t op);
+
+private:
+    Position pos = {0.0f, 0.0f};
 };
 
 #endif

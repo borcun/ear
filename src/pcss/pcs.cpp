@@ -8,11 +8,11 @@ FACE::PCSS::PortableComponentService::PortableComponentService(const std::string
 }
 
 FACE::PCSS::PortableComponentService::~PortableComponentService() {
-    m_tservice = nullptr;
+    m_channel = nullptr;
 }
 
-void FACE::PCSS::PortableComponentService::setTransportService(TSS::TransportService *tservice) {
-    m_tservice = tservice;
+void FACE::PCSS::PortableComponentService::setChannel(TSS::Channel *channel) {
+    m_channel = channel;
     return;
 }
 

@@ -9,7 +9,7 @@ FACE::PSSS::PlatformService::PlatformService(const std::string &name) : Periodic
 
 FACE::PSSS::PlatformService::~PlatformService() {
     m_ioservice = nullptr;
-    m_tservice = nullptr;
+    m_channel = nullptr;
 }
 
 void FACE::PSSS::PlatformService::setIOService(FACE::IOSS::IOService *ioservice) {
@@ -17,8 +17,8 @@ void FACE::PSSS::PlatformService::setIOService(FACE::IOSS::IOService *ioservice)
     return;
 }
 
-void FACE::PSSS::PlatformService::setTransportService(FACE::TSS::TransportService *tservice) {
-    m_tservice = tservice;
+void FACE::PSSS::PlatformService::setChannel(FACE::TSS::Channel *channel) {
+    m_channel = channel;
     return;
 }
 
