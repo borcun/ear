@@ -1,19 +1,19 @@
-#include "periodic_service.h"
+#include "portable_service.h"
 
 //! current id value added to base service id for each platform specific service
 static uint16_t curr_id = 0;
 
-FACE::PeriodicService::PeriodicService(const std::string &name) : Service(name) {
+FACE::PortableService::PortableService(const std::string &name) : Service(name) {
   m_is_started = false;
   m_period = std::chrono::microseconds(SERVICE_MIN_PERIOD);
   pthread_mutex_init(&m_mutex, NULL);
 }
 
-FACE::PeriodicService::~PeriodicService() {
+FACE::PortableService::~PortableService() {
     pthread_mutex_destroy(&m_mutex);
 }
 
-void FACE::PeriodicService::setPeriod(const std::chrono::microseconds &period) {
+void FACE::PortableService::setPeriod(const std::chrono::microseconds &period) {
     // do not change service period when task is running
     if (m_is_started) {
 	spdlog::error("could not change period after start [service: {}]", getName());
@@ -25,7 +25,12 @@ void FACE::PeriodicService::setPeriod(const std::chrono::microseconds &period) {
     return;
 }
 
-bool FACE::PeriodicService::start(pthread_cond_t *cond_var) {
+void FACE::PortableService::setChannel(FACE::TSS::Channel *channel) {
+    m_channel = channel;
+    return;
+}
+
+bool FACE::PortableService::start(pthread_cond_t *cond_var) {
     if (m_is_started) {
 	spdlog::error("service already started [service: {}]", getName());
 	return false;
@@ -37,7 +42,7 @@ bool FACE::PeriodicService::start(pthread_cond_t *cond_var) {
     return true;
 }
 
-bool FACE::PeriodicService::stop() {
+bool FACE::PortableService::stop() {
     if (!m_is_started) {
 	spdlog::error("service already started [service: {}]", getName());
 	return false;
@@ -49,12 +54,12 @@ bool FACE::PeriodicService::stop() {
     return true;
 }
 
-void FACE::PeriodicService::service() {
+void FACE::PortableService::service() {
     spdlog::warn("service not implemented [service: {}]", getName());
     return;
 }
 
-void FACE::PeriodicService::execute(pthread_cond_t *cond_var) {
+void FACE::PortableService::execute(pthread_cond_t *cond_var) {
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
     std::chrono::microseconds elapsed;

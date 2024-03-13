@@ -1,34 +1,41 @@
 /**
- * @file periodic_service.h
+ * @file portable_service.h
  * @brief
  * @author boo
  */
 
-#ifndef PERIODIC_SERVICE_H
-#define PERIODIC_SERVICE_H
+#ifndef PORTABLE_SERVICE_H
+#define PORTABLE_SERVICE_H
 
 #include <thread>
 #include <pthread.h>
 #include <chrono>
 #include "service.h"
+#include "channel.h"
 
 namespace FACE {
-    class PeriodicService : public Service {
+    class PortableService : public Service {
 	friend class ServiceScheduler;
 	    
     public:
 	/// constructor
 	/// @param [in] name - portable component service name
-	explicit PeriodicService(const std::string &name);
+	explicit PortableService(const std::string &name);
 	/// destructor
-	virtual ~PeriodicService();
+	virtual ~PortableService();
 	/// function that sets period of the service
 	/// @param [in] period - service period in usec
 	void setPeriod(const std::chrono::microseconds &period);
-	
+	/// function that sets transport service channel for platform service
+	/// @param [in] channel - transport service channel
+	void setChannel(TSS::Channel *channel);
 	/// function that is supposed to be implemented by derived classes
 	virtual void service() = 0;
- 	    
+
+    protected:
+	/// transport service channel
+	TSS::Channel *m_channel = nullptr;
+
     private:
 	/// task for parellel execution of service function
 	std::thread m_task;

@@ -5,7 +5,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SRC
  core/service.cpp
- core/periodic_service.cpp
+ core/portable_service.cpp
  core/ssched.cpp
  ioss/ios.cpp
  psss/ps.cpp
