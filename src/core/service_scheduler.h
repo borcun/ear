@@ -1,5 +1,5 @@
-#ifndef SCHEDULER_H
-#define SCHEDULER_H
+#ifndef SERVICE_SCHEDULER_H
+#define SERVICE_SCHEDULER_H
 
 #include <map>
 #include "portable_service.h"
