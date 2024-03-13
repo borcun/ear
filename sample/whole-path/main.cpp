@@ -7,33 +7,32 @@
 int main() {
   FACE::ServiceScheduler ps_scheduler;
   FACE::ServiceScheduler pcs_scheduler;
+  Positioning pos_1 {"pos-serv-1"}, pos_2 {"pos-serv-2"};
+  GPS gps_1 {"gps-dev-1"};
+  SerialService ser_serv_1 {"ser-serv-1"};
+  FACE::TSS::Channel channel_1 {"channel-1"},
+      channel_2 {"channel-2"},
+      channel_3 {"channel-3"};
+
+  if (!(channel_1.open() && channel_2.open() && channel_3.open())) {
+      return -1;
+  }
+
+  channel_2.subscribe(channel_1);
+  channel_3.subscribe(channel_1);
+
+  gps_1.setPeriod(std::chrono::microseconds(100000));    // 1 sec
+  gps_1.setIOService(&ser_serv_1);
+  gps_1.setChannel(&channel_1);
+
+  pos_1.setPeriod(std::chrono::microseconds(100000));    // 1 sec
+  pos_1.setChannel(&channel_2);
+  pos_2.setPeriod(std::chrono::microseconds(100000));    // 1 sec
+  pos_2.setChannel(&channel_3);
   
-  SerialService serial_service1("serial service");
-  GPS gps1("gps device");
-  FACE::TSS::TransportService ts1("pos channel");
-  Positioning positioning1("pos-serv-1");
-
-  SerialService serial_service2("serial service");
-  GPS gps2("gps device");
-  FACE::TSS::TransportService ts2("pos channel");
-  Positioning positioning2("pos-serv-2");
-
-  gps1.setIOService(&serial_service1);
-  gps2.setIOService(&serial_service2);
-  gps1.setTransportService(&ts1);
-  gps2.setTransportService(&ts2);
-  gps1.setPeriod(std::chrono::microseconds(500000));    // 100 ms
-  gps2.setPeriod(std::chrono::microseconds(500000));    // 100 ms
-
-  positioning1.setTransportService(&ts1);
-  positioning2.setTransportService(&ts2);
-  positioning1.setPeriod(std::chrono::microseconds(1000000));    // 100 ms
-  positioning2.setPeriod(std::chrono::microseconds(1000000));    // 100 ms
-  
-  if (!ps_scheduler.addService(&gps1)) { return -1; }
-  if (!ps_scheduler.addService(&gps2)) { return -1; }
-  if (!pcs_scheduler.addService(&positioning1)) { return -1; }
-  if (!pcs_scheduler.addService(&positioning2)) { return -1; }
+  if (!ps_scheduler.addService(&gps_1)) { return -1; }
+  if (!pcs_scheduler.addService(&pos_1)) { return -1; }
+  if (!pcs_scheduler.addService(&pos_2)) { return -1; }
 
   spdlog::info("schedulers initialize");
   if (!ps_scheduler.init()) { return -1; }
@@ -46,9 +45,14 @@ int main() {
 
   std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
-  if (!ps_scheduler.terminate()) { return -1; }
   if (!pcs_scheduler.terminate()) { return -1; }
+  if (!ps_scheduler.terminate()) { return -1; }
+  
   spdlog::info("schedulers terminated");
+
+  channel_1.close();
+  channel_2.close();
+  channel_3.close();
   
   return 0;
 }

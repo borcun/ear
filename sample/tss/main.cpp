@@ -80,32 +80,21 @@ void producer(FACE::TSS::Channel *channel) {
 }
 
 int main() {
-    FACE::TSS::Channel channel1("channel1");
-    FACE::TSS::Channel channel2("channel2");
+    FACE::TSS::Channel channel_1("channel-1");
+    FACE::TSS::Channel channel_2("channel-2");
 
-    if (!channel1.init() || !channel2.init()) {
-	channel1.destroy();
-	channel2.destroy();
+    if (!(channel_1.open() && channel_2.open())) { return -1; }
+    if (!channel_1.subscribe(channel_2)) { return -1; }
+    if (!channel_2.subscribe(channel_1)) { return -1; }
 
-	return -1;
-    }
-    
-    if (!channel1.connect(channel2)) {
-	return -1;
-    }
-    
-    if (!channel2.connect(channel1)) {
-	return -1;
-    }
-
-    std::thread prod(producer, &channel1);
-    std::thread con(consumer, &channel2);
+    std::thread prod(producer, &channel_1);
+    std::thread con(consumer, &channel_2);
 
     prod.join();    
     con.join();
 
-    channel1.destroy();
-    channel2.destroy();
+    channel_1.close();
+    channel_2.close();
     
     return 0;
 }

@@ -7,15 +7,16 @@ Positioning::~Positioning() {
 }
 
 void Positioning::service() {
-    FACE::TSS::TSMessage msg;
+    uint8_t data[8];
+    size_t size = 8;
 
-    if (!m_tservice->receive(msg)) {
-	spdlog::warn("{} service received failed", m_tservice->getName());
+    if (!m_channel->receive(data, size)) {
+	spdlog::warn("{} service received failed", m_channel->getName());
     }
     else {
 	Position pos;
 	
-	memcpy(&pos, msg.getData(), msg.getSize());
+	memcpy(&pos, data, size);
 	spdlog::info("{}: {}, {}", getName(), pos.lon, pos.lat);
     }
 }
