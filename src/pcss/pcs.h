@@ -7,11 +7,12 @@
 #ifndef PORTABLE_COMPONENT_SERVICE_H
 #define PORTABLE_COMPONENT_SERVICE_H
 
-#include "portable_service.h"
+#include "edge_service.h"
+#include "task.h"
 
 namespace FACE {
     namespace PCSS {
-	class PortableComponentService : public PortableService {
+	class PortableComponentService : public TSS::EdgeService, public Task {
 	public:
 	    /// constructor
 	    /// @param [in] name - portable component service name

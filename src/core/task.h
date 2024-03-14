@@ -1,40 +1,30 @@
 /**
- * @file portable_service.h
+ * @file task.h
  * @brief
  * @author boo
  */
 
-#ifndef PORTABLE_SERVICE_H
-#define PORTABLE_SERVICE_H
+#ifndef TASK_H
+#define TASK_H
 
 #include <thread>
 #include <pthread.h>
 #include <chrono>
-#include "service.h"
-#include "channel.h"
+#include "service_util.h"
 
 namespace FACE {
-    class PortableService : public Service {
-	friend class ServiceScheduler;
+    /// task interface
+    class Task {
+	friend class Scheduler;
 	    
     public:
 	/// constructor
-	/// @param [in] name - portable component service name
-	explicit PortableService(const std::string &name);
+	Task();
 	/// destructor
-	virtual ~PortableService();
-	/// function that sets period of the service
-	/// @param [in] period - service period in usec
-	void setPeriod(const std::chrono::microseconds &period);
-	/// function that sets transport service channel for platform service
-	/// @param [in] channel - transport service channel
-	void setChannel(TSS::Channel *channel);
+	virtual ~Task();
+	
 	/// function that is supposed to be implemented by derived classes
-	virtual void service() = 0;
-
-    protected:
-	/// transport service channel
-	TSS::Channel *m_channel = nullptr;
+	virtual void process() = 0;
 
     private:
 	/// task for parellel execution of service function
@@ -46,11 +36,14 @@ namespace FACE {
 	/// task period in usec
 	std::chrono::microseconds m_period;
 
-	/// function that starts portable component service
+	/// function that sets period of the service
+	/// @param [in] period - service period in usec
+	void setPeriod(const std::chrono::microseconds &period);
+	/// function that starts task component service
 	/// @param [in] cond_var - condition variable to be passed to execute
 	/// @return true if service is started, otherwise false
 	bool start(pthread_cond_t *cond_var);
-	/// function that stops portable component service
+	/// function that stops task component service
 	/// @return true if service is stopped, otherwise false
 	bool stop();	    
 	/// function that executes service, and is scheduled by service task

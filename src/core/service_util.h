@@ -11,8 +11,8 @@
 #define TS_BASE_ID   (3000U)
 #define PCS_BASE_ID  (4000U)
 
-/// minimum period of service in usec
-#define SERVICE_MIN_PERIOD (100000U)
+/// minimum period of task in usec
+#define TASK_MIN_PERIOD (100000U)
 /// max ts queue size
 #define TS_MAX_QUEUE_SIZE (100) 
 /// max data size for ts message

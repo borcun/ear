@@ -1,17 +1,17 @@
 #include "positioning.h"
 
-Positioning::Positioning(const std::string &name) : PlatformService(name) {
+Positioning::Positioning(const std::string &name) : FACE::PCSS::PortableComponentService(name) {
 }
 
 Positioning::~Positioning() {
 }
 
-void Positioning::service() {
+void Positioning::process() {
     uint8_t data[8];
     size_t size = 8;
 
-    if (!m_channel->receive(data, size)) {
-	spdlog::warn("{} service received failed", m_channel->getName());
+    if (!receive(data, size)) {
+	spdlog::warn("service received failed");
     }
     else {
 	Position pos;

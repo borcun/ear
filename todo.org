@@ -1,9 +1,10 @@
-* todo list
+* TASKS
 ** TODO get proforma from companies for boards, sensors/actuators, lorawan antenna and gateways
 ** DONE example should be completed for io service
 ** CANCELED integrate zeromq for tss, and as submodule for the project
+*** nng is used instead
 ** DONE find good logging library instead of lwlog, or develop yourself
-** TODO find a name for the project :)
+** DONE find a name for the project - ear (tend to be part of FACE)
 ** DONE PROGRESSING find scheduling method for psss services, it is so critical
 *** run all psss services at same time
 ** CANCELED write requirements

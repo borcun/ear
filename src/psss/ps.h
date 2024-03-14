@@ -8,12 +8,13 @@
 #ifndef PLATFORM_SERVICE_H
 #define PLATFORM_SERVICE_H
 
-#include "portable_service.h"
+#include "edge_service.h"
+#include "task.h"
 #include "ios.h"
 
 namespace FACE {
     namespace PSSS {
-	class PlatformService : public PortableService {
+	class PlatformService : public TSS::EdgeService, public Task {
 	public:
 	    /// constructor
 	    /// @param [in] name - platform service name

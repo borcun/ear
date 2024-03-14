@@ -3,7 +3,7 @@
 //! current id value added to base service id for each platform specific service
 static uint16_t curr_id = 0;
 
-FACE::PSSS::PlatformService::PlatformService(const std::string &name) : PortableService(name) {
+FACE::PSSS::PlatformService::PlatformService(const std::string &name) : EdgeService(name), Task() {
   m_id = PS_BASE_ID + curr_id++;
 }
 
@@ -17,6 +17,6 @@ void FACE::PSSS::PlatformService::setIOService(FACE::IOSS::IOService *ioservice)
 }
 
 void FACE::PSSS::PlatformService::service() {
-    spdlog::warn("service not implemented [service: {}]", getName());
+    spdlog::warn("service not implemented [service: {}]", m_name);
     return;
 }

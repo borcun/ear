@@ -1,29 +1,30 @@
-#ifndef SERVICE_SCHEDULER_H
-#define SERVICE_SCHEDULER_H
+#ifndef SCHEDULER_H
+#define SCHEDULER_H
 
-#include <map>
-#include "portable_service.h"
+#include <set>
+#include "task.h"
 
 namespace FACE {
-    /// scheduler states
+    /// scheduler state
     enum SchedulerState {
 	SS_IDLE,
 	SS_INIT,
 	SS_RUN
     };
 	
-    class ServiceScheduler {
+    class Scheduler {
     public:
 	/// constructor
-	ServiceScheduler();
+	Scheduler();
 	/// destructor
-	virtual ~ServiceScheduler();
-	/// function that adds a portable service into the scheduler
-	/// @param [in] pserv - portable service pointer
-	/// @return true if the service is added, otherwise false
-	bool addService(PortableService *pserv);
+	virtual ~Scheduler();
+	/// function that adds a task into the scheduler
+	/// @param [in] task - task pointer
+	/// @param [in] period - task period
+	/// @return true if the task is added, otherwise false
+	bool add(Task *task, const uint32_t &period = TASK_MIN_PERIOD);
 	/// function that initializes the scheduler
-	/// @pre portable service list must include service(s)
+	/// @pre task list must include task(s)
 	/// @return true if the scheduler is initialized, otherwise false
 	bool init();
 	/// function that runs the scheduler
@@ -36,9 +37,9 @@ namespace FACE {
 	bool terminate();
 	    
     private:
-	/// portable services
-	std::map<uint32_t, PortableService *> m_services;
-	/// condition variable to give start to all portable services at the same time
+	/// tasks
+	std::set<Task *> m_tasks;
+	/// condition variable to give start to all tasks at the same time
 	pthread_cond_t m_cond_var;
 	/// state for state machine of the scheduler
 	SchedulerState m_state;

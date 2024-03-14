@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(face-pipeline-test)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 set(SRC serial_service.cpp gps.cpp positioning.cpp main.cpp)
 

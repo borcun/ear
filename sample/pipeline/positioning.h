@@ -2,13 +2,13 @@
 #define POSITIONING_H
 
 #include "position.h"
-#include "ps.h"
+#include "pcs.h"
 
-class Positioning : public FACE::PSSS::PlatformService {
- public:
+class Positioning : public FACE::PCSS::PortableComponentService {
+public:
     explicit Positioning(const std::string &name);
     virtual ~Positioning();
-    virtual void service() override;
+    virtual void process() override;
 };
 
 #endif
