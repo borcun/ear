@@ -8,12 +8,13 @@ int main() {
     FACE::Scheduler pcs_sched;
     Positioning pos1 {"pos-serv-1"};
     Positioning pos2 {"pos-serv-2"};
+    Positioning pos3 {"pos-serv-3"};
     GPS gps {"gps-dev-1"};
     SerialService ser_serv_1 {"ser-serv-1"};
     
     gps.setIOService(&ser_serv_1);
     
-    if (!(pos1.connect(&gps) && pos2.connect(&gps))) {
+    if (!(pos1.connect(&gps) && pos2.connect(&gps) && pos3.connect(&gps))) {
 	return -1;
     }
 
@@ -22,7 +23,8 @@ int main() {
     }
     
     if (!pcs_sched.add(&pos1, 100000U) ||
-	!pcs_sched.add(&pos2, 100000U)) {
+	!pcs_sched.add(&pos2, 100000U) ||
+	!pcs_sched.add(&pos3, 100000U))	{
 	return -1;
     }
 
@@ -36,7 +38,7 @@ int main() {
     if (!dev_sched.run())  { return -1; }
     if (!pcs_sched.run()) { return -1; }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
     if (!pcs_sched.terminate()) { return -1; }
     if (!dev_sched.terminate())  { return -1; }

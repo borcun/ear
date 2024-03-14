@@ -30,15 +30,7 @@ namespace FACE {
 	    explicit Gateway(const std::string &name);
 	    /// destructor
 	    virtual ~Gateway();
-	    /// function that gets gateway name
-	    /// @return gateway name
-	    std::string getName() const;
-	    /// function that opens gateway
-	    /// @return true if gateway is opened, otherwise false
-	    bool open();
-	    /// function that closes gateway already opened
-	    void close();
-	    
+
 	private:
 	    /// gateway name
 	    std::string m_name;
@@ -49,6 +41,11 @@ namespace FACE {
 	    /// gateway state
 	    GatewayState m_state = GATEWAY_CLOSED;
 
+	    /// function that opens gateway
+	    /// @return true if gateway is opened, otherwise false
+	    bool open();
+	    /// function that closes gateway already opened
+	    void close();
 	    /// function that subscribes the gateway to source gateway
 	    /// @param [in] source - source gateway
 	    /// @return true if the gateway is subscribed, otherwise false

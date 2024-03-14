@@ -21,8 +21,8 @@ int32_t SerialService::read(uint8_t *buf, const uint32_t size) {
     memset(buf, 0x00, size);
     memcpy(buf, &pos, sizeof(pos));
 
-    pos.lon += 2.1f;
-    pos.lat += 3.8f;
+    pos.lon += 1.0f;
+    pos.lat += 4.0f;
     
     return sizeof(pos);
 }

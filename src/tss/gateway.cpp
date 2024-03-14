@@ -8,10 +8,6 @@ FACE::TSS::Gateway::~Gateway() {
 
 }
 
-std::string FACE::TSS::Gateway::getName() const {
-    return m_name;
-}
-
 bool FACE::TSS::Gateway::open() {
     int ec = 0;
     std::string pub_url = std::string("ipc:///tmp/") + m_name;
@@ -49,7 +45,7 @@ void FACE::TSS::Gateway::close() {
 
 bool FACE::TSS::Gateway::subscribe(const Gateway *source) {
     int ec = 0;
-    std::string sub_url = std::string("ipc:///tmp/") + source->getName();
+    std::string sub_url = std::string("ipc:///tmp/") + source->m_name;
         
     if (GATEWAY_OPENED != m_state) {
 	spdlog::error("could not subscribe socket not opened to the source");

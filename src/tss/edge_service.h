@@ -36,7 +36,7 @@ namespace FACE {
 
 	private:
 	    /// edge service gateway
-	    TSS::Gateway *m_gateway = nullptr;
+	    Gateway *m_gateway = nullptr;
 	};
     }
 }
