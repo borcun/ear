@@ -1,6 +1,6 @@
 /**
  * @file edge_service.h
- * @brief
+ * @brief class that constructs on gateway, provides sending/receiving message
  * @author boo
  */
 

@@ -1,6 +1,6 @@
 /**
  * @file gateway.h
- * @brief
+ * @brief class that provides communication infrastructure
  * @author boo
  */
 
