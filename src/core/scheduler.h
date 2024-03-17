@@ -26,7 +26,8 @@ namespace FACE {
 	/// @pre the scheduler must be initialized firstly
 	/// @return true if the scheduler runs, otherwise false
 	bool start();
-	///
+	/// function that restarts the scheduling
+	/// @return true if scheduling is restarted, otherwise false
 	bool restart();
 	/// function that terminates the scheduler
 	/// @pre the scheduler must be run earlier

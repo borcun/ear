@@ -8,10 +8,6 @@ FACE::Service::~Service() {
 
 }
 
-uint32_t FACE::Service::getId() const {
-  return m_id;
-}
-
-std::string FACE::Service::getName() const {
+const std::string &FACE::Service::getName() const {
   return m_name;
 }

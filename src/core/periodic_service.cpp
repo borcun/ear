@@ -1,18 +1,21 @@
-#include "periodic_task.h"
+#include "periodic_service.h"
 
-FACE::PeriodicTask::PeriodicTask(const std::string &name) : FACE::Task(name) {
+FACE::PeriodicService::PeriodicService(const std::string &name)
+    : FACE::Service(name),
+      FACE::Task()
+{
 }
 
-FACE::PeriodicTask::~PeriodicTask() {
+FACE::PeriodicService::~PeriodicService() {
 }
 
 
-bool FACE::PeriodicTask::restart() {
-    spdlog::warn("could not restart periodic task");
+bool FACE::PeriodicService::restart() {
+    spdlog::warn("could not restart periodic service");
     return false;
 }
 
-void FACE::PeriodicTask::execute() {
+void FACE::PeriodicService::execute() {
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
     std::chrono::microseconds elapsed;
@@ -27,15 +30,17 @@ void FACE::PeriodicTask::execute() {
 	
 	elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
 
-	// sleep time remain after task execution
+	// sleep time remain after service execution
 	if (elapsed <= m_period) {
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - elapsed));
 	}
 	else {
-	    spdlog::warn("deadline missed [{}]", m_name);
+	    spdlog::warn("deadline missed for service {}", m_name);
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - (elapsed % m_period)));
 	}
     } while (m_is_running);
+
+    spdlog::debug("{} execution done", m_name);
 
     return;
 }

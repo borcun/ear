@@ -1,6 +1,10 @@
 #include "gps.h"
 
-GPS::GPS(const std::string &name) : FACE::PSSS::PlatformService(name) {
+GPS::GPS(const std::string &name)
+    : FACE::PSSS::PlatformService(name),
+      FACE::APeriodicTask()
+{
+
 }
 
 GPS::~GPS() {

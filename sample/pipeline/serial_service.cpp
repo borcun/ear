@@ -1,6 +1,6 @@
 #include "serial_service.h"
 
-SerialService::SerialService(const std::string &name) : IOService(name) {
+SerialService::SerialService() {
     m_model = "Serial Model";
     m_version = "1.0";
 }

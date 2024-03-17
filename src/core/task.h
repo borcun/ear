@@ -10,7 +10,7 @@
 #include <thread>
 #include <pthread.h>
 #include <chrono>
-#include "service_util.h"
+#include "core_util.h"
 
 namespace FACE {
     /// task interface
@@ -19,19 +19,18 @@ namespace FACE {
 	    
     public:
 	/// constructor
-	/// @param [in] name - task name
-	Task(const std::string &name);
+	Task();
 	/// destructor
 	virtual ~Task();
-	/// function that gets task name
-	/// @return task name
-	const std::string &getName() const;
+	/// function that gets task id
+	/// @return task id
+	uint32_t getId() const;
 	/// function that is supposed to be implemented by derived classes
 	virtual void process() = 0;
 
     protected:
-	/// task name
-	std::string m_name;
+	/// unique task id
+	uint32_t m_id;
 	/// task for parellel execution of service function
 	std::thread m_task;
 	/// mutex used to give start to the task

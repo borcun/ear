@@ -13,7 +13,7 @@
 
 class SerialService : public FACE::IOSS::IOService {
  public:
-  explicit SerialService(const std::string &name);
+  SerialService();
   virtual ~SerialService();
 
   virtual int32_t open();

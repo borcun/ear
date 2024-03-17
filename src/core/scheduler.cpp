@@ -34,27 +34,27 @@ bool FACE::Scheduler::start() {
     
     for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
 	if (!(*it)->start()) {
-	    spdlog::critical("could not start task {}", (*it)->getName());
+	    spdlog::critical("could not start task {}", (*it)->getId());
 	}
     }
 
-    m_state = SS_RUN;    
+    m_state = SS_RUN;
     return true;
 }
 
 bool FACE::Scheduler::restart() {
-    if (0 == m_tasks.size()) {
+    // restarting needs the task already started
+    if (SS_RUN != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not restart the scheduler");
 	return false;
     }
     
     for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
 	if (!(*it)->restart()) {
-	    spdlog::critical("could not restart task {}", (*it)->getName());
+	    spdlog::critical("could not restart task {}", (*it)->getId());
 	}
     }
 
-    m_state = SS_RUN;    
     return true;
 }
 
@@ -66,7 +66,10 @@ bool FACE::Scheduler::stop() {
     
     for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
 	if (!(*it)->stop()) {
-	    spdlog::critical("could not stop task {}", (*it)->getName());
+	    spdlog::critical("could not stop task {}", (*it)->getId());
+	}
+	else {
+	    spdlog::info("task {} stopped", (*it)->getId());
 	}
     }
 

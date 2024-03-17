@@ -1,13 +1,15 @@
 #include "task.h"
 
-FACE::Task::Task(const std::string &name)
-    : m_name(name),
-      m_is_running(false),
+static uint32_t id = 0;
+
+FACE::Task::Task()
+    : m_is_running(false),
       m_period(std::chrono::microseconds(TASK_MIN_PERIOD))
 {
     pthread_mutex_init(&m_mutex, NULL);
     pthread_cond_init(&m_cond_var, NULL);
-  
+
+    m_id = ++id;
     m_task = std::thread([=] { this->execute(); });
 }
 
@@ -16,8 +18,8 @@ FACE::Task::~Task() {
     pthread_mutex_destroy(&m_mutex);
 }
 
-const std::string &FACE::Task::getName() const {
-    return m_name;
+uint32_t FACE::Task::getId() const {
+    return m_id;
 }
 
 void FACE::Task::setPeriod(const std::chrono::microseconds &period) {
@@ -27,7 +29,7 @@ void FACE::Task::setPeriod(const std::chrono::microseconds &period) {
 
 bool FACE::Task::start() {
     if (m_is_running) {
-	spdlog::error("task already running [{}]", m_name);
+	spdlog::error("task {} already running", id);
 	return false;
     }
 
@@ -44,9 +46,12 @@ bool FACE::Task::restart() {
 
 bool FACE::Task::stop() {
     m_is_running = false;
+    spdlog::debug("running flag down for task {}", m_id);
     // if waiting task existing
     pthread_cond_signal(&m_cond_var);
+    spdlog::debug("condition signal triggered for task {}", m_id);
     m_task.join();
-
+    spdlog::debug("task {} joined", m_id);
+    
     return true;
 }

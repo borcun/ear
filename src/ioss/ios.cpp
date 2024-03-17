@@ -1,10 +1,7 @@
 #include "ios.h"
 
-/// current id value added to base service id for each io service
-static uint16_t curr_id = 0;
+FACE::IOSS::IOService::IOService() {
 
-FACE::IOSS::IOService::IOService(const std::string &name) : Service(name) {
-    m_id = IOS_BASE_ID + curr_id++;
 }
 
 FACE::IOSS::IOService::~IOService() {

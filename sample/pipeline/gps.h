@@ -1,13 +1,19 @@
 #ifndef GPS_H
 #define GPS_H
 
-#include "ps.h"
+#include "ios.h"
+#include "periodic_service.h"
+#include "node.h"
 
-class GPS : public FACE::PSSS::PlatformService {
+class GPS : public FACE::PeriodicService, public FACE::Node {
  public:
-    explicit GPS(const std::string &name);
+    GPS(const std::string &name);
     virtual ~GPS();
+    void setIOService(FACE::IOSS::IOService *ios);
     virtual void process() override;
+
+private:
+    FACE::IOSS::IOService *m_ios;
 };
 
 #endif
