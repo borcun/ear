@@ -19,36 +19,45 @@ namespace FACE {
 	    
     public:
 	/// constructor
-	Task();
+	/// @param [in] name - task name
+	Task(const std::string &name);
 	/// destructor
 	virtual ~Task();
-	
+	/// function that gets task name
+	/// @return task name
+	const std::string &getName() const;
 	/// function that is supposed to be implemented by derived classes
 	virtual void process() = 0;
 
-    private:
+    protected:
+	/// task name
+	std::string m_name;
 	/// task for parellel execution of service function
 	std::thread m_task;
 	/// mutex used to give start to the task
 	pthread_mutex_t m_mutex;
-	/// start flag indicating state of the task
-	bool m_is_started;
+	/// start condition flag for the thread
+	pthread_cond_t m_cond_var;
 	/// task period in usec
 	std::chrono::microseconds m_period;
-
+	/// run flag indicating state of the task
+	bool m_is_running;
+	
 	/// function that sets period of the service
 	/// @param [in] period - service period in usec
 	void setPeriod(const std::chrono::microseconds &period);
 	/// function that starts task component service
-	/// @param [in] cond_var - condition variable to be passed to execute
 	/// @return true if service is started, otherwise false
-	bool start(pthread_cond_t *cond_var);
+	bool start();
+	/// function that restarts task component service
+	/// @return true if service is started, otherwise false
+	virtual bool restart();
 	/// function that stops task component service
 	/// @return true if service is stopped, otherwise false
 	bool stop();	    
+
 	/// function that executes service, and is scheduled by service task
-	/// @param [in] cond_var - condition variable for synchronization by scheduler
-	void execute(pthread_cond_t *cond_var);
+	virtual void execute() = 0;
     };
 }
 

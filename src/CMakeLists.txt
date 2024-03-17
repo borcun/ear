@@ -6,6 +6,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(SRC
  core/service.cpp
  core/task.cpp
+ core/periodic_task.cpp
+ core/aperiodic_task.cpp
  core/scheduler.cpp
  ioss/ios.cpp
  psss/ps.cpp

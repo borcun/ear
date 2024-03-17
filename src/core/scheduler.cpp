@@ -2,11 +2,10 @@
 
 FACE::Scheduler::Scheduler() {
     m_state = SS_IDLE;
-    pthread_cond_init(&m_cond_var, NULL);
 }
 
 FACE::Scheduler::~Scheduler() {
-    pthread_cond_destroy(&m_cond_var);
+
 }
 
 bool FACE::Scheduler::add(Task *task, const uint32_t &period) {
@@ -27,39 +26,39 @@ bool FACE::Scheduler::add(Task *task, const uint32_t &period) {
     return true;
 }
 
-bool FACE::Scheduler::init() {
+bool FACE::Scheduler::start() {
     if (SS_IDLE != m_state || 0 == m_tasks.size()) {
-	spdlog::error("could not initialize the scheduler");
+	spdlog::error("could not run the scheduler");
 	return false;
     }
     
     for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
-	if (!(*it)->start(&m_cond_var)) {
-	    spdlog::critical("could not start task");
-	}
-	else {
-	    /// @todo wait some because of duration of thread create, solve it!!!
-	    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	if (!(*it)->start()) {
+	    spdlog::critical("could not start task {}", (*it)->getName());
 	}
     }
 
-    m_state = SS_INIT;    
+    m_state = SS_RUN;    
     return true;
 }
 
-bool FACE::Scheduler::run() {
-    if (SS_INIT != m_state) {
-	spdlog::error("could not run the scheduler");
+bool FACE::Scheduler::restart() {
+    if (0 == m_tasks.size()) {
+	spdlog::error("could not restart the scheduler");
 	return false;
     }
+    
+    for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
+	if (!(*it)->restart()) {
+	    spdlog::critical("could not restart task {}", (*it)->getName());
+	}
+    }
 
-    pthread_cond_broadcast(&m_cond_var);
-    m_state = SS_RUN;
-
+    m_state = SS_RUN;    
     return true;
 }
 
-bool FACE::Scheduler::terminate() {
+bool FACE::Scheduler::stop() {
     if (SS_RUN != m_state) {
 	spdlog::error("could not terminate the scheduler");
 	return false;
@@ -67,7 +66,7 @@ bool FACE::Scheduler::terminate() {
     
     for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
 	if (!(*it)->stop()) {
-	    spdlog::critical("could not stop task");
+	    spdlog::critical("could not stop task {}", (*it)->getName());
 	}
     }
 

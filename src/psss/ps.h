@@ -9,12 +9,12 @@
 #define PLATFORM_SERVICE_H
 
 #include "edge_service.h"
-#include "task.h"
+#include "aperiodic_task.h"
 #include "ios.h"
 
 namespace FACE {
     namespace PSSS {
-	class PlatformService : public TSS::EdgeService, public Task {
+	class PlatformService : public TSS::EdgeService, public APeriodicTask {
 	public:
 	    /// constructor
 	    /// @param [in] name - platform service name
@@ -26,7 +26,7 @@ namespace FACE {
 	    void setIOService(IOSS::IOService *ioservice);
 	    /// function that is supposed to be implemented by derived classes
 	    /// @remark its execution period is defined with setPeriod function
-	    virtual void service();
+	    virtual void process();
 	    
 	protected:
 	    /// io service
