@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.2)
-project(fall-detection-sim)
-set(CMAKE_CXX_STANDARD 11)
-include_directories(../../ext/nanogui/include ../../ext/nanogui/ext/eigen ../../ext/nanogui/ext/glfw/include ../../ext/nanogui/ext/nanovg/src)
-link_directories(../../ext/nanogui/build)
-link_libraries(nanogui)
-add_executable(${PROJECT_NAME} fall_det.cpp main.cpp)

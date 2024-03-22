@@ -7,6 +7,3 @@
 [submodule "ext/nng"]
 	path = ext/nng
 	url = https://github.com/nanomsg/nng.git
-[submodule "ext/nanogui"]
-	path = ext/nanogui
-	url = https://github.com/wjakob/nanogui.git
