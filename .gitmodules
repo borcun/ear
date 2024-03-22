@@ -1,12 +1,6 @@
 [submodule "ext/gtest"]
 	path = ext/gtest
 	url = https://github.com/google/googletest.git
-[submodule "ext/lwlog"]
-	path = ext/lwlog
-	url = https://github.com/Akagi201/lwlog.git
-[submodule "ext/libzmq"]
-	path = ext/libzmq
-	url = https://github.com/zeromq/libzmq.git
 [submodule "ext/spdlog"]
 	path = ext/spdlog
 	url = https://github.com/gabime/spdlog.git
