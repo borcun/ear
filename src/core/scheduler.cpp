@@ -14,13 +14,8 @@ bool EAR::Scheduler::add(Task *task, const uint32_t &period) {
 	return false;
     }
 
-    auto it = m_tasks.insert(task);
-
-    if (m_tasks.end() == it.first) {
-	spdlog::error("could not add task already in the list");
-	return false;
-    }
-
+    /// @todo check whether same element is added twice
+    m_tasks.push_back(task);
     task->setPeriod(std::chrono::microseconds(period));
     
     return true;
@@ -31,10 +26,10 @@ bool EAR::Scheduler::start() {
 	spdlog::error("could not run the scheduler");
 	return false;
     }
-    
-    for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
-	if (!(*it)->start()) {
-	    spdlog::critical("could not start task {}", (*it)->getId());
+
+    for (auto &task : m_tasks) {
+	if (!task->start()) {
+	    spdlog::critical("could not start task {}", task->getId());
 	}
     }
 
@@ -49,9 +44,9 @@ bool EAR::Scheduler::restart() {
 	return false;
     }
     
-    for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
-	if (!(*it)->restart()) {
-	    spdlog::critical("could not restart task {}", (*it)->getId());
+    for (auto &task : m_tasks) {
+	if (!task->restart()) {
+	    spdlog::critical("could not restart task {}", task->getId());
 	}
     }
 
@@ -64,12 +59,12 @@ bool EAR::Scheduler::stop() {
 	return false;
     }
     
-    for (auto it = m_tasks.begin(); it != m_tasks.end(); ++it) {
-	if (!(*it)->stop()) {
-	    spdlog::critical("could not stop task {}", (*it)->getId());
+    for (auto &task : m_tasks) {
+	if (!task->stop()) {
+	    spdlog::critical("could not stop task {}", task->getId());
 	}
 	else {
-	    spdlog::info("task {} stopped", (*it)->getId());
+	    spdlog::info("task {} stopped", task->getId());
 	}
     }
 

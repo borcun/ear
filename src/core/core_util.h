@@ -11,4 +11,7 @@
 /// minimum period of task in usec
 #define TASK_MIN_PERIOD (100000U)
 
+/// pubsub node location
+#define NODE_DIR ((const char *) "ipc:///tmp/")
+
 #endif

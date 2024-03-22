@@ -9,6 +9,8 @@ set(SRC
  core/aperiodic_task.cpp
  core/scheduler.cpp
  msg/messenger.cpp
+ msg/publisher.cpp
+ msg/subscriber.cpp 
  io/io_device.cpp
 )
 

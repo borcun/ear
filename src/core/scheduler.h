@@ -1,7 +1,7 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
-#include <set>
+#include <list>
 #include "task.h"
 
 namespace EAR {
@@ -36,7 +36,7 @@ namespace EAR {
 	    
     private:
 	/// tasks
-	std::set<Task *> m_tasks;
+	std::list<Task *> m_tasks;
 	/// state for state machine of the scheduler
 	SchedulerState m_state;
     };
