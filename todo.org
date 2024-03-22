@@ -1,5 +1,5 @@
 * TASKS
-** TODO get proforma from companies for boards, sensors/actuators, lorawan antenna and gateways
+** TODO get proforma from companies for boards, sensors/actuators, lorawan antenna and gateways [yusuf] :assigned:
 ** DONE example should be completed for io service
 ** CANCELED integrate zeromq for tss, and as submodule for the project
 *** nng is used instead
