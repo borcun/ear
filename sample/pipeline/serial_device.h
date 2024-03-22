@@ -1,20 +1,20 @@
 /**
- * @file serial_service.h
+ * @file serial_device.h
  * @brief
  * @author boo
  * @copyright
  */
 
-#ifndef SERIAL_SERVICE_H
-#define SERIAL_SERVICE_H
+#ifndef SERIAL_DEVICE_H
+#define SERIAL_DEVICE_H
 
 #include "position.h"
-#include "ios.h"
+#include "io_device.h"
 
-class SerialService : public FACE::IOSS::IOService {
+class SerialDevice : public EAR::IODevice {
  public:
-  SerialService();
-  virtual ~SerialService();
+  SerialDevice();
+  virtual ~SerialDevice();
 
   virtual int32_t open();
   virtual int32_t close();

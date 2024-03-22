@@ -7,12 +7,9 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <thread>
-#include <pthread.h>
-#include <chrono>
 #include "core_util.h"
 
-namespace FACE {
+namespace EAR {
     /// task interface
     class Task {
 	friend class Scheduler;
@@ -31,16 +28,14 @@ namespace FACE {
     protected:
 	/// unique task id
 	uint32_t m_id;
-	/// task for parellel execution of service function
-	std::thread m_task;
-	/// mutex used to give start to the task
-	pthread_mutex_t m_mutex;
-	/// start condition flag for the thread
-	pthread_cond_t m_cond_var;
 	/// task period in usec
 	std::chrono::microseconds m_period;
 	/// run flag indicating state of the task
 	bool m_is_running;
+	/// mutex used to give start to the task
+	pthread_mutex_t m_mutex;
+	/// start condition flag for the thread
+	pthread_cond_t m_cond_var;
 	
 	/// function that sets period of the service
 	/// @param [in] period - service period in usec
@@ -57,6 +52,15 @@ namespace FACE {
 
 	/// function that executes service, and is scheduled by service task
 	virtual void execute() = 0;
+
+    private:
+	/// task for parellel execution of service function
+	std::thread m_task;
+
+	// copyable and movable task prevented
+	Task(const Task &task) = delete;
+	Task(const Task &&task) = delete;
+	Task &operator=(const Task &task) = delete;
     };
 }
 

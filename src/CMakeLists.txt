@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.2)
-project(face VERSION 0.0.0 DESCRIPTION "face reference library")
+project(ear VERSION 0.0.0 DESCRIPTION "ear library")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 set(SRC
- core/service.cpp
  core/task.cpp
- core/periodic_service.cpp
- core/aperiodic_service.cpp
+ core/periodic_task.cpp
+ core/aperiodic_task.cpp
  core/scheduler.cpp
- core/node.cpp
- ioss/ios.cpp
+ msg/messenger.cpp
+ io/io_device.cpp
 )
 
 include_directories(../ext/spdlog/include ../ext/nng/include core ioss)

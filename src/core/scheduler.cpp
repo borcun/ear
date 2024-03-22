@@ -1,16 +1,16 @@
 #include "scheduler.h"
 
-FACE::Scheduler::Scheduler() {
-    m_state = SS_IDLE;
+EAR::Scheduler::Scheduler() {
+    m_state = SCHEDULER_IDLE;
 }
 
-FACE::Scheduler::~Scheduler() {
+EAR::Scheduler::~Scheduler() {
 
 }
 
-bool FACE::Scheduler::add(Task *task, const uint32_t &period) {
-    if (nullptr == task || SS_IDLE != m_state || period < TASK_MIN_PERIOD) {
-	spdlog::error("could not add task");
+bool EAR::Scheduler::add(Task *task, const uint32_t &period) {
+    if (nullptr == task || SCHEDULER_IDLE != m_state || period < TASK_MIN_PERIOD) {
+	spdlog::error("could not add task {}", (nullptr != task ? task->getId() : -1));
 	return false;
     }
 
@@ -26,8 +26,8 @@ bool FACE::Scheduler::add(Task *task, const uint32_t &period) {
     return true;
 }
 
-bool FACE::Scheduler::start() {
-    if (SS_IDLE != m_state || 0 == m_tasks.size()) {
+bool EAR::Scheduler::start() {
+    if (SCHEDULER_IDLE != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not run the scheduler");
 	return false;
     }
@@ -38,13 +38,13 @@ bool FACE::Scheduler::start() {
 	}
     }
 
-    m_state = SS_RUN;
+    m_state = SCHEDULER_RUN;
     return true;
 }
 
-bool FACE::Scheduler::restart() {
+bool EAR::Scheduler::restart() {
     // restarting needs the task already started
-    if (SS_RUN != m_state || 0 == m_tasks.size()) {
+    if (SCHEDULER_RUN != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not restart the scheduler");
 	return false;
     }
@@ -58,8 +58,8 @@ bool FACE::Scheduler::restart() {
     return true;
 }
 
-bool FACE::Scheduler::stop() {
-    if (SS_RUN != m_state) {
+bool EAR::Scheduler::stop() {
+    if (SCHEDULER_RUN != m_state) {
 	spdlog::error("could not terminate the scheduler");
 	return false;
     }
@@ -73,6 +73,6 @@ bool FACE::Scheduler::stop() {
 	}
     }
 
-    m_state = SS_IDLE;
+    m_state = SCHEDULER_IDLE;
     return true;
 }

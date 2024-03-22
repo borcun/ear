@@ -1,19 +1,18 @@
 #ifndef GPS_H
 #define GPS_H
 
-#include "ios.h"
-#include "periodic_service.h"
-#include "node.h"
+#include "io_device.h"
+#include "periodic_task.h"
 
-class GPS : public FACE::PeriodicService, public FACE::Node {
+class GPS : public EAR::PeriodicTask {
  public:
-    GPS(const std::string &name);
+    GPS();
     virtual ~GPS();
-    void setIOService(FACE::IOSS::IOService *ios);
+    void setIODevice(EAR::IODevice *iodev);
     virtual void process() override;
 
 private:
-    FACE::IOSS::IOService *m_ios;
+    EAR::IODevice *m_iodev;
 };
 
 #endif

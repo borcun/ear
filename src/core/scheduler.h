@@ -4,11 +4,11 @@
 #include <set>
 #include "task.h"
 
-namespace FACE {
+namespace EAR {
     /// scheduler state
     enum SchedulerState {
-	SS_IDLE,
-	SS_RUN
+	SCHEDULER_IDLE,
+	SCHEDULER_RUN
     };
 	
     class Scheduler {
