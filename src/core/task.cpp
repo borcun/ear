@@ -1,18 +1,16 @@
 #include "task.h"
-#include <sstream>
+
+static uint32_t uuid = 0;
 
 EAR::Task::Task()
     : m_is_running(false),
       m_period(std::chrono::microseconds(TASK_MIN_PERIOD))
 {
+    m_id = ++uuid;
+
     pthread_mutex_init(&m_mutex, NULL);
     pthread_cond_init(&m_cond_var, NULL);
-
     m_task = std::thread([=] { this->execute(); });
-
-    std::stringstream ss;
-    ss << m_task.get_id();
-    m_id = (uint32_t) std::stoi(ss.str());
 }
 
 EAR::Task::~Task() {

@@ -26,10 +26,6 @@ namespace EAR {
 	virtual void process() = 0;
 
     protected:
-	/// task for parellel execution of task function
-	std::thread m_task;
-	/// task id
-	uint32_t m_id;
 	/// task period in usec
 	std::chrono::microseconds m_period;
 	/// task start offset in usec
@@ -60,6 +56,11 @@ namespace EAR {
 	virtual void execute() = 0;
 
     private:
+	/// task for parellel execution of task function
+	std::thread m_task;
+	/// task id
+	uint32_t m_id;
+
 	// copyable and movable task prevented
 	Task(const Task &task) = delete;
 	Task(const Task &&task) = delete;
