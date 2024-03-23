@@ -8,15 +8,16 @@ EAR::Scheduler::~Scheduler() {
 
 }
 
-bool EAR::Scheduler::add(Task *task, const uint32_t &period) {
+bool EAR::Scheduler::add(Task *task, const uint32_t period, const uint32_t offset) {
     if (nullptr == task || SCHEDULER_IDLE != m_state || period < TASK_MIN_PERIOD) {
 	spdlog::error("could not add task {}", (nullptr != task ? task->getId() : -1));
 	return false;
     }
 
     /// @todo check whether same element is added twice
-    m_tasks.push_back(task);
     task->setPeriod(std::chrono::microseconds(period));
+    task->setOffset(std::chrono::microseconds(offset));
+    m_tasks.push_back(task);
     
     return true;
 }

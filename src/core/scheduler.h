@@ -19,9 +19,10 @@ namespace EAR {
 	virtual ~Scheduler();
 	/// function that adds a task into the scheduler
 	/// @param [in] task - task pointer
-	/// @param [in] period - task period
+	/// @param [in] period - task period in usec
+	/// @param [in] offset - task start offset in usec
 	/// @return true if the task is added, otherwise false
-	bool add(Task *task, const uint32_t &period = TASK_MIN_PERIOD);
+	bool add(Task *task, const uint32_t period, const uint32_t offset);
 	/// function that runs the scheduler
 	/// @pre the scheduler must be initialized firstly
 	/// @return true if the scheduler runs, otherwise false

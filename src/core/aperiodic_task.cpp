@@ -14,7 +14,8 @@ void EAR::APeriodicTask::execute() {
     
     // wait order from initial start or restart command 
     pthread_cond_wait(&m_cond_var, &m_mutex);
-
+    std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
+    
     do {
 	begin = std::chrono::steady_clock::now();
 	process();
@@ -33,6 +34,7 @@ void EAR::APeriodicTask::execute() {
 
 	// wait order from start for each iteration
 	pthread_cond_wait(&m_cond_var, &m_mutex);
+	std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     } while (m_is_running);
 
     spdlog::debug("task {} execution done", m_id);

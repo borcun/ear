@@ -20,6 +20,7 @@ void EAR::PeriodicTask::execute() {
 
     // wait order from start
     pthread_cond_wait(&m_cond_var, &m_mutex);
+    std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     
     do {
 	begin = std::chrono::steady_clock::now();

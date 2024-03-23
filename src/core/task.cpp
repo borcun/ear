@@ -22,8 +22,13 @@ uint32_t EAR::Task::getId() const {
     return m_id;
 }
 
-void EAR::Task::setPeriod(const std::chrono::microseconds &period) {
+void EAR::Task::setPeriod(const std::chrono::microseconds period) {
     m_period = std::chrono::microseconds(period);
+    return;
+}
+
+void EAR::Task::setOffset(const std::chrono::microseconds offset) {
+    m_offset = std::chrono::microseconds(offset);
     return;
 }
 
