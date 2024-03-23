@@ -28,6 +28,8 @@ namespace EAR {
     protected:
 	/// task for parellel execution of task function
 	std::thread m_task;
+	/// task id
+	uint32_t m_id;
 	/// task period in usec
 	std::chrono::microseconds m_period;
 	/// task start offset in usec

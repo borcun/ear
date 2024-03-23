@@ -9,6 +9,10 @@ EAR::Task::Task()
     pthread_cond_init(&m_cond_var, NULL);
 
     m_task = std::thread([=] { this->execute(); });
+
+    std::stringstream ss;
+    ss << m_task.get_id();
+    m_id = (uint32_t) std::stoi(ss.str());
 }
 
 EAR::Task::~Task() {
@@ -19,9 +23,7 @@ EAR::Task::~Task() {
 }
 
 uint32_t EAR::Task::getId() const {
-    std::stringstream ss;
-    ss << std::this_thread::get_id();
-    return (uint32_t) std::stoi(ss.str());
+    return m_id;
 }
 
 void EAR::Task::setPeriod(const std::chrono::microseconds period) {
