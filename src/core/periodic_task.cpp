@@ -34,12 +34,10 @@ void EAR::PeriodicTask::execute() {
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - elapsed));
 	}
 	else {
-	    spdlog::warn("deadline missed for task {}", m_id);
+	    spdlog::warn("deadline missed for task {}", getId());
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - (elapsed % m_period)));
 	}
     } while (m_is_running);
-
-    spdlog::debug("task {} execution done", m_id);
 
     return;
 }

@@ -28,7 +28,7 @@ void EAR::APeriodicTask::execute() {
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - elapsed));
 	}
 	else {
-	    spdlog::warn("deadline missed for task {}", m_id);
+	    spdlog::warn("deadline missed for task {}", getId());
 	    std::this_thread::sleep_for(std::chrono::microseconds(m_period - (elapsed % m_period)));
 	}
 
@@ -36,8 +36,6 @@ void EAR::APeriodicTask::execute() {
 	pthread_cond_wait(&m_cond_var, &m_mutex);
 	std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     } while (m_is_running);
-
-    spdlog::debug("task {} execution done", m_id);
     
     return;
 }

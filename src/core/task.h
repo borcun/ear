@@ -21,13 +21,13 @@ namespace EAR {
 	virtual ~Task();
 	/// function that gets task id
 	/// @return task id
-	uint32_t getId() const;
+        uint32_t getId() const;
 	/// function that is supposed to be implemented by derived classes
 	virtual void process() = 0;
 
     protected:
-	/// unique task id
-	uint32_t m_id;
+	/// task for parellel execution of task function
+	std::thread m_task;
 	/// task period in usec
 	std::chrono::microseconds m_period;
 	/// task start offset in usec
@@ -58,9 +58,6 @@ namespace EAR {
 	virtual void execute() = 0;
 
     private:
-	/// task for parellel execution of task function
-	std::thread m_task;
-
 	// copyable and movable task prevented
 	Task(const Task &task) = delete;
 	Task(const Task &&task) = delete;

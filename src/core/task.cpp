@@ -1,6 +1,5 @@
 #include "task.h"
-
-static uint32_t uuid = 0;
+#include <sstream>
 
 EAR::Task::Task()
     : m_is_running(false),
@@ -9,17 +8,20 @@ EAR::Task::Task()
     pthread_mutex_init(&m_mutex, NULL);
     pthread_cond_init(&m_cond_var, NULL);
 
-    m_id = ++uuid;
     m_task = std::thread([=] { this->execute(); });
 }
 
 EAR::Task::~Task() {
+    m_task.join();
+
     pthread_cond_destroy(&m_cond_var);
     pthread_mutex_destroy(&m_mutex);
 }
 
 uint32_t EAR::Task::getId() const {
-    return m_id;
+    std::stringstream ss;
+    ss << std::this_thread::get_id();
+    return (uint32_t) std::stoi(ss.str());
 }
 
 void EAR::Task::setPeriod(const std::chrono::microseconds period) {
@@ -34,7 +36,7 @@ void EAR::Task::setOffset(const std::chrono::microseconds offset) {
 
 bool EAR::Task::start() {
     if (m_is_running) {
-	spdlog::error("task {} already running", m_id);
+	spdlog::error("task {} already running", getId());
 	return false;
     }
 
@@ -51,12 +53,9 @@ bool EAR::Task::restart() {
 
 bool EAR::Task::stop() {
     m_is_running = false;
-    spdlog::debug("running flag down for task {}", m_id);
+    spdlog::debug("running flag down for task {}", getId());
     // if waiting task existing
     pthread_cond_signal(&m_cond_var);
-    spdlog::debug("condition signal triggered for task {}", m_id);
-    m_task.join();
-    spdlog::debug("task {} joined", m_id);
     
     return true;
 }
