@@ -1,28 +1,33 @@
 /**
  * @file task.h
- * @brief
+ * @brief task interface class
  * @author boo
  */
 
 #ifndef TASK_H
 #define TASK_H
 
-#include "core_util.h"
+#include <thread>
+#include <pthread.h>
+#include <chrono>
+#include "spdlog/spdlog.h"
+#include "util.h"
 
 namespace EAR {
-    /// task interface
+    /// task interface class
     class Task {
+	// scheduler uses task instances
 	friend class Scheduler;
 	    
     public:
-	/// constructor
+	/// default constructor
 	Task();
 	/// destructor
 	virtual ~Task();
 	/// function that gets task id
 	/// @return task id
         uint32_t getId() const;
-	/// function that is supposed to be implemented by derived classes
+	/// function that is supposed to be implemented by task user
 	virtual void process() = 0;
 
     protected:
@@ -43,20 +48,21 @@ namespace EAR {
 	/// function that sets offset of the task
 	/// @param [in] offset - offset to sleep before execution
 	void setOffset(const std::chrono::microseconds offset);	
-	/// function that starts task component task
+	/// function that starts task
 	/// @return true if task is started, otherwise false
 	bool start();
-	/// function that restarts task component task
+	/// function that restarts task
 	/// @return true if task is started, otherwise false
 	virtual bool restart();
-	/// function that stops task component task
+	/// function that stops task
 	/// @return true if task is stopped, otherwise false
 	bool stop();
-	/// function that is execution body of the task 
+	/// function that is execution body of the task, specific to task algorithm
+	/// @remark it is supposed to be implemented by class based on task derived
 	virtual void execute() = 0;
 
     private:
-	/// task for parellel execution of task function
+	/// task
 	std::thread m_task;
 	/// task id
 	uint32_t m_id;

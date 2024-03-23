@@ -7,7 +7,9 @@
 #ifndef MESSENGER_H
 #define MESSENGER_H
 
-#include "core_util.h"
+#include <string>
+#include "spdlog/spdlog.h"
+#include "util.h"
 
 namespace EAR {
     /// messenger state
@@ -20,7 +22,7 @@ namespace EAR {
     class Messenger {	    
     public:
 	/// constructor
-	/// @param [in] node - publisher node
+	/// @param [in] node - snode
 	Messenger(const std::string &node);
 	/// destructor
 	virtual ~Messenger();

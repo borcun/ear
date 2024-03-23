@@ -8,7 +8,8 @@
 #ifndef IO_DEVICE_H
 #define IO_DEVICE_H
 
-#include "core_util.h"
+#include <string>
+#include "util.h"
 
 namespace EAR {
     class IODevice {

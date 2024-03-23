@@ -10,16 +10,12 @@
 #include "task.h"
 
 namespace EAR {
-    /// task interface
     class APeriodicTask : public Task {
     public:
-	/// constructor
 	APeriodicTask();
-	/// destructor
 	virtual ~APeriodicTask();
 
     protected:
-	/// function that executes task, and is scheduled by task scheduler
 	virtual void execute();
     };
 }

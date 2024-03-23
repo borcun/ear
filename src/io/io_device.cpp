@@ -1,12 +1,8 @@
 #include "io_device.h"
 
-EAR::IODevice::IODevice() {
+EAR::IODevice::IODevice() { }
 
-}
-
-EAR::IODevice::~IODevice() {
-
-}
+EAR::IODevice::~IODevice() { }
 
 std::string EAR::IODevice::getModel() const {
     return m_model;

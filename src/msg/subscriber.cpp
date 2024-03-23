@@ -1,12 +1,8 @@
 #include "subscriber.h"
 
-EAR::Subscriber::Subscriber(const std::string &node) : EAR::Messenger(node) {
+EAR::Subscriber::Subscriber(const std::string &node) : EAR::Messenger(node) { }
 
-}
-
-EAR::Subscriber::~Subscriber() {
-
-}
+EAR::Subscriber::~Subscriber() { }
 
 bool EAR::Subscriber::open() {
     int ec = 0;
@@ -23,7 +19,7 @@ bool EAR::Subscriber::open() {
 }
 
 void EAR::Subscriber::close() {
-    // we do not care return value of close function
+    // do not care return value of close function
     nng_close(m_sub);    
     m_state = MESSENGER_CLOSED;
 
@@ -50,7 +46,7 @@ bool EAR::Subscriber::subscribe(const Messenger *pub, const int32_t timeout) {
 	m_state = MESSENGER_SUBSCRIBED;
     }
 
-    // if there is an error related to nng, close sockets opened
+    // if there is an error related to nng, close socket opened
     if (0 != ec) {
 	close();
     }

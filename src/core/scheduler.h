@@ -1,3 +1,9 @@
+/**
+ * @file scheduler.h
+ * @brief task scheduler class
+ * @author boo
+ */
+
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
@@ -13,7 +19,7 @@ namespace EAR {
 	
     class Scheduler {
     public:
-	/// constructor
+	/// default constructor
 	Scheduler();
 	/// destructor
 	virtual ~Scheduler();
@@ -36,7 +42,7 @@ namespace EAR {
 	bool stop();
 	    
     private:
-	/// tasks
+	/// task list
 	std::list<Task *> m_tasks;
 	/// state for state machine of the scheduler
 	SchedulerState m_state;

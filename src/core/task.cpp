@@ -53,8 +53,10 @@ bool EAR::Task::restart() {
 
 bool EAR::Task::stop() {
     m_is_running = false;
-    spdlog::debug("running flag down for task {}", getId());
-    // if waiting task existing
+    spdlog::debug("stop flag up for task {}", getId());
+
+    // running flag is set to false, but be sure about releasing
+    // if the task is blocked on condition variable
     pthread_cond_signal(&m_cond_var);
     
     return true;

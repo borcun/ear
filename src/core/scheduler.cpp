@@ -9,8 +9,13 @@ EAR::Scheduler::~Scheduler() {
 }
 
 bool EAR::Scheduler::add(Task *task, const uint32_t period, const uint32_t offset) {
-    if (nullptr == task || SCHEDULER_IDLE != m_state || period < TASK_MIN_PERIOD) {
-	spdlog::error("could not add task {}", (nullptr != task ? task->getId() : -1));
+    if (nullptr == task) {
+	spdlog::error("could not add null task");
+	return false;
+    }
+
+    if (SCHEDULER_IDLE != m_state || period < TASK_MIN_PERIOD) {
+	spdlog::error("could not add task {}", task->getId());
 	return false;
     }
 
@@ -39,7 +44,6 @@ bool EAR::Scheduler::start() {
 }
 
 bool EAR::Scheduler::restart() {
-    // restarting needs the task already started
     if (SCHEDULER_RUN != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not restart the scheduler");
 	return false;

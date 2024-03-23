@@ -14,7 +14,7 @@ set(SRC
  io/io_device.cpp
 )
 
-include_directories(../ext/spdlog/include ../ext/nng/include core ioss)
+include_directories(../ext/spdlog/include ../ext/nng/include util core io msg)
 link_directories(../ext/spdlog/build ../ext/nng/build)
 link_libraries(spdlog nng)
 

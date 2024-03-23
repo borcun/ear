@@ -1,12 +1,8 @@
 #include "publisher.h"
 
-EAR::Publisher::Publisher(const std::string &node) : EAR::Messenger(node) {
+EAR::Publisher::Publisher(const std::string &node) : EAR::Messenger(node) { }
 
-}
-
-EAR::Publisher::~Publisher() {
-
-}
+EAR::Publisher::~Publisher() { }
 
 bool EAR::Publisher::open() {
     int ec = 0;
@@ -34,7 +30,7 @@ bool EAR::Publisher::open() {
 }
 
 void EAR::Publisher::close() {
-    // we do not care return value of close function
+    // do not care return value of close function
     nng_close(m_pub);   
     m_state = MESSENGER_CLOSED;
 
