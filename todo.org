@@ -12,4 +12,4 @@
 ** CANCELED create TSFactory (factory pattern) for TS class
 ** DONE add tss & pcss to sample
 ** DONE plan project classes, then execute a sample
-** TODO discuss about putting offset to task
+** DONE discuss about putting offset to task
