@@ -1,3 +1,0 @@
- - Google Test Framework for Unit Test activities
- - cpp threading and sync internals for multi-threading
- - message queue or pipe for TSSS buffers
