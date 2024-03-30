@@ -1,9 +1,10 @@
 #include "gtest/gtest.h"
-#include "ios.h"
+#include "io.h"
 
-TEST(Service, CheckInitialValues) {
-    FACE::Service service1("Test Service");
-    FACE::Service service2("");
+TEST(Task, CheckInitialValues) {
+    EAR::PeriodicTask task1;
+    EAR::PeriodicTask task2;
+    EAR::APeriodicTask task3;
 		    
     EXPECT_EQ(service1.getName(), "Test Service");
     EXPECT_EQ(service1.getId(), 0);
