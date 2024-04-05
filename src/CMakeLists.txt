@@ -14,6 +14,9 @@ set(SRC
  io/io_device.cpp
 )
 
+add_subdirectory(../ext/spdlog ../ext/spdlog/build)
+add_subdirectory(../ext/nng ../ext/nng/build)
+
 include_directories(../ext/spdlog/include ../ext/nng/include util core io msg)
 link_directories(../ext/spdlog/build ../ext/nng/build)
 link_libraries(spdlog nng)

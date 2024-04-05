@@ -16,7 +16,7 @@ namespace EAR {
 	virtual ~APeriodicTask();
 
     protected:
-	virtual void execute();
+	virtual void execute() override;
     };
 }
 

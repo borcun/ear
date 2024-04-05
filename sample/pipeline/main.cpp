@@ -19,9 +19,9 @@ int main() {
     dcu.subscribe(&gps[0], 0U);
     dcu.subscribe(&gps[1], 0U);
     
-    if (!scheduler.add(&gps[0], 400000U) ||
-	!scheduler.add(&gps[1], 600000U) ||
-	!scheduler.add(&dcu, 100000U)) {
+    if (!scheduler.add(&gps[0], 400000U, 0U) ||
+	!scheduler.add(&gps[1], 600000U, 0U) ||
+	!scheduler.add(&dcu, 100000U, 0U)) {
 	return -1;
     }
 

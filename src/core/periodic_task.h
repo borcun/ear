@@ -18,7 +18,7 @@ namespace EAR {
 	virtual bool restart() override;
 
     protected:
-	virtual void execute();
+	virtual void execute() override;
     };
 }
 
