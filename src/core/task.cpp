@@ -2,6 +2,11 @@
 
 static uint32_t uuid = 0;
 
+void *EAR::doParallel(void *args) {
+  ((EAR::Task *) args)->execute();
+  return NULL;
+}
+
 EAR::Task::Task()
     : m_is_running(false),
       m_period(std::chrono::microseconds(TASK_MIN_PERIOD))
@@ -10,12 +15,11 @@ EAR::Task::Task()
 
     pthread_mutex_init(&m_mutex, NULL);
     pthread_cond_init(&m_cond_var, NULL);
-    m_task = std::thread([=] { this->execute(); });
+    pthread_create(&m_task, NULL, doParallel, this);
 }
 
 EAR::Task::~Task() {
-    m_task.join();
-
+    pthread_join(m_task, NULL);
     pthread_cond_destroy(&m_cond_var);
     pthread_mutex_destroy(&m_mutex);
 }

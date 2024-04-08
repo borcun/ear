@@ -7,18 +7,20 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <thread>
 #include <pthread.h>
 #include <chrono>
 #include "spdlog/spdlog.h"
 #include "util.h"
 
 namespace EAR {
+    void *doParallel(void *args);
+  
     /// task interface class
     class Task {
 	// scheduler uses task instances
 	friend class Scheduler;
-	    
+        friend void *doParallel(void *args);
+      
     public:
 	/// default constructor
 	Task();
@@ -63,7 +65,7 @@ namespace EAR {
 
     private:
 	/// task
-	std::thread m_task;
+	pthread_t m_task;
 	/// task id
 	uint32_t m_id;
 
