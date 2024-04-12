@@ -12,15 +12,14 @@
 #include "io_device.h"
 
 class SerialDevice : public EAR::IODevice {
- public:
-  SerialDevice();
-  virtual ~SerialDevice();
-
-  virtual int32_t open();
-  virtual int32_t close();
-  virtual int32_t read(uint8_t *buf, const uint32_t size);
-  virtual int32_t write(const uint8_t *buf, const uint32_t size);
-  virtual int32_t ioctl(void *target, const int32_t op);
+public:
+    SerialDevice();
+    virtual ~SerialDevice();
+    virtual int32_t initialize() override;
+    virtual int32_t shutdown() override;
+    virtual int32_t receive(uint8_t *buf, const uint32_t size) override;
+    virtual int32_t transmit(const uint8_t *buf, const uint32_t size) override;
+    virtual int32_t configure(void *target, const int32_t op) override;
 
 private:
     Position pos = {0.0f, 0.0f};

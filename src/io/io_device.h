@@ -26,25 +26,25 @@ namespace EAR {
 	std::string getVersion() const;
 	/// function that opens io interface
 	/// @return error code
-	virtual int32_t open();
+	virtual int32_t initialize();
 	/// function that closes io interface
 	/// @return error code
-	virtual int32_t close();
+	virtual int32_t shutdown();
 	/// function that reads data from io interface
 	/// @param [out] buf - output buffer read from io interface
 	/// @param [in] size - buffer size
 	/// @return error code
-	virtual int32_t read(uint8_t *buf, const uint32_t size);
+	virtual int32_t receive(uint8_t *buf, const uint32_t size);
 	/// function that writes data from io interface
 	/// @param [in] buf - input buffer written to io interface
 	/// @param [in] size - buffer size
 	/// @return error code
-	virtual int32_t write(const uint8_t *buf, const uint32_t size);
+	virtual int32_t transmit(const uint8_t *buf, const uint32_t size);
 	/// function that control io interface
 	/// @param [in|out] target - target for io interface
 	/// @param [in] op - type of operation that is applied to target
 	/// @return error code
-	virtual int32_t ioctl(void *target, const int32_t op);
+	virtual int32_t configure(void *target, const int32_t op);
   
     protected:
 	/// io hardware model

@@ -13,7 +13,7 @@ void GPS::setIODevice(EAR::IODevice *iodev) {
 void GPS::process() {
     uint8_t data[8];
 	
-    if (0 < m_iodev->read(data, 8)) {
+    if (0 < m_iodev->receive(data, 8)) {
 	if (!send(data, 8)) {
 	    spdlog::warn("could not send data to subscriber by gps {}", getNode());
 	}
