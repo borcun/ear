@@ -2,9 +2,9 @@
 
 static uint32_t uuid = 0;
 
-void *EAR::doParallel(void *args) {
+int EAR::doParallel(void *args) {
   ((EAR::Task *) args)->execute();
-  return NULL;
+  return 0;
 }
 
 EAR::Task::Task()
@@ -13,15 +13,15 @@ EAR::Task::Task()
 {
     m_id = ++uuid;
 
-    pthread_mutex_init(&m_mutex, NULL);
-    pthread_cond_init(&m_cond_var, NULL);
-    pthread_create(&m_task, NULL, doParallel, this);
+    mtx_init(&m_mutex, mtx_plain);
+    cnd_init(&m_cond_var);
+    thrd_create(&m_task, doParallel, this);
 }
 
 EAR::Task::~Task() {
-    pthread_join(m_task, NULL);
-    pthread_cond_destroy(&m_cond_var);
-    pthread_mutex_destroy(&m_mutex);
+    thrd_join(m_task, nullptr);
+    cnd_destroy(&m_cond_var);
+    mtx_destroy(&m_mutex);
 }
 
 uint32_t EAR::Task::getId() const {
@@ -45,13 +45,13 @@ bool EAR::Task::start() {
     }
 
     m_is_running = true;
-    pthread_cond_signal(&m_cond_var);
+    cnd_signal(&m_cond_var);
     
     return true;
 }
 
 bool EAR::Task::restart() {
-    pthread_cond_signal(&m_cond_var);   
+    cnd_signal(&m_cond_var);   
     return true;
 }
 
@@ -61,7 +61,7 @@ bool EAR::Task::stop() {
 
     // running flag is set to false, but be sure about releasing
     // if the task is blocked on condition variable
-    pthread_cond_signal(&m_cond_var);
+    cnd_signal(&m_cond_var);
     
     return true;
 }

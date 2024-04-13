@@ -7,19 +7,19 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <pthread.h>
+#include <threads.h>
 #include <chrono>
 #include "spdlog/spdlog.h"
 #include "util.h"
 
 namespace EAR {
-    void *doParallel(void *args);
+    int doParallel(void *args);
   
     /// task interface class
     class Task {
 	// scheduler uses task instances
 	friend class Scheduler;
-        friend void *doParallel(void *args);
+        friend int doParallel(void *args);
       
     public:
 	/// default constructor
@@ -40,9 +40,9 @@ namespace EAR {
 	/// run flag indicating state of the task
 	bool m_is_running;
 	/// mutex used to give start to the task
-	pthread_mutex_t m_mutex;
+	mtx_t m_mutex;
 	/// start condition flag for the thread
-	pthread_cond_t m_cond_var;
+	cnd_t m_cond_var;
 	
 	/// function that sets period of the task
 	/// @param [in] period - task period in usec
@@ -65,7 +65,7 @@ namespace EAR {
 
     private:
 	/// task
-	pthread_t m_task;
+	thrd_t m_task;
 	/// task id
 	uint32_t m_id;
 
