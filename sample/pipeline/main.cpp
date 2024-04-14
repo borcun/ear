@@ -16,8 +16,8 @@ int main() {
     gps[1].open();
     dcu.open();
     
-    dcu.subscribe(&gps[0], 0U);
-    dcu.subscribe(&gps[1], 0U);
+    dcu.subscribe(&gps[0]);
+    dcu.subscribe(&gps[1]);
     
     if (!scheduler.add(&gps[0], 400000U, 0U) ||
 	!scheduler.add(&gps[1], 600000U, 0U) ||
@@ -36,7 +36,6 @@ int main() {
     gps[0].close();
     gps[1].close();
     dcu.close();
-
     
     return 0;
 }
