@@ -4,12 +4,22 @@ EAR::Subscriber::Subscriber(const std::string &node) : EAR::Messenger(node) { }
 
 EAR::Subscriber::~Subscriber() { }
 
+void EAR::Subscriber::setTimeout(const int32_t timeout) {
+    m_timeout = timeout;
+    return;
+}
+
 bool EAR::Subscriber::open() {
     int ec = 0;
 
     if (0 != (ec = nng_sub0_open(&m_sub))) {
 	spdlog::error("could not open [sub {} - {}]", getNode(), nng_strerror(ec));
-	close();
+    }
+    else if (0 != (ec = nng_socket_set(m_sub, NNG_OPT_SUB_SUBSCRIBE, "", 0))) {
+	spdlog::error("could not set socket subscription [sub {} - {}]", getNode(), nng_strerror(ec));
+    }
+    else if (0 != (ec = nng_socket_set_ms(m_sub, NNG_OPT_RECVTIMEO, m_timeout))) {
+	spdlog::error("could not set receive timeout [sub {} - {}]", getNode(), nng_strerror(ec));
     }
     else {
 	m_state = MESSENGER_OPENED;
@@ -26,29 +36,18 @@ void EAR::Subscriber::close() {
     return;
 }
 
-bool EAR::Subscriber::subscribe(const Messenger *pub, const int32_t timeout) {
+bool EAR::Subscriber::subscribe(const Messenger *pub) {
     int ec = 0;
     std::string pub_node = std::string(NODE_DIR) + pub->getNode();
         
     if (MESSENGER_CLOSED == m_state) {
 	spdlog::error("could not subscribe, sub {} not opened yet", getNode());
     }
-    else if (0 != (ec = nng_socket_set(m_sub, NNG_OPT_SUB_SUBSCRIBE, "", 0))) {
-	spdlog::error("could not set socket subscription [sub {} - {}]", getNode(), nng_strerror(ec));
-    }
-    else if (0 != (ec = nng_socket_set_ms(m_sub, NNG_OPT_RECVTIMEO, timeout))) {
-	spdlog::error("could not set receive timeout [sub {} - {}]", getNode(), nng_strerror(ec));
-    }
     else if (0 != (ec = nng_dial(m_sub, pub_node.c_str(), NULL, 0))) {
 	spdlog::error("could not dial [sub {} - {}]", getNode(), nng_strerror(ec));
     }
     else {
 	m_state = MESSENGER_SUBSCRIBED;
-    }
-
-    // if there is an error related to nng, close socket opened
-    if (0 != ec) {
-	close();
     }
     
     return MESSENGER_SUBSCRIBED == m_state;

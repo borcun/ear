@@ -19,6 +19,10 @@ namespace EAR {
 	Subscriber(const std::string &node);
 	/// destructor
 	virtual ~Subscriber();
+	/// function that sets timeout of subscriber
+	/// @remark default time is zero
+	/// @param [in] timeout - subscriber receive timeout
+	void setTimeout(const int32_t timeout);
 	/// function that opens subscriber
 	/// @return true if subscriber is opened, otherwise false
 	virtual bool open() override;
@@ -26,9 +30,8 @@ namespace EAR {
 	virtual void close() override;
 	/// function that subscribes the publisher
 	/// @param [in] pub - publisher to be subscribed
-	/// @param [in] timeout - timeout for receiving
 	/// @return true if the subscription is done successfully, otherwise false
-	bool subscribe(const Messenger *pub, const int32_t timeout);
+	bool subscribe(const Messenger *pub);
 	/// function that receives buffer from the publisher
 	/// @param [in] buf - buffer
 	/// @param [in|out] size - buffer size
@@ -38,6 +41,8 @@ namespace EAR {
     private:
 	/// subscriber socket
 	nng_socket m_sub = NNG_SOCKET_INITIALIZER;
+	/// receive timeout
+	int32_t m_timeout = 0;
     };
 }
 

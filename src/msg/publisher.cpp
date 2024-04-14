@@ -31,7 +31,7 @@ bool EAR::Publisher::open() {
 
 void EAR::Publisher::close() {
     // do not care return value of close function
-    nng_close(m_pub);   
+    nng_close(m_pub);
     m_state = MESSENGER_CLOSED;
 
     return;

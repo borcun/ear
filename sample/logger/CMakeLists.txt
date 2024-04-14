@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.2)
+project(spdlog-file-test)
+include_directories(../../ext/spdlog/include/)
+link_directories(../../ext/spdlog/build)
+link_libraries(spdlog)
+add_executable(${PROJECT_NAME} main.cpp)

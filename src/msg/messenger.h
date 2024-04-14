@@ -4,8 +4,7 @@
  * @author boo
  */
 
-#ifndef MESSENGER_H
-#define MESSENGER_H
+#pragma once
 
 #include <string>
 #include "spdlog/spdlog.h"
@@ -44,5 +43,3 @@ namespace EAR {
 	std::string m_node;
     };
 }
-
-#endif

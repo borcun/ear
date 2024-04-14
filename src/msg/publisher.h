@@ -4,8 +4,7 @@
  * @author boo
  */
 
-#ifndef PUBLISHER_H
-#define PUBLISHER_H
+#pragma once
 
 #include <nng/nng.h>
 #include <nng/protocol/pubsub0/pub.h>
@@ -35,5 +34,3 @@ namespace EAR {
 	nng_socket m_pub = NNG_SOCKET_INITIALIZER;
     };
 }
-
-#endif
