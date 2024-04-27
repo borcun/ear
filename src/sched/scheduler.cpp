@@ -1,14 +1,14 @@
 #include "scheduler.h"
 
-EAR::Scheduler::Scheduler() {
+EAR::Schedule::Scheduler::Scheduler() {
     m_state = SCHEDULER_IDLE;
 }
 
-EAR::Scheduler::~Scheduler() {
+EAR::Schedule::Scheduler::~Scheduler() {
 
 }
 
-bool EAR::Scheduler::add(Task *task, const uint32_t period, const uint32_t offset) {
+bool EAR::Schedule::Scheduler::add(Task *task, const uint32_t period, const uint32_t offset) {
     if (nullptr == task) {
 	spdlog::error("could not add null task");
 	return false;
@@ -27,7 +27,7 @@ bool EAR::Scheduler::add(Task *task, const uint32_t period, const uint32_t offse
     return true;
 }
 
-bool EAR::Scheduler::start() {
+bool EAR::Schedule::Scheduler::start() {
     if (SCHEDULER_IDLE != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not run the scheduler");
 	return false;
@@ -43,7 +43,7 @@ bool EAR::Scheduler::start() {
     return true;
 }
 
-bool EAR::Scheduler::restart() {
+bool EAR::Schedule::Scheduler::restart() {
     if (SCHEDULER_RUN != m_state || 0 == m_tasks.size()) {
 	spdlog::error("could not restart the scheduler");
 	return false;
@@ -58,7 +58,7 @@ bool EAR::Scheduler::restart() {
     return true;
 }
 
-bool EAR::Scheduler::stop() {
+bool EAR::Schedule::Scheduler::stop() {
     if (SCHEDULER_RUN != m_state) {
 	spdlog::error("could not terminate the scheduler");
 	return false;

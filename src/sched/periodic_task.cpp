@@ -1,20 +1,20 @@
 #include "periodic_task.h"
 
-EAR::PeriodicTask::PeriodicTask() : EAR::Task() {}
+EAR::Schedule::PeriodicTask::PeriodicTask() : EAR::Schedule::Task() {}
 
-EAR::PeriodicTask::~PeriodicTask() {}
+EAR::Schedule::PeriodicTask::~PeriodicTask() {}
 
-bool EAR::PeriodicTask::restart() {
+bool EAR::Schedule::PeriodicTask::restart() {
     spdlog::warn("could not restart periodic task");
     return false;
 }
 
-void EAR::PeriodicTask::execute() {
+void EAR::Schedule::PeriodicTask::execute() {
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
     std::chrono::microseconds elapsed;
 
-    cnd_wait(&m_cond_var, &m_mutex);
+    cnd_wait(&m_start_cond_var, &m_start_mutex);
     std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     
     do {
