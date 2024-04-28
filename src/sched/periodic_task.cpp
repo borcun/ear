@@ -14,7 +14,7 @@ void EAR::Schedule::PeriodicTask::execute() {
     std::chrono::steady_clock::time_point end;
     std::chrono::microseconds elapsed;
 
-    pthread_cond_wait(&m_start_cond_var, &m_start_mutex);
+    while (0 != pthread_cond_wait(&m_start_cond_var, &m_start_mutex));
     std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     
     do {
