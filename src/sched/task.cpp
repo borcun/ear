@@ -2,9 +2,9 @@
 
 static uint32_t uuid = 0;
 
-int EAR::Schedule::doParallel(void *args) {
+void *EAR::Schedule::doParallel(void *args) {
   ((EAR::Schedule::Task *) args)->execute();
-  return 0;
+  return nullptr;
 }
 
 EAR::Schedule::Task::Task()
@@ -13,21 +13,21 @@ EAR::Schedule::Task::Task()
 {
     m_id = ++uuid;
 
-    mtx_init(&m_start_mutex, mtx_plain);
-    mtx_init(&m_progress_mutex, mtx_plain);
-    cnd_init(&m_start_cond_var);
-    cnd_init(&m_progress_cond_var);
+    pthread_mutex_init(&m_start_mutex, nullptr);
+    pthread_mutex_init(&m_progress_mutex, nullptr);
+    pthread_cond_init(&m_start_cond_var, nullptr);
+    pthread_cond_init(&m_progress_cond_var, nullptr);
     
-    thrd_create(&m_task, doParallel, this);
+    pthread_create(&m_task, nullptr, doParallel, this);
 }
 
 EAR::Schedule::Task::~Task() {
-    thrd_join(m_task, nullptr);
+    pthread_join(m_task, nullptr);
 
-    cnd_destroy(&m_start_cond_var);
-    cnd_destroy(&m_progress_cond_var);
-    mtx_destroy(&m_start_mutex);
-    mtx_destroy(&m_progress_mutex);
+    pthread_cond_destroy(&m_start_cond_var);
+    pthread_cond_destroy(&m_progress_cond_var);
+    pthread_mutex_destroy(&m_start_mutex);
+    pthread_mutex_destroy(&m_progress_mutex);
 }
 
 uint32_t EAR::Schedule::Task::getId() const {
@@ -51,7 +51,7 @@ bool EAR::Schedule::Task::start() {
     }
 
     m_is_running = true;
-    while (thrd_error == cnd_signal(&m_start_cond_var));
+    while (0 != pthread_cond_signal(&m_start_cond_var));
     
     return true;
 }
@@ -61,7 +61,7 @@ bool EAR::Schedule::Task::restart() {
 	return false;
     }
     
-    while (thrd_error == cnd_signal(&m_progress_cond_var));
+    while (0 != pthread_cond_signal(&m_progress_cond_var));
     return true;
 }
 
@@ -75,7 +75,7 @@ bool EAR::Schedule::Task::stop() {
 
     // running flag is set to false, but be sure about releasing
     // if the task is blocked on condition variable
-    while (thrd_error == cnd_signal(&m_progress_cond_var));
+    while (0 != pthread_cond_signal(&m_progress_cond_var));
     
     return true;
 }

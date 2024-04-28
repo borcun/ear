@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <threads.h>
+#include <pthread.h>
 #include <chrono>
 #include "spdlog/spdlog.h"
 
@@ -15,13 +15,13 @@
 
 namespace EAR {
     namespace Schedule {
-	int doParallel(void *args);
+	void *doParallel(void *args);
   
 	/// task interface class
 	class Task {
 	    // scheduler uses task instances
 	    friend class Scheduler;
-	    friend int doParallel(void *args);
+	    friend void *doParallel(void *args);
       
 	public:
 	    /// default constructor
@@ -42,13 +42,13 @@ namespace EAR {
 	    /// run flag indicating state of the task
 	    bool m_is_running;
 	    /// start mutex used to give start to the task
-	    mtx_t m_start_mutex;
+	    pthread_mutex_t m_start_mutex;
 	    /// progress mutex used to control progress of the task
-	    mtx_t m_progress_mutex;
+	    pthread_mutex_t m_progress_mutex;
 	    /// start condition flag for the thread
-	    cnd_t m_start_cond_var;
+	    pthread_cond_t m_start_cond_var;
 	    /// progress condition flag for the thread
-	    cnd_t m_progress_cond_var;
+	    pthread_cond_t m_progress_cond_var;
 	
 	    /// function that sets period of the task
 	    /// @param [in] period - task period in usec
@@ -71,7 +71,7 @@ namespace EAR {
 
 	private:
 	    /// task
-	    thrd_t m_task;
+	    pthread_t m_task;
 	    /// task id
 	    uint32_t m_id;
 

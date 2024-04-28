@@ -9,7 +9,7 @@ void EAR::Schedule::AperiodicTask::execute() {
     std::chrono::steady_clock::time_point end;
     std::chrono::microseconds elapsed;
     
-    cnd_wait(&m_start_cond_var, &m_start_mutex);
+    pthread_cond_wait(&m_start_cond_var, &m_start_mutex);
     std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     
     do {
@@ -28,7 +28,7 @@ void EAR::Schedule::AperiodicTask::execute() {
 	}
 
 	// wait start command for next iteration, then sleep offset before execution
-	cnd_wait(&m_progress_cond_var, &m_progress_mutex);
+	pthread_cond_wait(&m_progress_cond_var, &m_progress_mutex);
 	std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     } while (m_is_running);
     
