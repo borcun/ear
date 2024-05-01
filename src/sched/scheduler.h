@@ -43,6 +43,11 @@ namespace EAR {
 	    std::list<Task *> m_tasks;
 	    /// state for state machine of the scheduler
 	    State m_state;
+
+	    // copyable and movable task interface prevented
+	    Scheduler(const Scheduler &scheduler) = delete;
+	    Scheduler(const Scheduler &&scheduler) = delete;
+	    Scheduler &operator=(const Scheduler &scheduler) = delete;
 	};
     }
 }

@@ -22,7 +22,7 @@ namespace EAR {
       
 	public:
 	    /// default constructor
-	    ITask(const std::string &name);
+	    explicit ITask(const std::string &name);
 	    /// destructor
 	    virtual ~ITask();
 	    /// function that gets task id

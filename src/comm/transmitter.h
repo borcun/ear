@@ -17,7 +17,7 @@ namespace EAR {
 	public:
 	    /// constructor
 	    /// @param [in] name - endpoint name
-	    Transmitter(const std::string &name);
+	    explicit Transmitter(const std::string &name);
 	    /// destructor
 	    virtual ~Transmitter();
 	    /// function that send buffer to subscribers

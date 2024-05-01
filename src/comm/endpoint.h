@@ -31,7 +31,7 @@ namespace EAR {
 	public:
 	    /// constructor
 	    /// @param [in] name - endpoint name
-	    Endpoint(const std::string &name);
+	    explicit Endpoint(const std::string &name);
 	    /// destructor
 	    virtual ~Endpoint();
 	    /// function tht gets endpoint name

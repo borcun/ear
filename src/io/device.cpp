@@ -21,6 +21,10 @@ std::string EAR::IO::Device::getVersion() const {
     return m_version;
 }
 
+EAR::IO::State EAR::IO::Device::getState() const {
+    return m_state;
+}
+
 int32_t EAR::IO::Device::initialize() {
     spdlog::warn("unimplemented function call [{}]", toString());
     return -1;

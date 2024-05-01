@@ -12,6 +12,13 @@
 
 namespace EAR {
     namespace IO {
+	/// enum state for device
+	enum State {
+	    DEV_NONE,
+	    DEV_SHUTDOWN,
+	    DEV_INITIALIZED
+	};
+	
 	class Device {
 	public:
 	    /// constructor
@@ -30,6 +37,9 @@ namespace EAR {
 	    /// function that gets version of device
 	    /// @return device model
 	    std::string getVersion() const;	    
+	    /// function that gets state of device
+	    /// @return device state
+	    State getState() const;	    
 	    /// function that opens io interface
 	    /// @return error code
 	    virtual int32_t initialize();
@@ -54,7 +64,11 @@ namespace EAR {
 	    /// function that format device information as string
 	    /// @return device information
 	    virtual std::string toString();
-  
+
+	protected:
+	    /// io device state
+	    State m_state = DEV_NONE;
+
 	private:
 	    /// io device name
 	    std::string m_name;

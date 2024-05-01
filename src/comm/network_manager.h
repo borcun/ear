@@ -17,7 +17,7 @@ namespace EAR {
 	public:
 	    /// constructor
 	    /// @param [in] name - network manager name
-	    NetworkManager(const std::string &name);
+	    explicit NetworkManager(const std::string &name);
 	    /// destructor
 	    virtual ~NetworkManager();
 	    /// function that gets network manager name

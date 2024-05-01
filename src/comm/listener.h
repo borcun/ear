@@ -18,7 +18,7 @@ namespace EAR {
 	public:
 	    /// constructor
 	    /// @param [in] name - endpoint name
-	    Listener(const std::string &name);
+	    explicit Listener(const std::string &name);
 	    /// destructor
 	    virtual ~Listener();
 	    /// function that sets timeout of message listener
