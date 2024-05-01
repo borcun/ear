@@ -1,11 +1,20 @@
 #include "dcu.h"
 #include "position.h"
 
-DCU::DCU() : EAR::Schedule::PeriodicTask() { }
+DCU::DCU(const std::string &name) : EAR::Schedule::Task(name)
+{
+}
 
-DCU::~DCU() { }
+DCU::~DCU()
+{
+}
 
-void DCU::process() {
+bool DCU::initialize() {
+    spdlog::info("DCU task {} initialized", getName());
+    return true;
+}
+
+void DCU::cycle() {
     /*
     Position pos;
     size_t size = 8;

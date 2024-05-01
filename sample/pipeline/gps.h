@@ -1,14 +1,15 @@
 #pragma once
 
 #include "device.h"
-#include "periodic_task.h"
+#include "task.h"
 
-class GPS : public EAR::Schedule::PeriodicTask {
- public:
-    GPS();
+class GPS : public EAR::Schedule::Task {
+public:
+    GPS(const std::string &name);
     virtual ~GPS();
     void setDevice(EAR::IO::Device *dev);
-    virtual void process() override;
+    virtual bool initialize() override;
+    virtual void cycle() override;
 
 private:
     EAR::IO::Device *m_dev = nullptr;

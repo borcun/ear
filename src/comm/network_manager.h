@@ -1,3 +1,10 @@
+/**
+ * @file network_manager.h
+ * @brief one listener to many transmitter network
+ * @author boo
+ * @copyright
+ */
+
 #pragma once
 
 #include <list>
@@ -8,10 +15,14 @@ namespace EAR {
     namespace Communication {
 	class NetworkManager {
 	public:
-	    /// default constructor
-	    NetworkManager();
+	    /// constructor
+	    /// @param [in] name - network manager name
+	    NetworkManager(const std::string &name);
 	    /// destructor
 	    virtual ~NetworkManager();
+	    /// function that gets network manager name
+	    /// @return name of network manager
+	    std::string getName() const;
 	    /// function that initializes network manager
 	    /// @return true if initialization is done, false otherwise
 	    virtual bool initialize();
@@ -30,8 +41,10 @@ namespace EAR {
 	    bool m_is_init = false;
 	    
 	private:
-	    NetworkManager(const NetworkManager &nm);
-	    NetworkManager(const NetworkManager &&nm);
+	    std::string m_name;
+	    NetworkManager(const NetworkManager &nm) = delete;
+	    NetworkManager(const NetworkManager &&nm) = delete;
+	    NetworkManager &operator=(const NetworkManager &nm) = delete;
 	};
     }
 }

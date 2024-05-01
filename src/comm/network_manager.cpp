@@ -1,25 +1,30 @@
 #include "network_manager.h"
 
-EAR::Communication::NetworkManager::NetworkManager() {}
-
-EAR::Communication::NetworkManager::NetworkManager(const NetworkManager &nm) { }
-
-EAR::Communication::NetworkManager::NetworkManager(const NetworkManager &&nm) { }
+EAR::Communication::NetworkManager::NetworkManager(const std::string &name)
+    : m_name(name)
+{
+    spdlog::debug("network manager {} created", name);
+}
 
 EAR::Communication::NetworkManager::~NetworkManager() {
     terminate();
+    spdlog::debug("network manager {} terminated", getName());
+}
+
+std::string EAR::Communication::NetworkManager::getName() const {
+    return m_name;
 }
 
 bool EAR::Communication::NetworkManager::initialize() {
     if (m_is_init) {
-	spdlog::error("could not initialize network manager, already initialized");
+	spdlog::error("could not initialize network manager {}, already initialized", getName());
 	return false;
     }
 
     Configuration config;
 
     config.port = 10000;
-    m_server = new Listener();
+    m_server = new Listener(getName() + "-server");
 
     if (!m_server->initialize(config)) {
 	delete m_server;
@@ -35,7 +40,7 @@ EAR::Communication::Listener *EAR::Communication::NetworkManager::getServer() {
 
 EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getClient() {
     Configuration config;
-    Transmitter *client = new Transmitter();
+    Transmitter *client = new Transmitter(getName() + "-client-" + std::to_string(m_clients.size() + 1));
 
     config.port = 10000;
 
@@ -52,7 +57,7 @@ void EAR::Communication::NetworkManager::terminate() {
     if (m_is_init) {
 	m_server->shutdown();
 
-	for (auto client : m_clients) {
+	for (auto &client : m_clients) {
 	    client->shutdown();
 	    delete client;
 	    client = nullptr;

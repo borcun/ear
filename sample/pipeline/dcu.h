@@ -1,10 +1,11 @@
 #pragma once
 
-#include "periodic_task.h"
+#include "task.h"
 
-class DCU : public EAR::Schedule::PeriodicTask {
- public:
-    DCU();
+class DCU : public EAR::Schedule::Task {
+public:
+    DCU(const std::string &name);
     virtual ~DCU();
-    virtual void process() override;
+    virtual bool initialize() override;
+    virtual void cycle() override;
 };

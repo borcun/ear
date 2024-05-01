@@ -1,6 +1,6 @@
 /**
  * @file device.h
- * @brief
+ * @brief class that representing IO device
  * @author boo
  * @copyright
  */
@@ -8,21 +8,28 @@
 #pragma once
 
 #include <string>
+#include "spdlog/spdlog.h"
 
 namespace EAR {
     namespace IO {
 	class Device {
 	public:
-	    /// default constructor
-	    Device();
+	    /// constructor
+	    /// @param [in] name - device name
+	    /// @param [in] model - device model
+	    /// @param [in] version - device version
+	    Device(const std::string &name, const std::string &model, const std::string &version);
 	    /// destructor
-	    virtual ~Device();
-	    /// function that gets model of io device
-	    /// @return model
+	    virtual ~Device();	    
+	    /// function that gets name of device
+	    /// @return device name
+	    std::string getName() const;
+	    /// function that gets model of device
+	    /// @return device model
 	    std::string getModel() const;
-	    /// function that gets version of io device
-	    /// @return model
-	    std::string getVersion() const;
+	    /// function that gets version of device
+	    /// @return device model
+	    std::string getVersion() const;	    
 	    /// function that opens io interface
 	    /// @return error code
 	    virtual int32_t initialize();
@@ -44,12 +51,22 @@ namespace EAR {
 	    /// @param [in] op - type of operation that is applied to target
 	    /// @return error code
 	    virtual int32_t configure(void *target, const int32_t op);
+	    /// function that format device information as string
+	    /// @return device information
+	    virtual std::string toString();
   
-	protected:
-	    /// io hardware model
+	private:
+	    /// io device name
+	    std::string m_name;
+	    /// io device model
 	    std::string m_model;
-	    /// io hardware version
+	    /// io device version
 	    std::string m_version;
+
+	    // copying or moving device prevented
+	    Device(const Device &dev) = delete;
+	    Device(const Device &&dev) = delete;
+	    Device &operator=(const Device &task) = delete;
 	};
     }
 }

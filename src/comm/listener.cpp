@@ -1,8 +1,14 @@
 #include "listener.h"
 
-EAR::Communication::Listener::Listener() : Endpoint() { }
+EAR::Communication::Listener::Listener(const std::string &name)
+    : Endpoint(name)
+{
+    spdlog::debug("{} listener created", name);
+}
 
-EAR::Communication::Listener::~Listener() { }
+EAR::Communication::Listener::~Listener() {
+    spdlog::debug("{} listener terminated", getName());
+}
 
 void EAR::Communication::Listener::setTimeout(const int32_t timeout) {
     m_timeout = timeout;
@@ -11,14 +17,14 @@ void EAR::Communication::Listener::setTimeout(const int32_t timeout) {
 
 bool EAR::Communication::Listener::initialize(const Configuration &config) {
     if (COMM_OPENED == m_state) {
-	spdlog::error("socket already opened");
+	spdlog::error("{} socket already opened", getName());
 	return false;
     }
 
     /// @todo check IP and port validities
     
     if (0 > (m_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
-	spdlog::error("could not create socket");
+	spdlog::error("could not create socket {}", getName());
 	return false;
     }
 
@@ -36,7 +42,7 @@ bool EAR::Communication::Listener::initialize(const Configuration &config) {
     }
 
     if (0 > bind(m_sock, (const struct sockaddr *) &server_addr, sizeof(server_addr))) {
-	spdlog::error("could not bind socket");
+	spdlog::error("could not bind socket {}", getName());
 	return false;
     }
     
@@ -53,7 +59,7 @@ void EAR::Communication::Listener::shutdown() {
 
 bool EAR::Communication::Listener::receive(void *buf, size_t &size) {
     if (COMM_OPENED != m_state) {
-	spdlog::error("could not receive data, connection closed");
+	spdlog::error("could not receive data, connection closed {}", getName());
 	return false;
     }
 

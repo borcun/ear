@@ -29,10 +29,14 @@ namespace EAR {
 	    friend class NetworkManager;
 	
 	public:
-	    /// default constructor
-	    Endpoint();
+	    /// constructor
+	    /// @param [in] name - endpoint name
+	    Endpoint(const std::string &name);
 	    /// destructor
 	    virtual ~Endpoint();
+	    /// function tht gets endpoint name
+	    /// @return name of endpoint
+	    std::string getName() const;
 	    /// function that gets endpoint state
 	    /// @return endpoint state
 	    State getState() const;
@@ -46,6 +50,10 @@ namespace EAR {
 	protected:
 	    /// endpoint state
 	    State m_state = COMM_CLOSED;
+
+	private:
+	    /// endpoint name
+	    std::string m_name;
 	};
     }
 }

@@ -15,8 +15,9 @@ namespace EAR {
     namespace Communication {
 	class Transmitter : public Endpoint {	    
 	public:
-	    /// default constructor
-	    Transmitter();
+	    /// constructor
+	    /// @param [in] name - endpoint name
+	    Transmitter(const std::string &name);
 	    /// destructor
 	    virtual ~Transmitter();
 	    /// function that send buffer to subscribers

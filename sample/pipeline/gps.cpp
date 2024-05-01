@@ -1,22 +1,32 @@
 #include "gps.h"
 
-GPS::GPS() : EAR::Schedule::PeriodicTask() { }
+GPS::GPS(const std::string &name) : EAR::Schedule::Task(name)
+{
+}
 
-GPS::~GPS() { }
+GPS::~GPS()
+{
+}
 
 void GPS::setDevice(EAR::IO::Device *dev) {
     m_dev = dev;
+    return;
 }
 
-void GPS::process() {
+bool GPS::initialize() {
+    spdlog::info("GPS task {} initialized", getName());
+    return true;
+}
+
+void GPS::cycle() {
     uint8_t data[8];
 	
     if (nullptr != m_dev) {
 	if (0 < m_dev->receive(data, 8)) {
-	    spdlog::info("received from device {}", getId());
+	    spdlog::info("{} received data from device {}", getName(), m_dev->toString());
 	}
 	else {
-	    spdlog::warn("gps task {} read failed", getId());
+	    spdlog::warn("GPS task {} read failed", getName());
 	}
     }
     

@@ -4,9 +4,9 @@ project(ear VERSION 0.0.0 DESCRIPTION "ear library")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SRC
+  src/sched/itask.cpp
   src/sched/task.cpp
-  src/sched/periodic_task.cpp
-  src/sched/aperiodic_task.cpp
+  #src/sched/aperiodic_task.cpp
   src/sched/scheduler.cpp
   src/comm/endpoint.cpp
   src/comm/listener.cpp

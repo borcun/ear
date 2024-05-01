@@ -1,14 +1,15 @@
 #pragma once
 
-#include "periodic_task.h"
+#include "task.h"
 #include "listener.h"
 
-class DCU : public EAR::Schedule::PeriodicTask {
+class DCU : public EAR::Schedule::Task {
 public:
-    DCU();
+    DCU(const std::string &name);
     virtual ~DCU();
     void setServer(EAR::Communication::Listener *server);
-    virtual void process() override;
+    virtual bool initialize() override;
+    virtual void cycle() override;
 
 private:
     EAR::Communication::Listener *m_server = nullptr;

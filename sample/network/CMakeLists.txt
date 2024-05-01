@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(pipeline-test)
+project(network-test)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")

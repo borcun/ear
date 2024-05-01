@@ -4,19 +4,29 @@ EAR::Schedule::Scheduler::Scheduler() {
     m_state = SCHEDULER_IDLE;
 }
 
-EAR::Schedule::Scheduler::~Scheduler() {
-
+EAR::Schedule::Scheduler::~Scheduler()
+{
 }
 
-bool EAR::Schedule::Scheduler::add(Task *task, const uint32_t period, const uint32_t offset) {
+bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const uint32_t offset) {
     if (nullptr == task) {
-	spdlog::error("could not add null task");
+	spdlog::error("could not allocate memory for null task");
 	return false;
     }
 
-    if (SCHEDULER_IDLE != m_state || period < TASK_MIN_PERIOD) {
-	spdlog::error("could not add task {}", task->getId());
+    if (period < TASK_MIN_PERIOD) {
+	spdlog::error("invalid period value {} for task {}", period, task->getName());
 	return false;
+    }
+
+    if (SCHEDULER_IDLE != m_state) {
+	spdlog::error("could not allocate memory for {} when scheduler running", task->getName());
+	return false;
+    }
+
+    if (!task->initialize()) {
+	spdlog::error("could not initialize task {}", task->getName());
+	return false;	
     }
 
     /// @todo check whether same element is added twice
@@ -28,14 +38,22 @@ bool EAR::Schedule::Scheduler::add(Task *task, const uint32_t period, const uint
 }
 
 bool EAR::Schedule::Scheduler::start() {
-    if (SCHEDULER_IDLE != m_state || 0 == m_tasks.size()) {
-	spdlog::error("could not run the scheduler");
+    if (SCHEDULER_IDLE != m_state) {
+	spdlog::error("could not run the scheduler that was already running");
+	return false;
+    }
+
+    if (0 == m_tasks.size()) {
+	spdlog::error("could not run the scheduler that is empty");
 	return false;
     }
 
     for (auto &task : m_tasks) {
 	if (!task->start()) {
-	    spdlog::critical("could not start task {}", task->getId());
+	    spdlog::critical("could not start task {}", task->getName());
+	}
+	else {
+	    spdlog::debug("Task {} started", task->getName());
 	}
     }
 
@@ -43,33 +61,18 @@ bool EAR::Schedule::Scheduler::start() {
     return true;
 }
 
-bool EAR::Schedule::Scheduler::restart() {
-    if (SCHEDULER_RUN != m_state || 0 == m_tasks.size()) {
-	spdlog::error("could not restart the scheduler");
-	return false;
-    }
-    
-    for (auto &task : m_tasks) {
-	if (!task->restart()) {
-	    spdlog::critical("could not restart task {}", task->getId());
-	}
-    }
-
-    return true;
-}
-
 bool EAR::Schedule::Scheduler::stop() {
     if (SCHEDULER_RUN != m_state) {
-	spdlog::error("could not terminate the scheduler");
+	spdlog::error("could not stop the scheduler that not running");
 	return false;
     }
     
     for (auto &task : m_tasks) {
 	if (!task->stop()) {
-	    spdlog::critical("could not stop task {}", task->getId());
+	    spdlog::critical("could not stop task {}", task->getName());
 	}
 	else {
-	    spdlog::info("task {} stopped", task->getId());
+	    spdlog::debug("Task {} stopped", task->getName());
 	}
     }
 
