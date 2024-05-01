@@ -1,5 +1,10 @@
 #include "network_manager.h"
 
+#define NET_BASE_ADDR  (10000U)
+#define NET_RANGE_SIZE (100U)
+
+static int32_t range_index = 0;
+
 EAR::Communication::NetworkManager::NetworkManager(const std::string &name)
     : m_name(name)
 {
@@ -23,7 +28,7 @@ bool EAR::Communication::NetworkManager::initialize() {
 
     Configuration config;
 
-    config.port = 10000;
+    config.port = NET_BASE_ADDR + (range_index * NET_RANGE_SIZE);
     m_server = new Listener(getName() + "-server");
 
     if (!m_server->initialize(config)) {
@@ -31,6 +36,7 @@ bool EAR::Communication::NetworkManager::initialize() {
 	return false;
     }
 
+    range_index++;
     return true;
 }
 
@@ -42,7 +48,7 @@ EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getClient()
     Configuration config;
     Transmitter *client = new Transmitter(getName() + "-client-" + std::to_string(m_clients.size() + 1));
 
-    config.port = 10000;
+    config.port = 10000; /// @todo solve port problem
 
     if (!client->initialize(config)) {
 	delete client;
