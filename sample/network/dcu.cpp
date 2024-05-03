@@ -1,12 +1,13 @@
 #include "dcu.h"
 #include "position.h"
 
-DCU::DCU(const std::string &name) : EAR::Schedule::Task(name)
-{
+DCU::DCU(const std::string &name) : EAR::Schedule::Task(name) {
 }
 
-DCU::~DCU()
-{
+DCU::~DCU() {
+    if (nullptr != m_server) {
+	m_server->shutdown();
+    }
 }
 
 void DCU::setServer(EAR::Communication::Listener *server) {
@@ -24,12 +25,10 @@ void DCU::cycle() {
     size_t size = 8;
 
     if (nullptr != m_server) {
-	while (m_server->receive(&pos, size)) {
+	while (0 < m_server->receive(&pos, size)) {
 	    spdlog::info("DCU get data, lon {}, lat {}", pos.lon, pos.lat);
 	}
     }
-
-    spdlog::info("DCU process called");
     
     return;
 }

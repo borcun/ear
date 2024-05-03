@@ -23,8 +23,8 @@ namespace EAR {
 	    /// function that send buffer to subscribers
 	    /// @param [in] buf - buffer
 	    /// @param [in] size - buffer size
-	    /// @return true if buffer is sent to subscribers, otherwise false
-	    bool send(void *buf, size_t &size);
+	    /// @return length of data sent if succeed, otherwise errno
+	    int32_t send(void *buf, size_t &size);
 
 	    virtual bool initialize(const Configuration &config) override;
 	    virtual void shutdown() override;

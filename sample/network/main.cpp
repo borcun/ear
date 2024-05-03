@@ -30,7 +30,7 @@ int main() {
     
     if (!scheduler.allocate(&gps1, 1000000U, 0U) ||
 	!scheduler.allocate(&gps2, 2000000U, 0U) ||
-	!scheduler.allocate(&dcu,  4000000U, 0U)) {
+	!scheduler.allocate(&dcu,  2000000U, 0U)) {
 	return -1;
     }
 

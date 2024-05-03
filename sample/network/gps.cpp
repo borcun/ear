@@ -34,7 +34,7 @@ void GPS::cycle() {
 	    if (nullptr != m_client) {
 		size_t size = 8;
 		
-		if (m_client->send(data, size)) {
+		if (0 < m_client->send(data, size)) {
 		    spdlog::info("send data to DCU [{}]", getName());
 		}
 		else {

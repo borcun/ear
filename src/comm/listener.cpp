@@ -10,11 +10,6 @@ EAR::Communication::Listener::~Listener() {
     spdlog::debug("{} listener terminated", getName());
 }
 
-void EAR::Communication::Listener::setTimeout(const int32_t timeout) {
-    m_timeout = timeout;
-    return;
-}
-
 bool EAR::Communication::Listener::initialize(const Configuration &config) {
     if (COMM_OPENED == m_state) {
 	spdlog::error("{} socket already opened", getName());
@@ -45,27 +40,29 @@ bool EAR::Communication::Listener::initialize(const Configuration &config) {
 	spdlog::error("could not bind socket {}", getName());
 	return false;
     }
-    
+
     m_state = COMM_OPENED;
+    
     return true;
 }
 
 void EAR::Communication::Listener::shutdown() {
-    close(m_sock);    
+    ::shutdown(m_sock, SHUT_RD);
     m_state = COMM_CLOSED;
 
     return;
 }
 
-bool EAR::Communication::Listener::receive(void *buf, size_t &size) {
+int32_t EAR::Communication::Listener::receive(void *buf, size_t &size) {
     if (COMM_OPENED != m_state) {
 	spdlog::error("could not receive data, connection closed {}", getName());
-	return false;
+	return ENOENT;
     }
 
     /// @todo debug purpose?
     struct sockaddr_in client_addr;
     socklen_t len = sizeof(client_addr);
 
-    return 0 < recvfrom(m_sock, buf, size, 0, (struct sockaddr *) &client_addr, &len);    
+    return recvfrom(m_sock, buf, size, 0,
+		    (struct sockaddr *) &client_addr, &len);
 }
