@@ -6,7 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SRC
   src/sched/itask.cpp
   src/sched/task.cpp
-  #src/sched/aperiodic_task.cpp
   src/sched/scheduler.cpp
   src/comm/endpoint.cpp
   src/comm/listener.cpp
@@ -20,5 +19,12 @@ include_directories(ext/spdlog/include src/sched src/io src/comm)
 link_directories(ext/spdlog/build)
 link_libraries(spdlog)
 
+option(BUILD_SAMPLES "Build ear samples" ON)
+
+if (BUILD_SAMPLES)
+  add_subdirectory(sample/pipeline)
+  add_subdirectory(sample/network)
+endif (BUILD_SAMPLES)
+    
 add_library(${PROJECT_NAME} SHARED ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
