@@ -15,9 +15,18 @@ bool EAR::Communication::Listener::initialize(const Configuration &config) {
 	spdlog::error("{} socket already opened", getName());
 	return false;
     }
-
-    /// @todo check IP and port validities
     
+    /// @todo check IP validity, is it v4?
+    if (config.ip.empty() || config.ip.length() < 7) {
+	spdlog::error("invalid IP format for {}", getName());
+	return false;
+    }
+
+    if (0 == config.port) {
+	spdlog::error("invalid port number for {}", getName());
+	return false;
+    }
+
     if (0 > (m_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
 	spdlog::error("could not create socket {}", getName());
 	return false;
@@ -41,8 +50,27 @@ bool EAR::Communication::Listener::initialize(const Configuration &config) {
 	return false;
     }
 
-    m_state = COMM_OPENED;
+    // non-blocking is upper mode of timeout, if it is set, no need timeout
+    if (!config.is_blocked) {
+	if(fcntl(m_sock, F_SETFL, fcntl(m_sock, F_GETFL) | O_NONBLOCK) < 0) {
+	    spdlog::error("could not set non-blocking option of socket {}", getName());
+	    shutdown();
+	    
+	    return false;
+	}
+    }
+    else if (0 != config.timeout) {
+	struct timeval read_timeout;
     
+	read_timeout.tv_sec = config.timeout / 1000;
+	read_timeout.tv_usec = config.timeout * 1000;
+	setsockopt(m_sock, SOL_SOCKET, SO_RCVTIMEO, &read_timeout, sizeof read_timeout);
+    }
+    else {
+	// blocking mode, do nothing
+    }
+    
+    m_state = COMM_OPENED;
     return true;
 }
 

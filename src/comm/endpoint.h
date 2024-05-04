@@ -20,9 +20,12 @@ namespace EAR {
 	};
 
 	/// endpoint configuration
-	struct Configuration {
+	class Configuration {
+	public:
 	    std::string ip;
-	    uint16_t port;
+	    uint16_t port = 0;
+	    bool is_blocked = false;
+	    uint32_t timeout = 0U; // in msec
 	};
 
 	/// class Endpoint

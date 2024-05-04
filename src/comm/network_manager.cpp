@@ -28,7 +28,12 @@ bool EAR::Communication::NetworkManager::initialize() {
 
     Configuration config;
 
+    /// @todo get configuration via parameter
+    config.ip = "127.0.0.1";
     config.port = NET_BASE_ADDR + (range_index * NET_RANGE_SIZE);
+    config.is_blocked = false;
+    config.timeout = 0U;
+
     m_server = new Listener(getName() + "-server");
 
     if (!m_server->initialize(config)) {
@@ -51,6 +56,7 @@ EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getClient()
     config.port = 10000; /// @todo solve port problem
 
     if (!client->initialize(config)) {
+	spdlog::error("could not initialize client for {}", getName());
 	delete client;
 	return nullptr;
     }
