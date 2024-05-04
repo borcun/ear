@@ -47,7 +47,11 @@ void EAR::Communication::Transmitter::shutdown() {
     return;
 }
 
-int32_t EAR::Communication::Transmitter::send(void *buf, size_t &size) {
+int32_t EAR::Communication::Transmitter::send(const std::string &buf) {
+    return send(buf.c_str(), buf.length());
+}
+
+int32_t EAR::Communication::Transmitter::send(const void *buf, size_t size) {
     if (COMM_OPENED != m_state) {
 	spdlog::error("could not send data, connection closed {}", getName());
 	return ENOENT;
