@@ -1,6 +1,6 @@
 /**
  * @file task.h
- * @brief
+ * @brief concrete task class that extends task interface, and implements execute function
  * @author boo
  */
 
@@ -13,11 +13,11 @@ namespace EAR {
 	/// function that makes parallel execution of the task
 	/// @param [in] args - task instance reference
 	/// @return nullptr
-	void *makeParallel(void *args);
+	void *__makeParallel(void *args);
 
 	/// class Task implements Task interface
 	class Task : public ITask {
-	    friend void *makeParallel(void *args);
+	    friend void *__makeParallel(void *args);
 	    
 	public:
 	    explicit Task(const std::string &name);

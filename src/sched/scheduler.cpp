@@ -1,16 +1,21 @@
 #include "scheduler.h"
 
-EAR::Schedule::Scheduler::Scheduler() {
+EAR::Schedule::Scheduler::Scheduler(const std::string &name) : m_name(name) {
     m_state = SCHEDULER_IDLE;
+    spdlog::debug("scheduler {} created", m_name);
 }
 
-EAR::Schedule::Scheduler::~Scheduler()
-{
+EAR::Schedule::Scheduler::~Scheduler() {
+    spdlog::debug("scheduler {} terminated", getName());
+}
+
+std::string EAR::Schedule::Scheduler::getName() const {
+    return m_name;
 }
 
 bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const uint32_t offset) {
     if (nullptr == task) {
-	spdlog::error("could not allocate memory for null task");
+	spdlog::error("could not allocate memory for null task in {}", getName());
 	return false;
     }
 
@@ -20,16 +25,17 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
     }
 
     if (SCHEDULER_IDLE != m_state) {
-	spdlog::error("could not allocate memory for {} when scheduler running", task->getName());
+	spdlog::error("could not allocate memory for {} when scheduler {} run", task->getName(), getName());
 	return false;
     }
 
     if (!task->initialize()) {
-	spdlog::error("could not initialize task {}", task->getName());
+	spdlog::error("could not initialize task {} in {}", task->getName(), getName());
 	return false;	
     }
 
     /// @todo check whether same element is added twice
+    
     task->setPeriod(std::chrono::microseconds(period));
     task->setOffset(std::chrono::microseconds(offset));
     m_tasks.push_back(task);
@@ -39,12 +45,12 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
 
 bool EAR::Schedule::Scheduler::start() {
     if (SCHEDULER_IDLE != m_state) {
-	spdlog::error("could not run the scheduler that was already running");
+	spdlog::error("could not run the scheduler {} that was already running", getName());
 	return false;
     }
 
     if (0 == m_tasks.size()) {
-	spdlog::error("could not run the scheduler that is empty");
+	spdlog::error("could not run the scheduler {} that not include any task", getName());
 	return false;
     }
 
@@ -53,7 +59,7 @@ bool EAR::Schedule::Scheduler::start() {
 	    spdlog::critical("could not start task {}", task->getName());
 	}
 	else {
-	    spdlog::debug("Task {} started", task->getName());
+	    spdlog::debug("tasks {} started", task->getName());
 	}
     }
 
@@ -63,7 +69,7 @@ bool EAR::Schedule::Scheduler::start() {
 
 bool EAR::Schedule::Scheduler::stop() {
     if (SCHEDULER_RUN != m_state) {
-	spdlog::error("could not stop the scheduler that not running");
+	spdlog::error("could not stop the scheduler {} that not running", getName());
 	return false;
     }
     
@@ -72,7 +78,7 @@ bool EAR::Schedule::Scheduler::stop() {
 	    spdlog::critical("could not stop task {}", task->getName());
 	}
 	else {
-	    spdlog::debug("Task {} stopped", task->getName());
+	    spdlog::debug("task {} stopped", task->getName());
 	}
     }
 

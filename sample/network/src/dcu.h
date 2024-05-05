@@ -1,16 +1,17 @@
 #pragma once
 
 #include "task.h"
-#include "listener.h"
+#include "receiver.h"
 
 class DCU : public EAR::Schedule::Task {
 public:
     DCU(const std::string &name);
     virtual ~DCU();
-    void setServer(EAR::Communication::Listener *server);
     virtual bool initialize() override;
     virtual void cycle() override;
 
+    void setReceiver(EAR::Communication::Receiver *receiver);
+
 private:
-    EAR::Communication::Listener *m_server = nullptr;
+    EAR::Communication::Receiver *m_receiver = nullptr;
 };

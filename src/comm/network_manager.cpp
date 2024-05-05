@@ -29,15 +29,15 @@ bool EAR::Communication::NetworkManager::initialize() {
     Configuration config;
 
     /// @todo get configuration via parameter
-    config.ip = "127.0.0.1";
+    config.ip = "";
     config.port = NET_BASE_ADDR + (range_index * NET_RANGE_SIZE);
     config.is_blocked = false;
     config.timeout = 0U;
 
-    m_server = new Listener(getName() + "-server");
+    m_receiver = new Receiver(getName() + "-receiver");
 
-    if (!m_server->initialize(config)) {
-	delete m_server;
+    if (!m_receiver->initialize(config)) {
+	delete m_receiver;
 	return false;
     }
 
@@ -45,38 +45,38 @@ bool EAR::Communication::NetworkManager::initialize() {
     return true;
 }
 
-EAR::Communication::Listener *EAR::Communication::NetworkManager::getServer() {
-    return m_server;
+EAR::Communication::Receiver *EAR::Communication::NetworkManager::getReceiver() {
+    return m_receiver;
 }
 
-EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getClient() {
+EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getTransmitter() {
     Configuration config;
-    Transmitter *client = new Transmitter(getName() + "-client-" + std::to_string(m_clients.size() + 1));
+    Transmitter *transmitter = new Transmitter(getName() + "-transmitter-" + std::to_string(m_transmitters.size() + 1));
 
     config.port = 10000; /// @todo solve port problem
 
-    if (!client->initialize(config)) {
-	spdlog::error("could not initialize client for {}", getName());
-	delete client;
+    if (!transmitter->initialize(config)) {
+	spdlog::error("could not initialize transmitter for {}", getName());
+	delete transmitter;
 	return nullptr;
     }
 
-    m_clients.push_back(client);
-    return client;
+    m_transmitters.push_back(transmitter);
+    return transmitter;
 }
 
 void EAR::Communication::NetworkManager::terminate() {
     if (m_is_init) {
-	m_server->shutdown();
+	m_receiver->shutdown();
 
-	for (auto &client : m_clients) {
-	    client->shutdown();
-	    delete client;
-	    client = nullptr;
+	for (auto &transmitter : m_transmitters) {
+	    transmitter->shutdown();
+	    delete transmitter;
+	    transmitter = nullptr;
 	}
 
-	delete m_server;
-	m_server = nullptr;
+	delete m_receiver;
+	m_receiver = nullptr;
 	m_is_init = false;
     }
 

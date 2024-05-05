@@ -22,10 +22,14 @@ namespace EAR {
 	/// endpoint configuration
 	class Configuration {
 	public:
+	    /// IP address
 	    std::string ip;
+	    /// port number
 	    uint16_t port = 0;
+	    /// blocking type
 	    bool is_blocked = false;
-	    uint32_t timeout = 0U; // in msec
+	    /// timeout in msec for blocking configuration
+	    uint32_t timeout = 0U;
 	};
 
 	/// class Endpoint
@@ -36,18 +40,23 @@ namespace EAR {
 	    /// constructor
 	    /// @param [in] name - endpoint name
 	    explicit Endpoint(const std::string &name);
+	    
 	    /// destructor
 	    virtual ~Endpoint();
+	    
 	    /// function tht gets endpoint name
 	    /// @return name of endpoint
 	    std::string getName() const;
+	    
 	    /// function that gets endpoint state
 	    /// @return endpoint state
 	    State getState() const;
+	    
 	    /// function that initializes endpoint
 	    /// @param [in] config - endpoint configuration
 	    /// @return true if endpoint is initialized, otherwise false
 	    virtual bool initialize(const Configuration &config) = 0;
+	    
 	    /// function that shutdowns endpoint
 	    virtual void shutdown() = 0;
 	    

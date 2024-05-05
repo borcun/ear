@@ -3,10 +3,11 @@
 EAR::IO::Device::Device(const std::string &name, const std::string &model, const std::string &version)
     : m_name(name), m_model(model), m_version(version)
 {
+    spdlog::debug("device {} created", toString());
 }
 
 EAR::IO::Device::~Device() {
-    spdlog::debug("{} device terminated", toString());
+    spdlog::debug("device {} terminated", toString());
 }
 
 std::string EAR::IO::Device::getName() const {
@@ -26,27 +27,27 @@ EAR::IO::State EAR::IO::Device::getState() const {
 }
 
 int32_t EAR::IO::Device::initialize() {
-    spdlog::warn("unimplemented function call [{}]", toString());
+    spdlog::warn("not implemented function for device {}", toString());
     return -1;
 }
 
 int32_t EAR::IO::Device::shutdown() {
-    spdlog::warn("unimplemented function call [{}]", toString());
+    spdlog::warn("not implemented function for device {}", toString());
     return -1;
 }
 
 int32_t EAR::IO::Device::receive(void *buf, const uint32_t size) {
-    spdlog::warn("unimplemented function call [{}]", toString());
+    spdlog::warn("not implemented function for device {}", toString());
     return -1;
 }
 
 int32_t EAR::IO::Device::transmit(const void *buf, const uint32_t size) {
-    spdlog::warn("unimplemented function call [{}]", toString());
+    spdlog::warn("not implemented function for device {}", toString());
     return -1;
 }
 
 int32_t EAR::IO::Device::configure(void *target, const int32_t op) {
-    spdlog::warn("unimplemented function call [{}]", toString());
+    spdlog::warn("not implemented function for device {}", toString());
     return -1;
 } 
 

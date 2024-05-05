@@ -4,7 +4,7 @@
 #include "serial_device.h"
 
 int main() {
-    EAR::Schedule::Scheduler scheduler;
+    EAR::Schedule::Scheduler scheduler("pipeline");
     GPS gps1("GPS 1");
     GPS gps2("GPS 2");
     DCU dcu("DCU");

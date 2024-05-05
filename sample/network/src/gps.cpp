@@ -13,8 +13,8 @@ void GPS::setDevice(EAR::IO::Device *dev) {
     return;
 }
 
-void GPS::setClient(EAR::Communication::Transmitter *client) {
-    m_client = client;
+void GPS::setTransmitter(EAR::Communication::Transmitter *transmitter) {
+    m_transmitter = transmitter;
     return;
 }
 
@@ -31,10 +31,10 @@ void GPS::cycle() {
 	if (0 < m_dev->receive(data, 8)) {
 	    spdlog::info("{} received data from device {}", getName(), m_dev->toString());
 
-	    if (nullptr != m_client) {
+	    if (nullptr != m_transmitter) {
 		size_t size = 8;
 		
-		if (0 < m_client->send(data, size)) {
+		if (0 < m_transmitter->send(data, size)) {
 		    spdlog::info("send data to DCU [{}]", getName());
 		}
 		else {

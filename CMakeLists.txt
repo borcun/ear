@@ -1,22 +1,18 @@
 cmake_minimum_required(VERSION 3.2)
-project(ear VERSION 0.0.0 DESCRIPTION "ear library")
+project(ear VERSION 0.0.0 DESCRIPTION "embeded architecture reference (EAR) library")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(SRC
-  src/sched/itask.cpp
-  src/sched/task.cpp
-  src/sched/scheduler.cpp
-  src/comm/endpoint.cpp
-  src/comm/listener.cpp
-  src/comm/transmitter.cpp
-  src/comm/network_manager.cpp 
-  src/io/device.cpp
-)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
+set(SPDLOG_DIR ext/spdlog)
+set(INC_DIRS src/sched src/io src/comm)
 
-add_subdirectory(ext/spdlog ext/spdlog/build)
-include_directories(ext/spdlog/include src/sched src/io src/comm)
-link_directories(ext/spdlog/build)
+include(src/sched/sched.cmake)
+include(src/comm/comm.cmake)
+include(src/io/io.cmake)
+
+add_subdirectory(${SPDLOG_DIR}/ ${SPDLOG_DIR}/build)
+include_directories(${SPDLOG_DIR}/include ${INC_DIRS})
+link_directories(${SPDLOG_DIR}/build)
 link_libraries(spdlog)
 
 option(BUILD_SAMPLES "Build ear samples" ON)
@@ -26,5 +22,5 @@ if (BUILD_SAMPLES)
   add_subdirectory(sample/network)
 endif (BUILD_SAMPLES)
     
-add_library(${PROJECT_NAME} SHARED ${SRC})
+add_library(${PROJECT_NAME} SHARED ${IO_SRC} ${SCHED_SRC} ${COMM_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})

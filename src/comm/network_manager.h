@@ -1,6 +1,6 @@
 /**
  * @file network_manager.h
- * @brief one listener to many transmitter network
+ * @brief one receiver to many transmitter network
  * @author boo
  * @copyright
  */
@@ -8,7 +8,7 @@
 #pragma once
 
 #include <list>
-#include "listener.h"
+#include "receiver.h"
 #include "transmitter.h"
 
 namespace EAR {
@@ -18,30 +18,41 @@ namespace EAR {
 	    /// constructor
 	    /// @param [in] name - network manager name
 	    explicit NetworkManager(const std::string &name);
+	    
 	    /// destructor
 	    virtual ~NetworkManager();
+
 	    /// function that gets network manager name
 	    /// @return name of network manager
 	    std::string getName() const;
+
 	    /// function that initializes network manager
 	    /// @return true if initialization is done, false otherwise
 	    virtual bool initialize();
-	    /// function that gets network server
+
+	    /// function that gets network server/receiver
 	    /// @return server
-	    Listener *getServer();
-	    /// function that creates network client
+	    Receiver *getReceiver();
+
+	    /// function that creates network client/transmitter
 	    /// @return client
-	    Transmitter *getClient();
+	    Transmitter *getTransmitter();
+
 	    /// function that terminates network manager
 	    virtual void terminate();
 
 	protected:
-	    Listener *m_server = nullptr;
-	    std::list<Transmitter *> m_clients;
+	    /// initialization flag
 	    bool m_is_init = false;
+	    // one server (receiver) instance
+	    Receiver *m_receiver = nullptr;
+	    /// many client (transmitter) instance
+	    std::list<Transmitter *> m_transmitters;
 	    
 	private:
 	    std::string m_name;
+
+	    // copyable and movable network manager prevented
 	    NetworkManager(const NetworkManager &nm) = delete;
 	    NetworkManager(const NetworkManager &&nm) = delete;
 	    NetworkManager &operator=(const NetworkManager &nm) = delete;

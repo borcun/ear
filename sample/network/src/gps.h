@@ -9,12 +9,12 @@ public:
     GPS(const std::string &name);
     virtual ~GPS();
     void setDevice(EAR::IO::Device *dev);
-    void setClient(EAR::Communication::Transmitter *client);
+    void setTransmitter(EAR::Communication::Transmitter *transmitter);
 
     virtual bool initialize() override;
     virtual void cycle() override;
 
 private:
     EAR::IO::Device *m_dev = nullptr;
-    EAR::Communication::Transmitter *m_client = nullptr;
+    EAR::Communication::Transmitter *m_transmitter = nullptr;
 };

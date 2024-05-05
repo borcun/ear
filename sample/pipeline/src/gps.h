@@ -5,7 +5,7 @@
 
 class GPS : public EAR::Schedule::Task {
 public:
-    GPS(const std::string &name);
+    explicit GPS(const std::string &name);
     virtual ~GPS();
     void setDevice(EAR::IO::Device *dev);
     virtual bool initialize() override;

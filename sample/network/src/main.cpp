@@ -5,8 +5,8 @@
 #include "serial_device.h"
 
 int main() {
-    EAR::Schedule::Scheduler scheduler;
-    EAR::Communication::NetworkManager netman("netman");
+    EAR::Schedule::Scheduler scheduler("net-sched");
+    EAR::Communication::NetworkManager netman("net-man");
     GPS gps1("GPS 1");
     GPS gps2("GPS 2");
     DCU dcu("DCU");
@@ -24,9 +24,9 @@ int main() {
     gps2.setDevice(&dev2);
 
     // network operations
-    dcu.setServer(netman.getServer());
-    gps1.setClient(netman.getClient());
-    gps2.setClient(netman.getClient());
+    dcu.setReceiver(netman.getReceiver());
+    gps1.setTransmitter(netman.getTransmitter());
+    gps2.setTransmitter(netman.getTransmitter());
     
     if (!scheduler.allocate(&gps1, 1000000U, 0U) ||
 	!scheduler.allocate(&gps2, 2000000U, 0U) ||

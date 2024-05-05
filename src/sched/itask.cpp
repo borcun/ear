@@ -2,24 +2,22 @@
 
 static uint32_t uuid = 0;
 
-EAR::Schedule::ITask::ITask(const std::string &name)
-    : m_is_running(false),
-      m_period(std::chrono::microseconds(TASK_MIN_PERIOD))
-{
+EAR::Schedule::ITask::ITask(const std::string &name) {
     m_id = ++uuid;
+    m_is_running = false;
+    m_period = std::chrono::microseconds(TASK_MIN_PERIOD);
+    // if user pass empty string for name, set its name to task-<id>
     m_name = name.empty() ? "task-" + std::to_string(m_id) : name;
-
+    
     pthread_mutex_init(&m_start_mutex, nullptr);
-    pthread_mutex_init(&m_progress_mutex, nullptr);
     pthread_cond_init(&m_start_cond_var, nullptr);
-    pthread_cond_init(&m_progress_cond_var, nullptr);
+    spdlog::debug("task {} created", name);
 }
 
 EAR::Schedule::ITask::~ITask() {
     pthread_cond_destroy(&m_start_cond_var);
-    pthread_cond_destroy(&m_progress_cond_var);
     pthread_mutex_destroy(&m_start_mutex);
-    pthread_mutex_destroy(&m_progress_mutex);
+    spdlog::debug("task {} terminated", getName());
 }
 
 uint32_t EAR::Schedule::ITask::getId() const {
@@ -42,7 +40,7 @@ void EAR::Schedule::ITask::setOffset(const std::chrono::microseconds offset) {
     
 bool EAR::Schedule::ITask::start() {
     if (m_is_running) {
-	spdlog::error("task {} already running", getName());
+	spdlog::error("could not start task {} already running", getName());
 	return false;
     }
 
@@ -54,11 +52,12 @@ bool EAR::Schedule::ITask::start() {
 
 bool EAR::Schedule::ITask::stop() {
     if (!m_is_running) {
+	spdlog::error("could not stop task {} not running", getName());
 	return false;
     }
 
     m_is_running = false;
-    spdlog::debug("stop flag up for task {}", getName());
+    spdlog::debug("task {} stop flag is up", getName());
     
     return true;
 }

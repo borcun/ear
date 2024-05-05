@@ -1,18 +1,21 @@
+#include <cstdlib>
+#include <string>
+#include <unistd.h>
 #include "transmitter.h"
 
 EAR::Communication::Transmitter::Transmitter(const std::string &name)
     : Endpoint(name)
 {
-    spdlog::debug("{} transmitter created", name);
+    spdlog::debug("transmitter {} created", name);
 }
 
 EAR::Communication::Transmitter::~Transmitter() {
-    spdlog::debug("{} transmitter terminated", getName());
+    spdlog::debug("transmitter {} terminated", getName());
 }
 
 bool EAR::Communication::Transmitter::initialize(const Configuration &config) {
     if (COMM_OPENED == m_state) {
-	spdlog::error("{} socket already opened", getName());
+	spdlog::error("socket for transmitter {} already opened", getName());
 	return false;
     }
 
@@ -42,7 +45,7 @@ void EAR::Communication::Transmitter::shutdown() {
     close(m_sock);    
     m_state = COMM_CLOSED;
     
-    spdlog::debug("{} transmitter shutdown", getName());
+    spdlog::debug("transmitter {} shutdown", getName());
 
     return;
 }
