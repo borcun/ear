@@ -15,7 +15,14 @@ int main() {
 
     spdlog::set_level(spdlog::level::debug);
 
-    if (!netman.initialize()) {
+    EAR::Communication::Configuration config;
+    
+    config.ip = "";
+    config.port = 10000U;
+    config.is_blocked = false;
+    config.timeout = 0U;
+
+    if (!netman.initialize(config)) {
 	spdlog::error("could not initialize network manager");
 	return -1;
     }

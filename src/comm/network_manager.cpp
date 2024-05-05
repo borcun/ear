@@ -20,23 +20,16 @@ std::string EAR::Communication::NetworkManager::getName() const {
     return m_name;
 }
 
-bool EAR::Communication::NetworkManager::initialize() {
+bool EAR::Communication::NetworkManager::initialize(EAR::Communication::Configuration config) {
     if (m_is_init) {
 	spdlog::error("could not initialize network manager {}, already initialized", getName());
 	return false;
     }
 
-    Configuration config;
-
-    /// @todo get configuration via parameter
-    config.ip = "";
-    config.port = NET_BASE_ADDR + (range_index * NET_RANGE_SIZE);
-    config.is_blocked = false;
-    config.timeout = 0U;
-
+    m_config = config;
     m_receiver = new Receiver(getName() + "-receiver");
 
-    if (!m_receiver->initialize(config)) {
+    if (!m_receiver->initialize(m_config)) {
 	delete m_receiver;
 	return false;
     }
@@ -50,12 +43,9 @@ EAR::Communication::Receiver *EAR::Communication::NetworkManager::getReceiver() 
 }
 
 EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getTransmitter() {
-    Configuration config;
     Transmitter *transmitter = new Transmitter(getName() + "-transmitter-" + std::to_string(m_transmitters.size() + 1));
 
-    config.port = 10000; /// @todo solve port problem
-
-    if (!transmitter->initialize(config)) {
+    if (!transmitter->initialize(m_config)) {
 	spdlog::error("could not initialize transmitter for {}", getName());
 	delete transmitter;
 	return nullptr;
