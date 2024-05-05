@@ -23,7 +23,7 @@ namespace EAR {
 	class Configuration {
 	public:
 	    /// IP address
-	    std::string ip;
+	    std::string ip = "";
 	    /// port number
 	    uint16_t port = 0;
 	    /// blocking type
