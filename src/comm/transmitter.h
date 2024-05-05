@@ -21,7 +21,7 @@ namespace EAR {
 	    /// function that send buffer to listener
 	    /// @param [in] buf - buffer
 	    /// @return length of data sent if succeed, otherwise errno
-	    int32_t send(const std::string &buf);
+	    int32_t send(const char *buf);
 	    
 	    /// function that send buffer to listener
 	    /// @param [in] buf - buffer
