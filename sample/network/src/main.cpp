@@ -17,7 +17,7 @@ int main() {
 
     EAR::Communication::Configuration config;
     
-    config.ip = "";
+    config.ip = "127.0.0.1";
     config.port = 10000U;
     config.is_blocked = false;
     config.timeout = 0U;

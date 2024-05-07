@@ -19,25 +19,35 @@ bool EAR::Communication::Transmitter::initialize(const Configuration &config) {
 	return false;
     }
 
-    /// @todo check IP and port validities
-    
+    memset(&m_recv_addr, 0, sizeof(m_recv_addr));
+
+    if (config.ip.empty()) {
+	m_recv_addr.sin_addr.s_addr = INADDR_ANY;
+    }
+    else {
+	if (!isValidAddress(config.ip)) {
+	    spdlog::error("invalid IP format for {}", getName());
+	    return false;
+	}
+
+	m_recv_addr.sin_addr.s_addr = inet_addr(config.ip.c_str());
+    }
+
+    if (0 == config.port) {
+	spdlog::error("invalid port number for {}", getName());
+	return false;
+    }
+
+    m_recv_addr.sin_port = htons(config.port);
+    m_recv_addr.sin_family = AF_INET;
+
     if (0 > (m_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
 	spdlog::error("could not create socket {}", getName());
 	return false;
     }
 
-    memset(&m_recv_addr, 0, sizeof(m_recv_addr));
-    m_recv_addr.sin_family = AF_INET;
-    m_recv_addr.sin_port = htons(config.port);
-    
-    if (config.ip.empty()) {
-	m_recv_addr.sin_addr.s_addr = INADDR_ANY;
-    }
-    else {
-	//inet_aton(config.ip.c_str(), &m_recv_addr.sin_addr.s_addr);
-    }
-
     m_state = COMM_OPENED;
+    
     spdlog::debug("{} transmitter existed with config: IP: {}, Port: {}, Block: {}, Timeout: {}",
 		  getName(), config.ip, config.port, config.is_blocked, config.timeout);
 

@@ -64,6 +64,11 @@ namespace EAR {
 	    /// endpoint state
 	    State m_state = COMM_CLOSED;
 
+	    /// function that checks whether IP addres is valid
+	    /// @param [in] addr - IP address
+	    /// @return true if IP address is valid, otherwise false
+	    bool isValidAddress(std::string addr);
+	    
 	private:
 	    /// endpoint name
 	    std::string m_name;

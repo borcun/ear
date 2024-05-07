@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <arpa/inet.h>
 #include "endpoint.h"
 
 namespace EAR {
@@ -27,6 +28,10 @@ namespace EAR {
 	private:
 	    /// socket
 	    int m_sock = -1;
+	    /// client address 
+	    struct sockaddr_in m_client_addr;
+	    /// size of client address
+	    socklen_t m_client_addr_len;
 	};
     }
 }
