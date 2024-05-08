@@ -48,7 +48,7 @@ bool EAR::Communication::Transmitter::initialize(const Configuration &config) {
 
     m_state = COMM_OPENED;
     
-    spdlog::debug("{} transmitter existed with config: IP: {}, Port: {}, Block: {}, Timeout: {}",
+    spdlog::debug("{} transmitter existed with config: IP: {}, port: {}, is blocked: {}, timeout: {}",
 		  getName(), config.ip, config.port, config.is_blocked, config.timeout);
 
     return true;

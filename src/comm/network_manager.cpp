@@ -1,10 +1,5 @@
 #include "network_manager.h"
 
-#define NET_BASE_ADDR  (10000U)
-#define NET_RANGE_SIZE (100U)
-
-static int32_t range_index = 0;
-
 EAR::Communication::NetworkManager::NetworkManager(const std::string &name)
     : m_name(name)
 {
@@ -34,7 +29,7 @@ bool EAR::Communication::NetworkManager::initialize(EAR::Communication::Configur
 	return false;
     }
 
-    range_index++;
+    m_is_init = true;
     return true;
 }
 
