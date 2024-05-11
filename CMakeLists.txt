@@ -15,12 +15,12 @@ include_directories(${SPDLOG_DIR}/include ${INC_DIRS})
 link_directories(${SPDLOG_DIR}/build)
 link_libraries(spdlog)
 
-option(BUILD_SAMPLES "Build ear samples" ON)
+option(BUILD_EXAMPLES "Build ear examples" ON)
 
-if (BUILD_SAMPLES)
-  add_subdirectory(sample/pipeline)
-  add_subdirectory(sample/network)
-endif (BUILD_SAMPLES)
+if (BUILD_EXAMPLES)
+  add_subdirectory(example/pipeline)
+  add_subdirectory(example/network)
+endif (BUILD_EXAMPLES)
     
 add_library(${PROJECT_NAME} SHARED ${IO_SRC} ${SCHED_SRC} ${COMM_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
