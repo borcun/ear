@@ -2,6 +2,8 @@
  * @file endpoint.h
  * @brief class that provides communication infrastructure
  * @author boo
+ * @copyright
+ * Time-stamp: <2024-08-18 13:56:35 boo>
  */
 
 #pragma once
@@ -12,66 +14,61 @@
 #include "message.h"
 
 namespace EAR {
-    namespace Communication {
-	/// communication state
-	enum State {
-	    COMM_CLOSED,
-	    COMM_OPENED
-	};
+  namespace Communication {
+    /// communication state
+    enum State {
+      COMM_CLOSED,
+      COMM_OPENED
+    };
 
-	/// endpoint configuration
-	class Configuration {
-	public:
-	    /// IP address
-	    std::string ip = "";
-	    /// port number
-	    uint16_t port = 0;
-	    /// blocking type
-	    bool is_blocked = false;
-	    /// timeout in msec for blocking configuration
-	    uint32_t timeout = 0U;
-	};
+    /// endpoint configuration
+    class Configuration {
+    public:
+      /// IP address
+      std::string ip = "";
+      /// port number
+      uint16_t port = 0;
+      /// blocking type
+      bool is_blocked = false;
+      /// timeout in msec for blocking configuration
+      uint32_t timeout = 0U;
+    };
 
-	/// class Endpoint
-	class Endpoint {
-	    friend class NetworkManager;
+    /// class Endpoint
+    class Endpoint {
+      friend class NetworkManager;
 	
-	public:
-	    /// constructor
-	    /// @param [in] name - endpoint name
-	    explicit Endpoint(const std::string &name);
+    public:
+      /// constructor
+      /// @param [in] name - endpoint name
+      explicit Endpoint(const std::string &name);	    
+      /// destructor
+      virtual ~Endpoint();	    
+      /// function tht gets endpoint name
+      /// @return name of endpoint
+      std::string getName(void) const;	    
+      /// function that gets endpoint state
+      /// @return endpoint state
+      State getState(void) const;	    
+      /// function that initializes endpoint
+      /// @param [in] config - endpoint configuration
+      /// @return true if endpoint is initialized, otherwise false
+      virtual bool initialize(const Configuration &config) = 0;	    
+      /// function that shutdowns endpoint
+      virtual void shutdown(void) = 0;
 	    
-	    /// destructor
-	    virtual ~Endpoint();
-	    
-	    /// function tht gets endpoint name
-	    /// @return name of endpoint
-	    std::string getName() const;
-	    
-	    /// function that gets endpoint state
-	    /// @return endpoint state
-	    State getState() const;
-	    
-	    /// function that initializes endpoint
-	    /// @param [in] config - endpoint configuration
-	    /// @return true if endpoint is initialized, otherwise false
-	    virtual bool initialize(const Configuration &config) = 0;
-	    
-	    /// function that shutdowns endpoint
-	    virtual void shutdown() = 0;
-	    
-	protected:
-	    /// endpoint state
-	    State m_state = COMM_CLOSED;
+    protected:
+      /// endpoint state
+      State m_state = COMM_CLOSED;
 
-	    /// function that checks whether IP addres is valid
-	    /// @param [in] addr - IP address
-	    /// @return true if IP address is valid, otherwise false
-	    bool isValidAddress(std::string addr);
+      /// function that checks whether IP addres is valid
+      /// @param [in] addr - IP address
+      /// @return true if IP address is valid, otherwise false
+      bool isValidAddress(std::string addr);
 	    
-	private:
-	    /// endpoint name
-	    std::string m_name;
-	};
-    }
+    private:
+      /// endpoint name
+      std::string m_name;
+    };
+  }
 }

@@ -1,16 +1,17 @@
 cmake_minimum_required(VERSION 3.2)
-project(ear VERSION 0.0.0 DESCRIPTION "embeded architecture reference (EAR) library")
+project(ear VERSION 0.0.0 DESCRIPTION "embedded architecture reference (EAR) library")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
-set(SPDLOG_DIR ext/spdlog)
-set(INC_DIRS src/sched src/io src/comm)
 
 include(src/sched/sched.cmake)
 include(src/comm/comm.cmake)
 include(src/io/io.cmake)
 
-add_subdirectory(${SPDLOG_DIR}/ ${SPDLOG_DIR}/build)
+set(SPDLOG_DIR ext/spdlog)
+set(INC_DIRS ${SCHED_INC} ${IO_INC} ${COMM_INC})
+
+add_subdirectory(${SPDLOG_DIR} ${SPDLOG_DIR}/build)
 include_directories(${SPDLOG_DIR}/include ${INC_DIRS})
 link_directories(${SPDLOG_DIR}/build)
 link_libraries(spdlog)
