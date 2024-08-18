@@ -11,43 +11,40 @@
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00014}00014 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00015}\mbox{\hyperlink{namespace_e_a_r_1_1_i_o}{00015}}   \textcolor{keyword}{namespace }IO \{}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00017}\mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{00017}}     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \{}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00018}00018       \textcolor{comment}{// none state for device}}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00019}\mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76}{00019}}       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76}{DEV\_NONE}},}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00020}00020       \textcolor{comment}{// refers to device shutdown}}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00021}\mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d}{00021}}       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d}{DEV\_SHUTDOWN}},}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00022}00022       \textcolor{comment}{// refers to device initialized}}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00023}00023       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362}{DEV\_INITIALIZED}}}
 \DoxyCodeLine{\Hypertarget{device_8h_source_l00024}\mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362}{00024}}     \};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00025}00025       }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00026}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{00026}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \{}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00027}00027     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00032}00032       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} std::string \&name, \textcolor{keyword}{const} std::string \&model, \textcolor{keyword}{const} std::string \&version);  }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00034}00034       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a202659815163305d76e3abf0803390bd}{\string~Device}}();         }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00037}00037       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a98e1173f36afbd8ad572b6c798b32575}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00040}00040       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a08d8171d9b8535af6cab84f3a43a04ba}{getModel}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};     }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00043}00043       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a7b8498a3f757ada30a330b6093f86c72}{getVersion}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00046}00046       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_af85ff358d97c34b8403c13f50dd3ba46}{getState}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};      }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00049}00049       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}{initialize}}(\textcolor{keywordtype}{void});         }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00052}00052       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}{shutdown}}(\textcolor{keywordtype}{void});       }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00057}00057       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}{receive}}(\textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size);       }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00062}00062       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}{transmit}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size);     }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00067}00067       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}{configure}}(\textcolor{keywordtype}{void} *target, \textcolor{keyword}{const} int32\_t op);    }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00070}00070       \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}{toString}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00071}00071 }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00072}00072     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00074}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ab8d1cc47ac3590e92a9d7e50bbc7b173}{00074}}       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ab8d1cc47ac3590e92a9d7e50bbc7b173}{m\_state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76}{DEV\_NONE}};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00075}00075 }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00076}00076     \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00078}00078       std::string m\_name;}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00080}00080       std::string m\_model;}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00082}00082       std::string m\_version;}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00083}00083 }
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00084}00084       \textcolor{comment}{// copying or moving device prevented}}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00085}00085       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&dev) = \textcolor{keyword}{delete};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00086}00086       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&\&dev) = \textcolor{keyword}{delete};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00087}00087       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&task) = \textcolor{keyword}{delete};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00088}00088     \};}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00089}00089   \}}
-\DoxyCodeLine{\Hypertarget{device_8h_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00027}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{00027}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \{}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00028}00028     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00033}00033       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} std::string \&name, \textcolor{keyword}{const} std::string \&model, \textcolor{keyword}{const} std::string \&version);  }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00035}00035       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a202659815163305d76e3abf0803390bd}{\string~Device}}();         }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00038}00038       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a98e1173f36afbd8ad572b6c798b32575}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00041}00041       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a08d8171d9b8535af6cab84f3a43a04ba}{getModel}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};     }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00044}00044       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a7b8498a3f757ada30a330b6093f86c72}{getVersion}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00047}00047       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_af85ff358d97c34b8403c13f50dd3ba46}{getState}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};      }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00050}00050       std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}{toString}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00053}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a008654493533911ce7e0bddbe4e97b99}{00053}}       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a008654493533911ce7e0bddbe4e97b99}{initialize}}(\textcolor{keywordtype}{void}) = 0;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00056}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2e19498f0249a18aa0e02aa70f481d32}{00056}}       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2e19498f0249a18aa0e02aa70f481d32}{shutdown}}(\textcolor{keywordtype}{void}) = 0;         }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00061}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ac670d8050f5b097d86c848650af9f88d}{00061}}       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ac670d8050f5b097d86c848650af9f88d}{receive}}(\textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size) = 0;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00066}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8e8848af30e59f25aff9de44b809de17}{00066}}       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8e8848af30e59f25aff9de44b809de17}{transmit}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size) = 0;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00071}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a15850a7dc921592063b33a3ab02eca63}{00071}}       \textcolor{keyword}{virtual} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a15850a7dc921592063b33a3ab02eca63}{configure}}(\textcolor{keywordtype}{void} *target, \textcolor{keyword}{const} int32\_t op) = 0;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00073}00073     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00075}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ab8d1cc47ac3590e92a9d7e50bbc7b173}{00075}}       \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ab8d1cc47ac3590e92a9d7e50bbc7b173}{m\_state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76}{DEV\_NONE}};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00077}00077     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00079}00079       std::string m\_name;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00081}00081       std::string m\_model;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00083}00083       std::string m\_version;}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00085}00085       \textcolor{comment}{// prevent copying or moving I/O device}}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00086}00086       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&dev) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00087}00087       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{Device}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&\&dev) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00088}00088       \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device}{Device}} \&task) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00089}00089     \};}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00090}00090   \}}
+\DoxyCodeLine{\Hypertarget{device_8h_source_l00091}00091 \}}
 
 \end{DoxyCode}

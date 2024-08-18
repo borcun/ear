@@ -33,7 +33,7 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">EAR::Schedule::ITask</link></para>
 
-<para>task interface class </para>
+<para>task interface that is used by internal classes, not for developers </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -66,7 +66,7 @@ This graph shows which files directly or indirectly include this file:<para>
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>Time-stamp: &lt;2024-08-18 13:49:46 boo&gt; </para>
+<para>Time-stamp: &lt;2024-08-18 15:03:15 boo&gt; </para>
 </formalpara>
 </para>
 <para>

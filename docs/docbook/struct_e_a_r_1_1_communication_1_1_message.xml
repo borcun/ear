@@ -3,25 +3,40 @@
 <title>EAR::Communication::Message Struct Reference</title>
 <indexterm><primary>EAR::Communication::Message</primary></indexterm>
 <para>
+
+<para><link linkend="_struct_e_a_r_1_1_communication_1_1_message">Message</link> type. </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;message.h&gt;</computeroutput>
 </para>
 <simplesect>
     <title>Public Attributes    </title>
         <itemizedlist>
-            <listitem><para>uint8_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a84ce7a864719ac51e2ea713be94a076f">src</link></para>
+            <listitem><para>uint32_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a4fad964c66222c9ef410c08f8ee214e6">src</link> = 0U</para>
+
+<para>source id of message </para>
 </listitem>
-            <listitem><para>uint8_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1ad9c20c0af8f7f0c4d3779657c7a8e249">len</link></para>
+            <listitem><para>uint32_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1aeb8148bb4836fb981c88bb0348d34692">len</link> = 0U</para>
+
+<para>length of message </para>
 </listitem>
-            <listitem><para>uint8_t * <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a36119021fa69baa50be9128485133fd8">buf</link></para>
+            <listitem><para>uint8_t * <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a36119021fa69baa50be9128485133fd8">buf</link> = nullptr</para>
+
+<para>message data </para>
 </listitem>
-            <listitem><para>uint16_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a7f2604ed87728babf0d72246ff0584ff">crc</link></para>
+            <listitem><para>uint16_t <link linkend="_struct_e_a_r_1_1_communication_1_1_message_1a7f2604ed87728babf0d72246ff0584ff">crc</link> = 0U</para>
+
+<para>checksum for message </para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para><link linkend="_struct_e_a_r_1_1_communication_1_1_message">Message</link> type. </para>
 <para>
-Definition at line <link linkend="_message_8h_source_1l00007">7</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
+Definition at line <link linkend="_message_8h_source_1l00016">16</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -29,29 +44,45 @@ Definition at line <link linkend="_message_8h_source_1l00007">7</link> of file <
     <title>buf</title>
 <indexterm><primary>buf</primary><secondary>EAR::Communication::Message</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Message</primary><secondary>buf</secondary></indexterm>
-<para><computeroutput>uint8_t* EAR::Communication::Message::buf</computeroutput></para><para>
-Definition at line <link linkend="_message_8h_source_1l00010">10</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
+<para><computeroutput>uint8_t* EAR::Communication::Message::buf = nullptr</computeroutput></para><para>
+
+<para>message data </para>
+</para>
+<para>
+Definition at line <link linkend="_message_8h_source_1l00022">22</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
 </section>
 <anchor xml:id="_struct_e_a_r_1_1_communication_1_1_message_1a7f2604ed87728babf0d72246ff0584ff"/><section>
     <title>crc</title>
 <indexterm><primary>crc</primary><secondary>EAR::Communication::Message</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Message</primary><secondary>crc</secondary></indexterm>
-<para><computeroutput>uint16_t EAR::Communication::Message::crc</computeroutput></para><para>
-Definition at line <link linkend="_message_8h_source_1l00011">11</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
+<para><computeroutput>uint16_t EAR::Communication::Message::crc = 0U</computeroutput></para><para>
+
+<para>checksum for message </para>
+</para>
+<para>
+Definition at line <link linkend="_message_8h_source_1l00024">24</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
 </section>
-<anchor xml:id="_struct_e_a_r_1_1_communication_1_1_message_1ad9c20c0af8f7f0c4d3779657c7a8e249"/><section>
+<anchor xml:id="_struct_e_a_r_1_1_communication_1_1_message_1aeb8148bb4836fb981c88bb0348d34692"/><section>
     <title>len</title>
 <indexterm><primary>len</primary><secondary>EAR::Communication::Message</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Message</primary><secondary>len</secondary></indexterm>
-<para><computeroutput>uint8_t EAR::Communication::Message::len</computeroutput></para><para>
-Definition at line <link linkend="_message_8h_source_1l00009">9</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
+<para><computeroutput>uint32_t EAR::Communication::Message::len = 0U</computeroutput></para><para>
+
+<para>length of message </para>
+</para>
+<para>
+Definition at line <link linkend="_message_8h_source_1l00020">20</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
 </section>
-<anchor xml:id="_struct_e_a_r_1_1_communication_1_1_message_1a84ce7a864719ac51e2ea713be94a076f"/><section>
+<anchor xml:id="_struct_e_a_r_1_1_communication_1_1_message_1a4fad964c66222c9ef410c08f8ee214e6"/><section>
     <title>src</title>
 <indexterm><primary>src</primary><secondary>EAR::Communication::Message</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Message</primary><secondary>src</secondary></indexterm>
-<para><computeroutput>uint8_t EAR::Communication::Message::src</computeroutput></para><para>
-Definition at line <link linkend="_message_8h_source_1l00008">8</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
+<para><computeroutput>uint32_t EAR::Communication::Message::src = 0U</computeroutput></para><para>
+
+<para>source id of message </para>
+</para>
+<para>
+Definition at line <link linkend="_message_8h_source_1l00018">18</link> of file <link linkend="_message_8h_source">message.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

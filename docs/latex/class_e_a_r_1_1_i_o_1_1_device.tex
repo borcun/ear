@@ -2,6 +2,11 @@
 \label{class_e_a_r_1_1_i_o_1_1_device}\index{EAR::IO::Device@{EAR::IO::Device}}
 
 
+base class for devices performing I/O operations  
+
+
+
+
 {\ttfamily \#include $<$device.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -19,29 +24,29 @@ std\+::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a7b8498a3f757ada30
 \item 
 \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_af85ff358d97c34b8403c13f50dd3ba46}{get\+State}} (void) const
 \item 
-virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}{initialize}} (void)
+std\+::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}{to\+String}} (void) const
 \item 
-virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}{shutdown}} (void)
+virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a008654493533911ce7e0bddbe4e97b99}{initialize}} (void)=0
 \item 
-virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}{receive}} (void $\ast$buf, const uint32\+\_\+t size)
+virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2e19498f0249a18aa0e02aa70f481d32}{shutdown}} (void)=0
 \item 
-virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}{transmit}} (const void $\ast$buf, const uint32\+\_\+t size)
+virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ac670d8050f5b097d86c848650af9f88d}{receive}} (void $\ast$buf, const uint32\+\_\+t size)=0
 \item 
-virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}{configure}} (void $\ast$target, const int32\+\_\+t op)
+virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8e8848af30e59f25aff9de44b809de17}{transmit}} (const void $\ast$buf, const uint32\+\_\+t size)=0
 \item 
-virtual std\+::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}{to\+String}} (void)
+virtual int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a15850a7dc921592063b33a3ab02eca63}{configure}} (void $\ast$target, const int32\+\_\+t op)=0
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0}{State}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_ab8d1cc47ac3590e92a9d7e50bbc7b173}{m\+\_\+state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_i_o_a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76}{DEV\+\_\+\+NONE}}
-\begin{DoxyCompactList}\small\item\em io device state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em io device state, explicitly open for manipulation by derived classes \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+base class for devices performing I/O operations 
 
-
-Definition at line \mbox{\hyperlink{device_8h_source_l00026}{26}} of file \mbox{\hyperlink{device_8h_source}{device.\+h}}.
+Definition at line \mbox{\hyperlink{device_8h_source_l00027}{27}} of file \mbox{\hyperlink{device_8h_source}{device.\+h}}.
 
 
 
@@ -65,7 +70,8 @@ constructor
 
 Definition at line \mbox{\hyperlink{device_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -89,15 +95,15 @@ Definition at line \mbox{\hyperlink{device_8cpp_source_l00009}{9}} of file \mbox
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}\label{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a15850a7dc921592063b33a3ab02eca63}\label{class_e_a_r_1_1_i_o_1_1_device_a15850a7dc921592063b33a3ab02eca63}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!configure@{configure}}
 \index{configure@{configure}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{configure()}{configure()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+IO\+::\+Device\+::configure (\begin{DoxyParamCaption}\item[{void $\ast$}]{target,  }\item[{const int32\+\_\+t}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t EAR\+::\+IO\+::\+Device\+::configure (\begin{DoxyParamCaption}\item[{void $\ast$}]{target,  }\item[{const int32\+\_\+t}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-function that control io interface 
+function that control I/O device interface 
 \begin{DoxyParams}[1]{Parameters}
- & {\em \mbox{[}in$\vert$out\mbox{]}} & target -\/ target for io interface \\
+ & {\em \mbox{[}in$\vert$out\mbox{]}} & target -\/ target for I/O device interface \\
 \hline
 \mbox{\texttt{ in}}  & {\em op} & -\/ type of operation that is applied to target \\
 \hline
@@ -105,10 +111,6 @@ function that control io interface
 \begin{DoxyReturn}{Returns}
 error code 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
-
 \mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a08d8171d9b8535af6cab84f3a43a04ba}\label{class_e_a_r_1_1_i_o_1_1_device_a08d8171d9b8535af6cab84f3a43a04ba}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!getModel@{getModel}}
 \index{getModel@{getModel}!EAR::IO::Device@{EAR::IO::Device}}
@@ -161,28 +163,24 @@ device model
 
 Definition at line \mbox{\hyperlink{device_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
 
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}\label{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a008654493533911ce7e0bddbe4e97b99}\label{class_e_a_r_1_1_i_o_1_1_device_a008654493533911ce7e0bddbe4e97b99}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!initialize@{initialize}}
 \index{initialize@{initialize}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+IO\+::\+Device\+::initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t EAR\+::\+IO\+::\+Device\+::initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-function that opens io interface \begin{DoxyReturn}{Returns}
+function that opens I/O device interface \begin{DoxyReturn}{Returns}
 error code 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
-
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}\label{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_ac670d8050f5b097d86c848650af9f88d}\label{class_e_a_r_1_1_i_o_1_1_device_ac670d8050f5b097d86c848650af9f88d}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!receive@{receive}}
 \index{receive@{receive}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{receive()}{receive()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+IO\+::\+Device\+::receive (\begin{DoxyParamCaption}\item[{void $\ast$}]{buf,  }\item[{const uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t EAR\+::\+IO\+::\+Device\+::receive (\begin{DoxyParamCaption}\item[{void $\ast$}]{buf,  }\item[{const uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-function that reads data from io interface 
+function that reads data from I/O device interface 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ out}}  & {\em buf} & -\/ output buffer read from io interface \\
+\mbox{\texttt{ out}}  & {\em buf} & -\/ output buffer read from I/O device interface \\
 \hline
 \mbox{\texttt{ in}}  & {\em size} & -\/ buffer size \\
 \hline
@@ -190,52 +188,45 @@ function that reads data from io interface
 \begin{DoxyReturn}{Returns}
 error code 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
-
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}\label{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a2e19498f0249a18aa0e02aa70f481d32}\label{class_e_a_r_1_1_i_o_1_1_device_a2e19498f0249a18aa0e02aa70f481d32}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!shutdown@{shutdown}}
 \index{shutdown@{shutdown}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+IO\+::\+Device\+::shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t EAR\+::\+IO\+::\+Device\+::shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-function that closes io interface \begin{DoxyReturn}{Returns}
+function that closes I/O device interface \begin{DoxyReturn}{Returns}
 error code 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
-
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}\label{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}\label{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!toString@{toString}}
 \index{toString@{toString}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{toString()}{toString()}}
-{\footnotesize\ttfamily std\+::string EAR\+::\+IO\+::\+Device\+::to\+String (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::string EAR\+::\+IO\+::\+Device\+::to\+String (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
 function that format device information as string \begin{DoxyReturn}{Returns}
 device information 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
+Definition at line \mbox{\hyperlink{device_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc_icgraph}
+\includegraphics[width=350pt]{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}\label{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_i_o_1_1_device_a8e8848af30e59f25aff9de44b809de17}\label{class_e_a_r_1_1_i_o_1_1_device_a8e8848af30e59f25aff9de44b809de17}} 
 \index{EAR::IO::Device@{EAR::IO::Device}!transmit@{transmit}}
 \index{transmit@{transmit}!EAR::IO::Device@{EAR::IO::Device}}
 \doxysubsubsection{\texorpdfstring{transmit()}{transmit()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+IO\+::\+Device\+::transmit (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{const uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t EAR\+::\+IO\+::\+Device\+::transmit (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{const uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-function that writes data from io interface 
+function that writes data from I/O device interface 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em buf} & -\/ input buffer written to io interface \\
+\mbox{\texttt{ in}}  & {\em buf} & -\/ input buffer written to I/O device interface \\
 \hline
 \mbox{\texttt{ in}}  & {\em size} & -\/ buffer size \\
 \hline
@@ -243,10 +234,6 @@ function that writes data from io interface
 \begin{DoxyReturn}{Returns}
 error code 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{device_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{device_8cpp_source}{device.\+cpp}}.
-
 
 
 \doxysubsection{Member Data Documentation}
@@ -258,11 +245,11 @@ Definition at line \mbox{\hyperlink{device_8cpp_source_l00044}{44}} of file \mbo
 
 
 
-io device state 
+io device state, explicitly open for manipulation by derived classes 
 
 
 
-Definition at line \mbox{\hyperlink{device_8h_source_l00074}{74}} of file \mbox{\hyperlink{device_8h_source}{device.\+h}}.
+Definition at line \mbox{\hyperlink{device_8h_source_l00075}{75}} of file \mbox{\hyperlink{device_8h_source}{device.\+h}}.
 
 
 

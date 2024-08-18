@@ -2,7 +2,7 @@
 \label{class_e_a_r_1_1_schedule_1_1_i_task}\index{EAR::Schedule::ITask@{EAR::Schedule::ITask}}
 
 
-task interface class  
+task interface that is used by internal classes, not for developers  
 
 
 
@@ -11,7 +11,8 @@ task interface class
 
 
 
-Inheritance diagram for EAR\+::Schedule\+::ITask\+:\nopagebreak
+Inheritance diagram for EAR\+::Schedule\+::ITask\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,7 +23,7 @@ Inheritance diagram for EAR\+::Schedule\+::ITask\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a32dd611d56854185a6282bdc848a8de5}{ITask}} (const std\+::string \&name)
-\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\item 
 virtual \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a1ea9fd2c4cf123c08fa5001d9371e114}{$\sim$\+ITask}} ()
 \begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a095032c759ed51ba5a08e8bee8e8d567}{get\+Id}} (void) const
@@ -30,9 +31,9 @@ uint32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a095032c759ed
 std\+::string \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_ab23edb8bcddff6eb970c1118e154e1ab}{get\+Name}} (void) const
 \item 
 virtual bool \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a266bce111cbc83819da3d3f0141420cd}{initialize}} (void)=0
-\begin{DoxyCompactList}\small\item\em function that initializes task \end{DoxyCompactList}\item 
+\item 
 virtual void \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_aae2fbb8656ec821945de80d16dc4911f}{cycle}} (void)=0
-\begin{DoxyCompactList}\small\item\em function that is supposed to be implemented by task user \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -67,7 +68,7 @@ class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_afb88c77ea5daaefa6c8f
 
 
 \doxysubsection{Detailed Description}
-task interface class 
+task interface that is used by internal classes, not for developers 
 
 Definition at line \mbox{\hyperlink{itask_8h_source_l00021}{21}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
@@ -80,13 +81,14 @@ Definition at line \mbox{\hyperlink{itask_8h_source_l00021}{21}} of file \mbox{\
 \doxysubsubsection{\texorpdfstring{ITask()}{ITask()}}
 {\footnotesize\ttfamily EAR\+::\+Schedule\+::\+ITask\+::\+ITask (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
+constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & -\/ task name \\
+\hline
+\end{DoxyParams}
 
 
-default constructor 
-
-
-
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_a1ea9fd2c4cf123c08fa5001d9371e114}\label{class_e_a_r_1_1_schedule_1_1_i_task_a1ea9fd2c4cf123c08fa5001d9371e114}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!````~ITask@{$\sim$ITask}}
@@ -100,7 +102,7 @@ destructor
 
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 
 
@@ -111,10 +113,9 @@ Definition at line \mbox{\hyperlink{itask_8cpp_source_l00017}{17}} of file \mbox
 \doxysubsubsection{\texorpdfstring{cycle()}{cycle()}}
 {\footnotesize\ttfamily virtual void EAR\+::\+Schedule\+::\+ITask\+::cycle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-
-
-function that is supposed to be implemented by task user 
-
+function that performs one cycle of task \begin{DoxyRemark}{Remarks}
+it is supposed to be implemented by task user 
+\end{DoxyRemark}
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_a0ba642a735270ad37d7a1c256c070915}\label{class_e_a_r_1_1_schedule_1_1_i_task_a0ba642a735270ad37d7a1c256c070915}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!execute@{execute}}
 \index{execute@{execute}!EAR::Schedule::ITask@{EAR::Schedule::ITask}}
@@ -139,7 +140,7 @@ task id
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_ab23edb8bcddff6eb970c1118e154e1ab}\label{class_e_a_r_1_1_schedule_1_1_i_task_ab23edb8bcddff6eb970c1118e154e1ab}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!getName@{getName}}
@@ -147,12 +148,12 @@ Definition at line \mbox{\hyperlink{itask_8cpp_source_l00023}{23}} of file \mbox
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
 {\footnotesize\ttfamily std\+::string EAR\+::\+Schedule\+::\+ITask\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
-function that gets task id \begin{DoxyReturn}{Returns}
-task id 
+function that gets task name \begin{DoxyReturn}{Returns}
+task name 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -167,11 +168,11 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily virtual bool EAR\+::\+Schedule\+::\+ITask\+::initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-
-
-function that initializes task 
-
-Here is the caller graph for this function\+:\nopagebreak
+function that initializes task \begin{DoxyReturn}{Returns}
+true if the initialization done successfully, otherwise false 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -191,7 +192,7 @@ function that sets offset of the task
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -213,7 +214,7 @@ function that sets period of the task
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -233,7 +234,7 @@ true if task is started, otherwise false
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_a1ec0d1b0bd7fe07997c937ce2d7915ac}\label{class_e_a_r_1_1_schedule_1_1_i_task_a1ec0d1b0bd7fe07997c937ce2d7915ac}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!stop@{stop}}
@@ -246,7 +247,7 @@ true if task is stopped, otherwise false
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{itask_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
+Definition at line \mbox{\hyperlink{itask_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{itask_8cpp_source}{itask.\+cpp}}.
 
 
 
@@ -259,7 +260,7 @@ Definition at line \mbox{\hyperlink{itask_8cpp_source_l00053}{53}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00023}{23}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00024}{24}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 
 
@@ -276,7 +277,7 @@ run flag indicating state of the task
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00047}{47}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00051}{51}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_a3f2ccd66c4d524a3fba6be83661fd345}\label{class_e_a_r_1_1_schedule_1_1_i_task_a3f2ccd66c4d524a3fba6be83661fd345}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!m\_offset@{m\_offset}}
@@ -290,7 +291,7 @@ task start offset in usec
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00045}{45}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00049}{49}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_acba24d98a3594e6b6a617af9dd0d08f8}\label{class_e_a_r_1_1_schedule_1_1_i_task_acba24d98a3594e6b6a617af9dd0d08f8}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!m\_period@{m\_period}}
@@ -304,7 +305,7 @@ task period in usec
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00043}{43}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00047}{47}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_ab43cc11afcb7624696e31d13f267f4f5}\label{class_e_a_r_1_1_schedule_1_1_i_task_ab43cc11afcb7624696e31d13f267f4f5}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!m\_start\_cond\_var@{m\_start\_cond\_var}}
@@ -318,7 +319,7 @@ start condition flag for the thread
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00051}{51}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00055}{55}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_i_task_a1865f7ee4f6fd0f2caca75afaba496eb}\label{class_e_a_r_1_1_schedule_1_1_i_task_a1865f7ee4f6fd0f2caca75afaba496eb}} 
 \index{EAR::Schedule::ITask@{EAR::Schedule::ITask}!m\_start\_mutex@{m\_start\_mutex}}
@@ -332,7 +333,7 @@ start mutex used to give start to the task
 
 
 
-Definition at line \mbox{\hyperlink{itask_8h_source_l00049}{49}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
+Definition at line \mbox{\hyperlink{itask_8h_source_l00053}{53}} of file \mbox{\hyperlink{itask_8h_source}{itask.\+h}}.
 
 
 

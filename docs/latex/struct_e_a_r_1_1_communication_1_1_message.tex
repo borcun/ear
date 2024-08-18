@@ -2,25 +2,30 @@
 \label{struct_e_a_r_1_1_communication_1_1_message}\index{EAR::Communication::Message@{EAR::Communication::Message}}
 
 
+\mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message}{Message}} type.  
+
+
+
+
 {\ttfamily \#include $<$message.\+h$>$}
 
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a84ce7a864719ac51e2ea713be94a076f}{src}}
-\item 
-uint8\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_ad9c20c0af8f7f0c4d3779657c7a8e249}{len}}
-\item 
-uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a36119021fa69baa50be9128485133fd8}{buf}}
-\item 
-uint16\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a7f2604ed87728babf0d72246ff0584ff}{crc}}
-\end{DoxyCompactItemize}
+uint32\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a4fad964c66222c9ef410c08f8ee214e6}{src}} = 0U
+\begin{DoxyCompactList}\small\item\em source id of message \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_aeb8148bb4836fb981c88bb0348d34692}{len}} = 0U
+\begin{DoxyCompactList}\small\item\em length of message \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a36119021fa69baa50be9128485133fd8}{buf}} = nullptr
+\begin{DoxyCompactList}\small\item\em message data \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message_a7f2604ed87728babf0d72246ff0584ff}{crc}} = 0U
+\begin{DoxyCompactList}\small\item\em checksum for message \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_e_a_r_1_1_communication_1_1_message}{Message}} type. 
 
-
-Definition at line \mbox{\hyperlink{message_8h_source_l00007}{7}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+Definition at line \mbox{\hyperlink{message_8h_source_l00016}{16}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
 
 
 
@@ -29,41 +34,57 @@ Definition at line \mbox{\hyperlink{message_8h_source_l00007}{7}} of file \mbox{
 \index{EAR::Communication::Message@{EAR::Communication::Message}!buf@{buf}}
 \index{buf@{buf}!EAR::Communication::Message@{EAR::Communication::Message}}
 \doxysubsubsection{\texorpdfstring{buf}{buf}}
-{\footnotesize\ttfamily uint8\+\_\+t$\ast$ EAR\+::\+Communication\+::\+Message\+::buf}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ EAR\+::\+Communication\+::\+Message\+::buf = nullptr}
 
 
 
-Definition at line \mbox{\hyperlink{message_8h_source_l00010}{10}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+message data 
+
+
+
+Definition at line \mbox{\hyperlink{message_8h_source_l00022}{22}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
 
 \mbox{\Hypertarget{struct_e_a_r_1_1_communication_1_1_message_a7f2604ed87728babf0d72246ff0584ff}\label{struct_e_a_r_1_1_communication_1_1_message_a7f2604ed87728babf0d72246ff0584ff}} 
 \index{EAR::Communication::Message@{EAR::Communication::Message}!crc@{crc}}
 \index{crc@{crc}!EAR::Communication::Message@{EAR::Communication::Message}}
 \doxysubsubsection{\texorpdfstring{crc}{crc}}
-{\footnotesize\ttfamily uint16\+\_\+t EAR\+::\+Communication\+::\+Message\+::crc}
+{\footnotesize\ttfamily uint16\+\_\+t EAR\+::\+Communication\+::\+Message\+::crc = 0U}
 
 
 
-Definition at line \mbox{\hyperlink{message_8h_source_l00011}{11}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+checksum for message 
 
-\mbox{\Hypertarget{struct_e_a_r_1_1_communication_1_1_message_ad9c20c0af8f7f0c4d3779657c7a8e249}\label{struct_e_a_r_1_1_communication_1_1_message_ad9c20c0af8f7f0c4d3779657c7a8e249}} 
+
+
+Definition at line \mbox{\hyperlink{message_8h_source_l00024}{24}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+
+\mbox{\Hypertarget{struct_e_a_r_1_1_communication_1_1_message_aeb8148bb4836fb981c88bb0348d34692}\label{struct_e_a_r_1_1_communication_1_1_message_aeb8148bb4836fb981c88bb0348d34692}} 
 \index{EAR::Communication::Message@{EAR::Communication::Message}!len@{len}}
 \index{len@{len}!EAR::Communication::Message@{EAR::Communication::Message}}
 \doxysubsubsection{\texorpdfstring{len}{len}}
-{\footnotesize\ttfamily uint8\+\_\+t EAR\+::\+Communication\+::\+Message\+::len}
+{\footnotesize\ttfamily uint32\+\_\+t EAR\+::\+Communication\+::\+Message\+::len = 0U}
 
 
 
-Definition at line \mbox{\hyperlink{message_8h_source_l00009}{9}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+length of message 
 
-\mbox{\Hypertarget{struct_e_a_r_1_1_communication_1_1_message_a84ce7a864719ac51e2ea713be94a076f}\label{struct_e_a_r_1_1_communication_1_1_message_a84ce7a864719ac51e2ea713be94a076f}} 
+
+
+Definition at line \mbox{\hyperlink{message_8h_source_l00020}{20}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+
+\mbox{\Hypertarget{struct_e_a_r_1_1_communication_1_1_message_a4fad964c66222c9ef410c08f8ee214e6}\label{struct_e_a_r_1_1_communication_1_1_message_a4fad964c66222c9ef410c08f8ee214e6}} 
 \index{EAR::Communication::Message@{EAR::Communication::Message}!src@{src}}
 \index{src@{src}!EAR::Communication::Message@{EAR::Communication::Message}}
 \doxysubsubsection{\texorpdfstring{src}{src}}
-{\footnotesize\ttfamily uint8\+\_\+t EAR\+::\+Communication\+::\+Message\+::src}
+{\footnotesize\ttfamily uint32\+\_\+t EAR\+::\+Communication\+::\+Message\+::src = 0U}
 
 
 
-Definition at line \mbox{\hyperlink{message_8h_source_l00008}{8}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
+source id of message 
+
+
+
+Definition at line \mbox{\hyperlink{message_8h_source_l00018}{18}} of file \mbox{\hyperlink{message_8h_source}{message.\+h}}.
 
 
 

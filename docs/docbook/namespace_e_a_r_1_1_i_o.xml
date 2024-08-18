@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link></para>
+
+<para>base class for devices performing I/O operations </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -39,11 +41,17 @@
 <tbody>
 <row><entry><indexterm><primary>DEV_NONE</primary><secondary>EAR::IO</secondary></indexterm>
 <indexterm><primary>EAR::IO</primary><secondary>DEV_NONE</secondary></indexterm>
-<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76"/>DEV_NONE</entry><entry></entry></row><row><entry><indexterm><primary>DEV_SHUTDOWN</primary><secondary>EAR::IO</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76"/>DEV_NONE</entry><entry>
+<para>none state for device </para>
+</entry></row><row><entry><indexterm><primary>DEV_SHUTDOWN</primary><secondary>EAR::IO</secondary></indexterm>
 <indexterm><primary>EAR::IO</primary><secondary>DEV_SHUTDOWN</secondary></indexterm>
-<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d"/>DEV_SHUTDOWN</entry><entry></entry></row><row><entry><indexterm><primary>DEV_INITIALIZED</primary><secondary>EAR::IO</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d"/>DEV_SHUTDOWN</entry><entry>
+<para>refers to device shutdown </para>
+</entry></row><row><entry><indexterm><primary>DEV_INITIALIZED</primary><secondary>EAR::IO</secondary></indexterm>
 <indexterm><primary>EAR::IO</primary><secondary>DEV_INITIALIZED</secondary></indexterm>
-<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362"/>DEV_INITIALIZED</entry><entry></entry></row>    </tbody>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362"/>DEV_INITIALIZED</entry><entry>
+<para>refers to device initialized </para>
+</entry></row>    </tbody>
     </tgroup>
 </informaltable>
 <para>

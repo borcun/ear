@@ -4,7 +4,7 @@
 <indexterm><primary>EAR::Schedule::ITask</primary></indexterm>
 <para>
 
-<para>task interface class </para>
+<para>task interface that is used by internal classes, not for developers </para>
  
 </para>
 <para>
@@ -23,8 +23,6 @@ Inheritance diagram for EAR::Schedule::ITask:<para>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">ITask</link> (const std::string &amp;name)</para>
-
-<para>default constructor </para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114">~ITask</link> ()</para>
 
@@ -35,12 +33,8 @@ Inheritance diagram for EAR::Schedule::ITask:<para>
             <listitem><para>std::string <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab">getName</link> (void) const</para>
 </listitem>
             <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a266bce111cbc83819da3d3f0141420cd">initialize</link> (void)=0</para>
-
-<para>function that initializes task </para>
 </listitem>
             <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1aae2fbb8656ec821945de80d16dc4911f">cycle</link> (void)=0</para>
-
-<para>function that is supposed to be implemented by task user </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -94,7 +88,7 @@ Inheritance diagram for EAR::Schedule::ITask:<para>
 <section>
 <title>Detailed Description</title>
 
-<para>task interface class </para>
+<para>task interface that is used by internal classes, not for developers </para>
 <para>
 Definition at line <link linkend="_itask_8h_source_1l00021">21</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
@@ -104,12 +98,31 @@ Definition at line <link linkend="_itask_8h_source_1l00021">21</link> of file <l
     <title>ITask()</title>
 <indexterm><primary>ITask</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
 <indexterm><primary>EAR::Schedule::ITask</primary><secondary>ITask</secondary></indexterm>
-<para><computeroutput>EAR::Schedule::ITask::ITask (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
-
-<para>default constructor </para>
-</para>
+<para><computeroutput>EAR::Schedule::ITask::ITask (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- task name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00005">5</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00006">6</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114"/><section>
     <title>~ITask()</title>
@@ -120,7 +133,7 @@ Definition at line <link linkend="_itask_8cpp_source_1l00005">5</link> of file <
 <para>destructor </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00017">17</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00019">19</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 </section>
 </section>
 <section>
@@ -129,9 +142,11 @@ Definition at line <link linkend="_itask_8cpp_source_1l00017">17</link> of file 
     <title>cycle()</title>
 <indexterm><primary>cycle</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
 <indexterm><primary>EAR::Schedule::ITask</primary><secondary>cycle</secondary></indexterm>
-<para><computeroutput>virtual void EAR::Schedule::ITask::cycle (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+<para><computeroutput>virtual void EAR::Schedule::ITask::cycle (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that performs one cycle of task <formalpara><title>Remarks</title>
 
-<para>function that is supposed to be implemented by task user </para>
+<para>it is supposed to be implemented by task user </para>
+</formalpara>
 </para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915"/><section>
@@ -158,20 +173,20 @@ Implemented in <link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f997
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00023">23</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00026">26</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab"/><section>
     <title>getName()</title>
 <indexterm><primary>getName</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
 <indexterm><primary>EAR::Schedule::ITask</primary><secondary>getName</secondary></indexterm>
 <para><computeroutput>std::string EAR::Schedule::ITask::getName (void ) const</computeroutput></para>
-<para>function that gets task id <formalpara><title>Returns</title>
+<para>function that gets task name <formalpara><title>Returns</title>
 
-<para>task id </para>
+<para>task name </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00027">27</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00030">30</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -186,9 +201,11 @@ Here is the caller graph for this function:<para>
     <title>initialize()</title>
 <indexterm><primary>initialize</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
 <indexterm><primary>EAR::Schedule::ITask</primary><secondary>initialize</secondary></indexterm>
-<para><computeroutput>virtual bool EAR::Schedule::ITask::initialize (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+<para><computeroutput>virtual bool EAR::Schedule::ITask::initialize (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that initializes task <formalpara><title>Returns</title>
 
-<para>function that initializes task </para>
+<para>true if the initialization done successfully, otherwise false </para>
+</formalpara>
 </para>
 Here is the caller graph for this function:<para>
     <informalfigure>
@@ -228,7 +245,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00036">36</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00039">39</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -267,7 +284,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00031">31</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00034">34</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -289,7 +306,7 @@ Here is the caller graph for this function:<para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00041">41</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00044">44</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac"/><section>
     <title>stop()</title>
@@ -302,7 +319,7 @@ Definition at line <link linkend="_itask_8cpp_source_1l00041">41</link> of file 
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_itask_8cpp_source_1l00053">53</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Definition at line <link linkend="_itask_8cpp_source_1l00056">56</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
 </section>
 </section>
 <section>
@@ -312,7 +329,7 @@ Definition at line <link linkend="_itask_8cpp_source_1l00053">53</link> of file 
 <indexterm><primary>Scheduler</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
 <indexterm><primary>EAR::Schedule::ITask</primary><secondary>Scheduler</secondary></indexterm>
 <para><computeroutput>friend class <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_itask_8h_source_1l00023">23</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00024">24</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 </section>
 <section>
@@ -326,7 +343,7 @@ Definition at line <link linkend="_itask_8h_source_1l00023">23</link> of file <l
 <para>run flag indicating state of the task </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8h_source_1l00047">47</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00051">51</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a3f2ccd66c4d524a3fba6be83661fd345"/><section>
     <title>m_offset</title>
@@ -337,7 +354,7 @@ Definition at line <link linkend="_itask_8h_source_1l00047">47</link> of file <l
 <para>task start offset in usec </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8h_source_1l00045">45</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00049">49</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8"/><section>
     <title>m_period</title>
@@ -348,7 +365,7 @@ Definition at line <link linkend="_itask_8h_source_1l00045">45</link> of file <l
 <para>task period in usec </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8h_source_1l00043">43</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00047">47</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5"/><section>
     <title>m_start_cond_var</title>
@@ -359,7 +376,7 @@ Definition at line <link linkend="_itask_8h_source_1l00043">43</link> of file <l
 <para>start condition flag for the thread </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8h_source_1l00051">51</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00055">55</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb"/><section>
     <title>m_start_mutex</title>
@@ -370,7 +387,7 @@ Definition at line <link linkend="_itask_8h_source_1l00051">51</link> of file <l
 <para>start mutex used to give start to the task </para>
 </para>
 <para>
-Definition at line <link linkend="_itask_8h_source_1l00049">49</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+Definition at line <link linkend="_itask_8h_source_1l00053">53</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

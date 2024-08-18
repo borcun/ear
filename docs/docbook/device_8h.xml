@@ -31,6 +31,8 @@ This graph shows which files directly or indirectly include this file:<para>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_i_o_1_1_device">EAR::IO::Device</link></para>
+
+<para>base class for devices performing I/O operations </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -66,7 +68,7 @@ This graph shows which files directly or indirectly include this file:<para>
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>Time-stamp: &lt;2024-08-18 14:28:10 boo&gt; </para>
+<para>Time-stamp: &lt;2024-08-18 19:25:30 boo&gt; </para>
 </formalpara>
 </para>
 <para>

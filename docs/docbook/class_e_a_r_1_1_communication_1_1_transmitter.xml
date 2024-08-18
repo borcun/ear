@@ -3,6 +3,11 @@
 <title>EAR::Communication::Transmitter Class Reference</title>
 <indexterm><primary>EAR::Communication::Transmitter</primary></indexterm>
 <para>
+
+<para>transmitter endpoint class </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;transmitter.h&gt;</computeroutput>
 </para>
 Inheritance diagram for EAR::Communication::Transmitter:<para>
@@ -29,12 +34,14 @@ Collaboration diagram for EAR::Communication::Transmitter:<para>
             <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5528115a11dae1a35a66ed73ba889d81">Transmitter</link> (const std::string &amp;name)</para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1ad3bb3ea5c2fa853b00d43dc6e4b8e8ce">~Transmitter</link> ()</para>
+
+<para>destructor </para>
 </listitem>
             <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">initialize</link> (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp;config) override</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">shutdown</link> () override</para>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a2d0daa6d4671052bee0f22122c497165">shutdown</link> (void) override</para>
 
-<para>function that shutdowns endpoint </para>
+<para>function that shutdowns transmitter endpoint </para>
 </listitem>
             <listitem><para>int32_t <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1aa39396edbede01b955d99adef584397a">send</link> (const char *buf)</para>
 </listitem>
@@ -47,8 +54,10 @@ Collaboration diagram for EAR::Communication::Transmitter:<para>
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>transmitter endpoint class </para>
 <para>
-Definition at line <link linkend="_transmitter_8h_source_1l00016">16</link> of file <link linkend="_transmitter_8h_source">transmitter.h</link>.</para>
+Definition at line <link linkend="_transmitter_8h_source_1l00017">17</link> of file <link linkend="_transmitter_8h_source">transmitter.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -56,7 +65,30 @@ Definition at line <link linkend="_transmitter_8h_source_1l00016">16</link> of f
     <title>Transmitter()</title>
 <indexterm><primary>Transmitter</primary><secondary>EAR::Communication::Transmitter</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Transmitter</primary><secondary>Transmitter</secondary></indexterm>
-<para><computeroutput>EAR::Communication::Transmitter::Transmitter (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+<para><computeroutput>EAR::Communication::Transmitter::Transmitter (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- transmitter endpoint name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
 Definition at line <link linkend="_transmitter_8cpp_source_1l00006">6</link> of file <link linkend="_transmitter_8cpp_source">transmitter.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_communication_1_1_transmitter_1ad3bb3ea5c2fa853b00d43dc6e4b8e8ce"/><section>
@@ -64,6 +96,10 @@ Definition at line <link linkend="_transmitter_8cpp_source_1l00006">6</link> of 
 <indexterm><primary>~Transmitter</primary><secondary>EAR::Communication::Transmitter</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Transmitter</primary><secondary>~Transmitter</secondary></indexterm>
 <para><computeroutput>EAR::Communication::Transmitter::~Transmitter ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
 Definition at line <link linkend="_transmitter_8cpp_source_1l00012">12</link> of file <link linkend="_transmitter_8cpp_source">transmitter.cpp</link>.</para>
 </section>
 </section>
@@ -74,7 +110,7 @@ Definition at line <link linkend="_transmitter_8cpp_source_1l00012">12</link> of
 <indexterm><primary>initialize</primary><secondary>EAR::Communication::Transmitter</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Transmitter</primary><secondary>initialize</secondary></indexterm>
 <para><computeroutput>bool EAR::Communication::Transmitter::initialize (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp; config)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
-<para>function that initializes endpoint 
+<para>function that initializes transmitter endpoint 
                 <formalpara>
                     <title>
 Parameters</title>
@@ -119,7 +155,11 @@ Here is the caller graph for this function:<para>
 <indexterm><primary>send</primary><secondary>EAR::Communication::Transmitter</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Transmitter</primary><secondary>send</secondary></indexterm>
 <para><computeroutput>int32_t EAR::Communication::Transmitter::send (const char * buf)</computeroutput></para>
-<para>function that send buffer to listener 
+<para>function that send buffer to listener <formalpara><title>Remarks</title>
+
+<para>it is for message whose content is well-known type, character stream </para>
+</formalpara>
+
                 <formalpara>
                     <title>
 Parameters</title>
@@ -187,13 +227,13 @@ Parameters</title>
 <para>
 Definition at line <link linkend="_transmitter_8cpp_source_1l00070">70</link> of file <link linkend="_transmitter_8cpp_source">transmitter.cpp</link>.</para>
 </section>
-<anchor xml:id="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd"/><section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_transmitter_1a2d0daa6d4671052bee0f22122c497165"/><section>
     <title>shutdown()</title>
 <indexterm><primary>shutdown</primary><secondary>EAR::Communication::Transmitter</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Transmitter</primary><secondary>shutdown</secondary></indexterm>
-<para><computeroutput>void EAR::Communication::Transmitter::shutdown ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+<para><computeroutput>void EAR::Communication::Transmitter::shutdown (void )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
 
-<para>function that shutdowns endpoint </para>
+<para>function that shutdowns transmitter endpoint </para>
 </para>
 <para>
 Implements <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86">EAR::Communication::Endpoint</link>.</para>

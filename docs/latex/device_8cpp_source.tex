@@ -7,7 +7,7 @@
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00003}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{00003}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8}{EAR::IO::Device::Device}}(\textcolor{keyword}{const} std::string \&name, \textcolor{keyword}{const} std::string \&model, \textcolor{keyword}{const} std::string \&version)}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00004}00004   : m\_name(name), m\_model(model), m\_version(version)}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00005}00005 \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00006}00006   spdlog::debug(\textcolor{stringliteral}{"{}device \{\} created"{}}, \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}{toString}}());}
+\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00006}00006   spdlog::debug(\textcolor{stringliteral}{"{}device \{\} created"{}}, \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}{toString}}());}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00007}00007 \}}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00008}00008 }
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00009}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a202659815163305d76e3abf0803390bd}{00009}} \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a202659815163305d76e3abf0803390bd}{EAR::IO::Device::\string~Device}}(\textcolor{keywordtype}{void}) \{}
@@ -30,33 +30,8 @@
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00026}00026   \textcolor{keywordflow}{return} m\_state;}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00027}00027 \}}
 \DoxyCodeLine{\Hypertarget{device_8cpp_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00029}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}{00029}} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a418cc12a7f5824645449973ff6d71dae}{EAR::IO::Device::initialize}}(\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00030}00030   spdlog::warn(\textcolor{stringliteral}{"{}not implemented function for device \{\}"{}}, toString());}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00031}00031   \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00032}00032 \}}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00034}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}{00034}} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a792cadeb5ed15a8fbab8e53187d5dbb9}{EAR::IO::Device::shutdown}}(\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00035}00035   spdlog::warn(\textcolor{stringliteral}{"{}not implemented function for device \{\}"{}}, toString());}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00036}00036   \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00037}00037 \}}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00039}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}{00039}} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a06ad7258b1e8ad8800802612b62f3a26}{EAR::IO::Device::receive}}(\textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00040}00040   spdlog::warn(\textcolor{stringliteral}{"{}not implemented function for device \{\}"{}}, toString());}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00041}00041   \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00042}00042 \}}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00044}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}{00044}} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a516635a0e7cd0dc63e211f8baea55ec4}{EAR::IO::Device::transmit}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *buf, \textcolor{keyword}{const} uint32\_t size) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00045}00045   spdlog::warn(\textcolor{stringliteral}{"{}not implemented function for device \{\}"{}}, toString());}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00046}00046   \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00047}00047 \}}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00049}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}{00049}} int32\_t \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_aa0228335a427cf0bd258320d880b7d8c}{EAR::IO::Device::configure}}(\textcolor{keywordtype}{void} *target, \textcolor{keyword}{const} int32\_t op) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00050}00050   spdlog::warn(\textcolor{stringliteral}{"{}not implemented function for device \{\}"{}}, toString());}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00051}00051   \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00052}00052 \} }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00054}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}{00054}} std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc}{EAR::IO::Device::toString}}(\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00055}00055   \textcolor{keywordflow}{return} m\_name + \textcolor{stringliteral}{"{} (model: "{}} + m\_model + \textcolor{stringliteral}{"{}, version: "{}} + m\_version + \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00056}00056 \}}
+\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00029}\mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}{00029}} std::string \mbox{\hyperlink{class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d}{EAR::IO::Device::toString}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00030}00030   \textcolor{keywordflow}{return} m\_name + \textcolor{stringliteral}{"{} (model: "{}} + m\_model + \textcolor{stringliteral}{"{}, version: "{}} + m\_version + \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{\Hypertarget{device_8cpp_source_l00031}00031 \}}
 
 \end{DoxyCode}

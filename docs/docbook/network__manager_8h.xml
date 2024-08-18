@@ -32,6 +32,8 @@ This graph shows which files directly or indirectly include this file:<para>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">EAR::Communication::NetworkManager</link></para>
+
+<para>network manager class that storing and conduction two types of endpoints </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -55,7 +57,7 @@ This graph shows which files directly or indirectly include this file:<para>
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>Time-stamp: &lt;2024-08-18 13:57:55 boo&gt; </para>
+<para>Time-stamp: &lt;2024-08-18 15:11:41 boo&gt; </para>
 </formalpara>
 </para>
 <para>

@@ -2,11 +2,17 @@
 \label{class_e_a_r_1_1_communication_1_1_network_manager}\index{EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}}
 
 
+network manager class that storing and conduction two types of endpoints  
+
+
+
+
 {\ttfamily \#include $<$network\+\_\+manager.\+h$>$}
 
 
 
-Collaboration diagram for EAR\+::Communication\+::Network\+Manager\+:\nopagebreak
+Collaboration diagram for EAR\+::Communication\+::Network\+Manager\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,14 +28,14 @@ virtual \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a97a3
 \begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aef0ccaf6542cde8fd9e047f714671215}{get\+Name}} (void) const
 \item 
-virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a36b719fce47281fd1a7542982603cb9c}{initialize}} (\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} config)
+virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}{initialize}} (const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config)
 \item 
+virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_ab0263362ca65a0b11dc51f86850c40b1}{terminate}} (void)
+\begin{DoxyCompactList}\small\item\em function that terminates network manager \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}} $\ast$ \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a3e7c6cdf4abc02c774b1b4fcb18c8cca}{get\+Receiver}} (void)
 \item 
 \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{Transmitter}} $\ast$ \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}{get\+Transmitter}} (void)
-\item 
-virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_ab0263362ca65a0b11dc51f86850c40b1}{terminate}} (void)
-\begin{DoxyCompactList}\small\item\em function that terminates network manager \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,9 +48,9 @@ std\+::list$<$ \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{T
 
 
 \doxysubsection{Detailed Description}
+network manager class that storing and conduction two types of endpoints 
 
-
-Definition at line \mbox{\hyperlink{network__manager_8h_source_l00017}{17}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
+Definition at line \mbox{\hyperlink{network__manager_8h_source_l00018}{18}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
 
 
 
@@ -101,11 +107,11 @@ Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00014}{14}} of
 {\footnotesize\ttfamily \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{EAR\+::\+Communication\+::\+Receiver}} $\ast$ EAR\+::\+Communication\+::\+Network\+Manager\+::get\+Receiver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 function that gets network server/receiver \begin{DoxyReturn}{Returns}
-server 
+receiver endpoint that is server 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}\label{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}} 
 \index{EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}!getTransmitter@{getTransmitter}}
@@ -114,11 +120,11 @@ Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00036}{36}} of
 {\footnotesize\ttfamily \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{EAR\+::\+Communication\+::\+Transmitter}} $\ast$ EAR\+::\+Communication\+::\+Network\+Manager\+::get\+Transmitter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 function that creates network client/transmitter \begin{DoxyReturn}{Returns}
-client 
+transmitter endpoint that is client 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -127,11 +133,11 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_network_manager_a36b719fce47281fd1a7542982603cb9c}\label{class_e_a_r_1_1_communication_1_1_network_manager_a36b719fce47281fd1a7542982603cb9c}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}\label{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}} 
 \index{EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}!initialize@{initialize}}
 \index{initialize@{initialize}!EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}}
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
-{\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Network\+Manager\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}}}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Network\+Manager\+::initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 function that initializes network manager 
 \begin{DoxyParams}[1]{Parameters}
@@ -157,7 +163,7 @@ function that terminates network manager
 
 
 
-Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{network__manager_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{network__manager_8cpp_source}{network\+\_\+manager.\+cpp}}.
 
 
 
@@ -174,7 +180,7 @@ initialization flag
 
 
 
-Definition at line \mbox{\hyperlink{network__manager_8h_source_l00042}{42}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
+Definition at line \mbox{\hyperlink{network__manager_8h_source_l00043}{43}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_network_manager_a431871c2dcdfe796c4b451d9879e89f4}\label{class_e_a_r_1_1_communication_1_1_network_manager_a431871c2dcdfe796c4b451d9879e89f4}} 
 \index{EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}!m\_receiver@{m\_receiver}}
@@ -184,7 +190,7 @@ Definition at line \mbox{\hyperlink{network__manager_8h_source_l00042}{42}} of f
 
 
 
-Definition at line \mbox{\hyperlink{network__manager_8h_source_l00044}{44}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
+Definition at line \mbox{\hyperlink{network__manager_8h_source_l00045}{45}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_network_manager_aec21a8a4517e76362ac7d8d6f69fa81f}\label{class_e_a_r_1_1_communication_1_1_network_manager_aec21a8a4517e76362ac7d8d6f69fa81f}} 
 \index{EAR::Communication::NetworkManager@{EAR::Communication::NetworkManager}!m\_transmitters@{m\_transmitters}}
@@ -198,7 +204,7 @@ many client (transmitter) instance
 
 
 
-Definition at line \mbox{\hyperlink{network__manager_8h_source_l00046}{46}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
+Definition at line \mbox{\hyperlink{network__manager_8h_source_l00047}{47}} of file \mbox{\hyperlink{network__manager_8h_source}{network\+\_\+manager.\+h}}.
 
 
 

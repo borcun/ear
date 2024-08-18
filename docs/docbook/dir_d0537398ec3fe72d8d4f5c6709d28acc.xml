@@ -18,9 +18,11 @@ Directory dependency graph for comm:<para>
 </listitem>
             <listitem><para>file <link linkend="_endpoint_8h">endpoint.h</link></para>
 
-<para>class that provides communication infrastructure </para>
+<para>class that provides communication endpoint </para>
 </listitem>
             <listitem><para>file <link linkend="_message_8h">message.h</link></para>
+
+<para>message type sharing between receiver and transmitter endpoints </para>
 </listitem>
             <listitem><para>file <link linkend="_network__manager_8cpp">network_manager.cpp</link></para>
 </listitem>

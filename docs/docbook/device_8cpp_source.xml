@@ -7,7 +7,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_device_8cpp_source_1l00003"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">00003</link> <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">EAR::IO::Device::Device</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;model,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;version)
 <anchor xml:id="_device_8cpp_source_1l00004"/>00004 &#32;&#32;:&#32;m_name(name),&#32;m_model(model),&#32;m_version(version)
 <anchor xml:id="_device_8cpp_source_1l00005"/>00005 {
-<anchor xml:id="_device_8cpp_source_1l00006"/>00006 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;device&#32;{}&#32;created&quot;</emphasis>,&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a5eec4a268f980da193f0940a897a97cc">toString</link>());
+<anchor xml:id="_device_8cpp_source_1l00006"/>00006 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;device&#32;{}&#32;created&quot;</emphasis>,&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a2ae9af8123e6cb6b574b6c7e9aa8827d">toString</link>());
 <anchor xml:id="_device_8cpp_source_1l00007"/>00007 }
 <anchor xml:id="_device_8cpp_source_1l00008"/>00008 
 <anchor xml:id="_device_8cpp_source_1l00009"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a202659815163305d76e3abf0803390bd">00009</link> <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a202659815163305d76e3abf0803390bd">EAR::IO::Device::~Device</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
@@ -30,32 +30,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_device_8cpp_source_1l00026"/>00026 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_state;
 <anchor xml:id="_device_8cpp_source_1l00027"/>00027 }
 <anchor xml:id="_device_8cpp_source_1l00028"/>00028 
-<anchor xml:id="_device_8cpp_source_1l00029"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a418cc12a7f5824645449973ff6d71dae">00029</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a418cc12a7f5824645449973ff6d71dae">EAR::IO::Device::initialize</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00030"/>00030 &#32;&#32;spdlog::warn(<emphasis role="stringliteral">&quot;not&#32;implemented&#32;function&#32;for&#32;device&#32;{}&quot;</emphasis>,&#32;toString());
-<anchor xml:id="_device_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_device_8cpp_source_1l00032"/>00032 }
-<anchor xml:id="_device_8cpp_source_1l00033"/>00033 
-<anchor xml:id="_device_8cpp_source_1l00034"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a792cadeb5ed15a8fbab8e53187d5dbb9">00034</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a792cadeb5ed15a8fbab8e53187d5dbb9">EAR::IO::Device::shutdown</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00035"/>00035 &#32;&#32;spdlog::warn(<emphasis role="stringliteral">&quot;not&#32;implemented&#32;function&#32;for&#32;device&#32;{}&quot;</emphasis>,&#32;toString());
-<anchor xml:id="_device_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_device_8cpp_source_1l00037"/>00037 }
-<anchor xml:id="_device_8cpp_source_1l00038"/>00038 
-<anchor xml:id="_device_8cpp_source_1l00039"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a06ad7258b1e8ad8800802612b62f3a26">00039</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a06ad7258b1e8ad8800802612b62f3a26">EAR::IO::Device::receive</link>(<emphasis role="keywordtype">void</emphasis>&#32;*buf,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;size)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00040"/>00040 &#32;&#32;spdlog::warn(<emphasis role="stringliteral">&quot;not&#32;implemented&#32;function&#32;for&#32;device&#32;{}&quot;</emphasis>,&#32;toString());
-<anchor xml:id="_device_8cpp_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_device_8cpp_source_1l00042"/>00042 }
-<anchor xml:id="_device_8cpp_source_1l00043"/>00043 
-<anchor xml:id="_device_8cpp_source_1l00044"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a516635a0e7cd0dc63e211f8baea55ec4">00044</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a516635a0e7cd0dc63e211f8baea55ec4">EAR::IO::Device::transmit</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;*buf,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;size)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00045"/>00045 &#32;&#32;spdlog::warn(<emphasis role="stringliteral">&quot;not&#32;implemented&#32;function&#32;for&#32;device&#32;{}&quot;</emphasis>,&#32;toString());
-<anchor xml:id="_device_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_device_8cpp_source_1l00047"/>00047 }
-<anchor xml:id="_device_8cpp_source_1l00048"/>00048 
-<anchor xml:id="_device_8cpp_source_1l00049"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1aa0228335a427cf0bd258320d880b7d8c">00049</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1aa0228335a427cf0bd258320d880b7d8c">EAR::IO::Device::configure</link>(<emphasis role="keywordtype">void</emphasis>&#32;*target,&#32;<emphasis role="keyword">const</emphasis>&#32;int32_t&#32;op)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00050"/>00050 &#32;&#32;spdlog::warn(<emphasis role="stringliteral">&quot;not&#32;implemented&#32;function&#32;for&#32;device&#32;{}&quot;</emphasis>,&#32;toString());
-<anchor xml:id="_device_8cpp_source_1l00051"/>00051 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_device_8cpp_source_1l00052"/>00052 }&#32;
-<anchor xml:id="_device_8cpp_source_1l00053"/>00053 
-<anchor xml:id="_device_8cpp_source_1l00054"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a5eec4a268f980da193f0940a897a97cc">00054</link> std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a5eec4a268f980da193f0940a897a97cc">EAR::IO::Device::toString</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
-<anchor xml:id="_device_8cpp_source_1l00055"/>00055 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_name&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;(model:&#32;&quot;</emphasis>&#32;+&#32;m_model&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;version:&#32;&quot;</emphasis>&#32;+&#32;m_version&#32;+&#32;<emphasis role="stringliteral">&quot;)&quot;</emphasis>;
-<anchor xml:id="_device_8cpp_source_1l00056"/>00056 }
+<anchor xml:id="_device_8cpp_source_1l00029"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a2ae9af8123e6cb6b574b6c7e9aa8827d">00029</link> std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a2ae9af8123e6cb6b574b6c7e9aa8827d">EAR::IO::Device::toString</link>(<emphasis role="keywordtype">void</emphasis>)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_device_8cpp_source_1l00030"/>00030 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_name&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;(model:&#32;&quot;</emphasis>&#32;+&#32;m_model&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;version:&#32;&quot;</emphasis>&#32;+&#32;m_version&#32;+&#32;<emphasis role="stringliteral">&quot;)&quot;</emphasis>;
+<anchor xml:id="_device_8cpp_source_1l00031"/>00031 }
 </programlisting></section>

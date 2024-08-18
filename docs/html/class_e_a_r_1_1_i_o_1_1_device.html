@@ -71,9 +71,12 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_e_a_r_1_1_i_o_1_1_device-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">EAR::IO::Device Class Reference</div></div>
+  <div class="headertitle"><div class="title">EAR::IO::Device Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>base class for devices performing I/O operations  
+ <a href="class_e_a_r_1_1_i_o_1_1_device.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="device_8h_source.html">device.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -92,28 +95,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7b8498a3f757ada30a330b6093f86c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af85ff358d97c34b8403c13f50dd3ba46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_e_a_r_1_1_i_o.html#a16f8062e7f752f643d3581d0a074b1e0">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#af85ff358d97c34b8403c13f50dd3ba46">getState</a> (void) const</td></tr>
 <tr class="separator:af85ff358d97c34b8403c13f50dd3ba46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a418cc12a7f5824645449973ff6d71dae"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a418cc12a7f5824645449973ff6d71dae">initialize</a> (void)</td></tr>
-<tr class="separator:a418cc12a7f5824645449973ff6d71dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a792cadeb5ed15a8fbab8e53187d5dbb9"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a792cadeb5ed15a8fbab8e53187d5dbb9">shutdown</a> (void)</td></tr>
-<tr class="separator:a792cadeb5ed15a8fbab8e53187d5dbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06ad7258b1e8ad8800802612b62f3a26"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a06ad7258b1e8ad8800802612b62f3a26">receive</a> (void *buf, const uint32_t size)</td></tr>
-<tr class="separator:a06ad7258b1e8ad8800802612b62f3a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a516635a0e7cd0dc63e211f8baea55ec4"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a516635a0e7cd0dc63e211f8baea55ec4">transmit</a> (const void *buf, const uint32_t size)</td></tr>
-<tr class="separator:a516635a0e7cd0dc63e211f8baea55ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0228335a427cf0bd258320d880b7d8c"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#aa0228335a427cf0bd258320d880b7d8c">configure</a> (void *target, const int32_t op)</td></tr>
-<tr class="separator:aa0228335a427cf0bd258320d880b7d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eec4a268f980da193f0940a897a97cc"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a5eec4a268f980da193f0940a897a97cc">toString</a> (void)</td></tr>
-<tr class="separator:a5eec4a268f980da193f0940a897a97cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae9af8123e6cb6b574b6c7e9aa8827d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a2ae9af8123e6cb6b574b6c7e9aa8827d">toString</a> (void) const</td></tr>
+<tr class="separator:a2ae9af8123e6cb6b574b6c7e9aa8827d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a008654493533911ce7e0bddbe4e97b99"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a008654493533911ce7e0bddbe4e97b99">initialize</a> (void)=0</td></tr>
+<tr class="separator:a008654493533911ce7e0bddbe4e97b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e19498f0249a18aa0e02aa70f481d32"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a2e19498f0249a18aa0e02aa70f481d32">shutdown</a> (void)=0</td></tr>
+<tr class="separator:a2e19498f0249a18aa0e02aa70f481d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac670d8050f5b097d86c848650af9f88d"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#ac670d8050f5b097d86c848650af9f88d">receive</a> (void *buf, const uint32_t size)=0</td></tr>
+<tr class="separator:ac670d8050f5b097d86c848650af9f88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8848af30e59f25aff9de44b809de17"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a8e8848af30e59f25aff9de44b809de17">transmit</a> (const void *buf, const uint32_t size)=0</td></tr>
+<tr class="separator:a8e8848af30e59f25aff9de44b809de17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15850a7dc921592063b33a3ab02eca63"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#a15850a7dc921592063b33a3ab02eca63">configure</a> (void *target, const int32_t op)=0</td></tr>
+<tr class="separator:a15850a7dc921592063b33a3ab02eca63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ab8d1cc47ac3590e92a9d7e50bbc7b173"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_e_a_r_1_1_i_o.html#a16f8062e7f752f643d3581d0a074b1e0">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_a_r_1_1_i_o_1_1_device.html#ab8d1cc47ac3590e92a9d7e50bbc7b173">m_state</a> = <a class="el" href="namespace_e_a_r_1_1_i_o.html#a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</a></td></tr>
-<tr class="memdesc:ab8d1cc47ac3590e92a9d7e50bbc7b173"><td class="mdescLeft">&#160;</td><td class="mdescRight">io device state  <a href="class_e_a_r_1_1_i_o_1_1_device.html#ab8d1cc47ac3590e92a9d7e50bbc7b173">More...</a><br /></td></tr>
+<tr class="memdesc:ab8d1cc47ac3590e92a9d7e50bbc7b173"><td class="mdescLeft">&#160;</td><td class="mdescRight">io device state, explicitly open for manipulation by derived classes  <a href="class_e_a_r_1_1_i_o_1_1_device.html#ab8d1cc47ac3590e92a9d7e50bbc7b173">More...</a><br /></td></tr>
 <tr class="separator:ab8d1cc47ac3590e92a9d7e50bbc7b173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="device_8h_source.html#l00026">26</a> of file <a class="el" href="device_8h_source.html">device.h</a>.</p>
+<div class="textblock"><p >base class for devices performing I/O operations </p>
+
+<p class="definition">Definition at line <a class="el" href="device_8h_source.html#l00027">27</a> of file <a class="el" href="device_8h_source.html">device.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8762306c99f055c653cb5cc33cc49ea8" name="a8762306c99f055c653cb5cc33cc49ea8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8762306c99f055c653cb5cc33cc49ea8">&#9670;&nbsp;</a></span>Device()</h2>
@@ -162,7 +166,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8_cgraph.png" border="0" usemap="#aclass_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8_cgraph" alt=""/></div>
 <map name="aclass_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8_cgraph" id="aclass_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,181,32"/>
-<area shape="rect" href="class_e_a_r_1_1_i_o_1_1_device.html#a5eec4a268f980da193f0940a897a97cc" title=" " alt="" coords="229,5,412,32"/>
+<area shape="rect" href="class_e_a_r_1_1_i_o_1_1_device.html#a2ae9af8123e6cb6b574b6c7e9aa8827d" title=" " alt="" coords="229,5,412,32"/>
 </map>
 </div>
 
@@ -199,8 +203,8 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa0228335a427cf0bd258320d880b7d8c" name="aa0228335a427cf0bd258320d880b7d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0228335a427cf0bd258320d880b7d8c">&#9670;&nbsp;</a></span>configure()</h2>
+<a id="a15850a7dc921592063b33a3ab02eca63" name="a15850a7dc921592063b33a3ab02eca63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15850a7dc921592063b33a3ab02eca63">&#9670;&nbsp;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +213,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t EAR::IO::Device::configure </td>
+          <td class="memname">virtual int32_t EAR::IO::Device::configure </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>target</em>, </td>
@@ -228,20 +232,18 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >function that control io interface </p><dl class="params"><dt>Parameters</dt><dd>
+<p >function that control I/O device interface </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">[in|out]</td><td>target - target for io interface </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in|out]</td><td>target - target for I/O device interface </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">op</td><td>- type of operation that is applied to target </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00049">49</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
 
 </div>
 </div>
@@ -329,8 +331,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a418cc12a7f5824645449973ff6d71dae" name="a418cc12a7f5824645449973ff6d71dae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a418cc12a7f5824645449973ff6d71dae">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="a008654493533911ce7e0bddbe4e97b99" name="a008654493533911ce7e0bddbe4e97b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a008654493533911ce7e0bddbe4e97b99">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,7 +341,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t EAR::IO::Device::initialize </td>
+          <td class="memname">virtual int32_t EAR::IO::Device::initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -348,18 +350,16 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >function that opens io interface </p><dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00029">29</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
+<p >function that opens I/O device interface </p><dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
 
 </div>
 </div>
-<a id="a06ad7258b1e8ad8800802612b62f3a26" name="a06ad7258b1e8ad8800802612b62f3a26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06ad7258b1e8ad8800802612b62f3a26">&#9670;&nbsp;</a></span>receive()</h2>
+<a id="ac670d8050f5b097d86c848650af9f88d" name="ac670d8050f5b097d86c848650af9f88d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac670d8050f5b097d86c848650af9f88d">&#9670;&nbsp;</a></span>receive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +368,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t EAR::IO::Device::receive </td>
+          <td class="memname">virtual int32_t EAR::IO::Device::receive </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>buf</em>, </td>
@@ -387,25 +387,23 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >function that reads data from io interface </p><dl class="params"><dt>Parameters</dt><dd>
+<p >function that reads data from I/O device interface </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">buf</td><td>- output buffer read from io interface </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">buf</td><td>- output buffer read from I/O device interface </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>- buffer size </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00039">39</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
-
 </div>
 </div>
-<a id="a792cadeb5ed15a8fbab8e53187d5dbb9" name="a792cadeb5ed15a8fbab8e53187d5dbb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a792cadeb5ed15a8fbab8e53187d5dbb9">&#9670;&nbsp;</a></span>shutdown()</h2>
+<a id="a2e19498f0249a18aa0e02aa70f481d32" name="a2e19498f0249a18aa0e02aa70f481d32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e19498f0249a18aa0e02aa70f481d32">&#9670;&nbsp;</a></span>shutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -414,7 +412,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t EAR::IO::Device::shutdown </td>
+          <td class="memname">virtual int32_t EAR::IO::Device::shutdown </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -423,47 +421,37 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >function that closes io interface </p><dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00034">34</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
+<p >function that closes I/O device interface </p><dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
 
 </div>
 </div>
-<a id="a5eec4a268f980da193f0940a897a97cc" name="a5eec4a268f980da193f0940a897a97cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eec4a268f980da193f0940a897a97cc">&#9670;&nbsp;</a></span>toString()</h2>
+<a id="a2ae9af8123e6cb6b574b6c7e9aa8827d" name="a2ae9af8123e6cb6b574b6c7e9aa8827d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae9af8123e6cb6b574b6c7e9aa8827d">&#9670;&nbsp;</a></span>toString()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string EAR::IO::Device::toString </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p >function that format device information as string </p><dl class="section return"><dt>Returns</dt><dd>device information </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00054">54</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00029">29</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc_icgraph.png" border="0" usemap="#aclass_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc_icgraph" alt=""/></div>
-<map name="aclass_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc_icgraph" id="aclass_e_a_r_1_1_i_o_1_1_device_a5eec4a268f980da193f0940a897a97cc_icgraph">
+<div class="center"><img src="class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph.png" border="0" usemap="#aclass_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph" alt=""/></div>
+<map name="aclass_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph" id="aclass_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph">
 <area shape="rect" title=" " alt="" coords="229,5,412,32"/>
 <area shape="rect" href="class_e_a_r_1_1_i_o_1_1_device.html#a8762306c99f055c653cb5cc33cc49ea8" title=" " alt="" coords="5,5,181,32"/>
 </map>
@@ -471,8 +459,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a516635a0e7cd0dc63e211f8baea55ec4" name="a516635a0e7cd0dc63e211f8baea55ec4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a516635a0e7cd0dc63e211f8baea55ec4">&#9670;&nbsp;</a></span>transmit()</h2>
+<a id="a8e8848af30e59f25aff9de44b809de17" name="a8e8848af30e59f25aff9de44b809de17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8848af30e59f25aff9de44b809de17">&#9670;&nbsp;</a></span>transmit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -481,7 +469,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t EAR::IO::Device::transmit </td>
+          <td class="memname">virtual int32_t EAR::IO::Device::transmit </td>
           <td>(</td>
           <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>buf</em>, </td>
@@ -500,20 +488,18 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >function that writes data from io interface </p><dl class="params"><dt>Parameters</dt><dd>
+<p >function that writes data from I/O device interface </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>- input buffer written to io interface </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>- input buffer written to I/O device interface </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>- buffer size </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="device_8cpp_source.html#l00044">44</a> of file <a class="el" href="device_8cpp_source.html">device.cpp</a>.</p>
 
 </div>
 </div>
@@ -538,9 +524,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>io device state </p>
+<p>io device state, explicitly open for manipulation by derived classes </p>
 
-<p class="definition">Definition at line <a class="el" href="device_8h_source.html#l00074">74</a> of file <a class="el" href="device_8h_source.html">device.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="device_8h_source.html#l00075">75</a> of file <a class="el" href="device_8h_source.html">device.h</a>.</p>
 
 </div>
 </div>

@@ -31,6 +31,8 @@ This graph shows which files directly or indirectly include this file:<para>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">EAR::Communication::Transmitter</link></para>
+
+<para>transmitter endpoint class </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -54,7 +56,7 @@ This graph shows which files directly or indirectly include this file:<para>
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>Time-stamp: &lt;2024-08-18 13:59:18 boo&gt; </para>
+<para>Time-stamp: &lt;2024-08-18 14:51:31 boo&gt; </para>
 </formalpara>
 </para>
 <para>

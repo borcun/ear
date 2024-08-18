@@ -2,7 +2,7 @@
 \label{class_e_a_r_1_1_communication_1_1_receiver}\index{EAR::Communication::Receiver@{EAR::Communication::Receiver}}
 
 
-class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}}  
+receiver endpoint class  
 
 
 
@@ -11,7 +11,8 @@ class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}}
 
 
 
-Inheritance diagram for EAR\+::Communication\+::Receiver\+:\nopagebreak
+Inheritance diagram for EAR\+::Communication\+::Receiver\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for EAR\+::Communication\+::Receiver\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for EAR\+::Communication\+::Receiver\+:\nopagebreak
+Collaboration diagram for EAR\+::Communication\+::Receiver\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,18 +35,18 @@ Collaboration diagram for EAR\+::Communication\+::Receiver\+:\nopagebreak
 \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_ac6b00720f043fb9dcf0d95a6f87d3a0d}{Receiver}} (const std\+::string \&name)
 \item 
 virtual \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a438292d5ea47a87322ce8dc7f802fb50}{$\sim$\+Receiver}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a5527a09d09b092a52913468147373190}{initialize}} (const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) override
 \item 
 virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a36afeb6f988a918d2f4de04c47bbb1bf}{shutdown}} (void) override
-\begin{DoxyCompactList}\small\item\em function that shutdowns endpoint \end{DoxyCompactList}\item 
-int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_af500d26a45edb5df2ab517de8b372d19}{receive}} (void $\ast$buf, size\+\_\+t \&size)
+\begin{DoxyCompactList}\small\item\em function that shutdowns receiver endpoint \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a8c56cfe48cb37f957d5441a7a61077f8}{receive}} (void $\ast$buf, size\+\_\+t size)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}} 
+receiver endpoint class 
 
 Definition at line \mbox{\hyperlink{receiver_8h_source_l00015}{15}} of file \mbox{\hyperlink{receiver_8h_source}{receiver.\+h}}.
 
@@ -57,6 +59,11 @@ Definition at line \mbox{\hyperlink{receiver_8h_source_l00015}{15}} of file \mbo
 \doxysubsubsection{\texorpdfstring{Receiver()}{Receiver()}}
 {\footnotesize\ttfamily EAR\+::\+Communication\+::\+Receiver\+::\+Receiver (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
+constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & -\/ receciver endpoint name \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
@@ -66,6 +73,10 @@ Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00007}{7}} of file \mb
 \index{````~Receiver@{$\sim$Receiver}!EAR::Communication::Receiver@{EAR::Communication::Receiver}}
 \doxysubsubsection{\texorpdfstring{$\sim$Receiver()}{~Receiver()}}
 {\footnotesize\ttfamily EAR\+::\+Communication\+::\+Receiver\+::$\sim$\+Receiver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
 
 
 
@@ -80,7 +91,7 @@ Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00014}{14}} of file \m
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Receiver\+::initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-function that initializes endpoint 
+function that initializes receiver endpoint 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em config} & -\/ endpoint configuration \\
 \hline
@@ -96,11 +107,11 @@ Implements \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b5
 
 Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
 
-\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_receiver_af500d26a45edb5df2ab517de8b372d19}\label{class_e_a_r_1_1_communication_1_1_receiver_af500d26a45edb5df2ab517de8b372d19}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_receiver_a8c56cfe48cb37f957d5441a7a61077f8}\label{class_e_a_r_1_1_communication_1_1_receiver_a8c56cfe48cb37f957d5441a7a61077f8}} 
 \index{EAR::Communication::Receiver@{EAR::Communication::Receiver}!receive@{receive}}
 \index{receive@{receive}!EAR::Communication::Receiver@{EAR::Communication::Receiver}}
 \doxysubsubsection{\texorpdfstring{receive()}{receive()}}
-{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+Communication\+::\+Receiver\+::receive (\begin{DoxyParamCaption}\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t \&}]{size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+Communication\+::\+Receiver\+::receive (\begin{DoxyParamCaption}\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
 
 function that receives buffer from the publisher 
 \begin{DoxyParams}[1]{Parameters}
@@ -124,7 +135,7 @@ Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00091}{91}} of file \m
 
 
 
-function that shutdowns endpoint 
+function that shutdowns receiver endpoint 
 
 
 

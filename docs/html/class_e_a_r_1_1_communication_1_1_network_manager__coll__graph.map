@@ -1,5 +1,5 @@
 <map id="EAR::Communication::NetworkManager" name="EAR::Communication::NetworkManager">
-<area shape="rect" id="node1" title=" " alt="" coords="5,200,164,241"/>
-<area shape="rect" id="node2" href="$class_e_a_r_1_1_communication_1_1_receiver.html" title="class Receiver" alt="" coords="5,96,164,137"/>
+<area shape="rect" id="node1" title="network manager class that storing and conduction two types of endpoints" alt="" coords="5,200,164,241"/>
+<area shape="rect" id="node2" href="$class_e_a_r_1_1_communication_1_1_receiver.html" title="receiver endpoint class" alt="" coords="5,96,164,137"/>
 <area shape="rect" id="node3" href="$class_e_a_r_1_1_communication_1_1_endpoint.html" title="class Endpoint" alt="" coords="5,5,164,47"/>
 </map>

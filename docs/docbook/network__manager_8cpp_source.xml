@@ -15,11 +15,11 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_network__manager_8cpp_source_1l00011"/>00011 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;network&#32;manager&#32;{}&#32;terminated&quot;</emphasis>,&#32;getName());
 <anchor xml:id="_network__manager_8cpp_source_1l00012"/>00012 }
 <anchor xml:id="_network__manager_8cpp_source_1l00013"/>00013 
-<anchor xml:id="_network__manager_8cpp_source_1l00014"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">00014</link> std::string&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">EAR::Communication::NetworkManager::getName</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_network__manager_8cpp_source_1l00014"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">00014</link> std::string&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">EAR::Communication::NetworkManager::getName</link>(<emphasis role="keywordtype">void</emphasis>)<emphasis role="keyword">&#32;const&#32;</emphasis>{
 <anchor xml:id="_network__manager_8cpp_source_1l00015"/>00015 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_name;
 <anchor xml:id="_network__manager_8cpp_source_1l00016"/>00016 }
 <anchor xml:id="_network__manager_8cpp_source_1l00017"/>00017 
-<anchor xml:id="_network__manager_8cpp_source_1l00018"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a36b719fce47281fd1a7542982603cb9c">00018</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a36b719fce47281fd1a7542982603cb9c">EAR::Communication::NetworkManager::initialize</link>(<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">EAR::Communication::Configuration</link>&#32;config)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00018"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a863a99b6519be9c43e7798eae327cfb4">00018</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a863a99b6519be9c43e7798eae327cfb4">EAR::Communication::NetworkManager::initialize</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">EAR::Communication::Configuration</link>&#32;&amp;config)&#32;{
 <anchor xml:id="_network__manager_8cpp_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_is_init)&#32;{
 <anchor xml:id="_network__manager_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;initialize&#32;network&#32;manager&#32;{},&#32;already&#32;initialized&quot;</emphasis>,&#32;getName());
 <anchor xml:id="_network__manager_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
@@ -37,38 +37,40 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_network__manager_8cpp_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
 <anchor xml:id="_network__manager_8cpp_source_1l00034"/>00034 }
 <anchor xml:id="_network__manager_8cpp_source_1l00035"/>00035 
-<anchor xml:id="_network__manager_8cpp_source_1l00036"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">00036</link> <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">EAR::Communication::Receiver</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">EAR::Communication::NetworkManager::getReceiver</link>()&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00037"/>00037 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_receiver;
-<anchor xml:id="_network__manager_8cpp_source_1l00038"/>00038 }
-<anchor xml:id="_network__manager_8cpp_source_1l00039"/>00039 
-<anchor xml:id="_network__manager_8cpp_source_1l00040"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">00040</link> <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">EAR::Communication::Transmitter</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">EAR::Communication::NetworkManager::getTransmitter</link>()&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00041"/>00041 &#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link>&#32;*transmitter&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link>(getName()&#32;+&#32;<emphasis role="stringliteral">&quot;-transmitter-&quot;</emphasis>&#32;+&#32;std::to_string(m_transmitters.size()&#32;+&#32;1));
-<anchor xml:id="_network__manager_8cpp_source_1l00042"/>00042 
-<anchor xml:id="_network__manager_8cpp_source_1l00043"/>00043 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!transmitter-&gt;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">initialize</link>(m_config))&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;initialize&#32;transmitter&#32;for&#32;{}&quot;</emphasis>,&#32;getName());
-<anchor xml:id="_network__manager_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;transmitter;
-<anchor xml:id="_network__manager_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
-<anchor xml:id="_network__manager_8cpp_source_1l00047"/>00047 &#32;&#32;}
-<anchor xml:id="_network__manager_8cpp_source_1l00048"/>00048 
-<anchor xml:id="_network__manager_8cpp_source_1l00049"/>00049 &#32;&#32;m_transmitters.push_back(transmitter);
-<anchor xml:id="_network__manager_8cpp_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;transmitter;
-<anchor xml:id="_network__manager_8cpp_source_1l00051"/>00051 }
-<anchor xml:id="_network__manager_8cpp_source_1l00052"/>00052 
-<anchor xml:id="_network__manager_8cpp_source_1l00053"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">00053</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">EAR::Communication::NetworkManager::terminate</link>()&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_is_init)&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;m_receiver-&gt;shutdown();
-<anchor xml:id="_network__manager_8cpp_source_1l00056"/>00056 
-<anchor xml:id="_network__manager_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">auto</emphasis>&#32;&amp;transmitter&#32;:&#32;m_transmitters)&#32;{
-<anchor xml:id="_network__manager_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;transmitter-&gt;shutdown();
-<anchor xml:id="_network__manager_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;transmitter;
-<anchor xml:id="_network__manager_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;transmitter&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
-<anchor xml:id="_network__manager_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_network__manager_8cpp_source_1l00062"/>00062 
-<anchor xml:id="_network__manager_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;m_receiver;
-<anchor xml:id="_network__manager_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;m_receiver&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
-<anchor xml:id="_network__manager_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;m_is_init&#32;=&#32;<emphasis role="keyword">false</emphasis>;
-<anchor xml:id="_network__manager_8cpp_source_1l00066"/>00066 &#32;&#32;}
-<anchor xml:id="_network__manager_8cpp_source_1l00067"/>00067 
-<anchor xml:id="_network__manager_8cpp_source_1l00068"/>00068 &#32;&#32;<emphasis role="keywordflow">return</emphasis>;
-<anchor xml:id="_network__manager_8cpp_source_1l00069"/>00069 }
+<anchor xml:id="_network__manager_8cpp_source_1l00036"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">00036</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">EAR::Communication::NetworkManager::terminate</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00037"/>00037 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_is_init)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">auto</emphasis>&#32;&amp;transmitter&#32;:&#32;m_transmitters)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;transmitter-&gt;shutdown();
+<anchor xml:id="_network__manager_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;transmitter;
+<anchor xml:id="_network__manager_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;transmitter&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_network__manager_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_network__manager_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;m_receiver-&gt;shutdown();
+<anchor xml:id="_network__manager_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;
+<anchor xml:id="_network__manager_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;m_receiver;
+<anchor xml:id="_network__manager_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;m_receiver&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;m_is_init&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00049"/>00049 &#32;&#32;}
+<anchor xml:id="_network__manager_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_network__manager_8cpp_source_1l00051"/>00051 &#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00052"/>00052 }
+<anchor xml:id="_network__manager_8cpp_source_1l00053"/>00053 
+<anchor xml:id="_network__manager_8cpp_source_1l00054"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">00054</link> <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">EAR::Communication::Receiver</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">EAR::Communication::NetworkManager::getReceiver</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00055"/>00055 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_receiver;
+<anchor xml:id="_network__manager_8cpp_source_1l00056"/>00056 }
+<anchor xml:id="_network__manager_8cpp_source_1l00057"/>00057 
+<anchor xml:id="_network__manager_8cpp_source_1l00058"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">00058</link> <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">EAR::Communication::Transmitter</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">EAR::Communication::NetworkManager::getTransmitter</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00059"/>00059 &#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link>&#32;*transmitter&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link>(getName()&#32;+&#32;<emphasis role="stringliteral">&quot;-transmitter-&quot;</emphasis>&#32;+&#32;std::to_string(m_transmitters.size()&#32;+&#32;1));
+<anchor xml:id="_network__manager_8cpp_source_1l00060"/>00060 
+<anchor xml:id="_network__manager_8cpp_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!transmitter-&gt;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">initialize</link>(m_config))&#32;{
+<anchor xml:id="_network__manager_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;initialize&#32;transmitter&#32;for&#32;{}&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_network__manager_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;transmitter;
+<anchor xml:id="_network__manager_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;transmitter&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;
+<anchor xml:id="_network__manager_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_network__manager_8cpp_source_1l00067"/>00067 &#32;&#32;}
+<anchor xml:id="_network__manager_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_network__manager_8cpp_source_1l00069"/>00069 &#32;&#32;m_transmitters.push_back(transmitter);
+<anchor xml:id="_network__manager_8cpp_source_1l00070"/>00070 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;transmitter;
+<anchor xml:id="_network__manager_8cpp_source_1l00071"/>00071 }
 </programlisting></section>

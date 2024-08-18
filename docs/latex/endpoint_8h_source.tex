@@ -6,45 +6,44 @@
 \DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00009}00009 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00010}00010 }
 \DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <error.h>}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}spdlog/spdlog.h"{}}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{message_8h}{message.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00016}\mbox{\hyperlink{namespace_e_a_r}{00016}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00017}\mbox{\hyperlink{namespace_e_a_r_1_1_communication}{00017}}   \textcolor{keyword}{namespace }Communication \{}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00019}\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{00019}}     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00015}\mbox{\hyperlink{namespace_e_a_r}{00015}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00016}\mbox{\hyperlink{namespace_e_a_r_1_1_communication}{00016}}   \textcolor{keyword}{namespace }Communication \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00018}\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{00018}}     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \{}
 \DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00020}\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{00020}}       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{COMM\_CLOSED}},}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00021}00021       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161}{COMM\_OPENED}}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00022}\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161}{00022}}     \};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00025}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{00025}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \{}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00026}00026     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00028}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d89975a093498b1d06fa9912c4a5685}{00028}}       std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d89975a093498b1d06fa9912c4a5685}{ip}} = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00030}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a34a200e4577aa7b18d1582c6acb27468}{00030}}       uint16\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a34a200e4577aa7b18d1582c6acb27468}{port}} = 0;}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00032}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_adea7d58a6548d963addd940c6594170a}{00032}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_adea7d58a6548d963addd940c6594170a}{is\_blocked}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00034}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d5d8539abf8e4b2461757a6e52ded24}{00034}}       uint32\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d5d8539abf8e4b2461757a6e52ded24}{timeout}} = 0U;}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00035}00035     \};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00038}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{00038}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{Endpoint}} \{}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00039}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a82ca116715acd6c64f2acf4dc71e4038}{00039}}       \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00040}00040       }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00041}00041     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00044}00044       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}{Endpoint}}(\textcolor{keyword}{const} std::string \&name);       }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00046}00046       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}{\string~Endpoint}}();     }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00049}00049       std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00052}00052       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}{getState}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};      }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00056}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{00056}}       \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) = 0;        }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00058}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{00058}}       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{shutdown}}(\textcolor{keywordtype}{void}) = 0;}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00059}00059           }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00060}00060     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00062}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}{00062}}       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}{m\_state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{COMM\_CLOSED}};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00067}00067       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}{isValidAddress}}(std::string addr);}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00068}00068           }
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00069}00069     \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00071}00071       std::string m\_name;}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00072}00072     \};}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00073}00073   \}}
-\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00074}00074 \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00022}00022       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161}{COMM\_OPENED}}}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00023}\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161}{00023}}     \};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00026}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{00026}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00027}00027     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00029}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d89975a093498b1d06fa9912c4a5685}{00029}}       std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d89975a093498b1d06fa9912c4a5685}{ip}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00031}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a34a200e4577aa7b18d1582c6acb27468}{00031}}       uint16\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a34a200e4577aa7b18d1582c6acb27468}{port}} = 0U;}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00033}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_adea7d58a6548d963addd940c6594170a}{00033}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_adea7d58a6548d963addd940c6594170a}{is\_blocked}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00035}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d5d8539abf8e4b2461757a6e52ded24}{00035}}       uint32\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration_a3d5d8539abf8e4b2461757a6e52ded24}{timeout}} = 0U;}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00036}00036     \};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00039}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{00039}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{Endpoint}} \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00043}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a82ca116715acd6c64f2acf4dc71e4038}{00043}}       \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00044}00044       }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00045}00045     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00048}00048       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}{Endpoint}}(\textcolor{keyword}{const} std::string \&name);       }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00050}00050       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}{\string~Endpoint}}();     }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00053}00053       std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00056}00056       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}{getState}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};      }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00060}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{00060}}       \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) = 0;        }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00062}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{00062}}       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{shutdown}}(\textcolor{keywordtype}{void}) = 0;}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00063}00063           }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00064}00064     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00066}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}{00066}}       \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}{m\_state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{COMM\_CLOSED}};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00071}00071       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}{isValidAddress}}(std::string addr);}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00072}00072           }
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00073}00073     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00075}00075       std::string m\_name;}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00076}00076     \};}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00077}00077   \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8h_source_l00078}00078 \}}
 
 \end{DoxyCode}

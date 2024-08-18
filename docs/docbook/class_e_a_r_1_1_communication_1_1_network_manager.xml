@@ -3,6 +3,11 @@
 <title>EAR::Communication::NetworkManager Class Reference</title>
 <indexterm><primary>EAR::Communication::NetworkManager</primary></indexterm>
 <para>
+
+<para>network manager class that storing and conduction two types of endpoints </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;network_manager.h&gt;</computeroutput>
 </para>
 Collaboration diagram for EAR::Communication::NetworkManager:<para>
@@ -25,15 +30,15 @@ Collaboration diagram for EAR::Communication::NetworkManager:<para>
 </listitem>
             <listitem><para>std::string <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">getName</link> (void) const</para>
 </listitem>
-            <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a36b719fce47281fd1a7542982603cb9c">initialize</link> (<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> config)</para>
-</listitem>
-            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link> * <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">getReceiver</link> (void)</para>
-</listitem>
-            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link> * <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">getTransmitter</link> (void)</para>
+            <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a863a99b6519be9c43e7798eae327cfb4">initialize</link> (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp;config)</para>
 </listitem>
             <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">terminate</link> (void)</para>
 
 <para>function that terminates network manager </para>
+</listitem>
+            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link> * <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">getReceiver</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link> * <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">getTransmitter</link> (void)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -54,8 +59,10 @@ Collaboration diagram for EAR::Communication::NetworkManager:<para>
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>network manager class that storing and conduction two types of endpoints </para>
 <para>
-Definition at line <link linkend="_network__manager_8h_source_1l00017">17</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
+Definition at line <link linkend="_network__manager_8h_source_1l00018">18</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -123,11 +130,11 @@ Definition at line <link linkend="_network__manager_8cpp_source_1l00014">14</lin
 <para><computeroutput><link linkend="_class_e_a_r_1_1_communication_1_1_receiver">EAR::Communication::Receiver</link> * EAR::Communication::NetworkManager::getReceiver (void )</computeroutput></para>
 <para>function that gets network server/receiver <formalpara><title>Returns</title>
 
-<para>server </para>
+<para>receiver endpoint that is server </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_network__manager_8cpp_source_1l00036">36</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
+Definition at line <link linkend="_network__manager_8cpp_source_1l00054">54</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5"/><section>
     <title>getTransmitter()</title>
@@ -136,11 +143,11 @@ Definition at line <link linkend="_network__manager_8cpp_source_1l00036">36</lin
 <para><computeroutput><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">EAR::Communication::Transmitter</link> * EAR::Communication::NetworkManager::getTransmitter (void )</computeroutput></para>
 <para>function that creates network client/transmitter <formalpara><title>Returns</title>
 
-<para>client </para>
+<para>transmitter endpoint that is client </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_network__manager_8cpp_source_1l00040">40</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
+Definition at line <link linkend="_network__manager_8cpp_source_1l00058">58</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -151,11 +158,11 @@ Here is the call graph for this function:<para>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_e_a_r_1_1_communication_1_1_network_manager_1a36b719fce47281fd1a7542982603cb9c"/><section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_network_manager_1a863a99b6519be9c43e7798eae327cfb4"/><section>
     <title>initialize()</title>
 <indexterm><primary>initialize</primary><secondary>EAR::Communication::NetworkManager</secondary></indexterm>
 <indexterm><primary>EAR::Communication::NetworkManager</primary><secondary>initialize</secondary></indexterm>
-<para><computeroutput>bool EAR::Communication::NetworkManager::initialize (<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> config)<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para><computeroutput>bool EAR::Communication::NetworkManager::initialize (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp; config)<computeroutput>[virtual]</computeroutput></computeroutput></para>
 <para>function that initializes network manager 
                 <formalpara>
                     <title>
@@ -194,7 +201,7 @@ Definition at line <link linkend="_network__manager_8cpp_source_1l00018">18</lin
 <para>function that terminates network manager </para>
 </para>
 <para>
-Definition at line <link linkend="_network__manager_8cpp_source_1l00053">53</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
+Definition at line <link linkend="_network__manager_8cpp_source_1l00036">36</link> of file <link linkend="_network__manager_8cpp_source">network_manager.cpp</link>.</para>
 </section>
 </section>
 <section>
@@ -208,14 +215,14 @@ Definition at line <link linkend="_network__manager_8cpp_source_1l00053">53</lin
 <para>initialization flag </para>
 </para>
 <para>
-Definition at line <link linkend="_network__manager_8h_source_1l00042">42</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
+Definition at line <link linkend="_network__manager_8h_source_1l00043">43</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_communication_1_1_network_manager_1a431871c2dcdfe796c4b451d9879e89f4"/><section>
     <title>m_receiver</title>
 <indexterm><primary>m_receiver</primary><secondary>EAR::Communication::NetworkManager</secondary></indexterm>
 <indexterm><primary>EAR::Communication::NetworkManager</primary><secondary>m_receiver</secondary></indexterm>
 <para><computeroutput><link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link>* EAR::Communication::NetworkManager::m_receiver = nullptr<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_network__manager_8h_source_1l00044">44</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
+Definition at line <link linkend="_network__manager_8h_source_1l00045">45</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
 </section>
 <anchor xml:id="_class_e_a_r_1_1_communication_1_1_network_manager_1aec21a8a4517e76362ac7d8d6f69fa81f"/><section>
     <title>m_transmitters</title>
@@ -226,7 +233,7 @@ Definition at line <link linkend="_network__manager_8h_source_1l00044">44</link>
 <para>many client (transmitter) instance </para>
 </para>
 <para>
-Definition at line <link linkend="_network__manager_8h_source_1l00046">46</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
+Definition at line <link linkend="_network__manager_8h_source_1l00047">47</link> of file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

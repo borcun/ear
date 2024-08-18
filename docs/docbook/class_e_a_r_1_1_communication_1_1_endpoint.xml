@@ -68,7 +68,7 @@ Inheritance diagram for EAR::Communication::Endpoint:<para>
 
 <para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link> </para>
 <para>
-Definition at line <link linkend="_endpoint_8h_source_1l00038">38</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+Definition at line <link linkend="_endpoint_8h_source_1l00039">39</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -219,7 +219,7 @@ Definition at line <link linkend="_endpoint_8cpp_source_1l00021">21</link> of fi
 <para>function that shutdowns endpoint </para>
 </para>
 <para>
-Implemented in <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">EAR::Communication::Transmitter</link>, and <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a36afeb6f988a918d2f4de04c47bbb1bf">EAR::Communication::Receiver</link>.</para>
+Implemented in <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a36afeb6f988a918d2f4de04c47bbb1bf">EAR::Communication::Receiver</link>, and <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a2d0daa6d4671052bee0f22122c497165">EAR::Communication::Transmitter</link>.</para>
 </section>
 </section>
 <section>
@@ -228,8 +228,10 @@ Implemented in <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3
     <title>NetworkManager</title>
 <indexterm><primary>NetworkManager</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
 <indexterm><primary>EAR::Communication::Endpoint</primary><secondary>NetworkManager</secondary></indexterm>
-<para><computeroutput>friend class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_endpoint_8h_source_1l00039">39</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+<para><computeroutput>friend class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link><computeroutput>[friend]</computeroutput></computeroutput></para>
+<para>network manager class calls <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b">initialize()</link> and terminate() functions of endpoint there is no interface to developer except network manager, because we do not want developer manages endpoints individually </para>
+<para>
+Definition at line <link linkend="_endpoint_8h_source_1l00043">43</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
 </section>
 </section>
 <section>
@@ -243,7 +245,7 @@ Definition at line <link linkend="_endpoint_8h_source_1l00039">39</link> of file
 <para>endpoint state </para>
 </para>
 <para>
-Definition at line <link linkend="_endpoint_8h_source_1l00062">62</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+Definition at line <link linkend="_endpoint_8h_source_1l00066">66</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

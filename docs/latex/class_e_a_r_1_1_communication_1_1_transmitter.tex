@@ -2,11 +2,17 @@
 \label{class_e_a_r_1_1_communication_1_1_transmitter}\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
 
 
+transmitter endpoint class  
+
+
+
+
 {\ttfamily \#include $<$transmitter.\+h$>$}
 
 
 
-Inheritance diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
+Inheritance diagram for EAR\+::Communication\+::Transmitter\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +21,8 @@ Inheritance diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
+Collaboration diagram for EAR\+::Communication\+::Transmitter\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,11 +35,11 @@ Collaboration diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
 \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5528115a11dae1a35a66ed73ba889d81}{Transmitter}} (const std\+::string \&name)
 \item 
 virtual \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_ad3bb3ea5c2fa853b00d43dc6e4b8e8ce}{$\sim$\+Transmitter}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}{initialize}} (const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) override
 \item 
-virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a3258c8cc80d3d2034c6da64972f534fd}{shutdown}} () override
-\begin{DoxyCompactList}\small\item\em function that shutdowns endpoint \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}{shutdown}} (void) override
+\begin{DoxyCompactList}\small\item\em function that shutdowns transmitter endpoint \end{DoxyCompactList}\item 
 int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_aa39396edbede01b955d99adef584397a}{send}} (const char $\ast$buf)
 \item 
 int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_acdf43af3056c4c08fa3134a8814c646e}{send}} (const void $\ast$buf, size\+\_\+t size)
@@ -41,9 +48,9 @@ int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_acdf
 
 
 \doxysubsection{Detailed Description}
+transmitter endpoint class 
 
-
-Definition at line \mbox{\hyperlink{transmitter_8h_source_l00016}{16}} of file \mbox{\hyperlink{transmitter_8h_source}{transmitter.\+h}}.
+Definition at line \mbox{\hyperlink{transmitter_8h_source_l00017}{17}} of file \mbox{\hyperlink{transmitter_8h_source}{transmitter.\+h}}.
 
 
 
@@ -54,6 +61,11 @@ Definition at line \mbox{\hyperlink{transmitter_8h_source_l00016}{16}} of file \
 \doxysubsubsection{\texorpdfstring{Transmitter()}{Transmitter()}}
 {\footnotesize\ttfamily EAR\+::\+Communication\+::\+Transmitter\+::\+Transmitter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
+constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & -\/ transmitter endpoint name \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
@@ -63,6 +75,10 @@ Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00006}{6}} of file 
 \index{````~Transmitter@{$\sim$Transmitter}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
 \doxysubsubsection{\texorpdfstring{$\sim$Transmitter()}{~Transmitter()}}
 {\footnotesize\ttfamily EAR\+::\+Communication\+::\+Transmitter\+::$\sim$\+Transmitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
 
 
 
@@ -77,7 +93,7 @@ Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00012}{12}} of file
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Transmitter\+::initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-function that initializes endpoint 
+function that initializes transmitter endpoint 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em config} & -\/ endpoint configuration \\
 \hline
@@ -106,7 +122,10 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int32\+\_\+t EAR\+::\+Communication\+::\+Transmitter\+::send (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buf }\end{DoxyParamCaption})}
 
-function that send buffer to listener 
+function that send buffer to listener \begin{DoxyRemark}{Remarks}
+it is for message whose content is well-\/known type, character stream 
+\end{DoxyRemark}
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em buf} & -\/ buffer \\
 \hline
@@ -138,15 +157,15 @@ length of data sent if succeed, otherwise errno
 
 Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
 
-\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_a3258c8cc80d3d2034c6da64972f534fd}\label{class_e_a_r_1_1_communication_1_1_transmitter_a3258c8cc80d3d2034c6da64972f534fd}} 
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}\label{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}} 
 \index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!shutdown@{shutdown}}
 \index{shutdown@{shutdown}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
 \doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
-{\footnotesize\ttfamily void EAR\+::\+Communication\+::\+Transmitter\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void EAR\+::\+Communication\+::\+Transmitter\+::shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-function that shutdowns endpoint 
+function that shutdowns transmitter endpoint 
 
 
 

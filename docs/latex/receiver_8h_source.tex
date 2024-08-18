@@ -12,18 +12,18 @@
 \DoxyCodeLine{\Hypertarget{receiver_8h_source_l00013}00013   \textcolor{keyword}{namespace }Communication \{}
 \DoxyCodeLine{\Hypertarget{receiver_8h_source_l00015}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{00015}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{Endpoint}} \{}
 \DoxyCodeLine{\Hypertarget{receiver_8h_source_l00016}00016     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00017}00017       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_ac6b00720f043fb9dcf0d95a6f87d3a0d}{Receiver}}(\textcolor{keyword}{const} std::string \&name);}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00018}00018       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a438292d5ea47a87322ce8dc7f802fb50}{\string~Receiver}}();}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00019}00019       \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a5527a09d09b092a52913468147373190}{initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00020}00020       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a36afeb6f988a918d2f4de04c47bbb1bf}{shutdown}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{override};    }
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00025}00025       int32\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_af500d26a45edb5df2ab517de8b372d19}{receive}}(\textcolor{keywordtype}{void} *buf, \textcolor{keywordtype}{size\_t} \&size);}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00027}00027     \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00029}00029       \textcolor{keywordtype}{int} m\_sock = -\/1;}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00031}00031       \textcolor{keyword}{struct }sockaddr\_in m\_client\_addr;}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00033}00033       socklen\_t m\_client\_addr\_len;}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00034}00034     \};}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00035}00035   \}}
-\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00019}00019       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_ac6b00720f043fb9dcf0d95a6f87d3a0d}{Receiver}}(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00021}00021       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a438292d5ea47a87322ce8dc7f802fb50}{\string~Receiver}}();}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00025}00025       \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a5527a09d09b092a52913468147373190}{initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00027}00027       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a36afeb6f988a918d2f4de04c47bbb1bf}{shutdown}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{override};    }
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00032}00032       int32\_t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a8c56cfe48cb37f957d5441a7a61077f8}{receive}}(\textcolor{keywordtype}{void} *buf, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00034}00034     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00036}00036       \textcolor{keywordtype}{int} m\_sock = -\/1;}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00038}00038       \textcolor{keyword}{struct }sockaddr\_in m\_client\_addr;}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00040}00040       socklen\_t m\_client\_addr\_len;}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00041}00041     \};}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00042}00042   \}}
+\DoxyCodeLine{\Hypertarget{receiver_8h_source_l00043}00043 \}}
 
 \end{DoxyCode}

@@ -32,7 +32,7 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">EAR::Communication::Receiver</link></para>
 
-<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link> </para>
+<para>receiver endpoint class </para>
 </listitem>
         </itemizedlist>
 </simplesect>

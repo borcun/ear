@@ -58,7 +58,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_transmitter_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
 <anchor xml:id="_transmitter_8cpp_source_1l00055"/>00055 }
 <anchor xml:id="_transmitter_8cpp_source_1l00056"/>00056 
-<anchor xml:id="_transmitter_8cpp_source_1l00057"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">00057</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">EAR::Communication::Transmitter::shutdown</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00057"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a2d0daa6d4671052bee0f22122c497165">00057</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a2d0daa6d4671052bee0f22122c497165">EAR::Communication::Transmitter::shutdown</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
 <anchor xml:id="_transmitter_8cpp_source_1l00058"/>00058 &#32;&#32;close(m_sock);&#32;&#32;&#32;&#32;
 <anchor xml:id="_transmitter_8cpp_source_1l00059"/>00059 &#32;&#32;m_state&#32;=&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link>;
 <anchor xml:id="_transmitter_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;

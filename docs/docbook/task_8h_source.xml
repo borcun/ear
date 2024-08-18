@@ -19,11 +19,11 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_task_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ad3b0df4e2d75d074538f3f19066bd3d6">~Task</link>();
 <anchor xml:id="_task_8h_source_1l00030"/>00030 
 <anchor xml:id="_task_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
-<anchor xml:id="_task_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4">execute</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">override</emphasis>;
-<anchor xml:id="_task_8h_source_1l00033"/>00033 
-<anchor xml:id="_task_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
-<anchor xml:id="_task_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;pthread_t&#32;m_task;
-<anchor xml:id="_task_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;};
-<anchor xml:id="_task_8h_source_1l00038"/>00038 &#32;&#32;}
-<anchor xml:id="_task_8h_source_1l00039"/>00039 }
+<anchor xml:id="_task_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4">execute</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_task_8h_source_1l00037"/>00037 
+<anchor xml:id="_task_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_task_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;pthread_t&#32;m_task;
+<anchor xml:id="_task_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_task_8h_source_1l00042"/>00042 &#32;&#32;}
+<anchor xml:id="_task_8h_source_1l00043"/>00043 }
 </programlisting></section>

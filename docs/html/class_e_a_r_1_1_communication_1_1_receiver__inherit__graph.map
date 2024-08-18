@@ -1,4 +1,4 @@
 <map id="EAR::Communication::Receiver" name="EAR::Communication::Receiver">
-<area shape="rect" id="node1" title="class Receiver" alt="" coords="5,95,164,136"/>
+<area shape="rect" id="node1" title="receiver endpoint class" alt="" coords="5,95,164,136"/>
 <area shape="rect" id="node2" href="$class_e_a_r_1_1_communication_1_1_endpoint.html" title="class Endpoint" alt="" coords="5,5,164,47"/>
 </map>

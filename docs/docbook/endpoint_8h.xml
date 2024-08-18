@@ -4,11 +4,10 @@
 <indexterm><primary>src/comm/endpoint.h</primary></indexterm>
 <para>
 
-<para>class that provides communication infrastructure </para>
+<para>class that provides communication endpoint </para>
  
 </para>
 <programlisting linenumbering="unnumbered">#include &lt;string&gt;
-#include &lt;error.h&gt;
 #include &quot;spdlog/spdlog.h&quot;
 #include &quot;message.h&quot;
 </programlisting>Include dependency graph for endpoint.h:<para>
@@ -65,7 +64,7 @@ This graph shows which files directly or indirectly include this file:<para>
 <section>
 <title>Detailed Description</title>
 
-<para>class that provides communication infrastructure </para>
+<para>class that provides communication endpoint </para>
 
 <para><formalpara><title>Author</title>
 
@@ -73,7 +72,7 @@ This graph shows which files directly or indirectly include this file:<para>
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>Time-stamp: &lt;2024-08-18 14:31:25 boo&gt; </para>
+<para>Time-stamp: &lt;2024-08-18 19:28:14 boo&gt; </para>
 </formalpara>
 </para>
 <para>

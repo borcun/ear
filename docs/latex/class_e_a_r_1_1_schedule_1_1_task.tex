@@ -11,7 +11,8 @@ class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}} implements \mbo
 
 
 
-Inheritance diagram for EAR\+::Schedule\+::Task\+:\nopagebreak
+Inheritance diagram for EAR\+::Schedule\+::Task\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for EAR\+::Schedule\+::Task\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for EAR\+::Schedule\+::Task\+:\nopagebreak
+Collaboration diagram for EAR\+::Schedule\+::Task\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -68,7 +70,7 @@ constructor
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{task_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
+Definition at line \mbox{\hyperlink{task_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
 
 \mbox{\Hypertarget{class_e_a_r_1_1_schedule_1_1_task_ad3b0df4e2d75d074538f3f19066bd3d6}\label{class_e_a_r_1_1_schedule_1_1_task_ad3b0df4e2d75d074538f3f19066bd3d6}} 
 \index{EAR::Schedule::Task@{EAR::Schedule::Task}!````~Task@{$\sim$Task}}
@@ -82,7 +84,7 @@ destructor
 
 
 
-Definition at line \mbox{\hyperlink{task_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
+Definition at line \mbox{\hyperlink{task_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
 
 
 
@@ -93,8 +95,8 @@ Definition at line \mbox{\hyperlink{task_8cpp_source_l00020}{20}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{execute()}{execute()}}
 {\footnotesize\ttfamily void EAR\+::\+Schedule\+::\+Task\+::execute (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-function that is execution body of the task, specific to task algorithm \begin{DoxyRemark}{Remarks}
-it is supposed to be implemented by class based on task derived 
+function that implements execution body of task, it calls \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_aae2fbb8656ec821945de80d16dc4911f}{cycle()}} according to timing parameter \begin{DoxyRemark}{Remarks}
+developer is thoroughly responsible for any deadline of the task, it should be guaranteed that the task performs its one cycle within period. The offset parameter is used to sleep the task once before it starts execution, there is no more usage for the offset for another sleep operation 
 \end{DoxyRemark}
 
 
@@ -102,7 +104,7 @@ Implements \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task_a0ba642a735270ad
 
 
 
-Definition at line \mbox{\hyperlink{task_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
+Definition at line \mbox{\hyperlink{task_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
