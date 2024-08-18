@@ -1,9 +1,6 @@
-#ifndef POSITION_H
-#define POSITION_H
+#pragma once
 
 typedef struct {
-    float lon;
-    float lat;
+  float lon;
+  float lat;
 } Position;
-
-#endif

@@ -21,7 +21,7 @@ EAR::Schedule::Task::~Task() {
   pthread_join(m_task, nullptr);
 }
 
-void EAR::Schedule::Task::execute() {
+void EAR::Schedule::Task::execute(void) {
   std::chrono::steady_clock::time_point begin;
   std::chrono::steady_clock::time_point end;
   std::chrono::microseconds elapsed;

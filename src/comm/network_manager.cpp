@@ -35,14 +35,14 @@ bool EAR::Communication::NetworkManager::initialize(const EAR::Communication::Co
 
 void EAR::Communication::NetworkManager::terminate(void) {
   if (m_is_init) {
-    m_receiver->shutdown();
-
     for (auto &transmitter : m_transmitters) {
       transmitter->shutdown();
       delete transmitter;
       transmitter = nullptr;
     }
 
+    m_receiver->shutdown();
+    
     delete m_receiver;
     m_receiver = nullptr;
     m_is_init = false;

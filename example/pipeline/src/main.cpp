@@ -4,14 +4,14 @@
 #include "serial_device.h"
 
 int main() {
+  spdlog::set_level(spdlog::level::debug);
+      
     EAR::Schedule::Scheduler scheduler("pipeline");
     GPS gps1("GPS 1");
     GPS gps2("GPS 2");
     DCU dcu("DCU");
     SerialDevice dev1("serdev", "1", "1.0.0");
     SerialDevice dev2("serdev", "2", "1.0.0");
-
-    spdlog::set_level(spdlog::level::debug);
     
     gps1.setDevice(&dev1);
     gps2.setDevice(&dev2);

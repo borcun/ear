@@ -7,10 +7,9 @@ class DCU : public EAR::Schedule::Task {
 public:
     DCU(const std::string &name);
     virtual ~DCU();
-    virtual bool initialize() override;
-    virtual void cycle() override;
-
     void setReceiver(EAR::Communication::Receiver *receiver);
+    virtual bool initialize(void) override;
+    virtual void cycle(void) override;
 
 private:
     EAR::Communication::Receiver *m_receiver = nullptr;
