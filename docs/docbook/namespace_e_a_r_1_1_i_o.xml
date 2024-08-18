@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_e_a_r_1_1_i_o" xml:lang="en-US">
+<title>EAR::IO Namespace Reference</title>
+<indexterm><primary>EAR::IO</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link> { <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</link>
+, <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d">DEV_SHUTDOWN</link>
+, <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362">DEV_INITIALIZED</link>
+ }</para>
+
+<para>enum state for device </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0"/><section>
+    <title>State</title>
+<indexterm><primary>State</primary><secondary>EAR::IO</secondary></indexterm>
+<indexterm><primary>EAR::IO</primary><secondary>State</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">EAR::IO::State</link></computeroutput></para><para>
+
+<para>enum state for device </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>DEV_NONE</primary><secondary>EAR::IO</secondary></indexterm>
+<indexterm><primary>EAR::IO</primary><secondary>DEV_NONE</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76"/>DEV_NONE</entry><entry></entry></row><row><entry><indexterm><primary>DEV_SHUTDOWN</primary><secondary>EAR::IO</secondary></indexterm>
+<indexterm><primary>EAR::IO</primary><secondary>DEV_SHUTDOWN</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d"/>DEV_SHUTDOWN</entry><entry></entry></row><row><entry><indexterm><primary>DEV_INITIALIZED</primary><secondary>EAR::IO</secondary></indexterm>
+<indexterm><primary>EAR::IO</primary><secondary>DEV_INITIALIZED</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362"/>DEV_INITIALIZED</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_device_8h_source_1l00017">17</link> of file <link linkend="_device_8h_source">device.h</link>.</para>
+</section>
+</section>
+</section>

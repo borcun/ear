@@ -26,31 +26,6 @@ EAR::IO::State EAR::IO::Device::getState(void) const {
   return m_state;
 }
 
-int32_t EAR::IO::Device::initialize(void) {
-  spdlog::warn("not implemented function for device {}", toString());
-  return -1;
-}
-
-int32_t EAR::IO::Device::shutdown(void) {
-  spdlog::warn("not implemented function for device {}", toString());
-  return -1;
-}
-
-int32_t EAR::IO::Device::receive(void *buf, const uint32_t size) {
-  spdlog::warn("not implemented function for device {}", toString());
-  return -1;
-}
-
-int32_t EAR::IO::Device::transmit(const void *buf, const uint32_t size) {
-  spdlog::warn("not implemented function for device {}", toString());
-  return -1;
-}
-
-int32_t EAR::IO::Device::configure(void *target, const int32_t op) {
-  spdlog::warn("not implemented function for device {}", toString());
-  return -1;
-} 
-
-std::string EAR::IO::Device::toString(void) {
+std::string EAR::IO::Device::toString(void) const {
   return m_name + " (model: " + m_model + ", version: " + m_version + ")";
 }

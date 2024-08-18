@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_schedule_1_1_i_task" xml:lang="en-US">
+<title>EAR::Schedule::ITask Class Reference</title>
+<indexterm><primary>EAR::Schedule::ITask</primary></indexterm>
+<para>
+
+<para>task interface class </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;itask.h&gt;</computeroutput>
+</para>
+Inheritance diagram for EAR::Schedule::ITask:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_i_task__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">ITask</link> (const std::string &amp;name)</para>
+
+<para>default constructor </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114">~ITask</link> ()</para>
+
+<para>destructor </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a095032c759ed51ba5a08e8bee8e8d567">getId</link> (void) const</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab">getName</link> (void) const</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a266bce111cbc83819da3d3f0141420cd">initialize</link> (void)=0</para>
+
+<para>function that initializes task </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1aae2fbb8656ec821945de80d16dc4911f">cycle</link> (void)=0</para>
+
+<para>function that is supposed to be implemented by task user </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ae4e7e35e6d7fff4ce5333b94a80a9772">setPeriod</link> (const std::chrono::microseconds period)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1af7ca7c1445e7b8444150248a5a561958">setOffset</link> (const std::chrono::microseconds offset)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0dd7f17c879dd81c926c93503b4a37cf">start</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac">stop</link> (void)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915">execute</link> (void)=0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::chrono::microseconds <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8">m_period</link></para>
+
+<para>task period in usec </para>
+</listitem>
+            <listitem><para>std::chrono::microseconds <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a3f2ccd66c4d524a3fba6be83661fd345">m_offset</link></para>
+
+<para>task start offset in usec </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a4a841d1f26644e2d99c19b71b2ec7284">m_is_running</link></para>
+
+<para>run flag indicating state of the task </para>
+</listitem>
+            <listitem><para>pthread_mutex_t <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb">m_start_mutex</link></para>
+
+<para>start mutex used to give start to the task </para>
+</listitem>
+            <listitem><para>pthread_cond_t <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5">m_start_cond_var</link></para>
+
+<para>start condition flag for the thread </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1afb88c77ea5daaefa6c8fa6bc5b9aa5c1">Scheduler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>task interface class </para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00021">21</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5"/><section>
+    <title>ITask()</title>
+<indexterm><primary>ITask</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>ITask</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::ITask::ITask (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+
+<para>default constructor </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00005">5</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114"/><section>
+    <title>~ITask()</title>
+<indexterm><primary>~ITask</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>~ITask</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::ITask::~ITask ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00017">17</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1aae2fbb8656ec821945de80d16dc4911f"/><section>
+    <title>cycle()</title>
+<indexterm><primary>cycle</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>cycle</secondary></indexterm>
+<para><computeroutput>virtual void EAR::Schedule::ITask::cycle (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>function that is supposed to be implemented by task user </para>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915"/><section>
+    <title>execute()</title>
+<indexterm><primary>execute</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput>virtual void EAR::Schedule::ITask::execute (void )<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that is execution body of the task, specific to task algorithm <formalpara><title>Remarks</title>
+
+<para>it is supposed to be implemented by class based on task derived </para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4">EAR::Schedule::Task</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a095032c759ed51ba5a08e8bee8e8d567"/><section>
+    <title>getId()</title>
+<indexterm><primary>getId</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>getId</secondary></indexterm>
+<para><computeroutput>uint32_t EAR::Schedule::ITask::getId (void ) const</computeroutput></para>
+<para>function that gets task id <formalpara><title>Returns</title>
+
+<para>task id </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00023">23</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string EAR::Schedule::ITask::getName (void ) const</computeroutput></para>
+<para>function that gets task id <formalpara><title>Returns</title>
+
+<para>task id </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00027">27</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_i_task_ab23edb8bcddff6eb970c1118e154e1ab_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a266bce111cbc83819da3d3f0141420cd"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>virtual bool EAR::Schedule::ITask::initialize (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>function that initializes task </para>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_i_task_a266bce111cbc83819da3d3f0141420cd_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1af7ca7c1445e7b8444150248a5a561958"/><section>
+    <title>setOffset()</title>
+<indexterm><primary>setOffset</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>setOffset</secondary></indexterm>
+<para><computeroutput>void EAR::Schedule::ITask::setOffset (const std::chrono::microseconds offset)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>function that sets offset of the task 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>offset</entry><entry>
+<para>- offset to sleep before execution </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00036">36</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_i_task_af7ca7c1445e7b8444150248a5a561958_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1ae4e7e35e6d7fff4ce5333b94a80a9772"/><section>
+    <title>setPeriod()</title>
+<indexterm><primary>setPeriod</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>setPeriod</secondary></indexterm>
+<para><computeroutput>void EAR::Schedule::ITask::setPeriod (const std::chrono::microseconds period)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>function that sets period of the task 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>period</entry><entry>
+<para>- task period in usec </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00031">31</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_i_task_ae4e7e35e6d7fff4ce5333b94a80a9772_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a0dd7f17c879dd81c926c93503b4a37cf"/><section>
+    <title>start()</title>
+<indexterm><primary>start</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>start</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::ITask::start (void )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>function that starts task <formalpara><title>Returns</title>
+
+<para>true if task is started, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00041">41</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac"/><section>
+    <title>stop()</title>
+<indexterm><primary>stop</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>stop</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::ITask::stop (void )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>function that stops task <formalpara><title>Returns</title>
+
+<para>true if task is stopped, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_itask_8cpp_source_1l00053">53</link> of file <link linkend="_itask_8cpp_source">itask.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1afb88c77ea5daaefa6c8fa6bc5b9aa5c1"/><section>
+    <title>Scheduler</title>
+<indexterm><primary>Scheduler</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>Scheduler</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_itask_8h_source_1l00023">23</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a4a841d1f26644e2d99c19b71b2ec7284"/><section>
+    <title>m_is_running</title>
+<indexterm><primary>m_is_running</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>m_is_running</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::ITask::m_is_running<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>run flag indicating state of the task </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00047">47</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a3f2ccd66c4d524a3fba6be83661fd345"/><section>
+    <title>m_offset</title>
+<indexterm><primary>m_offset</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>m_offset</secondary></indexterm>
+<para><computeroutput>std::chrono::microseconds EAR::Schedule::ITask::m_offset<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>task start offset in usec </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00045">45</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8"/><section>
+    <title>m_period</title>
+<indexterm><primary>m_period</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>m_period</secondary></indexterm>
+<para><computeroutput>std::chrono::microseconds EAR::Schedule::ITask::m_period<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>task period in usec </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00043">43</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5"/><section>
+    <title>m_start_cond_var</title>
+<indexterm><primary>m_start_cond_var</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>m_start_cond_var</secondary></indexterm>
+<para><computeroutput>pthread_cond_t EAR::Schedule::ITask::m_start_cond_var<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>start condition flag for the thread </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00051">51</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb"/><section>
+    <title>m_start_mutex</title>
+<indexterm><primary>m_start_mutex</primary><secondary>EAR::Schedule::ITask</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::ITask</primary><secondary>m_start_mutex</secondary></indexterm>
+<para><computeroutput>pthread_mutex_t EAR::Schedule::ITask::m_start_mutex<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>start mutex used to give start to the task </para>
+</para>
+<para>
+Definition at line <link linkend="_itask_8h_source_1l00049">49</link> of file <link linkend="_itask_8h_source">itask.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/sched/<link linkend="_itask_8h">itask.h</link>src/sched/<link linkend="_itask_8cpp">itask.cpp</link></section>
+</section>

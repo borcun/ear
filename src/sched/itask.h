@@ -2,8 +2,8 @@
  * @file itask.h
  * @brief task interface class that consists of synchronization mechanisms for derived classes
  * @author boo
- * @copyright
- * Time-stamp: <2024-08-18 13:49:46 boo>
+ * @date
+ * Time-stamp: <2024-08-18 15:03:15 boo>
  */
 
 #pragma once
@@ -17,25 +17,29 @@
 
 namespace EAR {
   namespace Schedule {  
-    /// task interface class
+    /// task interface that is used by internal classes, not for developers
     class ITask {
-      // scheduler uses task interface
+      // scheduler uses task interface as friend, we do not open some functionalities to developers
+      // the concern is not about privacy, just target to perform critical operations under the control
       friend class Scheduler;
       
     public:
-      /// default constructor
+      /// constructor
+      /// @param [in] name - task name
       explicit ITask(const std::string &name);	    
       /// destructor
       virtual ~ITask();
       /// function that gets task id
       /// @return task id
       uint32_t getId(void) const;
-      /// function that gets task id
-      /// @return task id
+      /// function that gets task name
+      /// @return task name
       std::string getName(void) const;
       /// function that initializes task
+      /// @return true if the initialization done successfully, otherwise false
       virtual bool initialize(void) = 0;	    
-      /// function that is supposed to be implemented by task user
+      /// function that performs one cycle of task
+      /// @remark it is supposed to be implemented by task user
       virtual void cycle(void) = 0;
 
     protected:

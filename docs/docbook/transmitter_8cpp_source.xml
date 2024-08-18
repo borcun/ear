@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_transmitter_8cpp_source" xml:lang="en-US">
+<title>transmitter.cpp</title>
+<indexterm><primary>src/comm/transmitter.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_transmitter_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;cstdlib&gt;</emphasis>
+<anchor xml:id="_transmitter_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_transmitter_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;unistd.h&gt;</emphasis>
+<anchor xml:id="_transmitter_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_transmitter_8h">transmitter.h</link>&quot;</emphasis>
+<anchor xml:id="_transmitter_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_transmitter_8cpp_source_1l00006"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5528115a11dae1a35a66ed73ba889d81">00006</link> <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5528115a11dae1a35a66ed73ba889d81">EAR::Communication::Transmitter::Transmitter</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name)
+<anchor xml:id="_transmitter_8cpp_source_1l00007"/>00007 &#32;&#32;:&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link>(name)
+<anchor xml:id="_transmitter_8cpp_source_1l00008"/>00008 {
+<anchor xml:id="_transmitter_8cpp_source_1l00009"/>00009 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;transmitter&#32;{}&#32;created&quot;</emphasis>,&#32;name);
+<anchor xml:id="_transmitter_8cpp_source_1l00010"/>00010 }
+<anchor xml:id="_transmitter_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_transmitter_8cpp_source_1l00012"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1ad3bb3ea5c2fa853b00d43dc6e4b8e8ce">00012</link> <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1ad3bb3ea5c2fa853b00d43dc6e4b8e8ce">EAR::Communication::Transmitter::~Transmitter</link>()&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00013"/>00013 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;transmitter&#32;{}&#32;terminated&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00014"/>00014 }
+<anchor xml:id="_transmitter_8cpp_source_1l00015"/>00015 
+<anchor xml:id="_transmitter_8cpp_source_1l00016"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">00016</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">EAR::Communication::Transmitter::initialize</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link>&#32;&amp;config)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">COMM_OPENED</link>&#32;==&#32;m_state)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;socket&#32;for&#32;transmitter&#32;{}&#32;already&#32;opened&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00020"/>00020 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00021"/>00021 
+<anchor xml:id="_transmitter_8cpp_source_1l00022"/>00022 &#32;&#32;memset(&amp;m_recv_addr,&#32;0,&#32;<emphasis role="keyword">sizeof</emphasis>(m_recv_addr));
+<anchor xml:id="_transmitter_8cpp_source_1l00023"/>00023 
+<anchor xml:id="_transmitter_8cpp_source_1l00024"/>00024 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">ip</link>.empty())&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;m_recv_addr.sin_addr.s_addr&#32;=&#32;INADDR_ANY;
+<anchor xml:id="_transmitter_8cpp_source_1l00026"/>00026 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!isValidAddress(config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">ip</link>))&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;invalid&#32;IP&#32;format&#32;for&#32;{}&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00032"/>00032 
+<anchor xml:id="_transmitter_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;m_recv_addr.sin_addr.s_addr&#32;=&#32;inet_addr(config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">ip</link>.c_str());
+<anchor xml:id="_transmitter_8cpp_source_1l00034"/>00034 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00035"/>00035 
+<anchor xml:id="_transmitter_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(0&#32;==&#32;config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a34a200e4577aa7b18d1582c6acb27468">port</link>)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;invalid&#32;port&#32;number&#32;for&#32;{}&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00039"/>00039 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00040"/>00040 
+<anchor xml:id="_transmitter_8cpp_source_1l00041"/>00041 &#32;&#32;m_recv_addr.sin_port&#32;=&#32;htons(config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a34a200e4577aa7b18d1582c6acb27468">port</link>);
+<anchor xml:id="_transmitter_8cpp_source_1l00042"/>00042 &#32;&#32;m_recv_addr.sin_family&#32;=&#32;AF_INET;
+<anchor xml:id="_transmitter_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_transmitter_8cpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(0&#32;&gt;&#32;(m_sock&#32;=&#32;socket(AF_INET,&#32;SOCK_DGRAM,&#32;0)))&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;create&#32;socket&#32;{}&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00047"/>00047 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00048"/>00048 
+<anchor xml:id="_transmitter_8cpp_source_1l00049"/>00049 &#32;&#32;m_state&#32;=&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">COMM_OPENED</link>;
+<anchor xml:id="_transmitter_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;
+<anchor xml:id="_transmitter_8cpp_source_1l00051"/>00051 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;{}&#32;transmitter&#32;existed&#32;with&#32;config:&#32;IP:&#32;{},&#32;port:&#32;{},&#32;is&#32;blocked:&#32;{},&#32;timeout:&#32;{}&quot;</emphasis>,
+<anchor xml:id="_transmitter_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;getName(),&#32;config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">ip</link>,&#32;config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a34a200e4577aa7b18d1582c6acb27468">port</link>,&#32;config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1adea7d58a6548d963addd940c6594170a">is_blocked</link>,&#32;config.<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d5d8539abf8e4b2461757a6e52ded24">timeout</link>);
+<anchor xml:id="_transmitter_8cpp_source_1l00053"/>00053 
+<anchor xml:id="_transmitter_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00055"/>00055 }
+<anchor xml:id="_transmitter_8cpp_source_1l00056"/>00056 
+<anchor xml:id="_transmitter_8cpp_source_1l00057"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">00057</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">EAR::Communication::Transmitter::shutdown</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00058"/>00058 &#32;&#32;close(m_sock);&#32;&#32;&#32;&#32;
+<anchor xml:id="_transmitter_8cpp_source_1l00059"/>00059 &#32;&#32;m_state&#32;=&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link>;
+<anchor xml:id="_transmitter_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;
+<anchor xml:id="_transmitter_8cpp_source_1l00061"/>00061 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;transmitter&#32;{}&#32;shutdown&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00062"/>00062 
+<anchor xml:id="_transmitter_8cpp_source_1l00063"/>00063 &#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_transmitter_8cpp_source_1l00064"/>00064 }
+<anchor xml:id="_transmitter_8cpp_source_1l00065"/>00065 
+<anchor xml:id="_transmitter_8cpp_source_1l00066"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1aa39396edbede01b955d99adef584397a">00066</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1aa39396edbede01b955d99adef584397a">EAR::Communication::Transmitter::send</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*buf)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00067"/>00067 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;send(buf,&#32;strlen(buf));
+<anchor xml:id="_transmitter_8cpp_source_1l00068"/>00068 }
+<anchor xml:id="_transmitter_8cpp_source_1l00069"/>00069 
+<anchor xml:id="_transmitter_8cpp_source_1l00070"/><link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1acdf43af3056c4c08fa3134a8814c646e">00070</link> int32_t&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1aa39396edbede01b955d99adef584397a">EAR::Communication::Transmitter::send</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;*buf,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;size)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">COMM_OPENED</link>&#32;!=&#32;m_state)&#32;{
+<anchor xml:id="_transmitter_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;send&#32;data,&#32;connection&#32;closed&#32;{}&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_transmitter_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ENOENT;
+<anchor xml:id="_transmitter_8cpp_source_1l00074"/>00074 &#32;&#32;}
+<anchor xml:id="_transmitter_8cpp_source_1l00075"/>00075 
+<anchor xml:id="_transmitter_8cpp_source_1l00076"/>00076 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sendto(m_sock,&#32;buf,&#32;size,&#32;0,
+<anchor xml:id="_transmitter_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<emphasis role="keyword">struct</emphasis>&#32;sockaddr&#32;*)&#32;&amp;m_recv_addr,
+<anchor xml:id="_transmitter_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">sizeof</emphasis>(m_recv_addr));
+<anchor xml:id="_transmitter_8cpp_source_1l00079"/>00079 }
+</programlisting></section>

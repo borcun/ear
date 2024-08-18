@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_communication_1_1_endpoint" xml:lang="en-US">
+<title>EAR::Communication::Endpoint Class Reference</title>
+<indexterm><primary>EAR::Communication::Endpoint</primary></indexterm>
+<para>
+
+<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link> </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;endpoint.h&gt;</computeroutput>
+</para>
+Inheritance diagram for EAR::Communication::Endpoint:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_communication_1_1_endpoint__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1acc777efdc259e386904c4ede50bf6363">Endpoint</link> (const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a3f7469273c1bc87a96c745f0fb92ae6e">~Endpoint</link> ()</para>
+
+<para>destructor </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a55d31b149ad01a6fd1bb5feb13488732">getName</link> (void) const</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link> <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a3fbc44993924d9ac7f4120192e412a5a">getState</link> (void) const</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b">initialize</link> (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp;config)=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86">shutdown</link> (void)=0</para>
+
+<para>function that shutdowns endpoint </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1afcfeab584d3ba06a1aaa672cc491c212">isValidAddress</link> (std::string addr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link> <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a749487daddfd938de0b91f42699aef64">m_state</link> = <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link></para>
+
+<para>endpoint state </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a82ca116715acd6c64f2acf4dc71e4038">NetworkManager</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link> </para>
+<para>
+Definition at line <link linkend="_endpoint_8h_source_1l00038">38</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1acc777efdc259e386904c4ede50bf6363"/><section>
+    <title>Endpoint()</title>
+<indexterm><primary>Endpoint</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>Endpoint</secondary></indexterm>
+<para><computeroutput>EAR::Communication::Endpoint::Endpoint (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- endpoint name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_endpoint_8cpp_source_1l00005">5</link> of file <link linkend="_endpoint_8cpp_source">endpoint.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a3f7469273c1bc87a96c745f0fb92ae6e"/><section>
+    <title>~Endpoint()</title>
+<indexterm><primary>~Endpoint</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>~Endpoint</secondary></indexterm>
+<para><computeroutput>EAR::Communication::Endpoint::~Endpoint ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
+Definition at line <link linkend="_endpoint_8cpp_source_1l00010">10</link> of file <link linkend="_endpoint_8cpp_source">endpoint.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a55d31b149ad01a6fd1bb5feb13488732"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string EAR::Communication::Endpoint::getName (void ) const</computeroutput></para>
+<para>function tht gets endpoint name <formalpara><title>Returns</title>
+
+<para>name of endpoint </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_endpoint_8cpp_source_1l00013">13</link> of file <link linkend="_endpoint_8cpp_source">endpoint.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a3fbc44993924d9ac7f4120192e412a5a"/><section>
+    <title>getState()</title>
+<indexterm><primary>getState</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>getState</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">EAR::Communication::State</link> EAR::Communication::Endpoint::getState (void ) const</computeroutput></para>
+<para>function that gets endpoint state <formalpara><title>Returns</title>
+
+<para>endpoint state </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_endpoint_8cpp_source_1l00017">17</link> of file <link linkend="_endpoint_8cpp_source">endpoint.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>virtual bool EAR::Communication::Endpoint::initialize (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp; config)<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that initializes endpoint 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>config</entry><entry>
+<para>- endpoint configuration </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if endpoint is initialized, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a5527a09d09b092a52913468147373190">EAR::Communication::Receiver</link>, and <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a5a66e95d2f98df0ff77ceb310e7ee5ae">EAR::Communication::Transmitter</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1afcfeab584d3ba06a1aaa672cc491c212"/><section>
+    <title>isValidAddress()</title>
+<indexterm><primary>isValidAddress</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>isValidAddress</secondary></indexterm>
+<para><computeroutput>bool EAR::Communication::Endpoint::isValidAddress (std::string addr)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>function that checks whether IP addres is valid 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>addr</entry><entry>
+<para>- IP address </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if IP address is valid, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_endpoint_8cpp_source_1l00021">21</link> of file <link linkend="_endpoint_8cpp_source">endpoint.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86"/><section>
+    <title>shutdown()</title>
+<indexterm><primary>shutdown</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>shutdown</secondary></indexterm>
+<para><computeroutput>virtual void EAR::Communication::Endpoint::shutdown (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>function that shutdowns endpoint </para>
+</para>
+<para>
+Implemented in <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter_1a3258c8cc80d3d2034c6da64972f534fd">EAR::Communication::Transmitter</link>, and <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a36afeb6f988a918d2f4de04c47bbb1bf">EAR::Communication::Receiver</link>.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a82ca116715acd6c64f2acf4dc71e4038"/><section>
+    <title>NetworkManager</title>
+<indexterm><primary>NetworkManager</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>NetworkManager</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_endpoint_8h_source_1l00039">39</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_endpoint_1a749487daddfd938de0b91f42699aef64"/><section>
+    <title>m_state</title>
+<indexterm><primary>m_state</primary><secondary>EAR::Communication::Endpoint</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Endpoint</primary><secondary>m_state</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link> EAR::Communication::Endpoint::m_state = <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link><computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>endpoint state </para>
+</para>
+<para>
+Definition at line <link linkend="_endpoint_8h_source_1l00062">62</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/comm/<link linkend="_endpoint_8h">endpoint.h</link>src/comm/<link linkend="_endpoint_8cpp">endpoint.cpp</link></section>
+</section>

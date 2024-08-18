@@ -1,0 +1,42 @@
+\hypertarget{scheduler_8h_source}{}\doxysection{scheduler.\+h}
+\label{scheduler_8h_source}\index{src/sched/scheduler.h@{src/sched/scheduler.h}}
+\mbox{\hyperlink{scheduler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00009}00009 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00014}00014 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00015}00015   \textcolor{keyword}{namespace }Schedule \{}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00017}\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}{00017}}     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}{State}} \{}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00018}00018       \textcolor{comment}{// refers ot idle scheduler}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00019}\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb}{00019}}       \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb}{SCHEDULER\_IDLE}},}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00020}00020       \textcolor{comment}{// refers to scheduler run}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00021}00021       \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7}{SCHEDULER\_RUN}}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00022}\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7}{00022}}     \};}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00023}00023       }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00024}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{00024}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}} \{}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00025}00025     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00028}00028       \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_ace5f2e69ef90cfb92111fc7ef8694eb3}{Scheduler}}(\textcolor{keyword}{const} std::string \&name);        }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00030}00030       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_a141b3346112376f5562d7e174bca52bc}{\string~Scheduler}}();}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00033}00033       std::string \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_a5ad801e687310d2801e04af9c2b79a46}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};       }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00039}00039       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_ae1f193171152b55e8beadadfd0bb848e}{allocate}}(\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}} *task, \textcolor{keyword}{const} uint32\_t period, \textcolor{keyword}{const} uint32\_t offset);          }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00043}00043       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_a76d994cefe00313345e2fff2557aa517}{start}}(\textcolor{keywordtype}{void});      }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00047}00047       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_a5ac0a7639be94eba0764a6c73e24e4ac}{stop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00048}00048           }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00049}00049     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00051}00051       std::string m\_name;         }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00053}00053       std::list<Task *> m\_tasks;        }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00055}00055       \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}{State}} m\_state;}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00057}00057       \textcolor{comment}{// copyable and movable task interface prevented}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00058}00058       \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_ace5f2e69ef90cfb92111fc7ef8694eb3}{Scheduler}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}} \&scheduler) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00059}00059       \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler_ace5f2e69ef90cfb92111fc7ef8694eb3}{Scheduler}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}} \&\&scheduler) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00060}00060       \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}} \&scheduler) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00061}00061     \};}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00062}00062   \}}
+\DoxyCodeLine{\Hypertarget{scheduler_8h_source_l00063}00063 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d0537398ec3fe72d8d4f5c6709d28acc" xml:lang="en-US">
+<title>src/comm Directory Reference</title>
+<indexterm><primary>src/comm Directory Reference</primary></indexterm>
+Directory dependency graph for comm:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_d0537398ec3fe72d8d4f5c6709d28acc_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_endpoint_8cpp">endpoint.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_endpoint_8h">endpoint.h</link></para>
+
+<para>class that provides communication infrastructure </para>
+</listitem>
+            <listitem><para>file <link linkend="_message_8h">message.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_network__manager_8cpp">network_manager.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_network__manager_8h">network_manager.h</link></para>
+
+<para>one receiver to many transmitter network </para>
+</listitem>
+            <listitem><para>file <link linkend="_receiver_8cpp">receiver.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_receiver_8h">receiver.h</link></para>
+
+<para>class that provides receiving infrastructure for message transfer </para>
+</listitem>
+            <listitem><para>file <link linkend="_transmitter_8cpp">transmitter.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_transmitter_8h">transmitter.h</link></para>
+
+<para>class that provides transmitting infrastructure for message transfer </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

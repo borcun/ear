@@ -1,9 +1,10 @@
 #include "itask.h"
 
-static uint32_t uuid = 0;
+/// unique id assigned to each task
+static uint32_t uid = 0;
 
 EAR::Schedule::ITask::ITask(const std::string &name) {
-  m_id = ++uuid;
+  m_id = ++uid;
   m_is_running = false;
   m_period = std::chrono::microseconds(TASK_MIN_PERIOD);
   // if user pass empty string for name, set its name to task-<id>
@@ -11,12 +12,14 @@ EAR::Schedule::ITask::ITask(const std::string &name) {
     
   pthread_mutex_init(&m_start_mutex, nullptr);
   pthread_cond_init(&m_start_cond_var, nullptr);
+  
   spdlog::debug("task {} created", name);
 }
 
 EAR::Schedule::ITask::~ITask() {
   pthread_cond_destroy(&m_start_cond_var);
   pthread_mutex_destroy(&m_start_mutex);
+  
   spdlog::debug("task {} terminated", getName());
 }
 

@@ -1,0 +1,30 @@
+\hypertarget{task_8h_source}{}\doxysection{task.\+h}
+\label{task_8h_source}\index{src/sched/task.h@{src/sched/task.h}}
+\mbox{\hyperlink{task_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00009}00009 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{itask_8h}{itask.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00013}00013 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00014}00014   \textcolor{keyword}{namespace }Schedule \{}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00018}00018     \textcolor{keywordtype}{void} *\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}{\_\_makeParallel}}(\textcolor{keywordtype}{void} *args);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00021}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{00021}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task}{ITask}} \{}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00022}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_aefc4f90ae9070653843d0b07360ffef2}{00022}}       \textcolor{keyword}{friend} \textcolor{keywordtype}{void} *\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_aefc4f90ae9070653843d0b07360ffef2}{\_\_makeParallel}}(\textcolor{keywordtype}{void} *args);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00023}00023           }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00024}00024     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00027}00027       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_a993e9146d72aa7f42ab6be98cbb554a4}{Task}}(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00029}00029       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ad3b0df4e2d75d074538f3f19066bd3d6}{\string~Task}}();}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00031}00031     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00032}00032       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ab67fb3675f9975bf332ae3b1ad1987b4}{execute}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00034}00034     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00036}00036       pthread\_t m\_task;}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00037}00037     \};}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00038}00038   \}}
+\DoxyCodeLine{\Hypertarget{task_8h_source_l00039}00039 \}}
+
+\end{DoxyCode}

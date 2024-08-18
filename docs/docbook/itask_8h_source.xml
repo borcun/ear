@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_itask_8h_source" xml:lang="en-US">
+<title>itask.h</title>
+<indexterm><primary>src/sched/itask.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_itask_8h_source_1l00001"/>00001 
+<anchor xml:id="_itask_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_itask_8h_source_1l00010"/>00010 
+<anchor xml:id="_itask_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;pthread.h&gt;</emphasis>
+<anchor xml:id="_itask_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&lt;chrono&gt;</emphasis>
+<anchor xml:id="_itask_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;spdlog/spdlog.h&quot;</emphasis>
+<anchor xml:id="_itask_8h_source_1l00014"/>00014 
+<anchor xml:id="_itask_8h_source_1l00016"/><link linkend="_itask_8h_1a45341416bad52f4521710698d33ba475">00016</link> <emphasis role="preprocessor">#define&#32;TASK_MIN_PERIOD&#32;(100000U)</emphasis>
+<anchor xml:id="_itask_8h_source_1l00017"/>00017 
+<anchor xml:id="_itask_8h_source_1l00018"/>00018 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_itask_8h_source_1l00019"/><link linkend="_namespace_e_a_r_1_1_schedule">00019</link> &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>Schedule&#32;{&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00021"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">00021</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;{
+<anchor xml:id="_itask_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;scheduler&#32;uses&#32;task&#32;interface</emphasis>
+<anchor xml:id="_itask_8h_source_1l00023"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1afb88c77ea5daaefa6c8fa6bc5b9aa5c1">00023</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">friend</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>;
+<anchor xml:id="_itask_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_itask_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">ITask</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name);&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114">~ITask</link>();
+<anchor xml:id="_itask_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a095032c759ed51ba5a08e8bee8e8d567">getId</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_itask_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab">getName</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_itask_8h_source_1l00037"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a266bce111cbc83819da3d3f0141420cd">00037</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a266bce111cbc83819da3d3f0141420cd">initialize</link>(<emphasis role="keywordtype">void</emphasis>)&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00039"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1aae2fbb8656ec821945de80d16dc4911f">00039</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1aae2fbb8656ec821945de80d16dc4911f">cycle</link>(<emphasis role="keywordtype">void</emphasis>)&#32;=&#32;0;
+<anchor xml:id="_itask_8h_source_1l00040"/>00040 
+<anchor xml:id="_itask_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_itask_8h_source_1l00043"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8">00043</link> &#32;&#32;&#32;&#32;&#32;&#32;std::chrono::microseconds&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8">m_period</link>;
+<anchor xml:id="_itask_8h_source_1l00045"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a3f2ccd66c4d524a3fba6be83661fd345">00045</link> &#32;&#32;&#32;&#32;&#32;&#32;std::chrono::microseconds&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a3f2ccd66c4d524a3fba6be83661fd345">m_offset</link>;
+<anchor xml:id="_itask_8h_source_1l00047"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a4a841d1f26644e2d99c19b71b2ec7284">00047</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a4a841d1f26644e2d99c19b71b2ec7284">m_is_running</link>;
+<anchor xml:id="_itask_8h_source_1l00049"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb">00049</link> &#32;&#32;&#32;&#32;&#32;&#32;pthread_mutex_t&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb">m_start_mutex</link>;
+<anchor xml:id="_itask_8h_source_1l00051"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5">00051</link> &#32;&#32;&#32;&#32;&#32;&#32;pthread_cond_t&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5">m_start_cond_var</link>;
+<anchor xml:id="_itask_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ae4e7e35e6d7fff4ce5333b94a80a9772">setPeriod</link>(<emphasis role="keyword">const</emphasis>&#32;std::chrono::microseconds&#32;period);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1af7ca7c1445e7b8444150248a5a561958">setOffset</link>(<emphasis role="keyword">const</emphasis>&#32;std::chrono::microseconds&#32;offset);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0dd7f17c879dd81c926c93503b4a37cf">start</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac">stop</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8h_source_1l00067"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915">00067</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915">execute</link>(<emphasis role="keywordtype">void</emphasis>)&#32;=&#32;0;
+<anchor xml:id="_itask_8h_source_1l00068"/>00068 
+<anchor xml:id="_itask_8h_source_1l00069"/>00069 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_itask_8h_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;m_id;
+<anchor xml:id="_itask_8h_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_name;
+<anchor xml:id="_itask_8h_source_1l00074"/>00074 
+<anchor xml:id="_itask_8h_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;copyable&#32;and&#32;movable&#32;task&#32;interface&#32;prevented</emphasis>
+<anchor xml:id="_itask_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">ITask</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;&amp;task)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_itask_8h_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">ITask</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;&amp;&amp;task)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_itask_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;&amp;operator=(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;&amp;task)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_itask_8h_source_1l00079"/>00079 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_itask_8h_source_1l00080"/>00080 &#32;&#32;}
+<anchor xml:id="_itask_8h_source_1l00081"/>00081 }
+</programlisting></section>

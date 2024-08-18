@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_communication_1_1_receiver" xml:lang="en-US">
+<title>EAR::Communication::Receiver Class Reference</title>
+<indexterm><primary>EAR::Communication::Receiver</primary></indexterm>
+<para>
+
+<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link> </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;receiver.h&gt;</computeroutput>
+</para>
+Inheritance diagram for EAR::Communication::Receiver:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_communication_1_1_receiver__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for EAR::Communication::Receiver:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_communication_1_1_receiver__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1ac6b00720f043fb9dcf0d95a6f87d3a0d">Receiver</link> (const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a438292d5ea47a87322ce8dc7f802fb50">~Receiver</link> ()</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a5527a09d09b092a52913468147373190">initialize</link> (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp;config) override</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1a36afeb6f988a918d2f4de04c47bbb1bf">shutdown</link> (void) override</para>
+
+<para>function that shutdowns endpoint </para>
+</listitem>
+            <listitem><para>int32_t <link linkend="_class_e_a_r_1_1_communication_1_1_receiver_1af500d26a45edb5df2ab517de8b372d19">receive</link> (void *buf, size_t &amp;size)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link> </para>
+<para>
+Definition at line <link linkend="_receiver_8h_source_1l00015">15</link> of file <link linkend="_receiver_8h_source">receiver.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_receiver_1ac6b00720f043fb9dcf0d95a6f87d3a0d"/><section>
+    <title>Receiver()</title>
+<indexterm><primary>Receiver</primary><secondary>EAR::Communication::Receiver</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Receiver</primary><secondary>Receiver</secondary></indexterm>
+<para><computeroutput>EAR::Communication::Receiver::Receiver (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_receiver_8cpp_source_1l00007">7</link> of file <link linkend="_receiver_8cpp_source">receiver.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_receiver_1a438292d5ea47a87322ce8dc7f802fb50"/><section>
+    <title>~Receiver()</title>
+<indexterm><primary>~Receiver</primary><secondary>EAR::Communication::Receiver</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Receiver</primary><secondary>~Receiver</secondary></indexterm>
+<para><computeroutput>EAR::Communication::Receiver::~Receiver ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_receiver_8cpp_source_1l00014">14</link> of file <link linkend="_receiver_8cpp_source">receiver.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_receiver_1a5527a09d09b092a52913468147373190"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>EAR::Communication::Receiver</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Receiver</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>bool EAR::Communication::Receiver::initialize (const <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link> &amp; config)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>function that initializes endpoint 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>config</entry><entry>
+<para>- endpoint configuration </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if endpoint is initialized, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b">EAR::Communication::Endpoint</link>.</para>
+<para>
+Definition at line <link linkend="_receiver_8cpp_source_1l00018">18</link> of file <link linkend="_receiver_8cpp_source">receiver.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_receiver_1af500d26a45edb5df2ab517de8b372d19"/><section>
+    <title>receive()</title>
+<indexterm><primary>receive</primary><secondary>EAR::Communication::Receiver</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Receiver</primary><secondary>receive</secondary></indexterm>
+<para><computeroutput>int32_t EAR::Communication::Receiver::receive (void * buf, size_t &amp; size)</computeroutput></para>
+<para>function that receives buffer from the publisher 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>buf</entry><entry>
+<para>- buffer </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>[in|out]</entry><entry>
+<para>size - buffer size </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>size of data received if succeed, otherwise errno </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_receiver_8cpp_source_1l00091">91</link> of file <link linkend="_receiver_8cpp_source">receiver.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_communication_1_1_receiver_1a36afeb6f988a918d2f4de04c47bbb1bf"/><section>
+    <title>shutdown()</title>
+<indexterm><primary>shutdown</primary><secondary>EAR::Communication::Receiver</secondary></indexterm>
+<indexterm><primary>EAR::Communication::Receiver</primary><secondary>shutdown</secondary></indexterm>
+<para><computeroutput>void EAR::Communication::Receiver::shutdown (void )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>function that shutdowns endpoint </para>
+</para>
+<para>
+Implements <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86">EAR::Communication::Endpoint</link>.</para>
+<para>
+Definition at line <link linkend="_receiver_8cpp_source_1l00084">84</link> of file <link linkend="_receiver_8cpp_source">receiver.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/comm/<link linkend="_receiver_8h">receiver.h</link>src/comm/<link linkend="_receiver_8cpp">receiver.cpp</link></section>
+</section>

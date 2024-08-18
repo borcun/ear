@@ -1,15 +1,14 @@
 /**
  * @file endpoint.h
- * @brief class that provides communication infrastructure
+ * @brief class that provides communication endpoint
  * @author boo
- * @copyright
- * Time-stamp: <2024-08-18 13:56:35 boo>
+ * @date
+ * Time-stamp: <2024-08-18 14:47:08 boo>
  */
 
 #pragma once
 
 #include <string>
-#include <error.h>
 #include "spdlog/spdlog.h"
 #include "message.h"
 
@@ -17,17 +16,19 @@ namespace EAR {
   namespace Communication {
     /// communication state
     enum State {
+      /// communication closed, which is default state
       COMM_CLOSED,
+      /// open communication
       COMM_OPENED
     };
 
-    /// endpoint configuration
+    /// configuration class storing endpoint attributes
     class Configuration {
     public:
       /// IP address
       std::string ip = "";
       /// port number
-      uint16_t port = 0;
+      uint16_t port = 0U;
       /// blocking type
       bool is_blocked = false;
       /// timeout in msec for blocking configuration

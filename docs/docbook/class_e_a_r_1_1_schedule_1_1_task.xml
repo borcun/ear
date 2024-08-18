@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_schedule_1_1_task" xml:lang="en-US">
+<title>EAR::Schedule::Task Class Reference</title>
+<indexterm><primary>EAR::Schedule::Task</primary></indexterm>
+<para>
+
+<para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> implements <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> interface </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;task.h&gt;</computeroutput>
+</para>
+Inheritance diagram for EAR::Schedule::Task:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_task__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for EAR::Schedule::Task:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_task__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_schedule_1_1_task_1a993e9146d72aa7f42ab6be98cbb554a4">Task</link> (const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ad3b0df4e2d75d074538f3f19066bd3d6">~Task</link> ()</para>
+
+<para>destructor </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4">execute</link> (void) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>void * <link linkend="_class_e_a_r_1_1_schedule_1_1_task_1aefc4f90ae9070653843d0b07360ffef2">__makeParallel</link> (void *args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> implements <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> interface </para>
+<para>
+Definition at line <link linkend="_task_8h_source_1l00021">21</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_task_1a993e9146d72aa7f42ab6be98cbb554a4"/><section>
+    <title>Task()</title>
+<indexterm><primary>Task</primary><secondary>EAR::Schedule::Task</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Task</primary><secondary>Task</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::Task::Task (const std::string &amp; name)<computeroutput>[explicit]</computeroutput></computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- task name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_task_8cpp_source_1l00016">16</link> of file <link linkend="_task_8cpp_source">task.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_task_1ad3b0df4e2d75d074538f3f19066bd3d6"/><section>
+    <title>~Task()</title>
+<indexterm><primary>~Task</primary><secondary>EAR::Schedule::Task</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Task</primary><secondary>~Task</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::Task::~Task ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
+Definition at line <link linkend="_task_8cpp_source_1l00020">20</link> of file <link linkend="_task_8cpp_source">task.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4"/><section>
+    <title>execute()</title>
+<indexterm><primary>execute</primary><secondary>EAR::Schedule::Task</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Task</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput>void EAR::Schedule::Task::execute (void )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>function that is execution body of the task, specific to task algorithm <formalpara><title>Remarks</title>
+
+<para>it is supposed to be implemented by class based on task derived </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0ba642a735270ad37d7a1c256c070915">EAR::Schedule::ITask</link>.</para>
+<para>
+Definition at line <link linkend="_task_8cpp_source_1l00024">24</link> of file <link linkend="_task_8cpp_source">task.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_task_ab67fb3675f9975bf332ae3b1ad1987b4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_task_1aefc4f90ae9070653843d0b07360ffef2"/><section>
+    <title>__makeParallel</title>
+<indexterm><primary>__makeParallel</primary><secondary>EAR::Schedule::Task</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Task</primary><secondary>__makeParallel</secondary></indexterm>
+<para><computeroutput>void * __makeParallel (void * args)<computeroutput>[friend]</computeroutput></computeroutput></para>
+<para>function that makes parallel execution of the task 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>args</entry><entry>
+<para>- task instance reference </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>nullptr </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/sched/<link linkend="_task_8h">task.h</link>src/sched/<link linkend="_task_8cpp">task.cpp</link></section>
+</section>

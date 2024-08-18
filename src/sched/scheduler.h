@@ -2,7 +2,7 @@
  * @file scheduler.h
  * @brief task scheduler class that allocates memory for tasks, starts and stops them
  * @author boo
- * @copyright
+ * @date
  * Time-stamp: <2024-08-18 13:53:59 boo>
  */
 

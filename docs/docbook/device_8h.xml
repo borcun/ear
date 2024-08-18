@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_device_8h" xml:lang="en-US">
+<title>src/io/device.h File Reference</title>
+<indexterm><primary>src/io/device.h</primary></indexterm>
+<para>
+
+<para>class that representing I/O device </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;string&gt;
+#include &quot;spdlog/spdlog.h&quot;
+</programlisting>Include dependency graph for device.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="device_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="device_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_i_o_1_1_device">EAR::IO::Device</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r">EAR</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_i_o">EAR::IO</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">EAR::IO::State</link> { <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">EAR::IO::DEV_NONE</link>
+, <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d">EAR::IO::DEV_SHUTDOWN</link>
+, <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362">EAR::IO::DEV_INITIALIZED</link>
+ }</para>
+
+<para>enum state for device </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>class that representing I/O device </para>
+
+<para><formalpara><title>Author</title>
+
+<para>boo </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Time-stamp: &lt;2024-08-18 14:28:10 boo&gt; </para>
+</formalpara>
+</para>
+<para>
+Definition in file <link linkend="_device_8h_source">device.h</link>.</para>
+</section>
+</section>

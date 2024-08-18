@@ -2,8 +2,8 @@
  * @file transmitter.h
  * @brief class that provides transmitting infrastructure for message transfer
  * @author boo
- * @copyright
- * Time-stamp: <2024-08-18 13:59:18 boo>
+ * @date
+ * Time-stamp: <2024-08-18 14:51:31 boo>
  */
 
 #pragma once
@@ -13,17 +13,25 @@
 
 namespace EAR {
   namespace Communication {
+    /// transmitter endpoint class
     class Transmitter : public Endpoint {	    
     public:
+      /// constructor
+      /// @param [in] name - transmitter endpoint name
       explicit Transmitter(const std::string &name);
+      /// destructor
       virtual ~Transmitter();
+      /// function that initializes transmitter endpoint
+      /// @param [in] config - endpoint configuration
+      /// @return true if endpoint is initialized, otherwise false
       virtual bool initialize(const Configuration &config) override;
-      virtual void shutdown() override;
+      /// function that shutdowns transmitter endpoint
+      virtual void shutdown(void) override;    
       /// function that send buffer to listener
+      /// @remark it is for message whose content is well-known type, character stream 
       /// @param [in] buf - buffer
       /// @return length of data sent if succeed, otherwise errno
-      int32_t send(const char *buf);
-	    
+      int32_t send(const char *buf);	    
       /// function that send buffer to listener
       /// @param [in] buf - buffer
       /// @param [in] size - buffer size

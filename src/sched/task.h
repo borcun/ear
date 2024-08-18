@@ -2,8 +2,8 @@
  * @file task.h
  * @brief concrete task class that extends task interface, and implements execute function
  * @author boo
- * @copyright
- * Time-stamp: <2024-08-18 13:52:26 boo>
+ * @date
+ * Time-stamp: <2024-08-18 15:08:48 boo>
  */
 
 #pragma once
@@ -29,6 +29,10 @@ namespace EAR {
       virtual ~Task();
 
     protected:
+      /// function that implements execution body of task, it calls cycle() according to timing parameter
+      /// @remark developer is thoroughly responsible for any deadline of the task, it should be guaranteed
+      /// that the task performs its one cycle within period. The offset parameter is used to sleep the task
+      /// once before it starts execution, there is no more usage for the offset for another sleep operation
       virtual void execute(void) override;
 
     private:

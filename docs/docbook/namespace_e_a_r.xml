@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_e_a_r" xml:lang="en-US">
+<title>EAR Namespace Reference</title>
+<indexterm><primary>EAR</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_communication">Communication</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_i_o">IO</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_schedule">Schedule</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

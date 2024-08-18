@@ -1,0 +1,204 @@
+\hypertarget{class_e_a_r_1_1_communication_1_1_endpoint}{}\doxysection{EAR\+::Communication\+::Endpoint Class Reference}
+\label{class_e_a_r_1_1_communication_1_1_endpoint}\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+
+
+class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{Endpoint}}  
+
+
+
+
+{\ttfamily \#include $<$endpoint.\+h$>$}
+
+
+
+Inheritance diagram for EAR\+::Communication\+::Endpoint\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{class_e_a_r_1_1_communication_1_1_endpoint__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}{Endpoint}} (const std\+::string \&name)
+\item 
+virtual \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}{$\sim$\+Endpoint}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}{get\+Name}} (void) const
+\item 
+\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}{get\+State}} (void) const
+\item 
+virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{initialize}} (const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config)=0
+\item 
+virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{shutdown}} (void)=0
+\begin{DoxyCompactList}\small\item\em function that shutdowns endpoint \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}{is\+Valid\+Address}} (std\+::string addr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}{m\+\_\+state}} = \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{COMM\+\_\+\+CLOSED}}
+\begin{DoxyCompactList}\small\item\em endpoint state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a82ca116715acd6c64f2acf4dc71e4038}{Network\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint}{Endpoint}} 
+
+Definition at line \mbox{\hyperlink{endpoint_8h_source_l00038}{38}} of file \mbox{\hyperlink{endpoint_8h_source}{endpoint.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}\label{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!Endpoint@{Endpoint}}
+\index{Endpoint@{Endpoint}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{Endpoint()}{Endpoint()}}
+{\footnotesize\ttfamily EAR\+::\+Communication\+::\+Endpoint\+::\+Endpoint (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & -\/ endpoint name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{endpoint_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{endpoint_8cpp_source}{endpoint.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}\label{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!````~Endpoint@{$\sim$Endpoint}}
+\index{````~Endpoint@{$\sim$Endpoint}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{$\sim$Endpoint()}{~Endpoint()}}
+{\footnotesize\ttfamily EAR\+::\+Communication\+::\+Endpoint\+::$\sim$\+Endpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
+
+
+
+Definition at line \mbox{\hyperlink{endpoint_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{endpoint_8cpp_source}{endpoint.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}\label{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!getName@{getName}}
+\index{getName@{getName}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string EAR\+::\+Communication\+::\+Endpoint\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+function tht gets endpoint name \begin{DoxyReturn}{Returns}
+name of endpoint 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{endpoint_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{endpoint_8cpp_source}{endpoint.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}\label{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!getState@{getState}}
+\index{getState@{getState}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{EAR\+::\+Communication\+::\+State}} EAR\+::\+Communication\+::\+Endpoint\+::get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+function that gets endpoint state \begin{DoxyReturn}{Returns}
+endpoint state 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{endpoint_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{endpoint_8cpp_source}{endpoint.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}\label{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!initialize@{initialize}}
+\index{initialize@{initialize}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily virtual bool EAR\+::\+Communication\+::\+Endpoint\+::initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+function that initializes endpoint 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em config} & -\/ endpoint configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if endpoint is initialized, otherwise false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a5527a09d09b092a52913468147373190}{EAR\+::\+Communication\+::\+Receiver}}, and \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}{EAR\+::\+Communication\+::\+Transmitter}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}\label{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!isValidAddress@{isValidAddress}}
+\index{isValidAddress@{isValidAddress}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{isValidAddress()}{isValidAddress()}}
+{\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Endpoint\+::is\+Valid\+Address (\begin{DoxyParamCaption}\item[{std\+::string}]{addr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+function that checks whether IP addres is valid 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em addr} & -\/ IP address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if IP address is valid, otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{endpoint_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{endpoint_8cpp_source}{endpoint.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}\label{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily virtual void EAR\+::\+Communication\+::\+Endpoint\+::shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+function that shutdowns endpoint 
+
+
+
+Implemented in \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a3258c8cc80d3d2034c6da64972f534fd}{EAR\+::\+Communication\+::\+Transmitter}}, and \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver_a36afeb6f988a918d2f4de04c47bbb1bf}{EAR\+::\+Communication\+::\+Receiver}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a82ca116715acd6c64f2acf4dc71e4038}\label{class_e_a_r_1_1_communication_1_1_endpoint_a82ca116715acd6c64f2acf4dc71e4038}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!NetworkManager@{NetworkManager}}
+\index{NetworkManager@{NetworkManager}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{NetworkManager}{NetworkManager}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{Network\+Manager}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{endpoint_8h_source_l00039}{39}} of file \mbox{\hyperlink{endpoint_8h_source}{endpoint.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}\label{class_e_a_r_1_1_communication_1_1_endpoint_a749487daddfd938de0b91f42699aef64}} 
+\index{EAR::Communication::Endpoint@{EAR::Communication::Endpoint}!m\_state@{m\_state}}
+\index{m\_state@{m\_state}!EAR::Communication::Endpoint@{EAR::Communication::Endpoint}}
+\doxysubsubsection{\texorpdfstring{m\_state}{m\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{State}} EAR\+::\+Communication\+::\+Endpoint\+::m\+\_\+state = \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf}{COMM\+\_\+\+CLOSED}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+endpoint state 
+
+
+
+Definition at line \mbox{\hyperlink{endpoint_8h_source_l00062}{62}} of file \mbox{\hyperlink{endpoint_8h_source}{endpoint.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/comm/\mbox{\hyperlink{endpoint_8h}{endpoint.\+h}}\item 
+src/comm/\mbox{\hyperlink{endpoint_8cpp}{endpoint.\+cpp}}\end{DoxyCompactItemize}

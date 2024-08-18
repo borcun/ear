@@ -1,0 +1,78 @@
+\hypertarget{namespace_e_a_r_1_1_schedule}{}\doxysection{EAR\+::Schedule Namespace Reference}
+\label{namespace_e_a_r_1_1_schedule}\index{EAR::Schedule@{EAR::Schedule}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task}{ITask}}
+\begin{DoxyCompactList}\small\item\em task interface class \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_scheduler}{Scheduler}}
+\item 
+class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}}
+\begin{DoxyCompactList}\small\item\em class \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}} implements \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{Task}} interface \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}{State}} \{ \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb}{SCHEDULER\+\_\+\+IDLE}}
+, \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7}{SCHEDULER\+\_\+\+RUN}}
+ \}
+\begin{DoxyCompactList}\small\item\em scheduler state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}{\+\_\+\+\_\+make\+Parallel}} (void $\ast$args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}\label{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}} 
+\index{EAR::Schedule@{EAR::Schedule}!State@{State}}
+\index{State@{State}!EAR::Schedule@{EAR::Schedule}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0}{EAR\+::\+Schedule\+::\+State}}}
+
+
+
+scheduler state 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCHEDULER\_IDLE@{SCHEDULER\_IDLE}!EAR::Schedule@{EAR::Schedule}}\index{EAR::Schedule@{EAR::Schedule}!SCHEDULER\_IDLE@{SCHEDULER\_IDLE}}}\mbox{\Hypertarget{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb}\label{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb}} 
+SCHEDULER\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCHEDULER\_RUN@{SCHEDULER\_RUN}!EAR::Schedule@{EAR::Schedule}}\index{EAR::Schedule@{EAR::Schedule}!SCHEDULER\_RUN@{SCHEDULER\_RUN}}}\mbox{\Hypertarget{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7}\label{namespace_e_a_r_1_1_schedule_a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7}} 
+SCHEDULER\+\_\+\+RUN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{scheduler_8h_source_l00017}{17}} of file \mbox{\hyperlink{scheduler_8h_source}{scheduler.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}\label{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}} 
+\index{EAR::Schedule@{EAR::Schedule}!\_\_makeParallel@{\_\_makeParallel}}
+\index{\_\_makeParallel@{\_\_makeParallel}!EAR::Schedule@{EAR::Schedule}}
+\doxysubsubsection{\texorpdfstring{\_\_makeParallel()}{\_\_makeParallel()}}
+{\footnotesize\ttfamily void $\ast$ EAR\+::\+Schedule\+::\+\_\+\+\_\+make\+Parallel (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+function that makes parallel execution of the task 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & -\/ task instance reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nullptr 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{task_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{task_8cpp_source}{task.\+cpp}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91_cgraph}
+\end{center}
+\end{figure}

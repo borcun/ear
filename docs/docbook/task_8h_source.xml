@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_task_8h_source" xml:lang="en-US">
+<title>task.h</title>
+<indexterm><primary>src/sched/task.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_task_8h_source_1l00001"/>00001 
+<anchor xml:id="_task_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_task_8h_source_1l00010"/>00010 
+<anchor xml:id="_task_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_itask_8h">itask.h</link>&quot;</emphasis>
+<anchor xml:id="_task_8h_source_1l00012"/>00012 
+<anchor xml:id="_task_8h_source_1l00013"/>00013 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_task_8h_source_1l00014"/>00014 &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>Schedule&#32;{
+<anchor xml:id="_task_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_namespace_e_a_r_1_1_schedule_1a6e548ce80b554f0a5d81048d6fdf0d91">__makeParallel</link>(<emphasis role="keywordtype">void</emphasis>&#32;*args);
+<anchor xml:id="_task_8h_source_1l00019"/>00019 
+<anchor xml:id="_task_8h_source_1l00021"/><link linkend="_class_e_a_r_1_1_schedule_1_1_task">00021</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link>&#32;{
+<anchor xml:id="_task_8h_source_1l00022"/><link linkend="_class_e_a_r_1_1_schedule_1_1_task_1aefc4f90ae9070653843d0b07360ffef2">00022</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">friend</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1aefc4f90ae9070653843d0b07360ffef2">__makeParallel</link>(<emphasis role="keywordtype">void</emphasis>&#32;*args);
+<anchor xml:id="_task_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_task_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_task_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1a993e9146d72aa7f42ab6be98cbb554a4">Task</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name);
+<anchor xml:id="_task_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ad3b0df4e2d75d074538f3f19066bd3d6">~Task</link>();
+<anchor xml:id="_task_8h_source_1l00030"/>00030 
+<anchor xml:id="_task_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_task_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_task_1ab67fb3675f9975bf332ae3b1ad1987b4">execute</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_task_8h_source_1l00033"/>00033 
+<anchor xml:id="_task_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_task_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;pthread_t&#32;m_task;
+<anchor xml:id="_task_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_task_8h_source_1l00038"/>00038 &#32;&#32;}
+<anchor xml:id="_task_8h_source_1l00039"/>00039 }
+</programlisting></section>

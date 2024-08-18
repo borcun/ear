@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_network__manager_8h" xml:lang="en-US">
+<title>src/comm/network_manager.h File Reference</title>
+<indexterm><primary>src/comm/network_manager.h</primary></indexterm>
+<para>
+
+<para>one receiver to many transmitter network </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;list&gt;
+#include &quot;receiver.h&quot;
+#include &quot;transmitter.h&quot;
+</programlisting>Include dependency graph for network_manager.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="network__manager_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="network__manager_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">EAR::Communication::NetworkManager</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r">EAR</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_communication">EAR::Communication</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>one receiver to many transmitter network </para>
+
+<para><formalpara><title>Author</title>
+
+<para>boo </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Time-stamp: &lt;2024-08-18 13:57:55 boo&gt; </para>
+</formalpara>
+</para>
+<para>
+Definition in file <link linkend="_network__manager_8h_source">network_manager.h</link>.</para>
+</section>
+</section>

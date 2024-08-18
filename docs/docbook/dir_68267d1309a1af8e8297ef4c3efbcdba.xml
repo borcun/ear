@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_68267d1309a1af8e8297ef4c3efbcdba" xml:lang="en-US">
+<title>src Directory Reference</title>
+<indexterm><primary>src Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_d0537398ec3fe72d8d4f5c6709d28acc">comm</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_c184e51c84f2c3f0345bbc8a0d75d3e1">io</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_95e7e37fdd08ec500cc8c986cc823cf5">sched</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

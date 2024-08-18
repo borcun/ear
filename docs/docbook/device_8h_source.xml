@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_device_8h_source" xml:lang="en-US">
+<title>device.h</title>
+<indexterm><primary>src/io/device.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_device_8h_source_1l00001"/>00001 
+<anchor xml:id="_device_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_device_8h_source_1l00010"/>00010 
+<anchor xml:id="_device_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_device_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;spdlog/spdlog.h&quot;</emphasis>
+<anchor xml:id="_device_8h_source_1l00013"/>00013 
+<anchor xml:id="_device_8h_source_1l00014"/>00014 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_device_8h_source_1l00015"/><link linkend="_namespace_e_a_r_1_1_i_o">00015</link> &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>IO&#32;{
+<anchor xml:id="_device_8h_source_1l00017"/><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link>&#32;{
+<anchor xml:id="_device_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;none&#32;state&#32;for&#32;device</emphasis>
+<anchor xml:id="_device_8h_source_1l00019"/><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">00019</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</link>,
+<anchor xml:id="_device_8h_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;refers&#32;to&#32;device&#32;shutdown</emphasis>
+<anchor xml:id="_device_8h_source_1l00021"/><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d">00021</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a12af3c79844600c597c8aa30ec52b12d">DEV_SHUTDOWN</link>,
+<anchor xml:id="_device_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;refers&#32;to&#32;device&#32;initialized</emphasis>
+<anchor xml:id="_device_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362">DEV_INITIALIZED</link>
+<anchor xml:id="_device_8h_source_1l00024"/><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0a597fe90181314845f515f9562ff5c362">00024</link> &#32;&#32;&#32;&#32;};
+<anchor xml:id="_device_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00026"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device">00026</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link>&#32;{
+<anchor xml:id="_device_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_device_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">Device</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;model,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;version);&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a202659815163305d76e3abf0803390bd">~Device</link>();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a98e1173f36afbd8ad572b6c798b32575">getName</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a08d8171d9b8535af6cab84f3a43a04ba">getModel</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a7b8498a3f757ada30a330b6093f86c72">getVersion</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1af85ff358d97c34b8403c13f50dd3ba46">getState</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a418cc12a7f5824645449973ff6d71dae">initialize</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a792cadeb5ed15a8fbab8e53187d5dbb9">shutdown</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a06ad7258b1e8ad8800802612b62f3a26">receive</link>(<emphasis role="keywordtype">void</emphasis>&#32;*buf,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;size);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a516635a0e7cd0dc63e211f8baea55ec4">transmit</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;*buf,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;size);&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;int32_t&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1aa0228335a427cf0bd258320d880b7d8c">configure</link>(<emphasis role="keywordtype">void</emphasis>&#32;*target,&#32;<emphasis role="keyword">const</emphasis>&#32;int32_t&#32;op);&#32;&#32;&#32;&#32;
+<anchor xml:id="_device_8h_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a5eec4a268f980da193f0940a897a97cc">toString</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_device_8h_source_1l00071"/>00071 
+<anchor xml:id="_device_8h_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_device_8h_source_1l00074"/><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1ab8d1cc47ac3590e92a9d7e50bbc7b173">00074</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1ab8d1cc47ac3590e92a9d7e50bbc7b173">m_state</link>&#32;=&#32;<link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</link>;
+<anchor xml:id="_device_8h_source_1l00075"/>00075 
+<anchor xml:id="_device_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_device_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_name;
+<anchor xml:id="_device_8h_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_model;
+<anchor xml:id="_device_8h_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_version;
+<anchor xml:id="_device_8h_source_1l00083"/>00083 
+<anchor xml:id="_device_8h_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;copying&#32;or&#32;moving&#32;device&#32;prevented</emphasis>
+<anchor xml:id="_device_8h_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">Device</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link>&#32;&amp;dev)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_device_8h_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">Device</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link>&#32;&amp;&amp;dev)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_device_8h_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link>&#32;&amp;operator=(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_i_o_1_1_device">Device</link>&#32;&amp;task)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_device_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_device_8h_source_1l00089"/>00089 &#32;&#32;}
+<anchor xml:id="_device_8h_source_1l00090"/>00090 }
+</programlisting></section>

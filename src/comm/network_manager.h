@@ -2,8 +2,8 @@
  * @file network_manager.h
  * @brief one receiver to many transmitter network
  * @author boo
- * @copyright
- * Time-stamp: <2024-08-18 13:57:55 boo>
+ * @date
+ * Time-stamp: <2024-08-18 15:11:41 boo>
  */
 
 #pragma once
@@ -14,6 +14,7 @@
 
 namespace EAR {
   namespace Communication {
+    /// network manager class that storing and conduction two types of endpoints
     class NetworkManager {
     public:
       /// constructor
@@ -27,15 +28,15 @@ namespace EAR {
       /// function that initializes network manager
       /// @param [in] config - network manager configuration
       /// @return true if initialization is done, false otherwise
-      virtual bool initialize(Configuration config);
-      /// function that gets network server/receiver
-      /// @return server
-      Receiver *getReceiver(void);
-      /// function that creates network client/transmitter
-      /// @return client
-      Transmitter *getTransmitter(void);
+      virtual bool initialize(const Configuration &config);
       /// function that terminates network manager
       virtual void terminate(void);
+      /// function that gets network server/receiver
+      /// @return receiver endpoint that is server
+      Receiver *getReceiver(void);
+      /// function that creates network client/transmitter
+      /// @return transmitter endpoint that is client
+      Transmitter *getTransmitter(void);
 
     protected:
       /// initialization flag

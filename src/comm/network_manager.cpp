@@ -11,11 +11,11 @@ EAR::Communication::NetworkManager::~NetworkManager() {
   spdlog::debug("network manager {} terminated", getName());
 }
 
-std::string EAR::Communication::NetworkManager::getName() const {
+std::string EAR::Communication::NetworkManager::getName(void) const {
   return m_name;
 }
 
-bool EAR::Communication::NetworkManager::initialize(EAR::Communication::Configuration config) {
+bool EAR::Communication::NetworkManager::initialize(const EAR::Communication::Configuration &config) {
   if (m_is_init) {
     spdlog::error("could not initialize network manager {}, already initialized", getName());
     return false;
@@ -33,24 +33,7 @@ bool EAR::Communication::NetworkManager::initialize(EAR::Communication::Configur
   return true;
 }
 
-EAR::Communication::Receiver *EAR::Communication::NetworkManager::getReceiver() {
-  return m_receiver;
-}
-
-EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getTransmitter() {
-  Transmitter *transmitter = new Transmitter(getName() + "-transmitter-" + std::to_string(m_transmitters.size() + 1));
-
-  if (!transmitter->initialize(m_config)) {
-    spdlog::error("could not initialize transmitter for {}", getName());
-    delete transmitter;
-    return nullptr;
-  }
-
-  m_transmitters.push_back(transmitter);
-  return transmitter;
-}
-
-void EAR::Communication::NetworkManager::terminate() {
+void EAR::Communication::NetworkManager::terminate(void) {
   if (m_is_init) {
     m_receiver->shutdown();
 
@@ -66,4 +49,23 @@ void EAR::Communication::NetworkManager::terminate() {
   }
 
   return;
+}
+
+EAR::Communication::Receiver *EAR::Communication::NetworkManager::getReceiver(void) {
+  return m_receiver;
+}
+
+EAR::Communication::Transmitter *EAR::Communication::NetworkManager::getTransmitter(void) {
+  Transmitter *transmitter = new Transmitter(getName() + "-transmitter-" + std::to_string(m_transmitters.size() + 1));
+
+  if (!transmitter->initialize(m_config)) {
+    spdlog::error("could not initialize transmitter for {}", getName());
+    delete transmitter;
+    transmitter = nullptr;
+    
+    return nullptr;
+  }
+
+  m_transmitters.push_back(transmitter);
+  return transmitter;
 }

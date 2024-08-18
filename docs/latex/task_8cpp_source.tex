@@ -1,0 +1,58 @@
+\hypertarget{task_8cpp_source}{}\doxysection{task.\+cpp}
+\label{task_8cpp_source}\index{src/sched/task.cpp@{src/sched/task.cpp}}
+\mbox{\hyperlink{task_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00003}\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}{00003}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91}{EAR::Schedule::\_\_makeParallel}}(\textcolor{keywordtype}{void} *args) \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00004}00004   \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{EAR::Schedule::Task}} *task = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task}{EAR::Schedule::Task}} *\textcolor{keyword}{>}(args);}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00005}00005     }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00006}00006   \textcolor{keywordflow}{if} (\textcolor{keyword}{nullptr} == task) \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00007}00007     spdlog::critical(\textcolor{stringliteral}{"{}could not start task, because conversion failed"{}});}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00008}00008   \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00009}00009   \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00010}00010     task-\/>\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ab67fb3675f9975bf332ae3b1ad1987b4}{execute}}();}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00011}00011   \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00012}00012     }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00013}00013   \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00014}00014 \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00016}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_a993e9146d72aa7f42ab6be98cbb554a4}{00016}} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_a993e9146d72aa7f42ab6be98cbb554a4}{EAR::Schedule::Task::Task}}(\textcolor{keyword}{const} std::string \&name) : \mbox{\hyperlink{namespace_e_a_r}{EAR}}::Schedule::\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_i_task}{ITask}}(name) \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00017}00017   pthread\_create(\&m\_task, \textcolor{keyword}{nullptr}, \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_aefc4f90ae9070653843d0b07360ffef2}{\_\_makeParallel}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00020}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ad3b0df4e2d75d074538f3f19066bd3d6}{00020}} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ad3b0df4e2d75d074538f3f19066bd3d6}{EAR::Schedule::Task::\string~Task}}() \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00021}00021   pthread\_join(m\_task, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00024}\mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ab67fb3675f9975bf332ae3b1ad1987b4}{00024}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_schedule_1_1_task_ab67fb3675f9975bf332ae3b1ad1987b4}{EAR::Schedule::Task::execute}}() \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00025}00025   std::chrono::steady\_clock::time\_point begin;}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00026}00026   std::chrono::steady\_clock::time\_point end;}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00027}00027   std::chrono::microseconds elapsed;}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00029}00029   \textcolor{comment}{// while keyword is to prevent that any unwanted situation breaks blocking call}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00030}00030   \textcolor{keywordflow}{while} (0 != pthread\_cond\_wait(\&m\_start\_cond\_var, \&m\_start\_mutex));}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00031}00031   std::this\_thread::sleep\_for(std::chrono::microseconds(m\_offset));}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00032}00032     }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00033}00033   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00034}00034     begin = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00035}00035     cycle();}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00036}00036     end = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00037}00037       }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00038}00038     elapsed = std::chrono::duration\_cast<std::chrono::microseconds>(end -\/ begin);}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00040}00040     \textcolor{keywordflow}{if} (elapsed <= m\_period) \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00041}00041       std::this\_thread::sleep\_for(std::chrono::microseconds(m\_period -\/ elapsed));}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00042}00042     \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00043}00043     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00044}00044       spdlog::error(\textcolor{stringliteral}{"{}deadline missed for task \{\}"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00045}00045       std::this\_thread::sleep\_for(std::chrono::microseconds(m\_period -\/ (elapsed \% m\_period)));}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00047}00047   \} \textcolor{keywordflow}{while} (m\_is\_running);}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00049}00049   spdlog::debug(\textcolor{stringliteral}{"{}task \{\} function is over"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00050}00050     }
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00051}00051   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{task_8cpp_source_l00052}00052 \}}
+
+\end{DoxyCode}

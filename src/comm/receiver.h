@@ -11,12 +11,19 @@
 
 namespace EAR {
   namespace Communication {
-    /// class Receiver
+    /// receiver endpoint class
     class Receiver : public Endpoint {
     public:
+      /// constructor
+      /// @param [in] name - receciver endpoint name
       explicit Receiver(const std::string &name);
+      /// destructor
       virtual ~Receiver();
+      /// function that initializes receiver endpoint
+      /// @param [in] config - endpoint configuration
+      /// @return true if endpoint is initialized, otherwise false
       virtual bool initialize(const Configuration &config) override;
+      /// function that shutdowns receiver endpoint
       virtual void shutdown(void) override;    
       /// function that receives buffer from the publisher
       /// @param [in] buf - buffer
