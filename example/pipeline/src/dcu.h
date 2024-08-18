@@ -4,8 +4,8 @@
 
 class DCU : public EAR::Schedule::Task {
 public:
-    explicit DCU(const std::string &name);
-    virtual ~DCU();
-    virtual bool initialize() override;
-    virtual void cycle() override;
+  explicit DCU(const std::string &name);
+  virtual ~DCU();
+  virtual bool initialize(void) override;
+  virtual void cycle(void) override;
 };

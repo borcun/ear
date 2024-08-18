@@ -10,6 +10,14 @@ SerialDevice::~SerialDevice() {
 
 }
 
+int32_t SerialDevice::initialize(void) {
+  return 0;
+}
+
+int32_t SerialDevice::shutdown(void) {
+  return 0;
+}
+
 int32_t SerialDevice::receive(void *buf, const uint32_t size) {
     uint8_t *_buf = (uint8_t *) buf;
     
@@ -20,4 +28,12 @@ int32_t SerialDevice::receive(void *buf, const uint32_t size) {
     pos.lat += 4.0f;
     
     return sizeof(pos);
+}
+
+int32_t SerialDevice::transmit(const void *buf, const uint32_t size) {
+  return 0;
+}
+
+int32_t SerialDevice::configure(void *target, const int32_t op) {
+  return 0;
 }
