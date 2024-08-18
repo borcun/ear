@@ -29,7 +29,7 @@ namespace EAR {
       /// @param [in] buf - buffer
       /// @param [in|out] size - buffer size
       /// @return size of data received if succeed, otherwise errno
-      int32_t receive(void *buf, size_t &size);
+      int32_t receive(void *buf, size_t size);
 
     private:
       /// socket

@@ -88,7 +88,7 @@ void EAR::Communication::Receiver::shutdown(void) {
   return;
 }
 
-int32_t EAR::Communication::Receiver::receive(void *buf, size_t &size) {
+int32_t EAR::Communication::Receiver::receive(void *buf, size_t size) {
   if (COMM_OPENED != m_state) {
     spdlog::error("could not receive data, connection closed {}", getName());
     return ENOENT;

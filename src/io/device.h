@@ -3,7 +3,7 @@
  * @brief class that representing I/O device
  * @author boo
  * @date
- * Time-stamp: <2024-08-18 14:41:08 boo>
+ * Time-stamp: <2024-08-18 19:25:30 boo>
  */
 
 #pragma once
@@ -48,24 +48,24 @@ namespace EAR {
       /// function that format device information as string
       /// @return device information
       std::string toString(void) const;
-      /// function that opens io interface
+      /// function that opens I/O device interface
       /// @return error code
       virtual int32_t initialize(void) = 0;
-      /// function that closes io interface
+      /// function that closes I/O device interface
       /// @return error code
       virtual int32_t shutdown(void) = 0;	    
-      /// function that reads data from io interface
-      /// @param [out] buf - output buffer read from io interface
+      /// function that reads data from I/O device interface
+      /// @param [out] buf - output buffer read from I/O device interface
       /// @param [in] size - buffer size
       /// @return error code
       virtual int32_t receive(void *buf, const uint32_t size) = 0;
-      /// function that writes data from io interface
-      /// @param [in] buf - input buffer written to io interface
+      /// function that writes data from I/O device interface
+      /// @param [in] buf - input buffer written to I/O device interface
       /// @param [in] size - buffer size
       /// @return error code
       virtual int32_t transmit(const void *buf, const uint32_t size) = 0;
-      /// function that control io interface
-      /// @param [in|out] target - target for io interface
+      /// function that control I/O device interface
+      /// @param [in|out] target - target for I/O device interface
       /// @param [in] op - type of operation that is applied to target
       /// @return error code
       virtual int32_t configure(void *target, const int32_t op) = 0;
@@ -82,7 +82,7 @@ namespace EAR {
       /// io device version number/info
       std::string m_version;
 
-      // copying or moving device prevented
+      // prevent copying or moving I/O device
       Device(const Device &dev) = delete;
       Device(const Device &&dev) = delete;
       Device &operator=(const Device &task) = delete;

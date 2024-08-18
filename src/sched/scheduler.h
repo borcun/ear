@@ -3,7 +3,7 @@
  * @brief task scheduler class that allocates memory for tasks, starts and stops them
  * @author boo
  * @date
- * Time-stamp: <2024-08-18 13:53:59 boo>
+ * Time-stamp: <2024-08-18 19:34:26 boo>
  */
 
 #pragma once
@@ -54,7 +54,7 @@ namespace EAR {
       /// state for state machine of the scheduler
       State m_state;
 
-      // copyable and movable task interface prevented
+      // prevent copyable and movable scheduler instance
       Scheduler(const Scheduler &scheduler) = delete;
       Scheduler(const Scheduler &&scheduler) = delete;
       Scheduler &operator=(const Scheduler &scheduler) = delete;

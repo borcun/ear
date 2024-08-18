@@ -1,7 +1,12 @@
 #include "task.h"
 
 void *EAR::Schedule::__makeParallel(void *args) {
-  EAR::Schedule::Task *task = static_cast<EAR::Schedule::Task *>(args);
+  if (nullptr == args) {
+    spdlog::critical("could not start task, invalid task instance");
+    return nullptr;
+  }
+  
+  EAR::Schedule::Task *task = reinterpret_cast<EAR::Schedule::Task *>(args);
     
   if (nullptr == task) {
     spdlog::critical("could not start task, because conversion failed");
