@@ -1,7 +1,7 @@
 /**
  * @file device.h
  * @brief class that representing I/O device
- * Time-stamp: <2024-09-01 21:49:56 boo>
+ * Time-stamp: <2024-09-01 21:54:17 boo>
  */
 
 #pragma once
@@ -84,6 +84,7 @@ namespace EAR {
       Device(const Device &dev) = delete;
       Device(const Device &&dev) = delete;
       Device &operator=(const Device &task) = delete;
+      Device &operator=(const Device &&task) = delete;
     };
   }
 }
