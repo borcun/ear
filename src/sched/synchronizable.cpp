@@ -1,9 +1,9 @@
-#include "itask.h"
+#include "synchronizable.h"
 
 /// unique id assigned to each task
 static uint32_t uid = 0;
 
-EAR::Schedule::ITask::ITask(const std::string &name) {
+EAR::Schedule::Synchronizable::Synchronizable(const std::string &name) {
   m_id = ++uid;
   m_is_running = false;
   m_period = std::chrono::microseconds(TASK_MIN_PERIOD);
@@ -16,32 +16,32 @@ EAR::Schedule::ITask::ITask(const std::string &name) {
   spdlog::debug("task {} created", name);
 }
 
-EAR::Schedule::ITask::~ITask() {
+EAR::Schedule::Synchronizable::~Synchronizable() {
   pthread_cond_destroy(&m_start_cond_var);
   pthread_mutex_destroy(&m_start_mutex);
   
   spdlog::debug("task {} terminated", getName());
 }
 
-uint32_t EAR::Schedule::ITask::getId(void) const {
+uint32_t EAR::Schedule::Synchronizable::getId(void) const {
   return m_id;
 }
 
-std::string EAR::Schedule::ITask::getName(void) const {
+std::string EAR::Schedule::Synchronizable::getName(void) const {
   return m_name;
 }
 
-void EAR::Schedule::ITask::setPeriod(const std::chrono::microseconds period) {
+void EAR::Schedule::Synchronizable::setPeriod(const std::chrono::microseconds period) {
   m_period = std::chrono::microseconds(period);
   return;
 }
 
-void EAR::Schedule::ITask::setOffset(const std::chrono::microseconds offset) {
+void EAR::Schedule::Synchronizable::setOffset(const std::chrono::microseconds offset) {
   m_offset = std::chrono::microseconds(offset);
   return;
 }
     
-bool EAR::Schedule::ITask::start(void) {
+bool EAR::Schedule::Synchronizable::start(void) {
   if (m_is_running) {
     spdlog::error("could not start task {} already running", getName());
     return false;
@@ -53,7 +53,7 @@ bool EAR::Schedule::ITask::start(void) {
   return true;
 }
 
-bool EAR::Schedule::ITask::stop(void) {
+bool EAR::Schedule::Synchronizable::stop(void) {
   if (!m_is_running) {
     spdlog::error("could not stop task {} not running", getName());
     return false;

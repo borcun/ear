@@ -29,17 +29,21 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
     return false;
   }
 
+  auto pair = m_tasks.insert(task);
+
+  if (!pair.second) {
+    spdlog::error("could not allocate task {}, it was already allocated", task->getName());
+    return false;
+  }
+
+  task->setPeriod(std::chrono::microseconds(period));
+  task->setOffset(std::chrono::microseconds(offset));
+
   if (!task->initialize()) {
     spdlog::error("could not initialize task {} in {}", task->getName(), getName());
     return false;	
   }
-
-  /// @todo check whether same element is added twice
-    
-  task->setPeriod(std::chrono::microseconds(period));
-  task->setOffset(std::chrono::microseconds(offset));
-  m_tasks.push_back(task);
-    
+        
   return true;
 }
 

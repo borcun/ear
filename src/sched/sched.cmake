@@ -5,7 +5,7 @@ set(SCHED_INC
 )
 
 set(SCHED_SRC
-  src/sched/itask.cpp
+  src/sched/synchronizable.cpp
   src/sched/task.cpp
   src/sched/scheduler.cpp
 )

@@ -1,9 +1,7 @@
 /**
- * @file itask.h
- * @brief task interface class that consists of synchronization mechanisms for derived classes
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 15:03:15 boo>
+ * @file synchronizable.h
+ * @brief synchronizable interface class that consists of synchronization mechanisms
+ * Time-stamp: <2024-09-01 21:48:43 boo>
  */
 
 #pragma once
@@ -18,7 +16,7 @@
 namespace EAR {
   namespace Schedule {  
     /// task interface that is used by internal classes, not for developers
-    class ITask {
+    class Synchronizable {
       // scheduler uses task interface as friend, we do not open some functionalities to developers
       // the concern is not about privacy, just target to perform critical operations under the control
       friend class Scheduler;
@@ -26,21 +24,15 @@ namespace EAR {
     public:
       /// constructor
       /// @param [in] name - task name
-      explicit ITask(const std::string &name);	    
+      explicit Synchronizable(const std::string &name);	    
       /// destructor
-      virtual ~ITask();
+      virtual ~Synchronizable();
       /// function that gets task id
       /// @return task id
       uint32_t getId(void) const;
       /// function that gets task name
       /// @return task name
       std::string getName(void) const;
-      /// function that initializes task
-      /// @return true if the initialization done successfully, otherwise false
-      virtual bool initialize(void) = 0;	    
-      /// function that performs one cycle of task
-      /// @remark it is supposed to be implemented by task user
-      virtual void cycle(void) = 0;
 
     protected:
       /// task period in usec
@@ -77,9 +69,10 @@ namespace EAR {
       std::string m_name;
 
       // copyable and movable task interface prevented
-      ITask(const ITask &task) = delete;
-      ITask(const ITask &&task) = delete;
-      ITask &operator=(const ITask &task) = delete;
+      Synchronizable(const Synchronizable &task) = delete;
+      Synchronizable(const Synchronizable &&task) = delete;
+      Synchronizable &operator=(const Synchronizable &task) = delete;
+      Synchronizable &operator=(const Synchronizable &&task) = delete;
     };
   }
 }

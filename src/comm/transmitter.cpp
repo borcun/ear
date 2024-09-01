@@ -63,8 +63,8 @@ void EAR::Communication::Transmitter::shutdown(void) {
   return;
 }
 
-int32_t EAR::Communication::Transmitter::send(const char *buf) {
-  return send(buf, strlen(buf));
+int32_t EAR::Communication::Transmitter::send(const std::string &buf) {
+  return send(buf.c_str(), buf.length());
 }
 
 int32_t EAR::Communication::Transmitter::send(const void *buf, size_t size) {

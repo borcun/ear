@@ -1,9 +1,7 @@
 /**
  * @file transmitter.h
  * @brief class that provides transmitting infrastructure for message transfer
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 14:51:31 boo>
+ * Time-stamp: <2024-09-01 21:06:38 boo>
  */
 
 #pragma once
@@ -30,8 +28,8 @@ namespace EAR {
       /// function that send buffer to listener
       /// @remark it is for message whose content is well-known type, character stream 
       /// @param [in] buf - buffer
-      /// @return length of data sent if succeed, otherwise errno
-      int32_t send(const char *buf);	    
+      /// @return length of data sent if sending is done successfully, otherwise errno
+      int32_t send(const std::string &buf);	    
       /// function that send buffer to listener
       /// @param [in] buf - buffer
       /// @param [in] size - buffer size

@@ -6,10 +6,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wpedantic -std=c++11")
 
 include(src/sched/sched.cmake)
 include(src/comm/comm.cmake)
-include(src/io/io.cmake)
+include(src/iodev/iodev.cmake)
 
 set(SPDLOG_DIR ext/spdlog)
-set(INC_DIRS ${SCHED_INC} ${IO_INC} ${COMM_INC})
+set(INC_DIRS ${SCHED_INC} ${IODEV_INC} ${COMM_INC})
 
 add_subdirectory(${SPDLOG_DIR} ${SPDLOG_DIR}/build)
 include_directories(${SPDLOG_DIR}/include ${INC_DIRS})
@@ -23,5 +23,5 @@ if (BUILD_EXAMPLES)
   add_subdirectory(example/network)
 endif (BUILD_EXAMPLES)
     
-add_library(${PROJECT_NAME} SHARED ${IO_SRC} ${SCHED_SRC} ${COMM_SRC})
+add_library(${PROJECT_NAME} SHARED ${IODEV_SRC} ${SCHED_SRC} ${COMM_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})

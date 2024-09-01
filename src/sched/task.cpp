@@ -18,12 +18,24 @@ void *EAR::Schedule::__makeParallel(void *args) {
   return nullptr;
 }
 
-EAR::Schedule::Task::Task(const std::string &name) : EAR::Schedule::ITask(name) {
-  pthread_create(&m_task, nullptr, __makeParallel, this);
+EAR::Schedule::Task::Task(const std::string &name) : EAR::Schedule::Synchronizable(name) {
+  if (0 != pthread_create(&m_task, nullptr, __makeParallel, this)) {
+    spdlog::error("could not create task {}", getName());
+  }
 }
 
 EAR::Schedule::Task::~Task() {
-  pthread_join(m_task, nullptr);
+  if (0 != pthread_join(m_task, nullptr)) {
+    spdlog::error("could not join task {}", getName());
+  }
+}
+
+bool EAR::Schedule::Task::operator==(const Task &other) const {
+  return 0 == getName().compare(other.getName());
+}
+
+bool EAR::Schedule::Task::operator!=(const Task &other) const {
+  return !(*this == other);
 }
 
 void EAR::Schedule::Task::execute(void) {

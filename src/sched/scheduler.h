@@ -1,14 +1,12 @@
 /**
  * @file scheduler.h
  * @brief task scheduler class that allocates memory for tasks, starts and stops them
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 19:34:26 boo>
+ * Time-stamp: <2024-09-01 21:49:31 boo>
  */
 
 #pragma once
 
-#include <list>
+#include <set>
 #include "task.h"
 
 namespace EAR {
@@ -50,7 +48,7 @@ namespace EAR {
       /// scheduler name
       std::string m_name;	    
       /// task list
-      std::list<Task *> m_tasks;	    
+      std::set<Task *> m_tasks;	    
       /// state for state machine of the scheduler
       State m_state;
 
@@ -58,6 +56,7 @@ namespace EAR {
       Scheduler(const Scheduler &scheduler) = delete;
       Scheduler(const Scheduler &&scheduler) = delete;
       Scheduler &operator=(const Scheduler &scheduler) = delete;
+      Scheduler &operator=(const Scheduler &&scheduler) = delete;
     };
   }
 }

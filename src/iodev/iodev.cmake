@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.2)
 
-set(IO_INC
-  src/io
+set(IODEV_INC
+  src/iodev
 )
 
-set(IO_SRC
-  src/io/device.cpp
+set(IODEV_SRC
+  src/iodev/device.cpp
 )

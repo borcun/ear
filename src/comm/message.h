@@ -1,9 +1,7 @@
 /**
  * @file message.h
  * @brief message type sharing between receiver and transmitter endpoints
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 14:44:30 boo>
+ * Time-stamp: <2024-09-01 21:49:41 boo>
  */
 
 #pragma once

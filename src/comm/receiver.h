@@ -1,7 +1,7 @@
 /**
  * @file receiver.h
  * @brief class that provides receiving infrastructure for message transfer
- * @author boo
+ * Time-stamp: <2024-09-01 21:02:15 boo>
  */
 
 #pragma once

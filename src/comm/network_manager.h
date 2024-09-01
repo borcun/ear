@@ -1,9 +1,7 @@
 /**
  * @file network_manager.h
- * @brief one receiver to many transmitter network
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 15:11:41 boo>
+ * @brief network manager that creates one-to-one or one-to-many network
+ * Time-stamp: <2024-09-01 21:49:19 boo>
  */
 
 #pragma once
@@ -56,6 +54,7 @@ namespace EAR {
       NetworkManager(const NetworkManager &nm) = delete;
       NetworkManager(const NetworkManager &&nm) = delete;
       NetworkManager &operator=(const NetworkManager &nm) = delete;
+      NetworkManager &operator=(const NetworkManager &&nm) = delete;
     };
   }
 }

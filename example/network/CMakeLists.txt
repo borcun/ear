@@ -2,12 +2,11 @@ cmake_minimum_required(VERSION 3.2)
 project(network-test)
 
 include(src/network.cmake)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wpedantic -std=c++11")
 
 include_directories(
   ../../src/sched
-  ../../src/io
+  ../../src/iodev
   ../../src/comm
   ../../ext/spdlog/include
 )

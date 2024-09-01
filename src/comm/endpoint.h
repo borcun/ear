@@ -1,9 +1,7 @@
 /**
  * @file endpoint.h
- * @brief class that provides communication endpoint
- * @author boo
- * @date
- * Time-stamp: <2024-08-18 19:28:14 boo>
+ * @brief base class that provides communication endpoint
+ * Time-stamp: <2024-09-01 21:01:55 boo>
  */
 
 #pragma once
@@ -35,13 +33,8 @@ namespace EAR {
       uint32_t timeout = 0U;
     };
 
-    /// class Endpoint
+    /// class Endpoint that refers to receiver or transmitter
     class Endpoint {
-      /// network manager class calls initialize() and terminate() functions of endpoint
-      /// there is no interface to developer except network manager, because we do not want
-      /// developer manages endpoints individually
-      friend class NetworkManager;
-	
     public:
       /// constructor
       /// @param [in] name - endpoint name
