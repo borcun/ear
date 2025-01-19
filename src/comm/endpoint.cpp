@@ -1,6 +1,9 @@
 #include <vector>
 #include <exception>
-#include "endpoint.h"
+#include "comm/endpoint.h"
+
+EAR::Communication::Endpoint::Endpoint(void) {
+}
 
 EAR::Communication::Endpoint::Endpoint(const std::string &name)
   : m_name(name)
@@ -10,7 +13,12 @@ EAR::Communication::Endpoint::Endpoint(const std::string &name)
 EAR::Communication::Endpoint::~Endpoint() {
 }
 
-std::string EAR::Communication::Endpoint::getName(void) const {
+void EAR::Communication::Endpoint::setName(const std::string &name) {
+  m_name = name;
+  return;
+}
+
+const std::string &EAR::Communication::Endpoint::getName(void) const {
   return m_name;
 }
 
@@ -44,7 +52,6 @@ bool EAR::Communication::Endpoint::isValidAddress(std::string addr) {
       }
     }
   } catch (std::exception &ex) {
-    spdlog::error("could not parse IP address {}", getName());
     return false;
   }
     

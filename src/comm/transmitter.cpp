@@ -1,16 +1,20 @@
 #include <cstdlib>
 #include <string>
 #include <unistd.h>
-#include "transmitter.h"
+#include "comm/transmitter.h"
+#include "spdlog/spdlog.h"
+
+EAR::Communication::Transmitter::Transmitter(void)
+  : Endpoint()
+{
+}
 
 EAR::Communication::Transmitter::Transmitter(const std::string &name)
   : Endpoint(name)
 {
-  spdlog::debug("transmitter {} created", name);
 }
 
 EAR::Communication::Transmitter::~Transmitter() {
-  spdlog::debug("transmitter {} terminated", getName());
 }
 
 bool EAR::Communication::Transmitter::initialize(const Configuration &config) {
@@ -19,47 +23,50 @@ bool EAR::Communication::Transmitter::initialize(const Configuration &config) {
     return false;
   }
 
-  memset(&m_recv_addr, 0, sizeof(m_recv_addr));
+  memset(&m_remote_addr, 0, sizeof(m_remote_addr));
 
   if (config.ip.empty()) {
-    m_recv_addr.sin_addr.s_addr = INADDR_ANY;
+    m_remote_addr.sin_addr.s_addr = INADDR_ANY;
   }
   else {
     if (!isValidAddress(config.ip)) {
-      spdlog::error("invalid IP format for {}", getName());
+      spdlog::error("invalid IP format for transmitter {}", getName());
       return false;
     }
 
-    m_recv_addr.sin_addr.s_addr = inet_addr(config.ip.c_str());
+    m_remote_addr.sin_addr.s_addr = inet_addr(config.ip.c_str());
   }
 
   if (0 == config.port) {
-    spdlog::error("invalid port number for {}", getName());
+    spdlog::error("invalid port number for transmitter {}", getName());
     return false;
   }
 
-  m_recv_addr.sin_port = htons(config.port);
-  m_recv_addr.sin_family = AF_INET;
+  m_remote_addr.sin_port = htons(config.port);
+  m_remote_addr.sin_family = AF_INET;
 
   if (0 > (m_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
-    spdlog::error("could not create socket {}", getName());
+    spdlog::error("could not create socket for transmitter {}", getName());
     return false;
   }
 
   m_state = COMM_OPENED;
-    
-  spdlog::debug("{} transmitter existed with config: IP: {}, port: {}, is blocked: {}, timeout: {}",
-		getName(), config.ip, config.port, config.is_blocked, config.timeout);
-
+  
   return true;
 }
 
 void EAR::Communication::Transmitter::shutdown(void) {
-  close(m_sock);    
+  struct sockaddr_in local_addr;
+  socklen_t addr_len = sizeof(local_addr);
+  char local_ip[16];
+
+  if (0 == getsockname(m_sock, (struct sockaddr *) &local_addr, &addr_len)) {
+    inet_ntop(AF_INET, &local_addr.sin_addr, local_ip, sizeof(local_ip));    
+  }
+
+  ::shutdown(m_sock, SHUT_WR);
   m_state = COMM_CLOSED;
     
-  spdlog::debug("transmitter {} shutdown", getName());
-
   return;
 }
 
@@ -69,11 +76,11 @@ int32_t EAR::Communication::Transmitter::send(const std::string &buf) {
 
 int32_t EAR::Communication::Transmitter::send(const void *buf, size_t size) {
   if (COMM_OPENED != m_state) {
-    spdlog::error("could not send data, connection closed {}", getName());
+    spdlog::error("could not send data, connection closed for transmitter {}", getName());
     return ENOENT;
   }
 
   return sendto(m_sock, buf, size, 0,
-		(struct sockaddr *) &m_recv_addr,
-		sizeof(m_recv_addr));
+		(struct sockaddr *) &m_remote_addr,
+		sizeof(m_remote_addr));
 }

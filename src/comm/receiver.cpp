@@ -2,22 +2,27 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <fcntl.h>
-#include "receiver.h"
+#include "comm/receiver.h"
+#include "spdlog/spdlog.h"
+
+EAR::Communication::Receiver::Receiver(void)
+  : Endpoint()
+{
+  m_local_addr_len = sizeof(m_local_addr);
+}
 
 EAR::Communication::Receiver::Receiver(const std::string &name)
-  : EAR::Communication::Endpoint(name)
+  : Endpoint(name)
 {
-  m_client_addr_len = sizeof(m_client_addr);
-  spdlog::debug("receiver {} created", name);
+  m_local_addr_len = sizeof(m_local_addr);
 }
 
 EAR::Communication::Receiver::~Receiver() {
-  spdlog::debug("receiver {} terminated", getName());
 }
 
 bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   if (COMM_OPENED == m_state) {
-    spdlog::error("socket for receiver {} already opened", getName());
+    spdlog::error("socket for receiver already opened");
     return false;
   }
     
@@ -30,7 +35,7 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   }
   else {
     if (!isValidAddress(config.ip)) {
-      spdlog::error("invalid IP format for {}", getName());
+      spdlog::error("invalid IP format for receiver {}", getName());
       return false;
     }
 
@@ -38,7 +43,7 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   }
 
   if (0 == config.port) {
-    spdlog::error("invalid port number for {}", getName());
+    spdlog::error("invalid port number for receiver {}", getName());
     return false;
   }
 
@@ -46,7 +51,7 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   server_addr.sin_family = AF_INET;
     
   if (0 > (m_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
-    spdlog::error("could not create socket {}", getName());
+    spdlog::error("could not create socket for receiver {}", getName());
     return false;
   }
     
@@ -59,7 +64,7 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
     struct timeval recv_timeout = {config.timeout / 1000, config.timeout * 1000};
 
     if (0 != setsockopt(m_sock, SOL_SOCKET, SO_RCVTIMEO, &recv_timeout, sizeof(recv_timeout))) {
-      spdlog::error("could not set timeout option of socket {}", getName());
+      spdlog::error("could not set timeout option of socket for receiver {}", getName());
       shutdown();
 
       return false;
@@ -67,7 +72,7 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   }
   else {
     if(fcntl(m_sock, F_SETFL, fcntl(m_sock, F_GETFL) | O_NONBLOCK) < 0) {
-      spdlog::error("could not set non-blocking option of socket {}", getName());
+      spdlog::error("could not set non-blocking option of socket for receiver {}", getName());
       shutdown();
 	    
       return false;
@@ -75,8 +80,6 @@ bool EAR::Communication::Receiver::initialize(const Configuration &config) {
   }
     
   m_state = COMM_OPENED;
-  spdlog::debug("{} receiver existed with config: IP: {}, port: {}, is blocked: {}, timeout: {}",
-		getName(), config.ip, config.port, config.is_blocked, config.timeout);
     
   return true;
 }
@@ -90,11 +93,11 @@ void EAR::Communication::Receiver::shutdown(void) {
 
 int32_t EAR::Communication::Receiver::receive(void *buf, size_t size) {
   if (COMM_OPENED != m_state) {
-    spdlog::error("could not receive data, connection closed {}", getName());
+    spdlog::error("could not receive data, connection closed for receiver {}", getName());
     return ENOENT;
   }
 
   return recvfrom(m_sock, buf, size, 0,
-		  (struct sockaddr *) &m_client_addr,
-		  &m_client_addr_len);
+		  (struct sockaddr *) &m_local_addr,
+		  &m_local_addr_len);
 }

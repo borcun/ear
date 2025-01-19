@@ -1,4 +1,5 @@
-#include "scheduler.h"
+#include "sched/scheduler.h"
+#include "spdlog/spdlog.h"
 
 EAR::Schedule::Scheduler::Scheduler(const std::string &name) : m_name(name) {
   m_state = SCHEDULER_IDLE;
@@ -29,21 +30,19 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
     return false;
   }
 
-  auto pair = m_tasks.insert(task);
-
-  if (!pair.second) {
-    spdlog::error("could not allocate task {}, it was already allocated", task->getName());
-    return false;
-  }
-
   task->setPeriod(std::chrono::microseconds(period));
   task->setOffset(std::chrono::microseconds(offset));
+  task->setConditionVariable(&m_cond_var);
+
+  m_tasks.push_back(task);
 
   if (!task->initialize()) {
     spdlog::error("could not initialize task {} in {}", task->getName(), getName());
     return false;	
   }
-        
+
+  spdlog::info("{} task is started", task->getName());
+  
   return true;
 }
 
@@ -53,21 +52,18 @@ bool EAR::Schedule::Scheduler::start(void) {
     return false;
   }
 
-  if (0 == m_tasks.size()) {
-    spdlog::error("could not run the scheduler {} that not include any task", getName());
-    return false;
-  }
-
   for (auto &task : m_tasks) {
     if (!task->start()) {
       spdlog::critical("could not start task {}", task->getName());
     }
     else {
-      spdlog::debug("tasks {} started", task->getName());
+      spdlog::debug("task {} started", task->getName());
     }
   }
 
+  m_cond_var.notify_all();
   m_state = SCHEDULER_RUN;
+  
   return true;
 }
 
@@ -76,7 +72,7 @@ bool EAR::Schedule::Scheduler::stop(void) {
     spdlog::error("could not stop the scheduler {} that not running", getName());
     return false;
   }
-    
+
   for (auto &task : m_tasks) {
     if (!task->stop()) {
       spdlog::critical("could not stop task {}", task->getName());
@@ -86,6 +82,8 @@ bool EAR::Schedule::Scheduler::stop(void) {
     }
   }
 
+  spdlog::debug("scheduler is stopped");
   m_state = SCHEDULER_IDLE;
+  
   return true;
 }

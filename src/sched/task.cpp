@@ -1,33 +1,40 @@
-#include "task.h"
+#include "sched/task.h"
+#include "spdlog/spdlog.h"
 
-void *EAR::Schedule::__makeParallel(void *args) {
-  if (nullptr == args) {
-    spdlog::critical("could not start task, invalid task instance");
-    return nullptr;
-  }
-  
-  EAR::Schedule::Task *task = reinterpret_cast<EAR::Schedule::Task *>(args);
-    
-  if (nullptr == task) {
-    spdlog::critical("could not start task, because conversion failed");
+/// unique id assigned to each task
+static uint32_t uid = 0;
+
+EAR::Schedule::Task::Task(const std::string &name)
+  : m_task_ready(false)
+{
+  if (name.empty()) {
+    m_name = "task-" + std::to_string(++uid);
   }
   else {
-    task->execute();
-  }
-    
-  return nullptr;
-}
-
-EAR::Schedule::Task::Task(const std::string &name) : EAR::Schedule::Synchronizable(name) {
-  if (0 != pthread_create(&m_task, nullptr, __makeParallel, this)) {
-    spdlog::error("could not create task {}", getName());
+    m_name = name + "-" + std::to_string(++uid);
   }
 }
 
 EAR::Schedule::Task::~Task() {
-  if (0 != pthread_join(m_task, nullptr)) {
-    spdlog::error("could not join task {}", getName());
-  }
+}
+
+std::string EAR::Schedule::Task::getName(void) const {
+  return m_name;
+}
+
+void EAR::Schedule::Task::setPeriod(const std::chrono::microseconds period) {
+  m_period = std::chrono::microseconds(period);
+  return;
+}
+
+void EAR::Schedule::Task::setOffset(const std::chrono::microseconds offset) {
+  m_offset = std::chrono::microseconds(offset);
+  return;
+}
+
+void EAR::Schedule::Task::setConditionVariable(std::condition_variable *cond_var) {
+  m_cond_var = cond_var;
+  return;
 }
 
 bool EAR::Schedule::Task::operator==(const Task &other) const {
@@ -38,13 +45,53 @@ bool EAR::Schedule::Task::operator!=(const Task &other) const {
   return !(*this == other);
 }
 
+bool EAR::Schedule::Task::start(void) {
+  if (m_is_running) {
+    spdlog::error("could not start task {} already running", getName());
+    return false;
+  }
+
+  if (nullptr == m_cond_var) {
+    spdlog::error("could not start task {} unless condition variable is set", getName());
+    return false;
+  }
+
+  m_is_running = true;
+  
+  m_task = std::thread(&Task::execute, this);
+
+  // wait until thread function is active
+  while (!m_task_ready.load(std::memory_order_acquire)) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+  }
+
+  return true;
+}
+
+bool EAR::Schedule::Task::stop(void) {
+  if (!m_is_running) {
+    spdlog::error("could not stop task {} not running", getName());
+    return false;
+  }
+
+  m_task_ready.store(false, std::memory_order_release);  
+  m_is_running = false;
+  
+  m_task.join();
+
+  return true;
+}
+
 void EAR::Schedule::Task::execute(void) {
   std::chrono::steady_clock::time_point begin;
   std::chrono::steady_clock::time_point end;
   std::chrono::microseconds elapsed;
+  std::unique_lock<std::mutex> ulock(m_mutex);
 
-  // while keyword is to prevent that any unwanted situation breaks blocking call
-  while (0 != pthread_cond_wait(&m_start_cond_var, &m_start_mutex));
+  // signal readiness for start function
+  m_task_ready.store(true, std::memory_order_release);
+  
+  m_cond_var->wait(ulock);
   std::this_thread::sleep_for(std::chrono::microseconds(m_offset));
     
   do {
@@ -63,7 +110,7 @@ void EAR::Schedule::Task::execute(void) {
     }
   } while (m_is_running);
 
-  spdlog::debug("task {} function is over", getName());
+  spdlog::debug("task {} is being stopped", getName());
     
   return;
 }
