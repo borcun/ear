@@ -1,4 +1,0 @@
-<map id="EAR::Schedule::ITask" name="EAR::Schedule::ITask">
-<area shape="rect" id="node1" title="task interface that is used by internal classes, not for developers" alt="" coords="5,5,161,32"/>
-<area shape="rect" id="node2" href="$class_e_a_r_1_1_schedule_1_1_task.html" title="class Task implements Task interface" alt="" coords="7,80,159,107"/>
-</map>

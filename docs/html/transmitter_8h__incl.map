@@ -1,9 +1,0 @@
-<map id="src/comm/transmitter.h" name="src/comm/transmitter.h">
-<area shape="rect" id="node1" title="class that provides transmitting infrastructure for message transfer" alt="" coords="21,5,196,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,97,107"/>
-<area shape="rect" id="node3" href="$endpoint_8h.html" title="class that provides communication endpoint" alt="" coords="122,80,213,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="22,155,81,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="105,155,229,181"/>
-<area shape="rect" id="node6" href="$message_8h.html" title="message type sharing between receiver and transmitter endpoints" alt="" coords="254,155,347,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="267,229,334,256"/>
-</map>
