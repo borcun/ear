@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_scheduler_8h_source" xml:lang="en-US">
+<title>scheduler.h</title>
+<indexterm><primary>src/sched/scheduler.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_scheduler_8h_source_1l00001"/>00001 
+<anchor xml:id="_scheduler_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00010"/>00010 
+<anchor xml:id="_scheduler_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;list&gt;</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_task_8h">task.h</link>&quot;</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00013"/>00013 
+<anchor xml:id="_scheduler_8h_source_1l00014"/>00014 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_scheduler_8h_source_1l00015"/>00015 &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>Schedule&#32;{
+<anchor xml:id="_scheduler_8h_source_1l00017"/><link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">State</link>&#32;{
+<anchor xml:id="_scheduler_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;refers&#32;ot&#32;idle&#32;scheduler</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00019"/><link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb">00019</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb">SCHEDULER_IDLE</link>,
+<anchor xml:id="_scheduler_8h_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;refers&#32;to&#32;scheduler&#32;run</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7">SCHEDULER_RUN</link>
+<anchor xml:id="_scheduler_8h_source_1l00022"/><link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7">00022</link> &#32;&#32;&#32;&#32;};
+<anchor xml:id="_scheduler_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00024"/><link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>&#32;{
+<anchor xml:id="_scheduler_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_scheduler_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ace5f2e69ef90cfb92111fc7ef8694eb3">Scheduler</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name);&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a141b3346112376f5562d7e174bca52bc">~Scheduler</link>();
+<anchor xml:id="_scheduler_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ad801e687310d2801e04af9c2b79a46">getName</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ae1f193171152b55e8beadadfd0bb848e">allocate</link>(<link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link>&#32;*task,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;period,&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;offset);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a76d994cefe00313345e2fff2557aa517">start</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ac0a7639be94eba0764a6c73e24e4ac">stop</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_scheduler_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_scheduler_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_name;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;std::list&lt;Task&#32;*&gt;&#32;m_tasks;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_scheduler_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">State</link>&#32;m_state;
+<anchor xml:id="_scheduler_8h_source_1l00056"/>00056 
+<anchor xml:id="_scheduler_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;prevent&#32;copyable&#32;and&#32;movable&#32;scheduler&#32;instance</emphasis>
+<anchor xml:id="_scheduler_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ace5f2e69ef90cfb92111fc7ef8694eb3">Scheduler</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>&#32;&amp;scheduler)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_scheduler_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ace5f2e69ef90cfb92111fc7ef8694eb3">Scheduler</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>&#32;&amp;&amp;scheduler)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_scheduler_8h_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>&#32;&amp;operator=(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link>&#32;&amp;scheduler)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_scheduler_8h_source_1l00061"/>00061 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_scheduler_8h_source_1l00062"/>00062 &#32;&#32;}
+<anchor xml:id="_scheduler_8h_source_1l00063"/>00063 }
+</programlisting></section>

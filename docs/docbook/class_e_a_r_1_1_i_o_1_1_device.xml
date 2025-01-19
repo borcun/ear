@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_i_o_1_1_device" xml:lang="en-US">
+<title>EAR::IO::Device Class Reference</title>
+<indexterm><primary>EAR::IO::Device</primary></indexterm>
+<para>
+
+<para>base class for devices performing I/O operations </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;device.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8">Device</link> (const std::string &amp;name, const std::string &amp;model, const std::string &amp;version)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a202659815163305d76e3abf0803390bd">~Device</link> ()</para>
+
+<para>destructor </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a98e1173f36afbd8ad572b6c798b32575">getName</link> (void) const</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a08d8171d9b8535af6cab84f3a43a04ba">getModel</link> (void) const</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a7b8498a3f757ada30a330b6093f86c72">getVersion</link> (void) const</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link> <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1af85ff358d97c34b8403c13f50dd3ba46">getState</link> (void) const</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a2ae9af8123e6cb6b574b6c7e9aa8827d">toString</link> (void) const</para>
+</listitem>
+            <listitem><para>virtual int32_t <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a008654493533911ce7e0bddbe4e97b99">initialize</link> (void)=0</para>
+</listitem>
+            <listitem><para>virtual int32_t <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a2e19498f0249a18aa0e02aa70f481d32">shutdown</link> (void)=0</para>
+</listitem>
+            <listitem><para>virtual int32_t <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1ac670d8050f5b097d86c848650af9f88d">receive</link> (void *buf, const uint32_t size)=0</para>
+</listitem>
+            <listitem><para>virtual int32_t <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a8e8848af30e59f25aff9de44b809de17">transmit</link> (const void *buf, const uint32_t size)=0</para>
+</listitem>
+            <listitem><para>virtual int32_t <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1a15850a7dc921592063b33a3ab02eca63">configure</link> (void *target, const int32_t op)=0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link> <link linkend="_class_e_a_r_1_1_i_o_1_1_device_1ab8d1cc47ac3590e92a9d7e50bbc7b173">m_state</link> = <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</link></para>
+
+<para>io device state, explicitly open for manipulation by derived classes </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>base class for devices performing I/O operations </para>
+<para>
+Definition at line <link linkend="_device_8h_source_1l00027">27</link> of file <link linkend="_device_8h_source">device.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a8762306c99f055c653cb5cc33cc49ea8"/><section>
+    <title>Device()</title>
+<indexterm><primary>Device</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>Device</secondary></indexterm>
+<para><computeroutput>EAR::IO::Device::Device (const std::string &amp; name, const std::string &amp; model, const std::string &amp; version)</computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- device name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>model</entry><entry>
+<para>- device model </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>version</entry><entry>
+<para>- device version </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00003">3</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_i_o_1_1_device_a8762306c99f055c653cb5cc33cc49ea8_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a202659815163305d76e3abf0803390bd"/><section>
+    <title>~Device()</title>
+<indexterm><primary>~Device</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>~Device</secondary></indexterm>
+<para><computeroutput>EAR::IO::Device::~Device (void )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00009">9</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a15850a7dc921592063b33a3ab02eca63"/><section>
+    <title>configure()</title>
+<indexterm><primary>configure</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>configure</secondary></indexterm>
+<para><computeroutput>virtual int32_t EAR::IO::Device::configure (void * target, const int32_t op)<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that control I/O device interface 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry>[in|out]</entry><entry>
+<para>target - target for I/O device interface </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>op</entry><entry>
+<para>- type of operation that is applied to target </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>error code </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a08d8171d9b8535af6cab84f3a43a04ba"/><section>
+    <title>getModel()</title>
+<indexterm><primary>getModel</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>getModel</secondary></indexterm>
+<para><computeroutput>std::string EAR::IO::Device::getModel (void ) const</computeroutput></para>
+<para>function that gets model of device <formalpara><title>Returns</title>
+
+<para>device model </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00017">17</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a98e1173f36afbd8ad572b6c798b32575"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string EAR::IO::Device::getName (void ) const</computeroutput></para>
+<para>function that gets name of device <formalpara><title>Returns</title>
+
+<para>device name </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00013">13</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1af85ff358d97c34b8403c13f50dd3ba46"/><section>
+    <title>getState()</title>
+<indexterm><primary>getState</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>getState</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">EAR::IO::State</link> EAR::IO::Device::getState (void ) const</computeroutput></para>
+<para>function that gets state of device <formalpara><title>Returns</title>
+
+<para>device state </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00025">25</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a7b8498a3f757ada30a330b6093f86c72"/><section>
+    <title>getVersion()</title>
+<indexterm><primary>getVersion</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>getVersion</secondary></indexterm>
+<para><computeroutput>std::string EAR::IO::Device::getVersion (void ) const</computeroutput></para>
+<para>function that gets version of device <formalpara><title>Returns</title>
+
+<para>device model </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00021">21</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a008654493533911ce7e0bddbe4e97b99"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>virtual int32_t EAR::IO::Device::initialize (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that opens I/O device interface <formalpara><title>Returns</title>
+
+<para>error code </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1ac670d8050f5b097d86c848650af9f88d"/><section>
+    <title>receive()</title>
+<indexterm><primary>receive</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>receive</secondary></indexterm>
+<para><computeroutput>virtual int32_t EAR::IO::Device::receive (void * buf, const uint32_t size)<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that reads data from I/O device interface 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out</entry><entry>buf</entry><entry>
+<para>- output buffer read from I/O device interface </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>size</entry><entry>
+<para>- buffer size </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>error code </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a2e19498f0249a18aa0e02aa70f481d32"/><section>
+    <title>shutdown()</title>
+<indexterm><primary>shutdown</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>shutdown</secondary></indexterm>
+<para><computeroutput>virtual int32_t EAR::IO::Device::shutdown (void )<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that closes I/O device interface <formalpara><title>Returns</title>
+
+<para>error code </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a2ae9af8123e6cb6b574b6c7e9aa8827d"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>std::string EAR::IO::Device::toString (void ) const</computeroutput></para>
+<para>function that format device information as string <formalpara><title>Returns</title>
+
+<para>device information </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_device_8cpp_source_1l00029">29</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_i_o_1_1_device_a2ae9af8123e6cb6b574b6c7e9aa8827d_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1a8e8848af30e59f25aff9de44b809de17"/><section>
+    <title>transmit()</title>
+<indexterm><primary>transmit</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>transmit</secondary></indexterm>
+<para><computeroutput>virtual int32_t EAR::IO::Device::transmit (const void * buf, const uint32_t size)<computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>function that writes data from I/O device interface 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>buf</entry><entry>
+<para>- input buffer written to I/O device interface </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>size</entry><entry>
+<para>- buffer size </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>error code </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_i_o_1_1_device_1ab8d1cc47ac3590e92a9d7e50bbc7b173"/><section>
+    <title>m_state</title>
+<indexterm><primary>m_state</primary><secondary>EAR::IO::Device</secondary></indexterm>
+<indexterm><primary>EAR::IO::Device</primary><secondary>m_state</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0">State</link> EAR::IO::Device::m_state = <link linkend="_namespace_e_a_r_1_1_i_o_1a16f8062e7f752f643d3581d0a074b1e0afd54cfcb7bf21e7f2507c073cb6caa76">DEV_NONE</link><computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>io device state, explicitly open for manipulation by derived classes </para>
+</para>
+<para>
+Definition at line <link linkend="_device_8h_source_1l00075">75</link> of file <link linkend="_device_8h_source">device.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/io/<link linkend="_device_8h">device.h</link>src/io/<link linkend="_device_8cpp">device.cpp</link></section>
+</section>

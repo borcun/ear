@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_e_a_r_1_1_communication" xml:lang="en-US">
+<title>EAR::Communication Namespace Reference</title>
+<indexterm><primary>EAR::Communication</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link></para>
+
+<para>configuration class storing endpoint attributes </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link></para>
+
+<para>class <link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link> </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_e_a_r_1_1_communication_1_1_message">Message</link></para>
+
+<para><link linkend="_struct_e_a_r_1_1_communication_1_1_message">Message</link> type. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link></para>
+
+<para>network manager class that storing and conduction two types of endpoints </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link></para>
+
+<para>receiver endpoint class </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link></para>
+
+<para>transmitter endpoint class </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link> { <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link>
+, <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">COMM_OPENED</link>
+ }</para>
+
+<para>communication state </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c"/><section>
+    <title>State</title>
+<indexterm><primary>State</primary><secondary>EAR::Communication</secondary></indexterm>
+<indexterm><primary>EAR::Communication</primary><secondary>State</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">EAR::Communication::State</link></computeroutput></para><para>
+
+<para>communication state </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>COMM_CLOSED</primary><secondary>EAR::Communication</secondary></indexterm>
+<indexterm><primary>EAR::Communication</primary><secondary>COMM_CLOSED</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf"/>COMM_CLOSED</entry><entry>
+<para>communication closed, which is default state </para>
+</entry></row><row><entry><indexterm><primary>COMM_OPENED</primary><secondary>EAR::Communication</secondary></indexterm>
+<indexterm><primary>EAR::Communication</primary><secondary>COMM_OPENED</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161"/>COMM_OPENED</entry><entry>
+<para>open communication </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_endpoint_8h_source_1l00018">18</link> of file <link linkend="_endpoint_8h_source">endpoint.h</link>.</para>
+</section>
+</section>
+</section>

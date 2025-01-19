@@ -1,0 +1,12 @@
+<map id="src/comm/transmitter.cpp" name="src/comm/transmitter.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="51,5,241,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="121,229,179,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="146,80,221,107"/>
+<area shape="rect" id="node5" href="$transmitter_8h.html" title="class that provides transmitting infrastructure for message transfer" alt="" coords="245,80,351,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="147,155,239,181"/>
+<area shape="rect" id="node7" href="$endpoint_8h.html" title="class that provides communication endpoint" alt="" coords="263,155,354,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="225,229,349,256"/>
+<area shape="rect" id="node9" href="$message_8h.html" title="message type sharing between receiver and transmitter endpoints" alt="" coords="374,229,467,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="387,304,454,331"/>
+</map>

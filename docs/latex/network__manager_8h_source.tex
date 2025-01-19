@@ -1,0 +1,42 @@
+\hypertarget{network__manager_8h_source}{}\doxysection{network\+\_\+manager.\+h}
+\label{network__manager_8h_source}\index{src/comm/network\_manager.h@{src/comm/network\_manager.h}}
+\mbox{\hyperlink{network__manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00009}00009 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{receiver_8h}{receiver.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transmitter_8h}{transmitter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00015}00015 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_e_a_r}{EAR}} \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00016}00016   \textcolor{keyword}{namespace }Communication \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00018}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{00018}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}} \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00019}00019     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00022}00022       \textcolor{keyword}{explicit} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aacb5ae22df1ce634567b0af3c6d812e2}{NetworkManager}}(\textcolor{keyword}{const} std::string \&name);       }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00024}00024       \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a97a3b09b80d7a422a97ca918aa5901b7}{\string~NetworkManager}}();}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00027}00027       std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aef0ccaf6542cde8fd9e047f714671215}{getName}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00031}00031       \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}{initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config);}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00033}00033       \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_ab0263362ca65a0b11dc51f86850c40b1}{terminate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00036}00036       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}} *\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a3e7c6cdf4abc02c774b1b4fcb18c8cca}{getReceiver}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00039}00039       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{Transmitter}} *\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}{getTransmitter}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00041}00041     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00043}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aed8c136d19a7d62d7b1f340a4269035f}{00043}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aed8c136d19a7d62d7b1f340a4269035f}{m\_is\_init}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00044}00044       \textcolor{comment}{// one server (receiver) instance}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00045}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a431871c2dcdfe796c4b451d9879e89f4}{00045}}       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}} *\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a431871c2dcdfe796c4b451d9879e89f4}{m\_receiver}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00047}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aec21a8a4517e76362ac7d8d6f69fa81f}{00047}}       std::list<Transmitter *> \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aec21a8a4517e76362ac7d8d6f69fa81f}{m\_transmitters}};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00048}00048           }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00049}00049     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00051}00051       std::string m\_name;}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00053}00053       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} m\_config;}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00054}00054           }
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00055}00055       \textcolor{comment}{// copyable and movable network manager prevented}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00056}00056       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aacb5ae22df1ce634567b0af3c6d812e2}{NetworkManager}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}} \&nm) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00057}00057       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aacb5ae22df1ce634567b0af3c6d812e2}{NetworkManager}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}} \&\&nm) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00058}00058       \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager}{NetworkManager}} \&nm) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00059}00059     \};}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00060}00060   \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8h_source_l00061}00061 \}}
+
+\end{DoxyCode}

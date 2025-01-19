@@ -1,0 +1,10 @@
+<map id="src/sched/scheduler.cpp" name="src/sched/scheduler.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="21,5,197,32"/>
+<area shape="rect" id="node2" href="$scheduler_8h.html" title="task scheduler class that allocates memory for tasks, starts and stops them" alt="" coords="61,80,157,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="49,155,91,181"/>
+<area shape="rect" id="node4" href="$task_8h.html" title="concrete task class that extends task interface, and implements execute function" alt="" coords="116,155,179,181"/>
+<area shape="rect" id="node5" href="$itask_8h.html" title="task interface class that consists of synchronization mechanisms for derived classes" alt="" coords="114,229,181,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,304,89,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="114,304,181,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="205,304,329,331"/>
+</map>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_e_a_r_1_1_schedule" xml:lang="en-US">
+<title>EAR::Schedule Namespace Reference</title>
+<indexterm><primary>EAR::Schedule</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task">ITask</link></para>
+
+<para>task interface that is used by internal classes, not for developers </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">Scheduler</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link></para>
+
+<para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> implements <link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> interface </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">State</link> { <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb">SCHEDULER_IDLE</link>
+, <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7">SCHEDULER_RUN</link>
+ }</para>
+
+<para>scheduler state </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void * <link linkend="_namespace_e_a_r_1_1_schedule_1a6e548ce80b554f0a5d81048d6fdf0d91">__makeParallel</link> (void *args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0"/><section>
+    <title>State</title>
+<indexterm><primary>State</primary><secondary>EAR::Schedule</secondary></indexterm>
+<indexterm><primary>EAR::Schedule</primary><secondary>State</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">EAR::Schedule::State</link></computeroutput></para><para>
+
+<para>scheduler state </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>SCHEDULER_IDLE</primary><secondary>EAR::Schedule</secondary></indexterm>
+<indexterm><primary>EAR::Schedule</primary><secondary>SCHEDULER_IDLE</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb"/>SCHEDULER_IDLE</entry><entry></entry></row><row><entry><indexterm><primary>SCHEDULER_RUN</primary><secondary>EAR::Schedule</secondary></indexterm>
+<indexterm><primary>EAR::Schedule</primary><secondary>SCHEDULER_RUN</secondary></indexterm>
+<anchor xml:id="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7"/>SCHEDULER_RUN</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_scheduler_8h_source_1l00017">17</link> of file <link linkend="_scheduler_8h_source">scheduler.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespace_e_a_r_1_1_schedule_1a6e548ce80b554f0a5d81048d6fdf0d91"/><section>
+    <title>__makeParallel()</title>
+<indexterm><primary>__makeParallel</primary><secondary>EAR::Schedule</secondary></indexterm>
+<indexterm><primary>EAR::Schedule</primary><secondary>__makeParallel</secondary></indexterm>
+<para><computeroutput>void * EAR::Schedule::__makeParallel (void * args)</computeroutput></para>
+<para>function that makes parallel execution of the task 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>args</entry><entry>
+<para>- task instance reference </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>nullptr </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_task_8cpp_source_1l00003">3</link> of file <link linkend="_task_8cpp_source">task.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_e_a_r_1_1_schedule_a6e548ce80b554f0a5d81048d6fdf0d91_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

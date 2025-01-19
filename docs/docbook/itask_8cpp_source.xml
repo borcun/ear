@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_itask_8cpp_source" xml:lang="en-US">
+<title>itask.cpp</title>
+<indexterm><primary>src/sched/itask.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_itask_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_itask_8h">itask.h</link>&quot;</emphasis>
+<anchor xml:id="_itask_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_itask_8cpp_source_1l00004"/>00004 <emphasis role="keyword">static</emphasis>&#32;uint32_t&#32;uid&#32;=&#32;0;
+<anchor xml:id="_itask_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_itask_8cpp_source_1l00006"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">00006</link> <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a32dd611d56854185a6282bdc848a8de5">EAR::Schedule::ITask::ITask</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00007"/>00007 &#32;&#32;m_id&#32;=&#32;++uid;
+<anchor xml:id="_itask_8cpp_source_1l00008"/>00008 &#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a4a841d1f26644e2d99c19b71b2ec7284">m_is_running</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00009"/>00009 &#32;&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1acba24d98a3594e6b6a617af9dd0d08f8">m_period</link>&#32;=&#32;std::chrono::microseconds(<link linkend="_itask_8h_1a45341416bad52f4521710698d33ba475">TASK_MIN_PERIOD</link>);
+<anchor xml:id="_itask_8cpp_source_1l00010"/>00010 &#32;&#32;<emphasis role="comment">//&#32;if&#32;user&#32;pass&#32;empty&#32;string&#32;for&#32;name,&#32;set&#32;its&#32;name&#32;to&#32;task-&lt;id&gt;</emphasis>
+<anchor xml:id="_itask_8cpp_source_1l00011"/>00011 &#32;&#32;m_name&#32;=&#32;name.empty()&#32;?&#32;<emphasis role="stringliteral">&quot;task-&quot;</emphasis>&#32;+&#32;std::to_string(m_id)&#32;:&#32;name;
+<anchor xml:id="_itask_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00013"/>00013 &#32;&#32;pthread_mutex_init(&amp;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1865f7ee4f6fd0f2caca75afaba496eb">m_start_mutex</link>,&#32;<emphasis role="keyword">nullptr</emphasis>);
+<anchor xml:id="_itask_8cpp_source_1l00014"/>00014 &#32;&#32;pthread_cond_init(&amp;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab43cc11afcb7624696e31d13f267f4f5">m_start_cond_var</link>,&#32;<emphasis role="keyword">nullptr</emphasis>);
+<anchor xml:id="_itask_8cpp_source_1l00015"/>00015 &#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00016"/>00016 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;task&#32;{}&#32;created&quot;</emphasis>,&#32;name);
+<anchor xml:id="_itask_8cpp_source_1l00017"/>00017 }
+<anchor xml:id="_itask_8cpp_source_1l00018"/>00018 
+<anchor xml:id="_itask_8cpp_source_1l00019"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114">00019</link> <link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ea9fd2c4cf123c08fa5001d9371e114">EAR::Schedule::ITask::~ITask</link>()&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00020"/>00020 &#32;&#32;pthread_cond_destroy(&amp;m_start_cond_var);
+<anchor xml:id="_itask_8cpp_source_1l00021"/>00021 &#32;&#32;pthread_mutex_destroy(&amp;m_start_mutex);
+<anchor xml:id="_itask_8cpp_source_1l00022"/>00022 &#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00023"/>00023 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;task&#32;{}&#32;terminated&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_itask_8cpp_source_1l00024"/>00024 }
+<anchor xml:id="_itask_8cpp_source_1l00025"/>00025 
+<anchor xml:id="_itask_8cpp_source_1l00026"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a095032c759ed51ba5a08e8bee8e8d567">00026</link> uint32_t&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a095032c759ed51ba5a08e8bee8e8d567">EAR::Schedule::ITask::getId</link>(<emphasis role="keywordtype">void</emphasis>)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_itask_8cpp_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_id;
+<anchor xml:id="_itask_8cpp_source_1l00028"/>00028 }
+<anchor xml:id="_itask_8cpp_source_1l00029"/>00029 
+<anchor xml:id="_itask_8cpp_source_1l00030"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab">00030</link> std::string&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ab23edb8bcddff6eb970c1118e154e1ab">EAR::Schedule::ITask::getName</link>(<emphasis role="keywordtype">void</emphasis>)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_itask_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_name;
+<anchor xml:id="_itask_8cpp_source_1l00032"/>00032 }
+<anchor xml:id="_itask_8cpp_source_1l00033"/>00033 
+<anchor xml:id="_itask_8cpp_source_1l00034"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ae4e7e35e6d7fff4ce5333b94a80a9772">00034</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1ae4e7e35e6d7fff4ce5333b94a80a9772">EAR::Schedule::ITask::setPeriod</link>(<emphasis role="keyword">const</emphasis>&#32;std::chrono::microseconds&#32;period)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00035"/>00035 &#32;&#32;m_period&#32;=&#32;std::chrono::microseconds(period);
+<anchor xml:id="_itask_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00037"/>00037 }
+<anchor xml:id="_itask_8cpp_source_1l00038"/>00038 
+<anchor xml:id="_itask_8cpp_source_1l00039"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1af7ca7c1445e7b8444150248a5a561958">00039</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1af7ca7c1445e7b8444150248a5a561958">EAR::Schedule::ITask::setOffset</link>(<emphasis role="keyword">const</emphasis>&#32;std::chrono::microseconds&#32;offset)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00040"/>00040 &#32;&#32;m_offset&#32;=&#32;std::chrono::microseconds(offset);
+<anchor xml:id="_itask_8cpp_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="_itask_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00044"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0dd7f17c879dd81c926c93503b4a37cf">00044</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a0dd7f17c879dd81c926c93503b4a37cf">EAR::Schedule::ITask::start</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_is_running)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;start&#32;task&#32;{}&#32;already&#32;running&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_itask_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00048"/>00048 &#32;&#32;}
+<anchor xml:id="_itask_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_itask_8cpp_source_1l00050"/>00050 &#32;&#32;m_is_running&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00051"/>00051 &#32;&#32;pthread_cond_signal(&amp;m_start_cond_var);
+<anchor xml:id="_itask_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00053"/>00053 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00054"/>00054 }
+<anchor xml:id="_itask_8cpp_source_1l00055"/>00055 
+<anchor xml:id="_itask_8cpp_source_1l00056"/><link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac">00056</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_schedule_1_1_i_task_1a1ec0d1b0bd7fe07997c937ce2d7915ac">EAR::Schedule::ITask::stop</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00057"/>00057 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!m_is_running)&#32;{
+<anchor xml:id="_itask_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;spdlog::error(<emphasis role="stringliteral">&quot;could&#32;not&#32;stop&#32;task&#32;{}&#32;not&#32;running&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_itask_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00060"/>00060 &#32;&#32;}
+<anchor xml:id="_itask_8cpp_source_1l00061"/>00061 
+<anchor xml:id="_itask_8cpp_source_1l00062"/>00062 &#32;&#32;m_is_running&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00063"/>00063 &#32;&#32;spdlog::debug(<emphasis role="stringliteral">&quot;task&#32;{}&#32;stop&#32;flag&#32;is&#32;up&quot;</emphasis>,&#32;getName());
+<anchor xml:id="_itask_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;
+<anchor xml:id="_itask_8cpp_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_itask_8cpp_source_1l00066"/>00066 }
+</programlisting></section>

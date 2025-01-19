@@ -1,0 +1,58 @@
+\hypertarget{endpoint_8cpp_source}{}\doxysection{endpoint.\+cpp}
+\label{endpoint_8cpp_source}\index{src/comm/endpoint.cpp@{src/comm/endpoint.cpp}}
+\mbox{\hyperlink{endpoint_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{endpoint_8h}{endpoint.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00005}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}{00005}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_acc777efdc259e386904c4ede50bf6363}{EAR::Communication::Endpoint::Endpoint}}(\textcolor{keyword}{const} std::string \&name)}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00006}00006   : m\_name(name)}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00008}00008 \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00010}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}{00010}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3f7469273c1bc87a96c745f0fb92ae6e}{EAR::Communication::Endpoint::\string~Endpoint}}() \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00011}00011 \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00013}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}{00013}} std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a55d31b149ad01a6fd1bb5feb13488732}{EAR::Communication::Endpoint::getName}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00014}00014   \textcolor{keywordflow}{return} m\_name;}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00015}00015 \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00017}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}{00017}} \mbox{\hyperlink{namespace_e_a_r_1_1_communication_ac803ba2627e46dc36e58f444af88852c}{EAR::Communication::State}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a3fbc44993924d9ac7f4120192e412a5a}{EAR::Communication::Endpoint::getState}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00018}00018   \textcolor{keywordflow}{return} m\_state;}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00019}00019 \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00021}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}{00021}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_afcfeab584d3ba06a1aaa672cc491c212}{EAR::Communication::Endpoint::isValidAddress}}(std::string addr) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00022}00022   \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00023}00023   std::string delimiter = \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00024}00024   std::string token;}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00025}00025   std::vector<int> fields;}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00027}00027   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00028}00028     \textcolor{keywordflow}{while} ((pos = addr.find(delimiter)) != std::string::npos) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00029}00029       token = addr.substr(0, pos);}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00030}00030       fields.push\_back(std::stoi(token));}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00031}00031       addr.erase(0, pos + delimiter.length());}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00034}00034     fields.push\_back(std::stoi(addr));}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00036}00036     \textcolor{comment}{// check IP v4}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00037}00037     \textcolor{keywordflow}{if} (4 != fields.size()) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00038}00038       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00041}00041     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} \&field : fields) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00042}00042       \textcolor{keywordflow}{if} (field > 255) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00043}00043       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00044}00044       \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00045}00045     \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00046}00046   \} \textcolor{keywordflow}{catch} (std::exception \&ex) \{}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00047}00047     spdlog::error(\textcolor{stringliteral}{"{}could not parse IP address \{\}"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00048}00048     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00049}00049   \}}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00050}00050     }
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00051}00051   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{endpoint_8cpp_source_l00052}00052 \}}
+
+\end{DoxyCode}

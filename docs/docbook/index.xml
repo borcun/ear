@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>Embedded Architecture Reference</title>
+    </info>
+<chapter>
+    <title>Todo List</title>
+    <xi:include href="todo.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Namespace Documentation</title>
+<xi:include href="namespace_e_a_r.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_e_a_r_1_1_communication.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_e_a_r_1_1_i_o.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_e_a_r_1_1_schedule.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_e_a_r_1_1_communication_1_1_configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_i_o_1_1_device.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_communication_1_1_endpoint.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_schedule_1_1_i_task.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_e_a_r_1_1_communication_1_1_message.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_communication_1_1_network_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_communication_1_1_receiver.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_schedule_1_1_scheduler.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_schedule_1_1_task.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_e_a_r_1_1_communication_1_1_transmitter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="endpoint_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="endpoint_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="endpoint_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="endpoint_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="network__manager_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="network__manager_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="network__manager_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="network__manager_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="receiver_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="receiver_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="receiver_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="receiver_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="transmitter_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="transmitter_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="transmitter_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="transmitter_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="itask_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="itask_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="itask_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="itask_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scheduler_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scheduler_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scheduler_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scheduler_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="task_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="task_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="task_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="task_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

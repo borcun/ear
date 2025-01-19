@@ -1,0 +1,77 @@
+\hypertarget{network__manager_8cpp_source}{}\doxysection{network\+\_\+manager.\+cpp}
+\label{network__manager_8cpp_source}\index{src/comm/network\_manager.cpp@{src/comm/network\_manager.cpp}}
+\mbox{\hyperlink{network__manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{network__manager_8h}{network\_manager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00003}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aacb5ae22df1ce634567b0af3c6d812e2}{00003}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aacb5ae22df1ce634567b0af3c6d812e2}{EAR::Communication::NetworkManager::NetworkManager}}(\textcolor{keyword}{const} std::string \&name)}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00004}00004   : m\_name(name)}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00006}00006   spdlog::debug(\textcolor{stringliteral}{"{}network manager \{\} created"{}}, name);}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00007}00007 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00009}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a97a3b09b80d7a422a97ca918aa5901b7}{00009}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a97a3b09b80d7a422a97ca918aa5901b7}{EAR::Communication::NetworkManager::\string~NetworkManager}}() \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00010}00010   terminate();}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00011}00011   spdlog::debug(\textcolor{stringliteral}{"{}network manager \{\} terminated"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00012}00012 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00014}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aef0ccaf6542cde8fd9e047f714671215}{00014}} std::string \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_aef0ccaf6542cde8fd9e047f714671215}{EAR::Communication::NetworkManager::getName}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00015}00015   \textcolor{keywordflow}{return} m\_name;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00016}00016 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00018}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}{00018}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a863a99b6519be9c43e7798eae327cfb4}{EAR::Communication::NetworkManager::initialize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{EAR::Communication::Configuration}} \&config) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00019}00019   \textcolor{keywordflow}{if} (m\_is\_init) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00020}00020     spdlog::error(\textcolor{stringliteral}{"{}could not initialize network manager \{\}, already initialized"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00021}00021     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00022}00022   \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00024}00024   m\_config = config;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00025}00025   m\_receiver = \textcolor{keyword}{new} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{Receiver}}(getName() + \textcolor{stringliteral}{"{}-\/receiver"{}});}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00027}00027   \textcolor{keywordflow}{if} (!m\_receiver-\/>initialize(m\_config)) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00028}00028     \textcolor{keyword}{delete} m\_receiver;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00029}00029     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00030}00030   \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00032}00032   m\_is\_init = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00033}00033   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00034}00034 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00036}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_ab0263362ca65a0b11dc51f86850c40b1}{00036}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_ab0263362ca65a0b11dc51f86850c40b1}{EAR::Communication::NetworkManager::terminate}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00037}00037   \textcolor{keywordflow}{if} (m\_is\_init) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00038}00038     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&transmitter : m\_transmitters) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00039}00039       transmitter-\/>shutdown();}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00040}00040       \textcolor{keyword}{delete} transmitter;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00041}00041       transmitter = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00042}00042     \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00044}00044     m\_receiver-\/>shutdown();}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00045}00045     }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00046}00046     \textcolor{keyword}{delete} m\_receiver;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00047}00047     m\_receiver = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00048}00048     m\_is\_init = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00049}00049   \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00051}00051   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00054}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a3e7c6cdf4abc02c774b1b4fcb18c8cca}{00054}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_receiver}{EAR::Communication::Receiver}} *\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_a3e7c6cdf4abc02c774b1b4fcb18c8cca}{EAR::Communication::NetworkManager::getReceiver}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00055}00055   \textcolor{keywordflow}{return} m\_receiver;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00056}00056 \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00058}\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}{00058}} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{EAR::Communication::Transmitter}} *\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_network_manager_adf0e55322578f639cfe3b64cf63e31e5}{EAR::Communication::NetworkManager::getTransmitter}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00059}00059   \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{Transmitter}} *transmitter = \textcolor{keyword}{new} \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter}{Transmitter}}(getName() + \textcolor{stringliteral}{"{}-\/transmitter-\/"{}} + std::to\_string(m\_transmitters.size() + 1));}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00061}00061   \textcolor{keywordflow}{if} (!transmitter-\/>\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}{initialize}}(m\_config)) \{}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00062}00062     spdlog::error(\textcolor{stringliteral}{"{}could not initialize transmitter for \{\}"{}}, getName());}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00063}00063     \textcolor{keyword}{delete} transmitter;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00064}00064     transmitter = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00065}00065     }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00066}00066     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00067}00067   \}}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00069}00069   m\_transmitters.push\_back(transmitter);}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00070}00070   \textcolor{keywordflow}{return} transmitter;}
+\DoxyCodeLine{\Hypertarget{network__manager_8cpp_source_l00071}00071 \}}
+
+\end{DoxyCode}

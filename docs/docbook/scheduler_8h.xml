@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_scheduler_8h" xml:lang="en-US">
+<title>src/sched/scheduler.h File Reference</title>
+<indexterm><primary>src/sched/scheduler.h</primary></indexterm>
+<para>
+
+<para>task scheduler class that allocates memory for tasks, starts and stops them </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;list&gt;
+#include &quot;task.h&quot;
+</programlisting>Include dependency graph for scheduler.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="scheduler_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="scheduler_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler">EAR::Schedule::Scheduler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r">EAR</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_e_a_r_1_1_schedule">EAR::Schedule</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0">EAR::Schedule::State</link> { <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0a9941b734c90a10a2f76894c80f298acb">EAR::Schedule::SCHEDULER_IDLE</link>
+, <link linkend="_namespace_e_a_r_1_1_schedule_1a17680738dc32d13bab0ca075b62cebd0aca917e94ea96bf8ea2129882293812e7">EAR::Schedule::SCHEDULER_RUN</link>
+ }</para>
+
+<para>scheduler state </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>task scheduler class that allocates memory for tasks, starts and stops them </para>
+
+<para><formalpara><title>Author</title>
+
+<para>boo </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Time-stamp: &lt;2024-08-18 19:34:26 boo&gt; </para>
+</formalpara>
+</para>
+<para>
+Definition in file <link linkend="_scheduler_8h_source">scheduler.h</link>.</para>
+</section>
+</section>

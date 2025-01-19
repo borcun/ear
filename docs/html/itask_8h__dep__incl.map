@@ -1,0 +1,8 @@
+<map id="src/sched/itask.h" name="src/sched/itask.h">
+<area shape="rect" id="node1" title="task interface class that consists of synchronization mechanisms for derived classes" alt="" coords="93,5,224,32"/>
+<area shape="rect" id="node2" href="$itask_8cpp.html" title=" " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$task_8h.html" title="concrete task class that extends task interface, and implements execute function" alt="" coords="177,80,303,107"/>
+<area shape="rect" id="node4" href="$scheduler_8h.html" title="task scheduler class that allocates memory for tasks, starts and stops them" alt="" coords="71,155,233,181"/>
+<area shape="rect" id="node6" href="$task_8cpp.html" title=" " alt="" coords="257,155,399,181"/>
+<area shape="rect" id="node5" href="$scheduler_8cpp.html" title=" " alt="" coords="64,229,240,256"/>
+</map>

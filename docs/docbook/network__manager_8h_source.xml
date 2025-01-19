@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_network__manager_8h_source" xml:lang="en-US">
+<title>network_manager.h</title>
+<indexterm><primary>src/comm/network_manager.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_network__manager_8h_source_1l00001"/>00001 
+<anchor xml:id="_network__manager_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00010"/>00010 
+<anchor xml:id="_network__manager_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;list&gt;</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_receiver_8h">receiver.h</link>&quot;</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_transmitter_8h">transmitter.h</link>&quot;</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00014"/>00014 
+<anchor xml:id="_network__manager_8h_source_1l00015"/>00015 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_network__manager_8h_source_1l00016"/>00016 &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>Communication&#32;{
+<anchor xml:id="_network__manager_8h_source_1l00018"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>&#32;{
+<anchor xml:id="_network__manager_8h_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_network__manager_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aacb5ae22df1ce634567b0af3c6d812e2">NetworkManager</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_network__manager_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a97a3b09b80d7a422a97ca918aa5901b7">~NetworkManager</link>();
+<anchor xml:id="_network__manager_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aef0ccaf6542cde8fd9e047f714671215">getName</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a863a99b6519be9c43e7798eae327cfb4">initialize</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link>&#32;&amp;config);
+<anchor xml:id="_network__manager_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1ab0263362ca65a0b11dc51f86850c40b1">terminate</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_network__manager_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a3e7c6cdf4abc02c774b1b4fcb18c8cca">getReceiver</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_network__manager_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_transmitter">Transmitter</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1adf0e55322578f639cfe3b64cf63e31e5">getTransmitter</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_network__manager_8h_source_1l00040"/>00040 
+<anchor xml:id="_network__manager_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_network__manager_8h_source_1l00043"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aed8c136d19a7d62d7b1f340a4269035f">00043</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aed8c136d19a7d62d7b1f340a4269035f">m_is_init</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;one&#32;server&#32;(receiver)&#32;instance</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00045"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a431871c2dcdfe796c4b451d9879e89f4">00045</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_receiver">Receiver</link>&#32;*<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1a431871c2dcdfe796c4b451d9879e89f4">m_receiver</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00047"/><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aec21a8a4517e76362ac7d8d6f69fa81f">00047</link> &#32;&#32;&#32;&#32;&#32;&#32;std::list&lt;Transmitter&#32;*&gt;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aec21a8a4517e76362ac7d8d6f69fa81f">m_transmitters</link>;
+<anchor xml:id="_network__manager_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_network__manager_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_network__manager_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_name;
+<anchor xml:id="_network__manager_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link>&#32;m_config;
+<anchor xml:id="_network__manager_8h_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_network__manager_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;copyable&#32;and&#32;movable&#32;network&#32;manager&#32;prevented</emphasis>
+<anchor xml:id="_network__manager_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aacb5ae22df1ce634567b0af3c6d812e2">NetworkManager</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>&#32;&amp;nm)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager_1aacb5ae22df1ce634567b0af3c6d812e2">NetworkManager</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>&#32;&amp;&amp;nm)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>&#32;&amp;operator=(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>&#32;&amp;nm)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_network__manager_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_network__manager_8h_source_1l00060"/>00060 &#32;&#32;}
+<anchor xml:id="_network__manager_8h_source_1l00061"/>00061 }
+</programlisting></section>

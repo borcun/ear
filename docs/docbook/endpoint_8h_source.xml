@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_endpoint_8h_source" xml:lang="en-US">
+<title>endpoint.h</title>
+<indexterm><primary>src/comm/endpoint.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_endpoint_8h_source_1l00001"/>00001 
+<anchor xml:id="_endpoint_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_endpoint_8h_source_1l00010"/>00010 
+<anchor xml:id="_endpoint_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_endpoint_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;spdlog/spdlog.h&quot;</emphasis>
+<anchor xml:id="_endpoint_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_message_8h">message.h</link>&quot;</emphasis>
+<anchor xml:id="_endpoint_8h_source_1l00014"/>00014 
+<anchor xml:id="_endpoint_8h_source_1l00015"/><link linkend="_namespace_e_a_r">00015</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_e_a_r">EAR</link>&#32;{
+<anchor xml:id="_endpoint_8h_source_1l00016"/><link linkend="_namespace_e_a_r_1_1_communication">00016</link> &#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>Communication&#32;{
+<anchor xml:id="_endpoint_8h_source_1l00018"/><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link>&#32;{
+<anchor xml:id="_endpoint_8h_source_1l00020"/><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">00020</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link>,
+<anchor xml:id="_endpoint_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">COMM_OPENED</link>
+<anchor xml:id="_endpoint_8h_source_1l00023"/><link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852ca196e1706170066a157198e2d31b60161">00023</link> &#32;&#32;&#32;&#32;};
+<anchor xml:id="_endpoint_8h_source_1l00024"/>00024 
+<anchor xml:id="_endpoint_8h_source_1l00026"/><link linkend="_class_e_a_r_1_1_communication_1_1_configuration">00026</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link>&#32;{
+<anchor xml:id="_endpoint_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_endpoint_8h_source_1l00029"/><link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">00029</link> &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d89975a093498b1d06fa9912c4a5685">ip</link>&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_endpoint_8h_source_1l00031"/><link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a34a200e4577aa7b18d1582c6acb27468">00031</link> &#32;&#32;&#32;&#32;&#32;&#32;uint16_t&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a34a200e4577aa7b18d1582c6acb27468">port</link>&#32;=&#32;0U;
+<anchor xml:id="_endpoint_8h_source_1l00033"/><link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1adea7d58a6548d963addd940c6594170a">00033</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1adea7d58a6548d963addd940c6594170a">is_blocked</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_endpoint_8h_source_1l00035"/><link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d5d8539abf8e4b2461757a6e52ded24">00035</link> &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration_1a3d5d8539abf8e4b2461757a6e52ded24">timeout</link>&#32;=&#32;0U;
+<anchor xml:id="_endpoint_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_endpoint_8h_source_1l00037"/>00037 
+<anchor xml:id="_endpoint_8h_source_1l00039"/><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">00039</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint">Endpoint</link>&#32;{
+<anchor xml:id="_endpoint_8h_source_1l00043"/><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a82ca116715acd6c64f2acf4dc71e4038">00043</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">friend</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_e_a_r_1_1_communication_1_1_network_manager">NetworkManager</link>;
+<anchor xml:id="_endpoint_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_endpoint_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1acc777efdc259e386904c4ede50bf6363">Endpoint</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a3f7469273c1bc87a96c745f0fb92ae6e">~Endpoint</link>();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a55d31b149ad01a6fd1bb5feb13488732">getName</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a3fbc44993924d9ac7f4120192e412a5a">getState</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<emphasis role="keyword">const</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00060"/><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b">00060</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1ad2e4e4b506c867eebe974fe6d34bd35b">initialize</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_configuration">Configuration</link>&#32;&amp;config)&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00062"/><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86">00062</link> &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a53d7721f3e5c76ec6d8580f324b94e86">shutdown</link>(<emphasis role="keywordtype">void</emphasis>)&#32;=&#32;0;
+<anchor xml:id="_endpoint_8h_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_endpoint_8h_source_1l00066"/><link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a749487daddfd938de0b91f42699aef64">00066</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852c">State</link>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1a749487daddfd938de0b91f42699aef64">m_state</link>&#32;=&#32;<link linkend="_namespace_e_a_r_1_1_communication_1ac803ba2627e46dc36e58f444af88852caaa542228011194f7495db47077baaeaf">COMM_CLOSED</link>;
+<anchor xml:id="_endpoint_8h_source_1l00067"/>00067 
+<anchor xml:id="_endpoint_8h_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_e_a_r_1_1_communication_1_1_endpoint_1afcfeab584d3ba06a1aaa672cc491c212">isValidAddress</link>(std::string&#32;addr);
+<anchor xml:id="_endpoint_8h_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_endpoint_8h_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_endpoint_8h_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;m_name;
+<anchor xml:id="_endpoint_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_endpoint_8h_source_1l00077"/>00077 &#32;&#32;}
+<anchor xml:id="_endpoint_8h_source_1l00078"/>00078 }
+</programlisting></section>

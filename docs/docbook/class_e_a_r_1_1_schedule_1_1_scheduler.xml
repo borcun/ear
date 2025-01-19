@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler" xml:lang="en-US">
+<title>EAR::Schedule::Scheduler Class Reference</title>
+<indexterm><primary>EAR::Schedule::Scheduler</primary></indexterm>
+<para>
+<computeroutput>#include &lt;scheduler.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ace5f2e69ef90cfb92111fc7ef8694eb3">Scheduler</link> (const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a141b3346112376f5562d7e174bca52bc">~Scheduler</link> ()</para>
+
+<para>destructor </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ad801e687310d2801e04af9c2b79a46">getName</link> (void) const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1ae1f193171152b55e8beadadfd0bb848e">allocate</link> (<link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> *task, const uint32_t period, const uint32_t offset)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a76d994cefe00313345e2fff2557aa517">start</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ac0a7639be94eba0764a6c73e24e4ac">stop</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_scheduler_8h_source_1l00024">24</link> of file <link linkend="_scheduler_8h_source">scheduler.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1ace5f2e69ef90cfb92111fc7ef8694eb3"/><section>
+    <title>Scheduler()</title>
+<indexterm><primary>Scheduler</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>Scheduler</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::Scheduler::Scheduler (const std::string &amp; name)</computeroutput></para>
+<para>constructor 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>name</entry><entry>
+<para>- scheduler name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00003">3</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1a141b3346112376f5562d7e174bca52bc"/><section>
+    <title>~Scheduler()</title>
+<indexterm><primary>~Scheduler</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>~Scheduler</secondary></indexterm>
+<para><computeroutput>EAR::Schedule::Scheduler::~Scheduler ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>destructor </para>
+</para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00008">8</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1ae1f193171152b55e8beadadfd0bb848e"/><section>
+    <title>allocate()</title>
+<indexterm><primary>allocate</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>allocate</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::Scheduler::allocate (<link linkend="_class_e_a_r_1_1_schedule_1_1_task">Task</link> * task, const uint32_t period, const uint32_t offset)</computeroutput></para>
+<para>function that allocate memory for task for scheduling 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>task</entry><entry>
+<para>- task pointer </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>period</entry><entry>
+<para>- task period in usec </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>offset</entry><entry>
+<para>- task start offset in usec </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if the memory is allocated for task, otherwise false </para>
+</formalpara>
+</para>
+
+<para><para><link linkend="_todo_1_todo000001">Todo</link> 
+<para>check whether same element is added twice </para>
+</para></para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00016">16</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_e_a_r_1_1_schedule_1_1_scheduler_ae1f193171152b55e8beadadfd0bb848e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ad801e687310d2801e04af9c2b79a46"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string EAR::Schedule::Scheduler::getName (void ) const</computeroutput></para>
+<para>function that gets scheduler name <formalpara><title>Returns</title>
+
+<para>scheduler name </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00012">12</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1a76d994cefe00313345e2fff2557aa517"/><section>
+    <title>start()</title>
+<indexterm><primary>start</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>start</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::Scheduler::start (void )</computeroutput></para>
+<para>function that runs the scheduler <formalpara><title>Precondition</title>
+
+<para>the scheduler must be initialized firstly </para>
+</formalpara>
+<formalpara><title>Returns</title>
+
+<para>true if the scheduler runs, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00046">46</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_e_a_r_1_1_schedule_1_1_scheduler_1a5ac0a7639be94eba0764a6c73e24e4ac"/><section>
+    <title>stop()</title>
+<indexterm><primary>stop</primary><secondary>EAR::Schedule::Scheduler</secondary></indexterm>
+<indexterm><primary>EAR::Schedule::Scheduler</primary><secondary>stop</secondary></indexterm>
+<para><computeroutput>bool EAR::Schedule::Scheduler::stop (void )</computeroutput></para>
+<para>function that terminates the scheduler <formalpara><title>Precondition</title>
+
+<para>the scheduler must be run earlier </para>
+</formalpara>
+<formalpara><title>Returns</title>
+
+<para>true if the scheduler is terminated, otherwise false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_scheduler_8cpp_source_1l00070">70</link> of file <link linkend="_scheduler_8cpp_source">scheduler.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/sched/<link linkend="_scheduler_8h">scheduler.h</link>src/sched/<link linkend="_scheduler_8cpp">scheduler.cpp</link></section>
+</section>

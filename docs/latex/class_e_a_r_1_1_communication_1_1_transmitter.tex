@@ -1,0 +1,181 @@
+\hypertarget{class_e_a_r_1_1_communication_1_1_transmitter}{}\doxysection{EAR\+::Communication\+::Transmitter Class Reference}
+\label{class_e_a_r_1_1_communication_1_1_transmitter}\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+
+
+transmitter endpoint class  
+
+
+
+
+{\ttfamily \#include $<$transmitter.\+h$>$}
+
+
+
+Inheritance diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_e_a_r_1_1_communication_1_1_transmitter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for EAR\+::Communication\+::Transmitter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_e_a_r_1_1_communication_1_1_transmitter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5528115a11dae1a35a66ed73ba889d81}{Transmitter}} (const std\+::string \&name)
+\item 
+virtual \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_ad3bb3ea5c2fa853b00d43dc6e4b8e8ce}{$\sim$\+Transmitter}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}{initialize}} (const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&config) override
+\item 
+virtual void \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}{shutdown}} (void) override
+\begin{DoxyCompactList}\small\item\em function that shutdowns transmitter endpoint \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_aa39396edbede01b955d99adef584397a}{send}} (const char $\ast$buf)
+\item 
+int32\+\_\+t \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_transmitter_acdf43af3056c4c08fa3134a8814c646e}{send}} (const void $\ast$buf, size\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+transmitter endpoint class 
+
+Definition at line \mbox{\hyperlink{transmitter_8h_source_l00017}{17}} of file \mbox{\hyperlink{transmitter_8h_source}{transmitter.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_a5528115a11dae1a35a66ed73ba889d81}\label{class_e_a_r_1_1_communication_1_1_transmitter_a5528115a11dae1a35a66ed73ba889d81}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!Transmitter@{Transmitter}}
+\index{Transmitter@{Transmitter}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{Transmitter()}{Transmitter()}}
+{\footnotesize\ttfamily EAR\+::\+Communication\+::\+Transmitter\+::\+Transmitter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & -\/ transmitter endpoint name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_ad3bb3ea5c2fa853b00d43dc6e4b8e8ce}\label{class_e_a_r_1_1_communication_1_1_transmitter_ad3bb3ea5c2fa853b00d43dc6e4b8e8ce}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!````~Transmitter@{$\sim$Transmitter}}
+\index{````~Transmitter@{$\sim$Transmitter}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{$\sim$Transmitter()}{~Transmitter()}}
+{\footnotesize\ttfamily EAR\+::\+Communication\+::\+Transmitter\+::$\sim$\+Transmitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
+
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}\label{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!initialize@{initialize}}
+\index{initialize@{initialize}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily bool EAR\+::\+Communication\+::\+Transmitter\+::initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+function that initializes transmitter endpoint 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em config} & -\/ endpoint configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if endpoint is initialized, otherwise false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_ad2e4e4b506c867eebe974fe6d34bd35b}{EAR\+::\+Communication\+::\+Endpoint}}.
+
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_e_a_r_1_1_communication_1_1_transmitter_a5a66e95d2f98df0ff77ceb310e7ee5ae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_aa39396edbede01b955d99adef584397a}\label{class_e_a_r_1_1_communication_1_1_transmitter_aa39396edbede01b955d99adef584397a}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!send@{send}}
+\index{send@{send}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+Communication\+::\+Transmitter\+::send (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buf }\end{DoxyParamCaption})}
+
+function that send buffer to listener \begin{DoxyRemark}{Remarks}
+it is for message whose content is well-\/known type, character stream 
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buf} & -\/ buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of data sent if succeed, otherwise errno 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_acdf43af3056c4c08fa3134a8814c646e}\label{class_e_a_r_1_1_communication_1_1_transmitter_acdf43af3056c4c08fa3134a8814c646e}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!send@{send}}
+\index{send@{send}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int32\+\_\+t EAR\+::\+Communication\+::\+Transmitter\+::send (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+function that send buffer to listener 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buf} & -\/ buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & -\/ buffer size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of data sent if succeed, otherwise errno 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+\mbox{\Hypertarget{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}\label{class_e_a_r_1_1_communication_1_1_transmitter_a2d0daa6d4671052bee0f22122c497165}} 
+\index{EAR::Communication::Transmitter@{EAR::Communication::Transmitter}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!EAR::Communication::Transmitter@{EAR::Communication::Transmitter}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void EAR\+::\+Communication\+::\+Transmitter\+::shutdown (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+function that shutdowns transmitter endpoint 
+
+
+
+Implements \mbox{\hyperlink{class_e_a_r_1_1_communication_1_1_endpoint_a53d7721f3e5c76ec6d8580f324b94e86}{EAR\+::\+Communication\+::\+Endpoint}}.
+
+
+
+Definition at line \mbox{\hyperlink{transmitter_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{transmitter_8cpp_source}{transmitter.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/comm/\mbox{\hyperlink{transmitter_8h}{transmitter.\+h}}\item 
+src/comm/\mbox{\hyperlink{transmitter_8cpp}{transmitter.\+cpp}}\end{DoxyCompactItemize}

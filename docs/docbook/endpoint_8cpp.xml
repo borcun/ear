@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_endpoint_8cpp" xml:lang="en-US">
+<title>src/comm/endpoint.cpp File Reference</title>
+<indexterm><primary>src/comm/endpoint.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;vector&gt;
+#include &lt;exception&gt;
+#include &quot;endpoint.h&quot;
+</programlisting>Include dependency graph for endpoint.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="endpoint_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
