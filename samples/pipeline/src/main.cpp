@@ -7,7 +7,7 @@
 
 int main() {
   spdlog::set_level(spdlog::level::debug);
-      
+  
   EAR::Schedule::Scheduler scheduler("pipeline");
   DCUService dcu_service("dcu-service");
   LocationService location_service1("location-service 1");
@@ -23,7 +23,9 @@ int main() {
   // set devices of services
   location_service1.setDevice(&gps_dev1);
   location_service2.setDevice(&gps_dev2);
-    
+
+  scheduler.setType(EAR::Schedule::ST_DETACHED);
+  
   if (!scheduler.allocate(&location_service1, 1000000U, 0U) ||
       !scheduler.allocate(&location_service2, 2000000U, 2000000U) ||
       !scheduler.allocate(&dcu_service,  3000000U, 3000000U))
@@ -32,12 +34,8 @@ int main() {
     }
 
   if (!scheduler.start()) { return -1; }
-  spdlog::info("scheduler running");
-
-  std::this_thread::sleep_for(std::chrono::milliseconds(13000));
-
+  std::this_thread::sleep_for(std::chrono::microseconds(13000000));
   if (!scheduler.stop()) { return -1; }
-  spdlog::info("schedulers terminated");
     
   return 0;
 }

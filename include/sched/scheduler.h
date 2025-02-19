@@ -1,7 +1,7 @@
 /**
  * @file scheduler.h
  * @brief task scheduler class that allocates memory for tasks, starts and stops them
- * Time-stamp: <2025-01-09 21:59:40 boo>
+ * Time-stamp: <2025-02-19 23:22:10 boo>
  */
 
 #pragma once
@@ -11,12 +11,10 @@
 
 namespace EAR {
   namespace Schedule {
-    /// scheduler state
-    enum State {
-      // refers ot idle scheduler
-      SCHEDULER_IDLE,
-      // refers to scheduler run
-      SCHEDULER_RUN
+    /// scheduler type
+    enum Type {
+      ST_DETACHED,
+      ST_SYNCHED
     };
 	
     class Scheduler {
@@ -28,7 +26,10 @@ namespace EAR {
       virtual ~Scheduler();
       /// function that gets scheduler name
       /// @return scheduler name
-      std::string getName(void) const;	    
+      std::string getName(void) const;
+      /// function that sets scheduler  type
+      /// @param [in] type - flag to set scheduler type
+      void setType(Type type);      
       /// function that allocate memory for task for scheduling
       /// @param [in] task - task pointer
       /// @param [in] period - task period in usec
@@ -37,20 +38,32 @@ namespace EAR {
       bool allocate(Task *task, const uint32_t period, const uint32_t offset);	    
       /// function that runs the scheduler
       /// @pre the scheduler must be initialized firstly
-      /// @return true if the scheduler runs, otherwise false
-      bool start(void);	    
+      /// @return true if the scheduler starts, otherwise false
+      bool start(void);
       /// function that terminates the scheduler
       /// @pre the scheduler must be run earlier
-      /// @return true if the scheduler is terminated, otherwise false
+      /// @return true if the scheduler stops, otherwise false
       bool stop(void);
 	    
-    private:
+    private:   
+      /// scheduler state
+      enum State {
+	// refers ot idle scheduler
+	SS_IDLE,
+	// refers to scheduler run
+	SS_RUN,
+	// refers to scheduler stop
+	SS_STOP
+      };
+      
       /// scheduler name
       std::string m_name;	    
       /// task list
       std::list<Task *> m_tasks;
       /// state for state machine of the scheduler
-      State m_state;
+      State m_state = SS_IDLE;
+      /// type for scheduler
+      Type m_type = ST_DETACHED; 
       /// global condition variable to kick off all threads
       std::condition_variable m_cond_var;
 

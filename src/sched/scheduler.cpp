@@ -2,7 +2,6 @@
 #include "spdlog/spdlog.h"
 
 EAR::Schedule::Scheduler::Scheduler(const std::string &name) : m_name(name) {
-  m_state = SCHEDULER_IDLE;
   spdlog::debug("scheduler {} created", m_name);
 }
 
@@ -12,6 +11,11 @@ EAR::Schedule::Scheduler::~Scheduler() {
 
 std::string EAR::Schedule::Scheduler::getName(void) const {
   return m_name;
+}
+
+void EAR::Schedule::Scheduler::setType(EAR::Schedule::Type type) {
+  m_type = type;
+  return;
 }
 
 bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const uint32_t offset) {
@@ -25,7 +29,7 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
     return false;
   }
 
-  if (SCHEDULER_IDLE != m_state) {
+  if (SS_IDLE != m_state) {
     spdlog::error("could not allocate memory for {} when scheduler {} run", task->getName(), getName());
     return false;
   }
@@ -41,13 +45,12 @@ bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const
     return false;	
   }
 
-  spdlog::info("{} task is started", task->getName());
-  
+  spdlog::info("{} task is initialized", task->getName()); 
   return true;
 }
 
 bool EAR::Schedule::Scheduler::start(void) {
-  if (SCHEDULER_IDLE != m_state) {
+  if (SS_RUN == m_state) {
     spdlog::error("could not run the scheduler {} that was already running", getName());
     return false;
   }
@@ -62,16 +65,28 @@ bool EAR::Schedule::Scheduler::start(void) {
   }
 
   m_cond_var.notify_all();
-  m_state = SCHEDULER_RUN;
+  m_state = SS_RUN;
   
+  spdlog::debug("scheduler started");
+
+  /// synchronize scheduler waits until its threads stop, while
+  /// detached scheduler execute threads, then break waiting loop
+  if (ST_SYNCHED == m_type) {
+    while (SS_RUN == m_state) {
+      std::this_thread::sleep_for(std::chrono::microseconds(TASK_MIN_PERIOD));
+    }
+  }
+	
   return true;
 }
 
 bool EAR::Schedule::Scheduler::stop(void) {
-  if (SCHEDULER_RUN != m_state) {
+  if (SS_RUN != m_state) {
     spdlog::error("could not stop the scheduler {} that not running", getName());
     return false;
   }
+
+  m_state = SS_STOP;
 
   for (auto &task : m_tasks) {
     if (!task->stop()) {
@@ -82,8 +97,7 @@ bool EAR::Schedule::Scheduler::stop(void) {
     }
   }
 
-  spdlog::debug("scheduler is stopped");
-  m_state = SCHEDULER_IDLE;
-  
+  spdlog::debug("scheduler stopped");
+
   return true;
 }

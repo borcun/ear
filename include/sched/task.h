@@ -1,7 +1,7 @@
 /**
  * @file task.h
  * @brief base task class that extends synchronizable interface
- * Time-stamp: <2025-01-19 15:55:44 boo>
+ * Time-stamp: <2025-02-19 21:44:08 boo>
  */
 
 #pragma once
@@ -48,7 +48,6 @@ namespace EAR {
       /// that the task performs its one cycle within period. The offset parameter is used to sleep the task
       /// once before it starts execution, there is no more usage for the offset for another sleep operation
       void execute(void);
-
       /// function that overload equality operator for class instance
       /// @remark equality check is done according to task name
       /// @param [in] other - right operand of equality operator

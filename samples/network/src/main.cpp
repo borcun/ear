@@ -34,7 +34,9 @@ int main() {
   dcu_service.setEndpointConfiguration(config);
   location_service1.setEndpointConfiguration(config);
   location_service2.setEndpointConfiguration(config);
-    
+
+  scheduler.setType(EAR::Schedule::ST_SYNCHED);
+  
   if (!scheduler.allocate(&location_service1, 1000000U, 0U) ||
       !scheduler.allocate(&location_service2, 2000000U, 0U) ||
       !scheduler.allocate(&dcu_service, 2000000U, 0U)) {
@@ -43,9 +45,7 @@ int main() {
 
   if (!scheduler.start()) { return -1; }
   spdlog::info("scheduler running");
-
-  std::this_thread::sleep_for(std::chrono::milliseconds(13000));
-
+  
   if (!scheduler.stop()) { return -1; }
   spdlog::info("schedulers terminated");
 
