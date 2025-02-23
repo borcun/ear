@@ -7,11 +7,13 @@ static uint32_t uid = 0;
 EAR::Schedule::Task::Task(const std::string &name)
   : m_task_ready(false)
 {
+  ++uid;
+  
   if (name.empty()) {
-    m_name = "task-" + std::to_string(++uid);
+    m_name = "task-" + std::to_string(uid);
   }
   else {
-    m_name = name + "-" + std::to_string(++uid);
+    m_name = name;
   }
 }
 
