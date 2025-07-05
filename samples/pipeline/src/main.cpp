@@ -1,5 +1,6 @@
 #include "sched/scheduler.h"
 #include "dcu_service.h"
+#include "radar_service.h"
 #include "location_service.h"
 #include "gps_device.h"
 #include "serial_controller.h"
@@ -10,6 +11,7 @@ int main() {
   
   EAR::Schedule::Scheduler scheduler("pipeline");
   DCUService dcu_service("dcu-service");
+  RadarService radar_service("radar-service");
   LocationService location_service1("location-service 1");
   LocationService location_service2("location-service 2");
   GPSDevice gps_dev1("gps-device 1", "1", "1.0.0");
@@ -26,9 +28,10 @@ int main() {
 
   scheduler.setType(EAR::Schedule::ST_DETACHED);
   
-  if (!scheduler.allocate(&location_service1, 1000000U, 0U) ||
-      !scheduler.allocate(&location_service2, 2000000U, 2000000U) ||
-      !scheduler.allocate(&dcu_service,  3000000U, 3000000U))
+  if (!scheduler.add(&location_service1, 1000000U, 0U) ||
+      !scheduler.add(&location_service2, 1000000U, 0U) ||
+      !scheduler.add(&radar_service, 5000000U) ||
+      !scheduler.add(&dcu_service, 3000000U, 3000000U))
     {
       return -1;
     }

@@ -2,7 +2,7 @@
  * @file task.h
  * @brief base task class that extends synchronizable interface
  * @todo check usage of joinable function of thread to replace with m_is_running
- * Time-stamp: <2025-02-19 21:44:08 boo>
+ * Time-stamp: <2025-07-05 15:19:01 boo>
  */
 
 #pragma once
@@ -12,6 +12,7 @@
 #include <condition_variable>
 #include <atomic>
 #include <chrono>
+#include <string>
 
 namespace EAR {
   namespace Schedule {

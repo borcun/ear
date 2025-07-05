@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(SOURCES
   src/dcu_service.cpp
+  src/radar_service.cpp
   src/gps_device.cpp
   src/location_service.cpp
   src/serial_controller.cpp

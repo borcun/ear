@@ -1,7 +1,7 @@
 #include "sched/one_shot_task.h"
 #include "spdlog/spdlog.h"
 
-EAR::Schedule::OneShotTask::OneShotTask(const std::string &name) : EAR::Schedule::Task(false)
+EAR::Schedule::OneShotTask::OneShotTask(const std::string &name) : EAR::Schedule::Task(name)
 {
 }
 

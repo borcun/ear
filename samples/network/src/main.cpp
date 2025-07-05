@@ -37,9 +37,9 @@ int main() {
 
   scheduler.setType(EAR::Schedule::ST_SYNCHED);
   
-  if (!scheduler.allocate(&location_service1, 1000000U, 0U) ||
-      !scheduler.allocate(&location_service2, 2000000U, 0U) ||
-      !scheduler.allocate(&dcu_service, 2000000U, 0U)) {
+  if (!scheduler.add(&location_service1, 1000000U, 0U) ||
+      !scheduler.add(&location_service2, 2000000U, 0U) ||
+      !scheduler.add(&dcu_service, 2000000U, 0U)) {
     return -1;
   }
 
