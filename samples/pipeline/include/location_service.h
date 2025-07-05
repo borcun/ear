@@ -1,10 +1,10 @@
 #pragma once
 
 #include "io/device.h"
-#include "sched/task.h"
+#include "sched/periodic_task.h"
 #include "comm/transmitter.h"
 
-class LocationService : public EAR::Schedule::Task {
+class LocationService : public EAR::Schedule::PeriodicTask {
 public:
   explicit LocationService(const std::string &name);
   virtual ~LocationService();

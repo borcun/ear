@@ -7,7 +7,8 @@
 #pragma once
 
 #include <list>
-#include "task.h"
+#include "periodic_task.h"
+#include "one_shot_task.h"
 
 namespace EAR {
   namespace Schedule {
@@ -30,12 +31,17 @@ namespace EAR {
       /// function that sets scheduler  type
       /// @param [in] type - flag to set scheduler type
       void setType(Type type);      
-      /// function that allocate memory for task for scheduling
+      /// function that adds one shot task into the scheduling
+      /// @param [in] task - task pointer
+      /// @param [in] offset - task start offset in usec
+      /// @return true if the task is added into the scheduler, otherwise false
+      bool add(OneShotTask *task, const uint32_t offset);
+      /// function that adds periodic task into the scheduling
       /// @param [in] task - task pointer
       /// @param [in] period - task period in usec
       /// @param [in] offset - task start offset in usec
-      /// @return true if the memory is allocated for task, otherwise false
-      bool allocate(Task *task, const uint32_t period, const uint32_t offset);	    
+      /// @return true if the task is added into the scheduler, otherwise false
+      bool add(PeriodicTask *task, const uint32_t period, const uint32_t offset);
       /// function that runs the scheduler
       /// @pre the scheduler must be initialized firstly
       /// @return true if the scheduler starts, otherwise false

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 project(ear-sched
-  VERSION 1.0.0
+  VERSION 2.0.0
   DESCRIPTION "EAR scheduling library"
   LANGUAGES CXX
 )
@@ -14,6 +14,8 @@ set(INCLUDE_DIR ../../include)
 
 set(SOURCES
   task.cpp
+  periodic_task.cpp
+  one_shot_task.cpp
   scheduler.cpp
 )
 
@@ -21,7 +23,7 @@ add_library(${PROJECT_NAME} OBJECT ${SOURCES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
   VERSION ${PROJECT_VERSION}
-  SOVERSION 1
+  SOVERSION 2
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

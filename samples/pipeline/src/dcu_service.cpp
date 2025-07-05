@@ -2,7 +2,7 @@
 #include "spdlog/spdlog.h"
 
 DCUService::DCUService(const std::string &name) :
-  EAR::Schedule::Task(name)
+  EAR::Schedule::PeriodicTask(name)
 {
 }
 

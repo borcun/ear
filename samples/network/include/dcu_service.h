@@ -1,9 +1,9 @@
 #pragma once
 
-#include "sched/task.h"
+#include "sched/periodic_task.h"
 #include "comm/receiver.h"
 
-class DCUService : public EAR::Schedule::Task {
+class DCUService : public EAR::Schedule::PeriodicTask {
 public:
   explicit DCUService(const std::string &name);
   virtual ~DCUService();

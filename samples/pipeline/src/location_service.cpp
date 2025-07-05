@@ -2,7 +2,7 @@
 #include "spdlog/spdlog.h"
 
 LocationService::LocationService(const std::string &name)
-  : EAR::Schedule::Task(name)
+  : EAR::Schedule::PeriodicTask(name)
 {
 }
 

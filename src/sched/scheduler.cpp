@@ -18,19 +18,44 @@ void EAR::Schedule::Scheduler::setType(EAR::Schedule::Type type) {
   return;
 }
 
-bool EAR::Schedule::Scheduler::allocate(Task *task, const uint32_t period, const uint32_t offset) {
+bool EAR::Schedule::Scheduler::add(OneShotTask *task, const uint32_t offset) {
   if (nullptr == task) {
-    spdlog::error("could not allocate memory for null task in {}", getName());
+    spdlog::error("could not add null task into the {}", getName());
     return false;
   }
 
-  if (period < TASK_MIN_PERIOD) {
+  if (SS_IDLE != m_state) {
+    spdlog::error("could not add task into the {} when scheduler {} run", task->getName(), getName());
+    return false;
+  }
+
+  task->setOffset(std::chrono::microseconds(offset));
+  task->setConditionVariable(&m_cond_var);
+
+  m_tasks.push_back(task);
+
+  if (!task->initialize()) {
+    spdlog::error("could not initialize task {} in the {}", task->getName(), getName());
+    return false;	
+  }
+
+  spdlog::info("{} task is initialized", task->getName()); 
+  return true;
+}
+
+bool EAR::Schedule::Scheduler::add(PeriodicTask *task, const uint32_t period, const uint32_t offset) {
+  if (nullptr == task) {
+    spdlog::error("could not add null task in the {}", getName());
+    return false;
+  }
+
+  if (period < PERIODIC_TASK_MIN_PERIOD) {
     spdlog::error("invalid period value {} for task {}", period, task->getName());
     return false;
   }
 
   if (SS_IDLE != m_state) {
-    spdlog::error("could not allocate memory for {} when scheduler {} run", task->getName(), getName());
+    spdlog::error("could not add task into the {} when scheduler {} run", task->getName(), getName());
     return false;
   }
 
@@ -73,7 +98,7 @@ bool EAR::Schedule::Scheduler::start(void) {
   /// detached scheduler execute threads, then break waiting loop
   if (ST_SYNCHED == m_type) {
     while (SS_RUN == m_state) {
-      std::this_thread::sleep_for(std::chrono::microseconds(TASK_MIN_PERIOD));
+      std::this_thread::sleep_for(std::chrono::microseconds(PERIODIC_TASK_MIN_PERIOD));
     }
   }
 	
